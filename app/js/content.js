@@ -24,21 +24,37 @@ window.COURSE = {
       examTip: 'Examiners often ask which category of right applies—for example, mobility, legal, or democratic rights.',
       sections: [
         {
-          title: 'The Canadian Charter of Rights and Freedoms',
+          title: 'Canadian Charter of Rights and Freedoms',
+          type: 'list',
           items: [
             'The Charter is part of the Constitution Act, 1982 and protects the rights and freedoms of Canadians.',
-            'Six categories of rights: (1) Fundamental freedoms—expression, religion, peaceful assembly, press, and association; (2) Democratic rights—vote and stand for office at age 18 and older; (3) Mobility rights—live and work anywhere in Canada and enter or leave the country freely; (4) Legal rights—fair trial, protection from unreasonable search, right to a lawyer; (5) Equality rights—equal treatment without discrimination based on race, national or ethnic origin, colour, religion, sex, age, or mental or physical disability; (6) Language rights—English and French have equal status in dealings with the federal government.',
             'The Official Languages Act (1969) confirms English and French as Canada\'s two official languages.',
             'New Brunswick is the only officially bilingual province.',
             'Quebec is the only province with a majority French-speaking population.'
           ]
         },
         {
-          title: 'Responsibilities of Citizens',
+          title: 'Six categories of rights',
+          type: 'cards',
+          cards: [
+            { num: 1, title: 'Fundamental freedoms', body: 'Expression, religion, peaceful assembly, press, and association.' },
+            { num: 2, title: 'Democratic rights', body: 'Vote and stand for office at age 18 and older.' },
+            { num: 3, title: 'Mobility rights', body: 'Live and work anywhere in Canada; enter or leave the country freely.' },
+            { num: 4, title: 'Legal rights', body: 'Fair trial, protection from unreasonable search, right to a lawyer.' },
+            { num: 5, title: 'Equality rights', body: 'Equal treatment without discrimination based on race, origin, colour, religion, sex, age, or disability.' },
+            { num: 6, title: 'Language rights', body: 'English and French have equal status in dealings with the federal government.' }
+          ]
+        },
+        {
+          title: 'Responsibilities of citizens',
+          type: 'checklist',
           items: [
-            'Obey the law, pay taxes, and vote in federal, provincial, and local elections.',
-            'Serve on a jury when called, respect the rights and freedoms of others, and contribute to the community.',
-            'Defend Canada if the need should ever arise.'
+            'Obey the law and pay taxes',
+            'Vote in federal, provincial, and local elections',
+            'Serve on a jury when called',
+            'Respect the rights and freedoms of others',
+            'Help others in the community',
+            'Defend Canada if the need should ever arise'
           ]
         }
       ],
@@ -82,20 +98,29 @@ window.COURSE = {
       examTip: 'Know where Métis and Inuit peoples primarily live, and the meaning of the word "Inuit."',
       sections: [
         {
-          title: 'Indigenous Peoples',
-          items: [
-            'Three main groups: First Nations (hundreds of nations across Canada), Métis (mixed European and First Nations heritage, mainly in the Prairie provinces), and Inuit (Arctic peoples—the word Inuit means "the people").',
-            'Aboriginal rights are recognized under Section 35 of the Constitution Act, 1982.',
-            'Residential schools were part of a harmful assimilation policy—a significant and painful chapter in Canadian history.',
-            'Louis Riel was a prominent Métis leader who led the Red River Resistance (1869–1870).'
+          title: 'Three Indigenous peoples',
+          type: 'compare',
+          columns: [
+            { heading: 'First Nations', points: ['Largest group in Canada', 'Hundreds of nations across the country', 'Rights under Section 35 of the Constitution Act, 1982'] },
+            { heading: 'Métis', points: ['Mixed European and First Nations heritage', 'Mainly live in Manitoba, Saskatchewan, and Alberta', 'Louis Riel led the Red River Resistance (1869–1870)'] },
+            { heading: 'Inuit', points: ['Live in the Arctic regions', 'The word Inuit means "the people"', 'Nunavut is their homeland (territory since 1999)'] }
           ]
         },
         {
-          title: 'Diversity and International Membership',
+          title: 'Residential schools and reconciliation',
+          type: 'list',
+          items: [
+            'Residential schools were part of a harmful assimilation policy—a significant and painful chapter in Canadian history.',
+            'Understanding this history is part of knowing who Canada is today.'
+          ]
+        },
+        {
+          title: 'Diversity and international membership',
+          type: 'list',
           items: [
             'Canada\'s population is approximately 38 million; most Canadians live in cities, especially in the Quebec City–Windsor corridor.',
             'The Canadian Multiculturalism Act (1988) recognizes cultural diversity as a fundamental value.',
-            'Canada is a member of the Commonwealth (54 countries, most formerly part of the British Empire) and La Francophonie (French-speaking nations worldwide).'
+            'Canada is a member of the Commonwealth (54 countries) and La Francophonie (French-speaking nations worldwide).'
           ]
         }
       ],
@@ -138,31 +163,26 @@ window.COURSE = {
       examTip: 'High-frequency facts: John Cabot (1497), Quebec City founded 1608, Plains of Abraham 1759, Confederation July 1, 1867.',
       sections: [
         {
-          title: 'European Exploration and New France',
-          items: [
-            '1497 — John Cabot, sailing for England, mapped Canada\'s east coast.',
-            '1534 — Jacques Cartier claimed the St. Lawrence region for France.',
-            '1608 — Samuel de Champlain founded Quebec City, the first permanent European settlement.',
-            'New France developed around the fur trade and alliances with First Nations.'
+          title: 'Timeline: exploration to Confederation',
+          type: 'timeline',
+          events: [
+            { date: '1497', text: 'John Cabot, sailing for England, maps Canada\'s east coast.' },
+            { date: '1534', text: 'Jacques Cartier claims the St. Lawrence region for France.' },
+            { date: '1608', text: 'Samuel de Champlain founds Quebec City—the first permanent European settlement.' },
+            { date: '1759', text: 'Battle of the Plains of Abraham: British victory ends French military rule.' },
+            { date: '1763', text: 'Treaty of Paris: France cedes Canada to Britain.' },
+            { date: '1774', text: 'Quebec Act: French Canadians retain language, Catholic religion, and civil law.' },
+            { date: '1791', text: 'Constitutional Act creates Upper Canada (English) and Lower Canada (French).' },
+            { date: '1848', text: 'Responsible government first achieved in Nova Scotia.' },
+            { date: '1867', text: 'Confederation: Canada becomes a self-governing Dominion on July 1. Founding provinces: Ontario, Quebec, Nova Scotia, New Brunswick. Sir John A. Macdonald becomes first Prime Minister.' }
           ]
         },
         {
-          title: 'British Rule and Coexistence',
+          title: 'United Empire Loyalists',
+          type: 'list',
           items: [
-            '1759 — Battle of the Plains of Abraham: British victory ended French military rule in North America.',
-            '1763 — Treaty of Paris: France ceded Canada to Britain.',
-            '1774 — Quebec Act: French Canadians retained their language, Catholic religion, and civil law.',
             'After the American Revolution, approximately 40,000 to 50,000 United Empire Loyalists came to Canada.',
-            '1791 — Constitutional Act divided the colony into Upper Canada (English) and Lower Canada (French).',
-            '1848 — Responsible government first achieved in Nova Scotia: the executive must maintain the confidence of the elected assembly.'
-          ]
-        },
-        {
-          title: 'Confederation',
-          items: [
-            'July 1, 1867 — Canada became a self-governing Dominion (now celebrated as Canada Day).',
-            'Founding provinces: Ontario, Quebec, Nova Scotia, and New Brunswick.',
-            'First Prime Minister: Sir John A. Macdonald.',
+            'New France had developed around the fur trade and alliances with First Nations.',
             'National motto: "A Mari Usque Ad Mare" — "From Sea to Sea."'
           ]
         }
@@ -206,14 +226,15 @@ window.COURSE = {
       examTip: 'The completion of the Canadian Pacific Railway (1885) and Louis Riel\'s fate are frequently tested.',
       sections: [
         {
-          title: 'Westward Expansion',
-          items: [
-            '1869–1870 — Red River Resistance: Louis Riel led the Métis; Manitoba entered Confederation in 1870.',
-            '1871 — British Columbia joined Confederation with the promise of a transcontinental railway.',
-            '1873 — Prince Edward Island joined Confederation.',
-            '1885 — Canadian Pacific Railway completed, linking Canada from coast to coast and enabling western settlement.',
-            '1885 — Northwest Resistance: Louis Riel was captured, tried for treason, and executed—deeply divisive across the country.',
-            '1896–1911 — Sir Wilfrid Laurier served as Canada\'s first French Canadian Prime Minister during a period of large-scale immigration to the West.'
+          title: 'Timeline: building the nation (1867–1914)',
+          type: 'timeline',
+          events: [
+            { date: '1869–70', text: 'Red River Resistance: Louis Riel leads the Métis; Manitoba enters Confederation (1870).' },
+            { date: '1871', text: 'British Columbia joins Confederation with the promise of a transcontinental railway.' },
+            { date: '1873', text: 'Prince Edward Island joins Confederation.' },
+            { date: '1885', text: 'Canadian Pacific Railway completed—Canada linked coast to coast; western settlement becomes possible.' },
+            { date: '1885', text: 'Northwest Resistance: Louis Riel captured, tried for treason, and executed.' },
+            { date: '1896–1911', text: 'Sir Wilfrid Laurier, first French Canadian Prime Minister, presides over massive western immigration.' }
           ]
         }
       ],
@@ -255,30 +276,27 @@ window.COURSE = {
       examTip: 'Vimy Ridge (April 9, 1917), Juno Beach on D-Day, and the years 1949, 1965, 1980, 1982, and 1999 appear often.',
       sections: [
         {
-          title: 'First World War (1914–1918)',
-          items: [
-            'April 9, 1917 — Battle of Vimy Ridge: all four divisions of the Canadian Corps fought together for the first time—a defining moment in national identity.',
-            '1918 — Women gained the right to vote in federal elections (some provinces granted it earlier).',
-            '1919 — Winnipeg General Strike: one of the largest labour actions in Canadian history.'
+          title: 'Timeline: wars and modern Canada',
+          type: 'timeline',
+          events: [
+            { date: '1917', text: 'Battle of Vimy Ridge (April 9): all four Canadian divisions fight together—a defining national moment.' },
+            { date: '1918', text: 'Women gain the right to vote in federal elections.' },
+            { date: '1939–45', text: 'Second World War: Canada declares war independently; forces land at Juno Beach on D-Day, June 6, 1944.' },
+            { date: '1949', text: 'Newfoundland and Labrador becomes the last province to join Confederation.' },
+            { date: '1957', text: 'Lester B. Pearson wins Nobel Peace Prize for United Nations peacekeeping.' },
+            { date: '1965', text: 'Current Canadian flag adopted.' },
+            { date: '1980', text: '"O Canada" becomes the official national anthem.' },
+            { date: '1982', text: 'Constitution Act patriated; Charter of Rights and Freedoms enacted.' },
+            { date: '1999', text: 'Nunavut created as a territory and Inuit homeland.' }
           ]
         },
         {
-          title: 'Second World War (1939–1945)',
+          title: 'Notable Canadians',
+          type: 'list',
           items: [
-            'Canada declared war independently, demonstrating full sovereignty.',
-            'June 6, 1944 — D-Day: Canadian forces landed at Juno Beach in Normandy, France.',
-            'The Battle of the Atlantic and Dieppe Raid (1942) are also significant.'
-          ]
-        },
-        {
-          title: 'Post-War and Contemporary Canada',
-          items: [
-            '1949 — Newfoundland and Labrador became the last province to join Confederation.',
-            'Lester B. Pearson won the Nobel Peace Prize (1957) for his role in United Nations peacekeeping; as Prime Minister he introduced the new flag (1965) and Medicare.',
-            '1980 — "O Canada" became the official national anthem.',
-            '1982 — Constitution Act patriated; Charter of Rights and Freedoms enacted.',
-            '1999 — Nunavut created as a territory and Inuit homeland.',
-            'Terry Fox ran the Marathon of Hope (1980) to raise cancer awareness.'
+            'Lester B. Pearson also introduced Medicare as Prime Minister.',
+            'Terry Fox ran the Marathon of Hope (1980) to raise cancer awareness.',
+            '1919 Winnipeg General Strike: one of the largest labour actions in Canadian history.'
           ]
         }
       ],
@@ -321,31 +339,39 @@ window.COURSE = {
       examTip: 'Know the three parts of Parliament, 105 senators, 338 Members of Parliament, and the meaning of responsible government.',
       sections: [
         {
-          title: 'System of Government',
-          items: [
-            'Canada is a constitutional monarchy, a parliamentary democracy, and a federal state.',
-            'Head of State: the Sovereign (King Charles III), represented federally by the Governor General and provincially by Lieutenant Governors.',
-            'Head of Government: the Prime Minister, leader of the party with the most seats in the House of Commons.',
-            'Parliament consists of the Crown, the Senate, and the House of Commons.'
+          title: 'How Canada is governed',
+          type: 'cards',
+          cards: [
+            { tag: 'Head of state', title: 'The Sovereign', body: 'King Charles III, represented federally by the Governor General and provincially by Lieutenant Governors.' },
+            { tag: 'Head of government', title: 'Prime Minister', body: 'Leader of the party with the most seats in the House of Commons.' },
+            { tag: 'Parliament', title: 'Three parts', body: 'The Crown, the Senate (105 senators), and the House of Commons (338 elected Members).' }
           ]
         },
         {
-          title: 'Three Branches',
-          items: [
-            'Executive — Prime Minister and Cabinet propose and administer laws.',
-            'Legislative — Parliament debates and passes laws.',
-            'Judicial — courts interpret and apply laws; the Supreme Court of Canada is the final appeal.'
+          title: 'Three branches of government',
+          type: 'table',
+          headers: ['Branch', 'Who', 'Role'],
+          rows: [
+            ['Executive', 'Prime Minister and Cabinet', 'Propose and administer laws; run government'],
+            ['Legislative', 'Parliament', 'Debate and pass laws'],
+            ['Judicial', 'Courts (Supreme Court at top)', 'Interpret and apply laws—nine judges at the Supreme Court']
           ]
         },
         {
-          title: 'Senate, House of Commons, and Federalism',
+          title: 'Three levels of government',
+          type: 'compare',
+          columns: [
+            { heading: 'Federal', points: ['National defence', 'Criminal law and banking', 'Immigration', 'Interprovincial trade'] },
+            { heading: 'Provincial', points: ['Education and health care', 'Highways', 'Natural resources', 'Municipal institutions'] },
+            { heading: 'Municipal', points: ['Local roads and parks', 'Local police', 'Water and waste collection'] }
+          ]
+        },
+        {
+          title: 'Responsible government',
+          type: 'list',
           items: [
-            '105 senators appointed until age 75; the Senate provides "sober second thought" on legislation.',
-            '338 elected Members of Parliament, each representing one riding.',
-            'Federal responsibilities include defence, criminal law, banking, immigration, and interprovincial trade.',
-            'Provincial responsibilities include education, health care, highways, and natural resources.',
-            'Municipal governments handle local roads, parks, police, water, and waste collection.',
-            'The Supreme Court of Canada has nine judges.'
+            'The Senate provides "sober second thought" on legislation; senators are appointed until age 75.',
+            'Responsible government means the Cabinet must hold the confidence of a majority of elected Members in the House of Commons.'
           ]
         }
       ],
@@ -388,18 +414,32 @@ window.COURSE = {
       examTip: 'Exact phrases such as "polling station" and "returning officer" appear on the real exam.',
       sections: [
         {
-          title: 'Federal Elections',
-          items: [
-            'Federal elections must be held at least every four years.',
-            '338 electoral districts (ridings); each elects one Member of Parliament.',
-            'Eligible voters: Canadian citizens aged 18 and older who are on the voters list.',
-            'Elections Canada is the independent agency that administers federal elections.',
-            'A returning officer runs the election in each riding.',
-            'A polling station is where you cast your ballot in person.',
-            'If you do not receive a voter information card, contact Elections Canada.',
-            'First-past-the-post: the candidate with the most votes wins the riding.',
-            'A majority government holds more than half the seats; a minority government has the most seats but less than half.'
+          title: 'Election essentials',
+          type: 'statstrip',
+          stats: [
+            { value: '4 years', label: 'Maximum term' },
+            { value: '338', label: 'Ridings' },
+            { value: '18+', label: 'Voting age' },
+            { value: 'Citizen', label: 'Must be' }
           ]
+        },
+        {
+          title: 'Key terms and process',
+          type: 'table',
+          headers: ['Term', 'Meaning'],
+          rows: [
+            ['Elections Canada', 'Independent agency that administers federal elections'],
+            ['Returning officer', 'Official who runs the election in each riding'],
+            ['Polling station', 'Place where you cast your ballot in person'],
+            ['First-past-the-post', 'Candidate with the most votes wins the riding'],
+            ['Majority government', 'Party holds more than half the seats in the House of Commons'],
+            ['Minority government', 'Party has the most seats but less than half']
+          ]
+        },
+        {
+          title: 'If you do not receive a voter card',
+          type: 'list',
+          items: ['Contact Elections Canada before election day to confirm you are on the voters list.']
         }
       ],
       flashcards: [
@@ -440,16 +480,32 @@ window.COURSE = {
       examTip: '"Innocent until proven guilty" and "rule of law" are among the most common questions in this section.',
       sections: [
         {
-          title: 'Principles and Institutions',
+          title: 'Foundational principles',
+          type: 'cards',
+          cards: [
+            { title: 'Rule of law', body: 'Everyone, including the government, must obey the law.' },
+            { title: 'Presumption of innocence', body: 'An accused person is innocent until proven guilty in court.' },
+            { title: 'Right to counsel', body: 'Fair trial and legal representation are protected under the Charter.' }
+          ]
+        },
+        {
+          title: 'Who does what',
+          type: 'table',
+          headers: ['Institution', 'Role'],
+          rows: [
+            ['Parliament', 'Makes laws'],
+            ['Police (including RCMP)', 'Enforce laws'],
+            ['Courts', 'Interpret and apply laws'],
+            ['Legal Aid', 'Help for those who cannot afford a lawyer'],
+            ['Jury', 'Citizens 18+ may be called to serve—civic responsibility']
+          ]
+        },
+        {
+          title: 'Types of offences',
+          type: 'list',
           items: [
-            'Rule of law: everyone, including the government, must obey the law.',
-            'Presumption of innocence: an accused person is innocent until proven guilty in court.',
-            'Right to a fair trial and to legal counsel are protected under the Charter.',
-            'Summary offences are minor; indictable offences are serious and may involve a jury.',
-            'Serving on a jury when called is a civic responsibility for citizens 18 and older.',
-            'Legal Aid provides assistance in most communities if you cannot afford a lawyer.',
-            'Police enforce laws, courts interpret them, and Parliament makes them.',
-            'The Royal Canadian Mounted Police (RCMP) is the national police force, also known as the Mounties.'
+            'Summary offences are minor; indictable offences are serious and may involve a jury trial.',
+            'The Royal Canadian Mounted Police (RCMP) is Canada\'s national police force—the Mounties.'
           ]
         }
       ],
@@ -491,23 +547,26 @@ window.COURSE = {
       examTip: 'The flag (1965), anthem (1980), both national sports, and the Order of Canada (1967) are high-yield facts.',
       sections: [
         {
-          title: 'National Symbols',
-          items: [
-            'National flag: red and white with a maple leaf, adopted 1965.',
-            'National anthem: "O Canada," official since 1980 (French lyrics date to 1880).',
-            'National animal: the beaver.',
-            'Official national sports: hockey (winter) and lacrosse (summer)—both are recognized.',
-            'National motto: "A Mari Usque Ad Mare" ("From Sea to Sea").',
-            'Royal Canadian Mounted Police serve as a national symbol and federal police force.'
+          title: 'National symbols at a glance',
+          type: 'table',
+          headers: ['Symbol', 'Detail'],
+          rows: [
+            ['Flag', 'Red and white maple leaf—adopted 1965'],
+            ['Anthem', '"O Canada"—official since 1980'],
+            ['Animal', 'The beaver'],
+            ['Sports', 'Hockey (winter) and lacrosse (summer)—both official'],
+            ['Motto', '"A Mari Usque Ad Mare" — From Sea to Sea'],
+            ['Police', 'Royal Canadian Mounted Police (Mounties)']
           ]
         },
         {
-          title: 'Honours and Remembrance',
-          items: [
-            'Peace Tower: central tower of Parliament in Ottawa; houses the Memorial Chamber honouring war dead.',
-            'Order of Canada: highest civilian honour, established 1967 for outstanding achievement.',
-            'Victoria Cross: highest military decoration for bravery.',
-            'Remembrance Day: November 11, honouring those who served and died; the poppy is the symbol of remembrance.'
+          title: 'Honours and remembrance',
+          type: 'cards',
+          cards: [
+            { title: 'Order of Canada', body: 'Highest civilian honour for outstanding achievement—established 1967.' },
+            { title: 'Victoria Cross', body: 'Highest military decoration for bravery.' },
+            { title: 'Peace Tower', body: 'Central tower of Parliament; Memorial Chamber honours war dead.' },
+            { title: 'Remembrance Day', body: 'November 11—the poppy is the symbol of remembrance.' }
           ]
         }
       ],
@@ -550,25 +609,33 @@ window.COURSE = {
       examTip: 'The United States as trading partner, Prairie breadbasket, Quebec as largest province, and Prince Edward Island as smallest are common questions.',
       sections: [
         {
-          title: 'Economy and Trade',
+          title: 'Trade and membership',
+          type: 'list',
           items: [
             'Canada has a market economy based on free enterprise.',
             'The United States is Canada\'s largest trading partner.',
             'CUSMA (Canada-United States-Mexico Agreement) replaced NAFTA in 2020.',
-            'Canada belongs to the G7, G20, NATO, Commonwealth, La Francophonie, United Nations, and NORAD.'
+            'Member of: G7, G20, NATO, Commonwealth, La Francophonie, United Nations, and NORAD.'
           ]
         },
         {
-          title: 'Regions and Provinces',
-          items: [
-            'Atlantic Canada: fisheries; Bay of Fundy tides; Prince Edward Island is the smallest province; Newfoundland and Labrador joined last (1949).',
-            'Central Canada: Ontario and Quebec; most manufacturing; Ottawa is the capital; Quebec is largest by area.',
-            'Prairie provinces: Manitoba, Saskatchewan, Alberta—major agricultural region; Alberta has major oil resources.',
-            'British Columbia: Pacific coast, forestry, gateway to Asia-Pacific trade.',
-            'North: Yukon, Northwest Territories, Nunavut (created 1999, largest territory, Inuit homeland).',
-            'Canada has 10 provinces and 3 territories.',
-            'The Great Lakes provide fresh water and shipping routes shared with the United States.',
-            'Quebec is the main producer of pulp and paper.'
+          title: 'Geography essentials',
+          type: 'statstrip',
+          stats: [
+            { value: '10 + 3', label: 'Provinces & territories' },
+            { value: 'Quebec', label: 'Largest province' },
+            { value: 'PEI', label: 'Smallest province' },
+            { value: 'Ontario', label: 'Most populous' }
+          ]
+        },
+        {
+          title: 'Regions of Canada',
+          type: 'compare',
+          columns: [
+            { heading: 'Atlantic', points: ['Fisheries and tourism', 'PEI is smallest province', 'Newfoundland joined last (1949)'] },
+            { heading: 'Central', points: ['Ontario and Quebec', 'Most manufacturing', 'Ottawa is the capital'] },
+            { heading: 'Prairies', points: ['Breadbasket of Canada', 'Alberta oil resources', 'Most Métis live here'] },
+            { heading: 'West & North', points: ['British Columbia: forestry, Pacific trade', 'Nunavut (1999): Inuit homeland', 'Great Lakes: trade and fresh water'] }
           ]
         }
       ],

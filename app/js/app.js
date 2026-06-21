@@ -221,11 +221,7 @@
     const next = MODULES[idx + 1];
 
     const objectives = mod.objectives.map(o => `<li>${escapeHtml(o)}</li>`).join('');
-    const sections = mod.sections.map(sec => `
-      <div class="content-section">
-        <h3>${escapeHtml(sec.title)}</h3>
-        <div class="card"><ul class="fact-list">${sec.items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul></div>
-      </div>`).join('');
+    const sections = window.LessonRender.all(mod.sections, escapeHtml);
 
     const learnPanel = `
       <div class="objectives"><div class="objectives-title">Learning objectives</div><ul>${objectives}</ul></div>
@@ -371,14 +367,29 @@
   }
 
   /* ── Practice exam with multiple choice ── */
-  function buildMcq(item, allItems) {
-    const wrong = shuffle(allItems.filter(x => x.answer !== item.answer)).slice(0, 3).map(x => x.answer);
-    const options = shuffle([item.answer, ...wrong]);
+  function hashStr(s) {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+    return Math.abs(h);
+  }
+
+  function buildMcq(item, qIndex, allItems) {
+    const others = allItems.filter(x => x.answer !== item.answer);
+    const h = hashStr(item.question);
+    const wrong = [0, 1, 2].map(i => others[(h + qIndex + i) % others.length].answer);
+    const uniqueWrong = [...new Set(wrong)].slice(0, 3);
+    while (uniqueWrong.length < 3) {
+      const next = others[(h + uniqueWrong.length + 7) % others.length].answer;
+      if (!uniqueWrong.includes(next) && next !== item.answer) uniqueWrong.push(next);
+    }
+    const options = [item.answer, ...uniqueWrong.slice(0, 3)];
+    const order = [0, 1, 2, 3].sort((a, b) => ((h + a) % 10) - ((h + b) % 10));
+    const shuffled = order.map(i => options[i]);
     return {
       question: item.question,
       category: item.category,
-      options,
-      correct: options.indexOf(item.answer)
+      options: shuffled,
+      correct: shuffled.indexOf(item.answer)
     };
   }
 
@@ -406,7 +417,7 @@
   }
 
   window.startTest = function () {
-    testQuestions = shuffle(Q_BANK).slice(0, EXAM.questions).map(q => buildMcq(q, Q_BANK));
+    testQuestions = shuffle(Q_BANK).slice(0, EXAM.questions).map((q, i) => buildMcq(q, i, Q_BANK));
     testAnswers = {};
     testSecondsLeft = EXAM.minutes * 60;
     testFinished = false;

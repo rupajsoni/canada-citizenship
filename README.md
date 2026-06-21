@@ -34,10 +34,12 @@ chmod +x scripts/serve.sh
 
 ## Live site
 
-| Host | URL (after deploy) |
-|------|---------------------|
+| Host | URL |
+|------|-----|
 | **GitHub Pages** | https://rupajsoni.github.io/canada-citizenship/ |
-| **Vercel** | Connect repo at [vercel.com/new](https://vercel.com/new) — uses `vercel.json` |
+| **Vercel** | Connect at [vercel.com/new](https://vercel.com/new) — uses `vercel.json` |
+
+Enable Pages: **Settings → Pages → Source: GitHub Actions** — see [docs/GITHUB-SETUP.md](docs/GITHUB-SETUP.md).
 
 ---
 
@@ -85,6 +87,7 @@ canada-citizenship/
 
 | Doc | Purpose |
 |-----|---------|
+| [docs/PRODUCT-UX.md](docs/PRODUCT-UX.md) | Design principles, reliability contract, monetization ladder |
 | [docs/strategy.md](docs/strategy.md) | Positioning, distribution, launch checklist |
 | [docs/partnerships.md](docs/partnerships.md) | Inbound partner channel, target orgs |
 | [docs/monetization.md](docs/monetization.md) | How costs get covered without user paywalls |

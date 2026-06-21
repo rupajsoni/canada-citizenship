@@ -152,6 +152,7 @@ Opt-in cohort of pre-citizens — test dates, study progress, referral source, p
 
 ## Related docs
 
+- [PRODUCT-UX.md](PRODUCT-UX.md) — design and reliability contract
 - [monetization.md](monetization.md) — revenue layers, scenarios
 - [partnerships.md](partnerships.md) — targets, IRCC playbook, inbound channel
 - [../content/study-guide.md](../content/study-guide.md) — content source
