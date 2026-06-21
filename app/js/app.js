@@ -122,6 +122,9 @@
       </div>`;
     });
 
+    html += '<div class="nav-section">Visual</div>';
+    html += navItem('map', '🗺', 'Canada Map', 'Geography & regions', view === 'map');
+
     html += '<div class="nav-section">Practice</div>';
     html += navItem('test', '⏱', 'Practice Exam', 'Timed simulation', view === 'test');
     const count = testHistory().length;
@@ -582,12 +585,166 @@
     return `<div class="card stat-card"><div class="stat-value" style="font-size:1.5rem">${val}</div><div class="stat-label">${label}</div></div>`;
   }
 
+  // ── MAP ──────────────────────────────────────────────────────────────────
+  const PROVINCES = window.COURSE.provinces;
+  let mapLayer = 'regions';
+  let mapSelected = null;
+
+  const REGION_COLORS = { north:'#8aafc0', west:'#7baa82', prairies:'#c4a35a', central:'#8899c8', atlantic:'#7ba8bb' };
+  const REGION_NAMES  = { north:'Northern Canada', west:'British Columbia', prairies:'Prairie Provinces', central:'Central Canada', atlantic:'Atlantic Canada' };
+
+  const MAP_SHAPES = [
+    // id, shape, coords or points, label cx,cy, sublabel, data attrs
+    {id:'yt',  shape:'poly',  pts:'8,118 8,226 86,226 86,165 68,118',         lx:47,  ly:182, text:'YT',  sub:'Yukon',        joined:1898, region:'north',    indig:'firstnations'},
+    {id:'nwt', shape:'rect',  r:[86,88,168,138],                              lx:170, ly:162, text:'NWT', sub:'N.W.T.',        joined:1870, region:'north',    indig:'firstnations metis inuit'},
+    {id:'nu',  shape:'rect',  r:[254,15,240,200],                             lx:374, ly:120, text:'NU',  sub:'Nunavut',       joined:1999, region:'north',    indig:'inuit'},
+    {id:'bc',  shape:'rect',  r:[8,226,78,177],                               lx:47,  ly:318, text:'BC',  sub:'Brit. Columbia', joined:1871, region:'west',     indig:'firstnations'},
+    {id:'ab',  shape:'rect',  r:[86,226,78,177],                              lx:125, ly:318, text:'AB',  sub:'Alberta',       joined:1905, region:'prairies', indig:'firstnations metis'},
+    {id:'sk',  shape:'rect',  r:[164,226,78,177],                             lx:203, ly:318, text:'SK',  sub:'Saskatchewan',  joined:1905, region:'prairies', indig:'firstnations metis'},
+    {id:'mb',  shape:'rect',  r:[242,226,78,177],                             lx:281, ly:318, text:'MB',  sub:'Manitoba',      joined:1870, region:'prairies', indig:'firstnations metis'},
+    {id:'on',  shape:'rect',  r:[320,194,113,209],                            lx:376, ly:302, text:'ON',  sub:'Ontario',       joined:1867, region:'central',  indig:'firstnations'},
+    {id:'qc',  shape:'rect',  r:[433,88,110,315],                             lx:488, ly:252, text:'QC',  sub:'Quebec',        joined:1867, region:'central',  indig:'firstnations inuit'},
+    {id:'nl',  shape:'rect',  r:[543,88,88,152],                              lx:587, ly:168, text:'NL',  sub:'Labrador',      joined:1949, region:'atlantic', indig:'inuit firstnations'},
+    {id:'nl2', shape:'rect',  r:[595,264,60,52],                              lx:625, ly:294, text:'NL',  sub:'Island',        joined:1949, region:'atlantic', indig:'firstnations'},
+    {id:'nb',  shape:'rect',  r:[543,240,72,83],                              lx:579, ly:285, text:'NB',  sub:'New Brunswick', joined:1867, region:'atlantic', indig:'firstnations'},
+    {id:'ns',  shape:'poly',  pts:'543,323 615,323 638,356 634,393 590,403 548,380 543,352', lx:582, ly:362, text:'NS', sub:'Nova Scotia', joined:1867, region:'atlantic', indig:'firstnations'},
+    {id:'pei', shape:'rect',  r:[558,228,48,18],                              lx:582, ly:238, text:'PEI', sub:'',              joined:1873, region:'atlantic', indig:'firstnations'},
+  ];
+
+  // NL island and labrador share the same province data key 'nl'
+  const SHAPE_TO_PROV = { nl:'nl', nl2:'nl', yt:'yt', nwt:'nwt', nu:'nu', bc:'bc', ab:'ab', sk:'sk', mb:'mb', on:'on', qc:'qc', nb:'nb', ns:'ns', pei:'pei' };
+
+  function buildProvShape(s) {
+    const joined = s.joined;
+    const attrs = `id="pshp-${s.id}" class="prov" data-id="${s.id}" data-region="${s.region}" data-joined="${joined}" data-indigenous="${s.indig}" onclick="selectProvince('${s.id}')"`;
+    if (s.shape === 'rect') {
+      const [x,y,w,h] = s.r;
+      return `<rect ${attrs} x="${x}" y="${y}" width="${w}" height="${h}" rx="3"/>`;
+    }
+    return `<polygon ${attrs} points="${s.pts}"/>`;
+  }
+
+  function buildMapSVG() {
+    const shapes = MAP_SHAPES.map(buildProvShape).join('');
+    const labels = MAP_SHAPES.map(s => {
+      const hasSub = s.sub && s.id !== 'nl2';
+      return `<text class="prov-label" x="${s.lx}" y="${s.ly - (hasSub?5:0)}" pointer-events="none">${s.text}</text>` +
+             (hasSub ? `<text class="prov-sublabel" x="${s.lx}" y="${s.ly + 8}" pointer-events="none">${s.sub}</text>` : '');
+    }).join('');
+    return `<svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" class="canada-map" id="canada-map">
+      <rect x="0" y="0" width="680" height="420" fill="#d4eaf5" rx="8"/>
+      <rect x="3" y="3" width="674" height="414" fill="#c8e0ed" rx="7"/>
+      ${shapes}${labels}
+    </svg>`;
+  }
+
+  function renderMapInfo(provId) {
+    const p = PROVINCES[provId];
+    if (!p) return;
+    const regionColor = REGION_COLORS[p.region] || '#aaa';
+    const regionName = REGION_NAMES[p.region] || p.region;
+    const joinedText = p.type === 'territory' ? `Became territory: ${p.joined}` : `Joined Confederation: ${p.joined}`;
+    const factsHtml = p.facts.map(f => `<li>${escapeHtml(f)}</li>`).join('');
+    const tagsHtml = p.tags.map(t => `<span class="map-tag">${escapeHtml(t)}</span>`).join('');
+    const indigenousHtml = p.indigenous.length
+      ? `<div class="map-indigenous-note">🌿 Indigenous: ${p.indigenous.map(escapeHtml).join('; ')}</div>` : '';
+    document.getElementById('map-info').innerHTML = `
+      <div class="map-prov-header">
+        <div>
+          <div class="map-prov-name">${escapeHtml(p.name)}</div>
+          <div class="map-prov-region"><span class="map-region-dot" style="background:${regionColor}"></span>${escapeHtml(regionName)}</div>
+        </div>
+        <div class="map-prov-abbr">${escapeHtml(p.abbr)}</div>
+      </div>
+      <div class="map-joined">${joinedText}</div>
+      ${indigenousHtml}
+      <div class="map-tip"><div class="map-tip-label">⚡ Exam tip</div>${escapeHtml(p.examTip)}</div>
+      <ul class="map-facts">${factsHtml}</ul>
+      <div class="map-tags">${tagsHtml}</div>`;
+  }
+
+  window.selectProvince = function(shapeId) {
+    mapSelected = shapeId;
+    document.querySelectorAll('.prov').forEach(el => el.classList.remove('selected'));
+    // select both shapes for NL
+    const provId = SHAPE_TO_PROV[shapeId];
+    MAP_SHAPES.filter(s => SHAPE_TO_PROV[s.id] === provId).forEach(s => {
+      document.getElementById('pshp-' + s.id)?.classList.add('selected');
+    });
+    renderMapInfo(provId);
+  };
+
+  window.setMapLayer = function(layer) {
+    mapLayer = layer;
+    const map = document.getElementById('canada-map');
+    if (!map) return;
+    map.className = `canada-map map-layer-${layer}`;
+    document.querySelectorAll('.layer-btn').forEach(b => b.classList.toggle('active', b.dataset.layer === layer));
+    // re-apply selection
+    if (mapSelected) {
+      const provId = SHAPE_TO_PROV[mapSelected];
+      MAP_SHAPES.filter(s => SHAPE_TO_PROV[s.id] === provId).forEach(s => {
+        document.getElementById('pshp-' + s.id)?.classList.add('selected');
+      });
+    }
+  };
+
+  function buildLegend() {
+    if (mapLayer === 'regions') {
+      return Object.entries(REGION_COLORS).map(([k,c]) =>
+        `<span class="leg-item"><span class="leg-dot" style="background:${c}"></span>${escapeHtml(REGION_NAMES[k])}</span>`).join('');
+    }
+    if (mapLayer === 'indigenous') {
+      return [
+        ['#5b8fc9','Inuit territory'],['#c4862a','Métis territory'],['#7db37d','First Nations (all)']
+      ].map(([c,l]) => `<span class="leg-item"><span class="leg-dot" style="background:${c}"></span>${l}</span>`).join('');
+    }
+    // history
+    return [
+      ['#C8102E','1867 (founding)'],['#e05570','1870'],['#e87a55','1871'],['#e8a040','1873'],
+      ['#7ab37d','1898'],['#8899c8','1905'],['#aa6dc8','1949'],['#555','1999']
+    ].map(([c,l]) => `<span class="leg-item"><span class="leg-dot" style="background:${c}"></span>${l}</span>`).join('');
+  }
+
+  function renderMap() {
+    document.getElementById('page').innerHTML = `
+      <div class="hero-block">
+        <div class="eyebrow">Visual study aid</div>
+        <h1 class="page-title">Canada — Interactive Map</h1>
+        <p class="page-lead">Click any province or territory to see exam-relevant facts. Use layers to study geography, Indigenous peoples, and history.</p>
+      </div>
+      <div class="map-layers">
+        <button class="layer-btn${mapLayer==='regions'?' active':''}" data-layer="regions" onclick="setMapLayer('regions')">Regions</button>
+        <button class="layer-btn${mapLayer==='indigenous'?' active':''}" data-layer="indigenous" onclick="setMapLayer('indigenous')">Indigenous peoples</button>
+        <button class="layer-btn${mapLayer==='history'?' active':''}" data-layer="history" onclick="setMapLayer('history')">When they joined</button>
+      </div>
+      <div class="map-layout">
+        <div class="map-svg-wrap">${buildMapSVG()}</div>
+        <div class="map-info" id="map-info">
+          <div class="map-info-placeholder"><div style="font-size:2.2rem">🍁</div><div style="margin-top:10px;font-weight:700;font-size:15px">Click a province or territory</div><div style="margin-top:4px;color:var(--text-muted);font-size:13px">See exam facts, Indigenous peoples, and when it joined</div></div>
+        </div>
+      </div>
+      <div class="map-legend"><span class="map-legend-label">Legend:</span>${buildLegend()}</div>`;
+    // apply initial layer class
+    const map = document.getElementById('canada-map');
+    if (map) map.className = `canada-map map-layer-${mapLayer}`;
+    // restore selection if any
+    if (mapSelected) {
+      const provId = SHAPE_TO_PROV[mapSelected];
+      MAP_SHAPES.filter(s => SHAPE_TO_PROV[s.id] === provId).forEach(s => {
+        document.getElementById('pshp-' + s.id)?.classList.add('selected');
+      });
+      renderMapInfo(provId);
+    }
+  }
+
   function render() {
     renderSidebar();
     if (view === 'home') renderHome();
     else if (view === 'module') renderModule();
     else if (view === 'test') renderTest();
     else if (view === 'results') renderResults();
+    else if (view === 'map') renderMap();
   }
 
   function closeSidebar() {

@@ -702,5 +702,186 @@ window.COURSE = {
     { question: 'What is Canada\'s national motto?', answer: '"A Mari Usque Ad Mare" — From Sea to Sea', category: 'Symbols' },
     { question: 'Who first mapped Canada\'s east coast for England in 1497?', answer: 'John Cabot', category: 'History' },
     { question: 'Why are the Great Lakes important to Canada?', answer: 'They provide fresh water and waterways for trade and transportation', category: 'Geography' }
-  ]
+  ],
+
+  provinces: {
+    yt: {
+      name: 'Yukon', abbr: 'YT', type: 'territory',
+      region: 'north', joined: 1898,
+      indigenous: ['First Nations (diverse Yukon First Nations)'],
+      facts: [
+        'Klondike Gold Rush (1896–98) — drew tens of thousands of prospectors',
+        'One of three federal territories (not a province)',
+        'Shares border with Alaska (USA)',
+        'Whitehorse is the capital'
+      ],
+      examTip: 'Gold Rush (Klondike, Yukon) is a common history question — happened 1890s.',
+      tags: ['Territory', 'Gold Rush 1890s']
+    },
+    nwt: {
+      name: 'Northwest Territories', abbr: 'NWT', type: 'territory',
+      region: 'north', joined: 1870,
+      indigenous: ['First Nations (Dene and others)', 'Métis', 'Inuit'],
+      facts: [
+        'Second largest territory — multi-Indigenous peoples',
+        'Nunavut was carved out of NWT in 1999',
+        'Aurora borealis (northern lights) visible here',
+        'Yellowknife is the capital'
+      ],
+      examTip: 'Nunavut was split from the NWT in 1999. Know the distinction.',
+      tags: ['Territory', 'Multi-Indigenous']
+    },
+    nu: {
+      name: 'Nunavut', abbr: 'NU', type: 'territory',
+      region: 'north', joined: 1999,
+      indigenous: ['Inuit'],
+      facts: [
+        'Created in 1999 — Canada\'s newest and largest territory',
+        'Homeland of the Inuit people ("Inuit" means "the people")',
+        '"Nunavut" means "Our Land" in Inuktitut',
+        'Largest of all provinces/territories by area',
+        'Arctic — midnight sun in summer, aurora borealis in winter'
+      ],
+      examTip: '★ HIGH YIELD: Nunavut created 1999 as Inuit homeland. On almost every exam.',
+      tags: ['Territory', 'Created: 1999', 'Inuit homeland', 'Largest territory']
+    },
+    bc: {
+      name: 'British Columbia', abbr: 'BC', type: 'province',
+      region: 'west', joined: 1871,
+      indigenous: ['First Nations (many coastal and interior nations)'],
+      facts: [
+        'Joined 1871 — was promised a transcontinental railway (CPR)',
+        'Canada\'s largest producer of forest products',
+        'Gateway to the Asia-Pacific region — Pacific coast',
+        'Vancouver is the largest city; Victoria is the capital'
+      ],
+      examTip: 'BC joined 1871 because of the railway promise. Forestry = BC.',
+      tags: ['Province', 'Joined: 1871', 'Forestry', 'Pacific coast']
+    },
+    ab: {
+      name: 'Alberta', abbr: 'AB', type: 'province',
+      region: 'prairies', joined: 1905,
+      indigenous: ['First Nations', 'Métis'],
+      facts: [
+        'Prairie province — part of MB, SK, AB (Canada\'s breadbasket region)',
+        'Major oil sands producer — Canada\'s energy heartland',
+        'Métis people live primarily in the Prairie provinces',
+        'Calgary and Edmonton are major cities; Edmonton is the capital'
+      ],
+      examTip: 'Métis = Prairie provinces (AB, SK, MB). Alberta = oil sands.',
+      tags: ['Province', 'Prairies', 'Joined: 1905', 'Métis territory', 'Oil sands']
+    },
+    sk: {
+      name: 'Saskatchewan', abbr: 'SK', type: 'province',
+      region: 'prairies', joined: 1905,
+      indigenous: ['First Nations', 'Métis'],
+      facts: [
+        'Heart of Canada\'s breadbasket — wheat and canola farming',
+        'Prairie province — flat plains ideal for agriculture',
+        'Métis people live primarily here and in MB and AB',
+        'Louis Riel\'s 1885 Northwest Resistance happened here',
+        'Regina is the capital; Saskatoon is the largest city'
+      ],
+      examTip: 'SK = breadbasket. Northwest Resistance (Louis Riel, 1885) happened here.',
+      tags: ['Province', 'Prairies', 'Joined: 1905', 'Métis territory', 'Breadbasket']
+    },
+    mb: {
+      name: 'Manitoba', abbr: 'MB', type: 'province',
+      region: 'prairies', joined: 1870,
+      indigenous: ['First Nations', 'Métis'],
+      facts: [
+        'First Prairie province — joined 1870 after the Red River Resistance',
+        'Louis Riel led the Red River Resistance here (1869–70)',
+        'Métis people live primarily in Prairie provinces (MB, SK, AB)',
+        'Winnipeg General Strike of 1919 — one of Canada\'s largest labour actions',
+        'Winnipeg is the capital and largest city'
+      ],
+      examTip: 'MB joined 1870 after Louis Riel\'s Red River Resistance — very common question.',
+      tags: ['Province', 'Prairies', 'Joined: 1870', 'Métis territory', 'Red River 1869']
+    },
+    on: {
+      name: 'Ontario', abbr: 'ON', type: 'province',
+      region: 'central', joined: 1867,
+      indigenous: ['First Nations (Haudenosaunee, Ojibwe, Cree, and others)'],
+      facts: [
+        'Founding province — one of four original provinces at Confederation (1867)',
+        'Most populous province in Canada',
+        'Ottawa (Canada\'s capital) is in Ontario',
+        'Toronto is Canada\'s largest city',
+        '1793: Upper Canada (Ontario) first to abolish slavery in the British Empire'
+      ],
+      examTip: 'ON: founding 1867, most populous, contains Ottawa (the capital city).',
+      tags: ['Province', 'Founding: 1867', 'Most populous', 'Ottawa (capital)']
+    },
+    qc: {
+      name: 'Quebec', abbr: 'QC', type: 'province',
+      region: 'central', joined: 1867,
+      indigenous: ['First Nations (Cree, Mohawk, Innu, others)', 'Inuit (far north)'],
+      facts: [
+        'Founding province — one of four original provinces (1867)',
+        'Only province with a French-speaking majority',
+        'Largest province by area in Canada',
+        'Canada\'s main pulp and paper producer',
+        'Follows civil law (not common law like other provinces)',
+        'Quebec Act (1774) preserved French language, Catholic religion, civil law'
+      ],
+      examTip: 'QC: founding 1867, only French majority, LARGEST by area, pulp & paper, civil law.',
+      tags: ['Province', 'Founding: 1867', 'French majority', 'Largest area', 'Civil law', 'Pulp & paper']
+    },
+    nl: {
+      name: 'Newfoundland and Labrador', abbr: 'NL', type: 'province',
+      region: 'atlantic', joined: 1949,
+      indigenous: ['Innu', 'Inuit', 'Mi\'kmaq'],
+      facts: [
+        'Last province to join Confederation — 1949',
+        'Two parts: Labrador (mainland) and the Island of Newfoundland',
+        'John Cabot landed near here in 1497 — first European to map Canada\'s east coast',
+        'Atlantic fishing region; historically famous for the cod fishery',
+        'St. John\'s (on the island) is the provincial capital'
+      ],
+      examTip: '★ HIGH YIELD: NL was the LAST province to join, in 1949.',
+      tags: ['Province', 'Joined LAST: 1949', 'Atlantic', 'Two-part province']
+    },
+    nb: {
+      name: 'New Brunswick', abbr: 'NB', type: 'province',
+      region: 'atlantic', joined: 1867,
+      indigenous: ['Mi\'kmaq', 'Wolastoqiyik (Maliseet)'],
+      facts: [
+        'Founding province — one of four original provinces (1867)',
+        'Only officially bilingual province in Canada (English and French)',
+        'Part of Atlantic Canada — fishing and forestry economy',
+        'Bay of Fundy (shared with NS) has the world\'s highest tides'
+      ],
+      examTip: '★ HIGH YIELD: NB is the ONLY officially bilingual province.',
+      tags: ['Province', 'Founding: 1867', 'ONLY bilingual province', 'Atlantic']
+    },
+    ns: {
+      name: 'Nova Scotia', abbr: 'NS', type: 'province',
+      region: 'atlantic', joined: 1867,
+      indigenous: ['Mi\'kmaq'],
+      facts: [
+        'Founding province — one of four original provinces (1867)',
+        'Responsible government in Canada first started here (1848)',
+        'Peninsula province with a long maritime and fishing history',
+        'Halifax is the provincial capital and a major port',
+        'Bay of Fundy (shared with NB) has the world\'s highest tides'
+      ],
+      examTip: 'NS: founding province 1867. Responsible government started here first (1848).',
+      tags: ['Province', 'Founding: 1867', 'Atlantic', 'Responsible govt: 1848']
+    },
+    pei: {
+      name: 'Prince Edward Island', abbr: 'PEI', type: 'province',
+      region: 'atlantic', joined: 1873,
+      indigenous: ['Mi\'kmaq'],
+      facts: [
+        'Smallest province by area in Canada',
+        'Joined Confederation in 1873',
+        'Island in the Gulf of St. Lawrence',
+        'Charlottetown hosted the 1864 Confederation Conferences',
+        'Famous for red soil, potatoes, and lobster'
+      ],
+      examTip: 'PEI: SMALLEST province. Charlottetown = birthplace of Confederation (1864 talks).',
+      tags: ['Province', 'SMALLEST province', 'Joined: 1873', 'Atlantic', 'Island']
+    }
+  }
 };

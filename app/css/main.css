@@ -409,3 +409,77 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
   .tab-bar{width:100%}
   .tab-btn{flex:1;text-align:center}
 }
+
+/* ── MAP ── */
+.map-layers{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.layer-btn{background:var(--surface);border:1px solid var(--border);color:var(--text-secondary);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:all .15s;letter-spacing:.02em}
+.layer-btn:hover{border-color:var(--accent);color:var(--accent)}
+.layer-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.map-layout{display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start}
+.map-svg-wrap{background:#e8f4f8;border:1px solid var(--border);border-radius:12px;overflow:hidden;padding:8px}
+.canada-map{width:100%;height:auto;display:block;cursor:default}
+
+/* Province shapes */
+.prov{fill:#c8d8e0;stroke:#fff;stroke-width:1.5;cursor:pointer;transition:fill .18s,stroke .18s,filter .18s;rx:3}
+.prov:hover{filter:brightness(1.1);stroke:#fff;stroke-width:2.5}
+.prov.selected{stroke:var(--accent);stroke-width:2.5;filter:brightness(1.12)}
+
+/* Region colors (default layer) */
+.map-layer-regions .prov[data-region=north]{fill:#8aafc0}
+.map-layer-regions .prov[data-region=west]{fill:#7baa82}
+.map-layer-regions .prov[data-region=prairies]{fill:#c4a35a}
+.map-layer-regions .prov[data-region=central]{fill:#8899c8}
+.map-layer-regions .prov[data-region=atlantic]{fill:#7ba8bb}
+.map-layer-regions .prov.selected{fill:var(--accent)!important;stroke:var(--accent-hover)!important}
+
+/* Indigenous layer */
+.map-layer-indigenous .prov{fill:#cdd5de}
+.map-layer-indigenous .prov[data-indigenous~=inuit]{fill:#5b8fc9}
+.map-layer-indigenous .prov[data-indigenous~=metis]{fill:#c4862a}
+.map-layer-indigenous .prov[data-indigenous~=firstnations]{fill:#7db37d}
+.map-layer-indigenous .prov.selected{stroke:var(--accent-hover)!important;stroke-width:2.5!important}
+
+/* History layer — when they joined */
+.map-layer-history .prov{fill:#c8d8e0}
+.map-layer-history .prov[data-joined="1867"]{fill:#C8102E}
+.map-layer-history .prov[data-joined="1870"]{fill:#e05570}
+.map-layer-history .prov[data-joined="1871"]{fill:#e87a55}
+.map-layer-history .prov[data-joined="1873"]{fill:#e8a040}
+.map-layer-history .prov[data-joined="1898"]{fill:#7ab37d}
+.map-layer-history .prov[data-joined="1905"]{fill:#8899c8}
+.map-layer-history .prov[data-joined="1949"]{fill:#aa6dc8}
+.map-layer-history .prov[data-joined="1999"]{fill:#555}
+.map-layer-history .prov.selected{stroke:var(--accent-hover)!important;stroke-width:2.5!important}
+
+.prov-label{font-size:9px;font-weight:700;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none;letter-spacing:.04em;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.prov-sublabel{font-size:7px;fill:rgba(255,255,255,.75);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+
+/* Map info panel */
+.map-info{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;min-height:340px}
+.map-info-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;text-align:center;color:var(--text-muted)}
+.map-prov-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:8px}
+.map-prov-name{font-size:16px;font-weight:700;line-height:1.25;color:var(--text)}
+.map-prov-abbr{font-size:22px;font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums;flex-shrink:0;line-height:1}
+.map-prov-region{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.map-region-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.map-tip{background:var(--warning-soft);border:1px solid #fde68a;border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:12.5px;line-height:1.5;color:#78350f}
+.map-tip-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#b45309;margin-bottom:4px}
+.map-facts{list-style:none;margin-bottom:12px}
+.map-facts li{font-size:13px;padding:4px 0 4px 14px;position:relative;line-height:1.5;color:var(--text-secondary);border-bottom:1px solid var(--border-light)}
+.map-facts li:last-child{border-bottom:none}
+.map-facts li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:6px}
+.map-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.map-tag{font-size:10px;font-weight:600;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:12px;border:1px solid rgba(200,16,46,.15)}
+.map-joined{font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:8px}
+.map-indigenous-note{font-size:11px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:5px;padding:6px 10px;color:#166534;margin-bottom:8px}
+
+/* Map legend */
+.map-legend{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.map-legend-label{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-right:4px}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text-secondary)}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+@media(max-width:768px){
+  .map-layout{grid-template-columns:1fr}
+  .map-info{min-height:auto}
+}
