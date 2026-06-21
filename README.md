@@ -115,4 +115,4 @@ MIT — see [LICENSE](LICENSE). Study content is derived from IRCC's public Disc
 
 ---
 
-*Maintainer: [Rupaj Soni](https://linkedin.com/in/rupajsoni) · Civic / slow-tech · Separate from personal test prep*
+*Maintainer: Rupaj Soni · Civic / slow-tech · Separate from personal test prep*
