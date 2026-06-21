@@ -19,7 +19,7 @@ Free citizenship test prep for future Canadians — modules, Q&A, and timed mock
 ## Quick start
 
 ```bash
-git clone https://github.com/YOUR_USER/canada-citizenship.git
+git clone https://github.com/rupajsoni/canada-citizenship.git
 cd canada-citizenship
 
 # Option A — open directly
@@ -29,6 +29,15 @@ open app/index.html
 chmod +x scripts/serve.sh
 ./scripts/serve.sh          # http://localhost:8080
 ```
+
+---
+
+## Live site
+
+| Host | URL (after deploy) |
+|------|---------------------|
+| **GitHub Pages** | https://rupajsoni.github.io/canada-citizenship/ |
+| **Vercel** | Connect repo at [vercel.com/new](https://vercel.com/new) — uses `vercel.json` |
 
 ---
 

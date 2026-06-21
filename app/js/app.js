@@ -273,7 +273,8 @@
     const card = mod.flashcards[flashIndex];
     if (!card) return '<p>No flashcards.</p>';
     return `
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Click the card to flip. Try to answer before revealing. Use buttons to move between cards.</p>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:8px">Click the card to flip. Answer in your head before revealing.</p>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px"><kbd>Space</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> previous / next</p>
       <div class="flashcard-stage">
         <div class="flashcard${flashFlipped ? ' flipped' : ''}" onclick="flipCard()" role="button" tabindex="0" aria-label="Flashcard">
           <div class="flashcard-face flashcard-front">
@@ -349,9 +350,25 @@
   };
 
   window.toggleComplete = function (id) {
-    setComplete(id, !isComplete(id));
+    const now = !isComplete(id);
+    setComplete(id, now);
+    if (now) showToast('Lesson marked complete — nice work.');
     render();
   };
+
+  function showToast(msg) {
+    let el = document.getElementById('toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'toast';
+      el.setAttribute('role', 'status');
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => el.classList.remove('show'), 2800);
+  }
 
   /* ── Practice exam with multiple choice ── */
   function buildMcq(item, allItems) {
