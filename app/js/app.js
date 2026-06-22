@@ -2,7 +2,85 @@
 (function () {
   'use strict';
 
-  const CONFIG = { tipsUrl: '', partnersUrl: '' };
+  const CONFIG = {};
+
+  const CANADA_FACTS = [
+    "Canada is the second-largest country in the world by total area — 9.98 million km².",
+    "Canada has more lakes than the rest of the world combined. 🏞️",
+    "The word 'Canada' comes from 'kanata,' a Huron-Iroquois word meaning village or settlement.",
+    "Basketball was invented in 1891 by Canadian James Naismith, from Almonte, Ontario. 🏀",
+    "Canada has the world's longest coastline: over 202,000 km.",
+    "The Canadian Charter of Rights and Freedoms (1982) protects your rights as a citizen.",
+    "Canada officially became a country on July 1, 1867 — celebrated as Canada Day every year. 🎉",
+    "Canada has two official languages: English and French.",
+    "The maple leaf on the Canadian flag has 11 points.",
+    "Canada's three groups of Indigenous peoples are First Nations, Métis, and Inuit.",
+    "The beaver is Canada's national animal and appears on the five-cent coin. 🦫",
+    "Hockey is Canada's national winter sport. Lacrosse is the national summer sport. 🏒",
+    "The Northern Lights (Aurora Borealis) are visible across much of Canada — especially Yukon and NWT. ✨",
+    "Canada shares the world's longest undefended border with the United States: 8,891 km.",
+    "Canada was the first country to adopt an official multiculturalism policy, in 1971.",
+    "As a new citizen, you can apply for a Canadian passport — one of the world's most powerful. 🛂",
+    "Canada spans six time zones — from Newfoundland to Pacific.",
+    "Poutine — fries, cheese curds, and gravy — originated in rural Quebec in the 1950s. 🍟",
+    "The $1 coin is called the 'loonie' — it features a common loon. The $2 is the 'toonie.'",
+    "Universal public health care means most doctor visits are free once you have your provincial health card.",
+    "New citizens can get the free Canoo app — it unlocks Parks Canada and hundreds of cultural venues.",
+    "The RCMP (Royal Canadian Mounted Police) was founded in 1873 and is Canada's national police force. 🐴",
+    "Canada abolished the death penalty in 1976.",
+    "Parliament has three parts: the Monarch, the Senate (105 seats), and the House of Commons (338 seats).",
+    "Canadians vote for their Member of Parliament — not directly for the Prime Minister.",
+    "The Governor General represents the King in Canada and performs key constitutional duties.",
+    "Banff was Canada's first national park, established in 1885 in Alberta. 🏔️",
+    "Canada has 48 UNESCO World Heritage Sites.",
+    "About 3,160 tonnes of water flow over Niagara Falls every second.",
+    "Montreal is the second-largest French-speaking city in the world, after Paris. 🥐",
+    "The Trans-Canada Highway stretches 7,821 km — Victoria, BC to St. John's, NL.",
+    "Canada has contributed to every major UN peacekeeping mission since 1956. 🕊️",
+    "Indigenous peoples have lived in Canada for over 15,000 years before European contact.",
+    "Your SIN (Social Insurance Number) is required to work and access federal government services.",
+    "IRCC offers free English and French language training through LINC and CLIC programs.",
+    "The Canadian Human Rights Act protects against discrimination based on race, gender, religion, and more.",
+    "Tim Hortons was co-founded in 1964 by a Toronto Maple Leafs defenceman. ☕",
+    "Canada has 338 federal electoral districts — each one is called a 'riding.'",
+    "Canada borders three oceans: Atlantic, Pacific, and Arctic.",
+    "The Canadian Shield is one of the world's oldest geological formations — over 4 billion years old.",
+    "Old Quebec City is the only fortified city north of Mexico — a UNESCO World Heritage Site.",
+    "As a citizen, you can vote, run for public office, and enter and leave Canada freely.",
+    "The Charter protects freedom of expression, religion, peaceful assembly, and association.",
+    "The CN Tower in Toronto was the world's tallest free-standing structure from 1976 to 2007.",
+    "'O Canada' was written in 1880 but only officially adopted as the national anthem in 1980.",
+    "Saskatchewan produces about 60% of Canada's wheat — known as the 'breadbasket of Canada.' 🌾",
+    "You can sponsor eligible family members for permanent residency once you're a citizen.",
+    "Remembrance Day (November 11) — Canadians observe two minutes of silence at 11 AM. 🌹",
+    "The Underground Railroad helped freedom-seeking Americans reach Canada in the 1800s.",
+    "The Battle of Vimy Ridge (1917) is considered a defining moment in Canada's national identity. 🎖️",
+    "Free public libraries exist in every major Canadian city — your card often unlocks digital resources too.",
+    "Canada has over 1,000 protected areas including provincial, territorial, and national parks.",
+    "Quebec produces over 70% of the world's maple syrup supply. 🍁",
+    "Canada's multiculturalism means you can celebrate your heritage while being fully Canadian.",
+    "The Canadian dollar has been stronger than the US dollar at various points in history.",
+    "Canada was one of the first countries to legalize same-sex marriage nationwide, in 2005. 🏳️‍🌈",
+    "The world's first commercial radio broadcast was made in Montreal in 1920.",
+    "Canada's Wonderland in Ontario is one of the most visited theme parks in North America.",
+    "Voting in federal elections is free and takes about 5 minutes — find your polling station at elections.ca.",
+    "Newfoundland has its own time zone — it's 30 minutes ahead of Atlantic Standard Time. ⏰",
+  ];
+  const TIMELINE_PAIRS = [
+    { year: '1497', event: 'John Cabot reaches the east coast of Canada' },
+    { year: '1608', event: 'Samuel de Champlain founds Quebec City' },
+    { year: '1759', event: 'Battle of the Plains of Abraham — British defeat French' },
+    { year: '1867', event: 'Confederation — Canada becomes a country' },
+    { year: '1885', event: 'Canadian Pacific Railway completed' },
+    { year: '1905', event: 'Alberta and Saskatchewan join Confederation' },
+    { year: '1914', event: 'Canada enters the First World War' },
+    { year: '1939', event: 'Canada enters the Second World War' },
+    { year: '1949', event: 'Newfoundland and Labrador joins Canada' },
+    { year: '1965', event: 'The Maple Leaf flag is adopted' },
+    { year: '1982', event: 'Charter of Rights and Freedoms is enacted' },
+    { year: '1999', event: 'Nunavut becomes Canada\'s newest territory' },
+  ];
+
   const STORAGE_KEY = 'ca-citizenship-v6';
   const MODULES = window.COURSE.modules;
   const EXAM = window.COURSE.exam;
@@ -16,6 +94,7 @@
   let flashFlipped = false;
 
   let testQuestions = [];
+  let tlState = null;
   let testAnswers = {};
   let testTimer = null;
   let testSecondsLeft = EXAM.minutes * 60;
@@ -127,6 +206,7 @@
 
     html += '<div class="nav-section">Practice</div>';
     html += navItem('test', '⏱', 'Practice Exam', 'Timed simulation', view === 'test');
+    html += navItem('timeline', '📅', 'Timeline Match', 'Drag years to events', view === 'timeline');
     const count = testHistory().length;
     html += navItem('results', '◷', 'Results', 'Score history', view === 'results', count || '');
 
@@ -198,6 +278,15 @@
       <div class="callout callout-tip" style="margin-top:28px">
         <strong>How to study effectively</strong>
         Read each lesson, practice with flashcards (active recall), then complete the module quiz. Finish with a full timed practice exam when all modules are done.
+      </div>
+
+      <div class="card card-pad tl-home-card" onclick="navigate('timeline')" style="margin-top:16px;cursor:pointer">
+        <div class="tl-home-icon">📅</div>
+        <div>
+          <div class="tl-home-title">Timeline Match</div>
+          <div class="tl-home-sub">Match 12 key dates to their historical events. Tap a year, tap an event.</div>
+        </div>
+        <div class="tl-home-arrow">→</div>
       </div>`;
   }
 
@@ -502,11 +591,20 @@
       breakdown[q.category].total++;
       if (testAnswers[i] === q.correct) { score++; breakdown[q.category].right++; }
     });
+    const wrongItems = testQuestions
+      .filter((q, i) => testAnswers[i] !== q.correct)
+      .slice(0, 6)
+      .map(q => ({ question: q.question, answer: q.options[q.correct], category: q.category }));
     addTestResult({
       date: new Date().toLocaleDateString('en-CA'),
-      score, total: testQuestions.length, time: timeTaken, breakdown
+      score, total: testQuestions.length, time: timeTaken, breakdown, wrongItems
     });
     renderTestResults();
+    if (score >= EXAM.passScore && !state.supportSeen) {
+      state.supportSeen = true;
+      saveState();
+      setTimeout(showSupportModal, 5000);
+    }
   };
 
   function renderTestResults() {
@@ -514,13 +612,43 @@
     if (!r) { navigate('results'); return; }
     const pct = Math.round(r.score / r.total * 100);
     const scoreCls = pct >= 75 ? 'pass' : pct >= 60 ? 'near' : 'fail';
-    const verdict = r.score >= EXAM.passScore ? 'You meet the passing threshold—excellent work.' : r.score >= EXAM.passScore - 3 ? 'Close to passing—review your weaker topics and try again.' : 'More study recommended—work through lessons and flashcards.';
+    const passing = r.score >= EXAM.passScore;
+    const verdict = passing ? 'You meet the passing threshold—excellent work.' : r.score >= EXAM.passScore - 3 ? 'Close to passing—review your weaker topics and try again.' : 'More study recommended—work through lessons and flashcards.';
 
     const bd = Object.entries(r.breakdown || {}).map(([cat, v]) => {
       const ratio = v.right / v.total;
       const cls = ratio === 1 ? 'pass' : ratio >= 0.6 ? 'near' : 'fail';
       return `<div class="breakdown-cell"><div class="breakdown-name">${escapeHtml(cat)}</div><div class="breakdown-val ${cls}">${v.right}/${v.total}</div></div>`;
     }).join('');
+
+    let readinessBlock = '';
+    if (passing) {
+      const wrongs = r.wrongItems || [];
+      const wrongsHtml = wrongs.length ? `
+        <div class="wrongs-block">
+          <div class="wrongs-title">Lock these in before test day</div>
+          <p class="wrongs-sub">These came up in your last practice — a quick review and you're golden.</p>
+          ${wrongs.map(w => `<div class="wrong-item">
+            <div class="wrong-q">${escapeHtml(w.question)}</div>
+            <div class="wrong-a">${escapeHtml(w.answer)}</div>
+          </div>`).join('')}
+        </div>` : '';
+
+      readinessBlock = `
+        <div class="ready-block">
+          <div class="ready-heading">You're ready for the real thing. 🍁</div>
+          <p class="ready-body">Your practice score clears the official passing threshold. You've put in the work — go book it.</p>
+          <div class="canoo-card">
+            <div class="canoo-badge">New citizen perk</div>
+            <div class="canoo-content">
+              <div class="canoo-title">Once you pass — download Canoo</div>
+              <p class="canoo-body">Canoo is a free app for new Canadian citizens, giving you access to Parks Canada, museums, cultural sites, and hundreds of experiences across the country. Eligible within your first year of citizenship.</p>
+              <a href="https://canoo.ca" target="_blank" rel="noopener noreferrer" class="canoo-link">Learn more at canoo.ca →</a>
+            </div>
+          </div>
+          ${wrongsHtml}
+        </div>`;
+    }
 
     document.getElementById('page').innerHTML = `
       <div class="eyebrow">Exam complete</div>
@@ -531,6 +659,7 @@
         <div class="results-detail" style="margin-top:8px">Time: ${formatTime(r.time)} · ${r.date}</div>
         <div class="breakdown-grid">${bd}</div>
       </div>
+      ${readinessBlock}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
         <button class="btn btn-primary" onclick="resetTest()">Take another exam</button>
         <button class="btn btn-secondary" onclick="navigate('home')">Dashboard</button>
@@ -738,6 +867,223 @@
     }
   }
 
+  // ── Pay-what-you-want support modal ──────────────────────────────────────
+
+  function showSupportModal() {
+    const overlay = document.createElement('div');
+    overlay.id = 'support-overlay';
+    overlay.className = 'support-overlay';
+    overlay.innerHTML = `
+      <div class="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-heading">
+        <button class="support-x" onclick="dismissSupport()" aria-label="Close">×</button>
+        <div class="support-leaf">🍁</div>
+        <h2 class="support-heading" id="support-heading">You're ready.</h2>
+        <p class="support-body">You just hit passing on a full practice exam. The lessons, the flashcards, all of it — it's working. You put in the work.</p>
+        <p class="support-ask">This guide is free and always will be. If it helped you get here, you decide what it's worth.</p>
+        <div class="support-slider-section">
+          <input type="range" id="support-slider" class="support-slider" min="0" max="50" value="10" step="1">
+          <div class="support-marks"><span>Free</span><span>$10</span><span>$25</span><span>$50</span></div>
+          <div class="support-amount-row">
+            <span class="support-amount" id="support-amount">$10</span>
+            <span class="support-amount-sep">·</span>
+            <input type="number" id="support-custom" class="support-custom" min="0" max="9999" placeholder="or type amount">
+          </div>
+          <div class="support-tier" id="support-tier"></div>
+        </div>
+        <div id="support-actions"></div>
+      </div>`;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+
+    const slider = document.getElementById('support-slider');
+    const custom = document.getElementById('support-custom');
+    slider.addEventListener('input', function () {
+      custom.value = '';
+      setSliderFill(slider);
+      refreshSupport(parseInt(slider.value, 10));
+    });
+    custom.addEventListener('input', function () {
+      const val = Math.min(9999, Math.max(0, parseInt(custom.value, 10) || 0));
+      slider.value = Math.min(50, val);
+      setSliderFill(slider);
+      refreshSupport(val);
+    });
+    setSliderFill(slider);
+    refreshSupport(10);
+  }
+
+  function setSliderFill(slider) {
+    const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    slider.style.background = `linear-gradient(to right, var(--accent) ${pct}%, var(--border) ${pct}%)`;
+  }
+
+  function refreshSupport(amount) {
+    document.getElementById('support-amount').textContent = '$' + amount;
+    const tier = document.getElementById('support-tier');
+    const actions = document.getElementById('support-actions');
+
+    if (amount === 0) {
+      tier.textContent = '';
+      actions.innerHTML = `
+        <div class="support-farewell">
+          <p>That's completely fine.</p>
+          <p>I built this because I wanted to make the citizenship test less overwhelming. If it helped you get here — that's everything.</p>
+          <p class="support-farewell-sign">Go ace the real thing. Canada's lucky to have you. Good luck. 🍁</p>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeSupportOverlay()">Close</button>`;
+    } else {
+      const labels = [[4,'That\'s a kind thought.'],[9,'Buy me a coffee. Really sweet of you.'],[19,'That\'s genuinely kind of you.'],[34,'This is generous. Thank you.'],[50,'You didn\'t have to. This means a lot.'],[Infinity,'Incredibly generous. Thank you so much.']];
+      tier.textContent = labels.find(([max]) => amount <= max)[1];
+      const kofi = 'https://ko-fi.com/thesidequest';
+      const paypal = `https://www.paypal.me/rupajsoni1/${Math.min(amount, 9999)}`;
+      actions.innerHTML = `
+        <div class="support-btns">
+          <a href="${kofi}" target="_blank" rel="noopener noreferrer" class="support-btn-kofi" onclick="closeSupportOverlay()">
+            <span class="support-btn-label">Ko-fi</span>
+            <span class="support-btn-amt">$${amount}</span>
+          </a>
+          <a href="${paypal}" target="_blank" rel="noopener noreferrer" class="support-btn-paypal" onclick="closeSupportOverlay()">
+            <span class="support-btn-label">PayPal</span>
+            <span class="support-btn-amt">$${amount}</span>
+          </a>
+        </div>
+        <div class="support-qr-row">
+          <img class="support-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https%3A%2F%2Fko-fi.com%2Fthesidequest&bgcolor=f7f7f8&color=1a1a1a&margin=4" alt="Scan to pay on mobile" loading="lazy" width="80" height="80">
+          <span class="support-qr-note">On your phone? Scan for Apple Pay, Visa, or Mastercard via Ko-fi.</span>
+        </div>
+        <button class="support-no-thanks" onclick="dismissSupport()">I'd rather not right now</button>`;
+    }
+  }
+
+  window.dismissSupport = function () {
+    const slider = document.getElementById('support-slider');
+    if (slider) { slider.value = 0; setSliderFill(slider); }
+    const custom = document.getElementById('support-custom');
+    if (custom) custom.value = '';
+    const amountEl = document.getElementById('support-amount');
+    if (amountEl) amountEl.textContent = '$0';
+    refreshSupport(0);
+  };
+
+  window.closeSupportOverlay = function () {
+    const el = document.getElementById('support-overlay');
+    if (!el) return;
+    el.classList.remove('visible');
+    setTimeout(() => el.remove(), 320);
+  };
+
+  // ─────────────────────────────────────────────────────────────────────────
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function initTimeline() {
+    tlState = {
+      pairs: shuffle(TIMELINE_PAIRS),
+      years: shuffle(TIMELINE_PAIRS.map(p => p.year)),
+      solved: new Set(),
+      selected: null,
+    };
+  }
+
+  function renderTimeline() {
+    if (!tlState) initTimeline();
+    const { pairs, years, solved, selected } = tlState;
+    const allSolved = solved.size === pairs.length;
+    const pct = Math.round(solved.size / pairs.length * 100);
+
+    const chips = years.map((y, i) => {
+      const isSolved = solved.has(y);
+      const isSelected = y === selected;
+      return `<button class="tl-chip${isSelected ? ' selected' : ''}${isSolved ? ' solved' : ''}"
+        style="--i:${i}" onclick="tlSelectYear('${y}')" aria-label="Year ${y}">${y}</button>`;
+    }).join('');
+
+    const rows = pairs.map((p, i) => {
+      const isSolved = solved.has(p.year);
+      const isTarget = !!(selected && !isSolved);
+      return `<div class="tl-event-row${isSolved ? ' solved' : ''}${isTarget ? ' target' : ''}"
+        id="tl-row-${i}" onclick="tlDropYear(${i})" style="--row-i:${i}">
+        <div class="tl-node"><div class="tl-dot"></div></div>
+        <div class="tl-badge ${isSolved ? 'correct' : 'empty'}">${isSolved ? p.year : '????'}</div>
+        <div class="tl-event-text">${escapeHtml(p.event)}</div>
+        ${isSolved ? '<div class="tl-check">✓</div>' : ''}
+      </div>`;
+    }).join('');
+
+    document.getElementById('page').innerHTML = `
+      <div class="hero-block">
+        <div class="eyebrow">Interactive practice</div>
+        <h1 class="page-title">Timeline Match</h1>
+        <p class="page-lead">Tap a year to select it, then tap its matching event.</p>
+      </div>
+
+      ${allSolved ? `<div class="tl-success-banner">
+        🎉 All ${pairs.length} dates matched — Canadian history unlocked.
+        <button class="btn btn-secondary" style="margin-left:16px" onclick="tlReset()">Play again</button>
+      </div>` : ''}
+
+      <div class="tl-pool-card">
+        <div class="tl-pool-label">Select a year</div>
+        <div class="tl-pool">${chips}</div>
+      </div>
+
+      <div class="tl-progress-row">
+        <div class="tl-progress-track"><div class="tl-progress-fill" style="width:${pct}%"></div></div>
+        <div class="tl-progress-label">${solved.size} <span>/ ${pairs.length}</span></div>
+      </div>
+
+      <div class="tl-events-list">${rows}</div>
+
+      <div class="tl-hint">
+        ${selected
+          ? `<span class="tl-hint-active"><em>${selected}</em> selected — now tap its event</span>`
+          : allSolved ? `<span>All matched. Well done.</span>` : `<span>Tap a year above to begin</span>`}
+      </div>
+    `;
+  }
+
+  window.tlSelectYear = function(year) {
+    if (!tlState || tlState.solved.has(year)) return;
+    tlState.selected = tlState.selected === year ? null : year;
+    renderTimeline();
+  };
+
+  window.tlDropYear = function(rowIdx) {
+    if (!tlState || !tlState.selected) return;
+    const pair = tlState.pairs[rowIdx];
+    if (tlState.solved.has(pair.year)) return;
+    if (tlState.selected === pair.year) {
+      tlState.solved.add(pair.year);
+      tlState.selected = null;
+      renderTimeline();
+      requestAnimationFrame(() => {
+        const row = document.getElementById('tl-row-' + rowIdx);
+        if (row) {
+          row.classList.add('just-solved');
+          setTimeout(() => row && row.classList.remove('just-solved'), 700);
+        }
+      });
+    } else {
+      const row = document.getElementById('tl-row-' + rowIdx);
+      if (row) {
+        row.classList.add('wrong');
+        setTimeout(() => row && row.classList.remove('wrong'), 450);
+      }
+    }
+  };
+
+  window.tlReset = function() {
+    tlState = null;
+    renderTimeline();
+  };
+
   function render() {
     renderSidebar();
     if (view === 'home') renderHome();
@@ -745,6 +1091,7 @@
     else if (view === 'test') renderTest();
     else if (view === 'results') renderResults();
     else if (view === 'map') renderMap();
+    else if (view === 'timeline') renderTimeline();
   }
 
   function closeSidebar() {
@@ -765,13 +1112,25 @@
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
   });
 
-  (function initLinks() {
-    const tips = document.getElementById('lnk-tips');
-    const partners = document.getElementById('lnk-partners');
-    if (CONFIG.tipsUrl) tips.href = CONFIG.tipsUrl;
-    else tips.addEventListener('click', e => { e.preventDefault(); });
-    if (CONFIG.partnersUrl) partners.href = CONFIG.partnersUrl;
-    else partners.addEventListener('click', e => { e.preventDefault(); });
+
+  (function initFooterFact() {
+    const bar = document.querySelector('.footer-fact-bar');
+    const el = document.getElementById('footer-fact-text');
+    if (!el || !bar) return;
+    let currentIdx = Math.floor(Date.now() / 86400000) % CANADA_FACTS.length;
+    el.textContent = CANADA_FACTS[currentIdx];
+    bar.title = 'Click for another fact';
+    bar.style.cursor = 'pointer';
+    bar.addEventListener('click', () => {
+      el.classList.add('swapping');
+      setTimeout(() => {
+        let next;
+        do { next = Math.floor(Math.random() * CANADA_FACTS.length); } while (next === currentIdx);
+        currentIdx = next;
+        el.textContent = CANADA_FACTS[currentIdx];
+        el.classList.remove('swapping');
+      }, 200);
+    });
   })();
 
   render();

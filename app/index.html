@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Free Canadian citizenship test preparation — structured lessons, flashcards, and practice exams based on Discover Canada (2026).">
-  <title>Canada Citizenship Prep — Free Study Guide</title>
+  <meta name="description" content="Northbound — free Canadian citizenship test prep. Lessons, flashcards, and practice exams. To new beginnings.">
+  <title>Northbound — Canadian Citizenship</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -18,15 +19,19 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="logo">
-          <div class="logo-mark">CA</div>
+          <div class="logo-mark">
+            <svg viewBox="-2015 -2000 4030 4030" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path fill="white" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"/>
+            </svg>
+          </div>
           <div>
-            <div class="logo-text">Citizenship Prep</div>
-            <div class="logo-sub">Free · Discover Canada · 2026</div>
+            <div class="logo-text">Northbound</div>
+            <div class="logo-sub">Canadian citizenship test prep</div>
           </div>
         </div>
       </div>
       <div class="sidebar-progress">
-        <div class="sp-label"><span>Course progress</span><span id="progress-text">0 / 10</span></div>
+        <div class="sp-label"><span>Your progress</span><span id="progress-text">0 / 10</span></div>
         <div class="sp-bar"><div class="sp-fill" id="progress-fill" style="width:0%"></div></div>
       </div>
       <nav class="sidebar-nav" id="sidebar-nav"></nav>
@@ -37,14 +42,53 @@
       <div class="main-scroll">
         <div class="page-wrap" id="page"></div>
         <footer class="site-footer">
-          <div class="footer-badge">Free for everyone</div>
-          <p>Built for future Canadians. Content based on <em>Discover Canada: The Rights and Responsibilities of Citizenship</em>.</p>
-          <div class="footer-links">
-            <a id="lnk-tips" href="#">Support this project</a>
-            <a id="lnk-partners" href="#">Partner with us</a>
-            <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html" target="_blank" rel="noopener">Official IRCC study guide</a>
+          <!-- Rotating Canada fun fact -->
+          <div class="footer-fact-bar">
+            <span class="footer-fact-icon">🍁</span>
+            <span class="footer-fact-pill">Did you know?</span>
+            <span class="footer-fact-text" id="footer-fact-text"></span>
           </div>
-          <p style="margin-top:12px;font-size:12px">Independent educational tool. Not legal advice. Not an official government product.</p>
+
+          <!-- Main footer body -->
+          <div class="footer-body">
+            <!-- Brand + seeds -->
+            <div class="footer-brand-col">
+              <div class="footer-brand-row">
+                <div class="footer-brand-name">Northbound</div>
+                <div class="footer-brand-dot">·</div>
+                <div class="footer-brand-tag">To new beginnings.</div>
+              </div>
+              <div class="footer-brand-message">Built by someone who went through this — for everyone on the same road. May your journey be worth every step.</div>
+              <div class="footer-seeds">
+                <a href="mailto:rupaj.soni@gmail.com?subject=Consulting%20Inquiry" class="footer-seed">🤝 Consulting</a>
+                <a href="#" class="footer-seed">💬 Community</a>
+                <a href="#" class="footer-seed">🌐 northbound.ca</a>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="footer-cta-col">
+              <div class="footer-cta-headline">Built free. Always. ☕</div>
+              <div class="footer-cta-sub">If this helped you get here — you choose what it's worth. No pressure.</div>
+              <div class="footer-pay-row">
+                <a href="https://ko-fi.com/thesidequest" target="_blank" rel="noopener noreferrer" class="footer-btn-kofi">Ko-fi ☕</a>
+                <a href="https://www.paypal.me/rupajsoni1" target="_blank" rel="noopener noreferrer" class="footer-btn-paypal">PayPal 💙</a>
+                <img class="footer-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=52x52&data=https%3A%2F%2Fko-fi.com%2Fthesidequest&bgcolor=f7f7f8&color=1a1a1a&margin=3" alt="Scan to support on mobile" loading="lazy" width="52" height="52">
+              </div>
+            </div>
+
+            <!-- Useful links -->
+            <div class="footer-links-col">
+              <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html" target="_blank" rel="noopener noreferrer" class="footer-resource-link">📘 IRCC Study Guide</a>
+              <a href="https://canoo.ca" target="_blank" rel="noopener noreferrer" class="footer-resource-link">🎁 Canoo — New Citizen Perks</a>
+              <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/become-citizen/eligibility.html" target="_blank" rel="noopener noreferrer" class="footer-resource-link">📋 Citizenship Eligibility</a>
+            </div>
+          </div>
+
+          <!-- Legal strip -->
+          <div class="footer-legal">
+            Northbound · Independent educational tool · Not affiliated with IRCC or the Government of Canada · Not legal advice
+          </div>
         </footer>
       </div>
     </div>
