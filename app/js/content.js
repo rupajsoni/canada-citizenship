@@ -667,41 +667,468 @@ window.COURSE = {
   ],
 
   questionBank: [
-    { question: 'What are the three groups of Aboriginal peoples in Canada?', answer: 'First Nations, Métis, and Inuit', category: 'History' },
-    { question: 'When did Canada become a self-governing Dominion?', answer: 'July 1, 1867', category: 'History' },
-    { question: 'Name the four founding provinces of Confederation.', answer: 'Ontario, Quebec, Nova Scotia, and New Brunswick', category: 'History' },
-    { question: 'Who was Canada\'s first Prime Minister?', answer: 'Sir John A. Macdonald', category: 'History' },
-    { question: 'What does responsible government mean?', answer: 'The Cabinet must have the support of a majority of elected Members of Parliament', category: 'Government' },
-    { question: 'How many senators are in the Senate?', answer: '105', category: 'Government' },
-    { question: 'How many Members of Parliament are in the House of Commons?', answer: '338', category: 'Government' },
-    { question: 'Who is Canada\'s head of state?', answer: 'The Sovereign (King Charles III)', category: 'Government' },
-    { question: 'What document protects the rights and freedoms of Canadians?', answer: 'The Canadian Charter of Rights and Freedoms (Constitution Act, 1982)', category: 'Rights' },
-    { question: 'In what year did the Charter of Rights and Freedoms come into effect?', answer: '1982', category: 'Rights' },
-    { question: 'What is Canada\'s national animal?', answer: 'The beaver', category: 'Symbols' },
-    { question: 'When was the current Canadian flag adopted?', answer: '1965', category: 'Symbols' },
-    { question: 'What are Canada\'s two official languages?', answer: 'English and French', category: 'Rights' },
-    { question: 'Which is the only officially bilingual province?', answer: 'New Brunswick', category: 'Rights' },
-    { question: 'Why is the Battle of Vimy Ridge significant?', answer: 'All four divisions of the Canadian Corps fought together for the first time on April 9, 1917', category: 'History' },
-    { question: 'When did women gain the right to vote in federal elections?', answer: '1918', category: 'History' },
-    { question: 'What happened on D-Day, June 6, 1944?', answer: 'Canadian and Allied forces landed at Juno Beach in Normandy to liberate Europe', category: 'History' },
-    { question: 'Which province was the last to join Confederation, and when?', answer: 'Newfoundland and Labrador, 1949', category: 'History' },
-    { question: 'What is the Order of Canada?', answer: 'Canada\'s highest civilian honour for outstanding achievement, established 1967', category: 'Symbols' },
-    { question: 'What are Canada\'s two official national sports?', answer: 'Hockey (winter) and lacrosse (summer)', category: 'Symbols' },
-    { question: 'What is Canada\'s largest trading partner?', answer: 'The United States', category: 'Geography' },
-    { question: 'Which province has the largest population?', answer: 'Ontario', category: 'Geography' },
-    { question: 'Which province is the largest by area?', answer: 'Quebec', category: 'Geography' },
-    { question: 'Which province is the smallest by area?', answer: 'Prince Edward Island', category: 'Geography' },
-    { question: 'What is the role of the Governor General?', answer: 'Represents the Sovereign in Canada and grants Royal Assent to bills', category: 'Government' },
-    { question: 'What does presumption of innocence mean?', answer: 'An accused person is innocent until proven guilty in court', category: 'Justice' },
-    { question: 'What is the minimum voting age in Canada?', answer: '18 years of age', category: 'Elections' },
-    { question: 'What is a returning officer?', answer: 'The official who administers the election in each riding', category: 'Elections' },
-    { question: 'What is Nunavut, and when was it created?', answer: 'Canada\'s largest territory, created in 1999 as an Inuit homeland', category: 'Geography' },
-    { question: 'Who won the Nobel Peace Prize for helping to create UN peacekeeping?', answer: 'Lester B. Pearson, 1957', category: 'History' },
-    { question: 'What type of right is the right to live and work anywhere in Canada?', answer: 'A mobility right', category: 'Rights' },
-    { question: 'What is a polling station?', answer: 'The place where you go to vote', category: 'Elections' },
-    { question: 'What is Canada\'s national motto?', answer: '"A Mari Usque Ad Mare" — From Sea to Sea', category: 'Symbols' },
-    { question: 'Who first mapped Canada\'s east coast for England in 1497?', answer: 'John Cabot', category: 'History' },
-    { question: 'Why are the Great Lakes important to Canada?', answer: 'They provide fresh water and waterways for trade and transportation', category: 'Geography' }
+    // ── RIGHTS & RESPONSIBILITIES ─────────────────────────────────────────
+    {
+      question: 'Which document protects the rights and freedoms of Canadians?',
+      options: ['The Constitution Act, 1867', 'The Canadian Charter of Rights and Freedoms', 'The Official Languages Act', 'The Canadian Bill of Rights (1960)'],
+      correct: 1, category: 'Rights'
+    },
+    {
+      question: 'In what year did the Canadian Charter of Rights and Freedoms come into effect?',
+      options: ['1867', '1965', '1982', '1999'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'What are Canada\'s two official languages?',
+      options: ['English and Inuktitut', 'French and Cree', 'English and French', 'English and Mohawk'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'Which is the only officially bilingual province in Canada?',
+      options: ['Quebec', 'Ontario', 'New Brunswick', 'Manitoba'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'The right to move and work anywhere in Canada is called:',
+      options: ['A democratic right', 'A legal right', 'A mobility right', 'An equality right'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'The right to vote in elections is an example of which category of rights?',
+      options: ['Mobility rights', 'Democratic rights', 'Language rights', 'Legal rights'],
+      correct: 1, category: 'Rights'
+    },
+    {
+      question: 'Which section of the Constitution Act, 1982 recognizes and affirms Aboriginal and treaty rights?',
+      options: ['Section 15', 'Section 33', 'Section 35', 'Section 91'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'What is the minimum voting age in a Canadian federal election?',
+      options: ['16', '17', '18', '21'],
+      correct: 2, category: 'Rights'
+    },
+    {
+      question: 'Freedom of conscience, religion, thought, and expression are protected under which part of the Constitution?',
+      options: ['The Constitution Act, 1867', 'The Charter of Rights and Freedoms', 'The Official Languages Act', 'The Statute of Westminster'],
+      correct: 1, category: 'Rights'
+    },
+    {
+      question: 'What is one responsibility of Canadian citizenship (NOT just a right)?',
+      options: ['Receiving social assistance', 'Obeying the law and serving on jury duty', 'Using public parks', 'Receiving health care'],
+      correct: 1, category: 'Rights'
+    },
+    // ── HISTORY ──────────────────────────────────────────────────────────
+    {
+      question: 'When did Canada become a self-governing Dominion?',
+      options: ['July 1, 1776', 'July 1, 1867', 'July 1, 1931', 'July 1, 1982'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who was Canada\'s first Prime Minister?',
+      options: ['Sir Wilfrid Laurier', 'Louis Riel', 'Sir John A. Macdonald', 'John Cabot'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Which were the four founding provinces of Confederation in 1867?',
+      options: [
+        'Ontario, Quebec, Nova Scotia, and Prince Edward Island',
+        'Ontario, Quebec, Nova Scotia, and New Brunswick',
+        'Quebec, New Brunswick, Manitoba, and British Columbia',
+        'Ontario, Nova Scotia, New Brunswick, and Newfoundland'
+      ],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who were the first Europeans to reach Canada?',
+      options: ['The French, under Jacques Cartier', 'The English, under John Cabot', 'The Norse Vikings', 'The Portuguese, under John Fernandes'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Who first mapped Canada\'s east coast on behalf of England in 1497?',
+      options: ['Jacques Cartier', 'Samuel de Champlain', 'John Cabot', 'Henry Hudson'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'What is the significance of the Battle of Vimy Ridge (April 9, 1917)?',
+      options: [
+        'Canada officially gained independence from Britain',
+        'All four divisions of the Canadian Corps fought together for the first time',
+        'Canadian women gained the right to vote',
+        'Canada signed the Statute of Westminster'
+      ],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'When did women gain the right to vote in Canadian federal elections?',
+      options: ['1916', '1918', '1929', '1945'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What was the significance of June 6, 1944 (D-Day) for Canada?',
+      options: [
+        'Canadians fought at Vimy Ridge',
+        'Canada declared war on Germany',
+        'Canadian forces stormed Juno Beach in Normandy to liberate Western Europe',
+        'The Korean War armistice was signed'
+      ],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Which was the last province to join Confederation, and in what year?',
+      options: ['Manitoba, 1870', 'British Columbia, 1871', 'Prince Edward Island, 1873', 'Newfoundland and Labrador, 1949'],
+      correct: 3, category: 'History'
+    },
+    {
+      question: 'What event led to Manitoba joining Confederation in 1870?',
+      options: ['The Klondike Gold Rush', 'The Red River Resistance led by Louis Riel', 'The completion of the CPR', 'The Northwest Resistance of 1885'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'In what year was the Canadian Pacific Railway (CPR) completed?',
+      options: ['1867', '1871', '1885', '1896'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Who was Canada\'s first French-Canadian Prime Minister?',
+      options: ['Pierre Trudeau', 'Sir Wilfrid Laurier', 'Louis-Hippolyte LaFontaine', 'Louis Riel'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'The Klondike Gold Rush of the 1890s took place in which territory?',
+      options: ['Northwest Territories', 'Nunavut', 'Yukon', 'British Columbia'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Who won the Nobel Peace Prize in 1957 for helping establish United Nations peacekeeping forces?',
+      options: ['John Diefenbaker', 'Tommy Douglas', 'Lester B. Pearson', 'Pierre Trudeau'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'What did the Statute of Westminster (1931) grant Canada?',
+      options: ['Its first written constitution', 'Full legislative independence from Britain', 'Universal suffrage for women', 'Control over immigration'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What is Remembrance Day and when is it observed?',
+      options: [
+        'Canada Day — July 1, celebrating Confederation',
+        'Victory in Europe Day — May 8',
+        'A day to honor Canadians who died in wars — November 11',
+        'The anniversary of the Charter of Rights — April 17'
+      ],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Where did United Empire Loyalists settle after the American Revolution?',
+      options: ['Quebec and British Columbia', 'Nova Scotia, New Brunswick, and Ontario', 'Manitoba and Saskatchewan', 'The Northwest Territories'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What are the three groups of Aboriginal peoples in Canada?',
+      options: ['Inuit, Cree, and Métis', 'First Nations, Métis, and Inuit', 'Haudenosaunee, Algonquin, and Inuit', 'First Nations, Mohawk, and Inuit'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'The "Persons Case" of 1929 established that:',
+      options: [
+        'Aboriginal peoples had treaty rights',
+        'Women were legally recognized as "persons" and could serve in the Senate',
+        'French Canadians had language rights outside Quebec',
+        'Canada had full independence in foreign policy'
+      ],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Samuel de Champlain is known as:',
+      options: ['The first Prime Minister of Canada', 'The Father of New France', 'The explorer who mapped the Arctic', 'The leader of the Patriote movement'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Canada\'s role at the Battle of the Atlantic (WWII) was to:',
+      options: [
+        'Lead the D-Day landings',
+        'Protect Allied supply convoys crossing the ocean to Britain',
+        'Liberate France with ground troops',
+        'Command the Pacific theatre against Japan'
+      ],
+      correct: 1, category: 'History'
+    },
+    // ── GOVERNMENT ────────────────────────────────────────────────────────
+    {
+      question: 'Who is Canada\'s head of state?',
+      options: ['The Prime Minister', 'The Governor General', 'The Sovereign (King Charles III)', 'The Chief Justice of Canada'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Who represents the Sovereign at the federal level in Canada?',
+      options: ['The Prime Minister', 'The Speaker of the Senate', 'The Governor General', 'The Chief Justice of Canada'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Who represents the Sovereign at the provincial level?',
+      options: ['The Premier', 'The Lieutenant Governor', 'The Attorney General', 'The Chief Justice of the province'],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'How many seats are in the Canadian Senate?',
+      options: ['50', '105', '308', '338'],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'How many seats are in the House of Commons?',
+      options: ['105', '265', '308', '338'],
+      correct: 3, category: 'Government'
+    },
+    {
+      question: 'What does "responsible government" mean in Canada?',
+      options: [
+        'The government must produce a balanced budget each year',
+        'The Cabinet must hold the confidence of a majority of elected MPs',
+        'The King personally approves all federal legislation',
+        'The Senate can veto any bill from the House of Commons'
+      ],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'Canada\'s system of government is best described as:',
+      options: [
+        'A republic with an elected president',
+        'A federal state with a parliamentary democracy and a constitutional monarchy',
+        'A unitary state governed by a prime minister and Senate',
+        'A direct democracy with regular national referendums'
+      ],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'Which of the following is a federal (not provincial) responsibility?',
+      options: ['Education', 'Health care delivery', 'National defence', 'Property and civil rights'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Which of the following is a provincial (not federal) responsibility?',
+      options: ['Currency and banking', 'National defence', 'Education', 'Criminal law'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'What is the role of the Cabinet in Canada\'s government?',
+      options: [
+        'To approve appointments to the Supreme Court',
+        'To lead the official opposition and hold the government accountable',
+        'A group of ministers chosen by the Prime Minister to head government departments',
+        'The full body of elected Members of Parliament'
+      ],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'What must happen for a bill to become law in Canada?',
+      options: [
+        'The Prime Minister signs it into law',
+        'It passes the House of Commons, the Senate, and receives Royal Assent',
+        'A national referendum must approve it',
+        'The Supreme Court reviews and approves it'
+      ],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'What is a minority government in Canada?',
+      options: [
+        'A government that won more than half of all seats',
+        'A government formed by a coalition of parties',
+        'The party with the most seats but fewer than half of all seats',
+        'A government appointed by the Governor General without an election'
+      ],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'What is the role of the Governor General?',
+      options: [
+        'To lead the federal government as head of government',
+        'To represent the Sovereign, grant Royal Assent to bills, and swear in the Prime Minister',
+        'To preside over debates in the House of Commons',
+        'To serve as the head of the Supreme Court'
+      ],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'Canada\'s three branches of government are:',
+      options: [
+        'Monarchy, Parliament, and Courts',
+        'Federal, provincial, and municipal',
+        'Executive, Legislative, and Judicial',
+        'Senate, Commons, and Governor General'
+      ],
+      correct: 2, category: 'Government'
+    },
+    // ── GEOGRAPHY ────────────────────────────────────────────────────────
+    {
+      question: 'What is the capital city of Canada?',
+      options: ['Toronto', 'Montreal', 'Ottawa', 'Vancouver'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What are Canada\'s three territories?',
+      options: [
+        'Alberta, Saskatchewan, and Manitoba',
+        'Yukon, Northwest Territories, and Nunavut',
+        'Nunavut, Labrador, and Yukon',
+        'British Columbia, Yukon, and Northwest Territories'
+      ],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'Which province has the largest population in Canada?',
+      options: ['British Columbia', 'Alberta', 'Quebec', 'Ontario'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Which province is the largest by land area?',
+      options: ['Ontario', 'British Columbia', 'Alberta', 'Quebec'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Which province is the smallest by area?',
+      options: ['Nova Scotia', 'New Brunswick', 'Prince Edward Island', 'Newfoundland and Labrador'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What is Nunavut, and when was it established?',
+      options: [
+        'A First Nations reserve, established in 1970',
+        'Canada\'s largest territory, created in 1999 as the Inuit homeland',
+        'A new province carved from Quebec in 1999',
+        'A territory established for Métis peoples in 1949'
+      ],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'Canada\'s largest trading partner is:',
+      options: ['China', 'The United Kingdom', 'Mexico', 'The United States'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Why are the Great Lakes important to Canada?',
+      options: [
+        'They form the natural border with Alaska',
+        'They are the main source of Canada\'s hydro-electric power',
+        'They contain fresh water and provide major waterways for trade',
+        'They are the site of the original French settlements'
+      ],
+      correct: 2, category: 'Geography'
+    },
+    // ── SYMBOLS & CULTURE ─────────────────────────────────────────────────
+    {
+      question: 'What is Canada\'s national animal?',
+      options: ['The moose', 'The loon', 'The beaver', 'The bison'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'When was the current Canadian flag (the Maple Leaf) adopted?',
+      options: ['1945', '1952', '1965', '1967'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'What are Canada\'s two official national sports?',
+      options: ['Football and basketball', 'Baseball and curling', 'Hockey (winter) and lacrosse (summer)', 'Soccer and hockey'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'What is Canada\'s national motto?',
+      options: ['"Peace, Order, and Good Government"', '"A Mari Usque Ad Mare" (From Sea to Sea)', '"My Home and Native Land"', '"True North, Strong and Free"'],
+      correct: 1, category: 'Symbols'
+    },
+    {
+      question: 'The Order of Canada is:',
+      options: [
+        'A military medal awarded for combat service',
+        'Canada\'s highest honour for outstanding achievement by civilians',
+        'An award given to all new citizens upon naturalization',
+        'A government decoration for elected officials'
+      ],
+      correct: 1, category: 'Symbols'
+    },
+    {
+      question: 'The national anthem "O Canada" was officially adopted in which year?',
+      options: ['1867', '1927', '1965', '1980'],
+      correct: 3, category: 'Symbols'
+    },
+    // ── ELECTIONS ─────────────────────────────────────────────────────────
+    {
+      question: 'What is a polling station?',
+      options: [
+        'The central office where election results are tallied',
+        'The office where candidates register to run',
+        'The place where eligible voters go to cast their ballot',
+        'The Elections Canada regional headquarters'
+      ],
+      correct: 2, category: 'Elections'
+    },
+    {
+      question: 'What is a returning officer?',
+      options: [
+        'The leader of a political party contesting an election',
+        'The official who administers the federal election in a riding',
+        'An MP who is re-elected to a second term',
+        'The head of Elections Canada nationally'
+      ],
+      correct: 1, category: 'Elections'
+    },
+    {
+      question: 'By law, how often must a federal election be held in Canada?',
+      options: ['Every two years', 'Every three years', 'At least every five years', 'At least every four years'],
+      correct: 3, category: 'Elections'
+    },
+    {
+      question: 'Which agency is responsible for administering federal elections in Canada?',
+      options: ['The Privy Council Office', 'The Department of Justice', 'Elections Canada', 'The Governor General\'s Office'],
+      correct: 2, category: 'Elections'
+    },
+    {
+      question: 'What is the role of the Leader of the Official Opposition?',
+      options: [
+        'To assist the Prime Minister in governing',
+        'To scrutinize the government and present an alternative platform',
+        'To chair debates in the Senate',
+        'To represent Canada in international negotiations'
+      ],
+      correct: 1, category: 'Elections'
+    },
+    // ── JUSTICE ───────────────────────────────────────────────────────────
+    {
+      question: 'What does "presumption of innocence" mean in Canadian law?',
+      options: [
+        'Police may detain anyone for questioning without charge',
+        'A person accused of a crime is innocent until proven guilty in court',
+        'The Crown must always accept a guilty plea',
+        'Citizens may not be arrested without a warrant'
+      ],
+      correct: 1, category: 'Justice'
+    },
+    {
+      question: 'If you are arrested in Canada, you have the right to:',
+      options: [
+        'Refuse to appear in court',
+        'Be tried within 24 hours',
+        'Remain silent and speak to a lawyer without delay',
+        'Request a trial by jury in all cases'
+      ],
+      correct: 2, category: 'Justice'
+    },
+    {
+      question: 'Who makes federal laws in Canada?',
+      options: ['The police and RCMP', 'Parliament (the House of Commons and Senate)', 'The Supreme Court of Canada', 'The Governor General acting alone'],
+      correct: 1, category: 'Justice'
+    },
+    {
+      question: 'A crime in Canada is considered an offence against:',
+      options: ['The individual victim only', 'The provincial government', 'Society as a whole', 'The federal Crown corporation'],
+      correct: 2, category: 'Justice'
+    },
+    {
+      question: 'If you cannot afford a lawyer, you should contact:',
+      options: ['Elections Canada', 'Legal Aid', 'The Senate', 'The Office of the Governor General'],
+      correct: 1, category: 'Justice'
+    }
   ],
 
   provinces: {

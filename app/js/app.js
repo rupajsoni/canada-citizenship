@@ -420,7 +420,7 @@
   }
 
   window.startTest = function () {
-    testQuestions = shuffle(Q_BANK).slice(0, EXAM.questions).map((q, i) => buildMcq(q, i, Q_BANK));
+    testQuestions = shuffle(Q_BANK).slice(0, EXAM.questions);
     testAnswers = {};
     testSecondsLeft = EXAM.minutes * 60;
     testFinished = false;
