@@ -254,7 +254,7 @@
       <div class="tab-bar">
         <button class="tab-btn${moduleTab === 'learn' ? ' active' : ''}" onclick="setModuleTab('learn')">Learn</button>
         <button class="tab-btn${moduleTab === 'cards' ? ' active' : ''}" onclick="setModuleTab('cards')">Flashcards</button>
-        <button class="tab-btn${moduleTab === 'quiz' ? ' active' : ''}" onclick="setModuleTab('quiz')">Check understanding</button>
+        <button class="tab-btn${moduleTab === 'quiz' ? ' active' : ''}" onclick="setModuleTab('quiz')">Practice</button>
       </div>
 
       ${panel}
@@ -329,9 +329,9 @@
     const score = mod.quiz.filter((q, i) => answers[i] === q.correct).length;
 
     return `
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Answer all questions without guessing randomly—this checks understanding before you move on.</p>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Exam-level practice questions for this topic. Answer each one, then review what you missed before moving on.</p>
       ${items}
-      ${allDone ? `<div class="callout callout-tip"><strong>Quiz complete</strong>You scored ${score} out of ${mod.quiz.length}. Review flashcards for any missed concepts.</div>` : ''}`;
+      ${allDone ? `<div class="callout callout-tip"><strong>Practice complete — ${score}/${mod.quiz.length}</strong>${score === mod.quiz.length ? ' Perfect score! You\'re ready to move on.' : score >= mod.quiz.length * 0.75 ? ' Strong result. Review the ones you missed, then move on.' : ' Keep reviewing — retake this drill until you\'re hitting 10/12 or better.'}</div>` : ''}`;
   }
 
   window.answerQuiz = function (modId, qIndex, optIndex) {
