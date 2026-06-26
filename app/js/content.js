@@ -522,9 +522,9 @@ window.COURSE = {
           title: 'Notable Canadians',
           type: 'list',
           items: [
-            'Lester B. Pearson also introduced Medicare as Prime Minister.',
-            'Terry Fox ran the Marathon of Hope (1980) to raise cancer awareness.',
-            '1919 Winnipeg General Strike: one of the largest labour actions in Canadian history.'
+            'Lester B. Pearson introduced Medicare and won the Nobel Peace Prize in 1957.',
+            'Terry Fox ran the Marathon of Hope (1980) to raise funds for cancer research.',
+            'Tommy Douglas, "the father of Medicare," introduced universal healthcare in Saskatchewan.'
           ]
         }
       ],

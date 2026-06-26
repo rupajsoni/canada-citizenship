@@ -206,11 +206,11 @@ a:hover{text-decoration:underline}
 }
 .fact-list{list-style:none}
 .fact-list li{
-  padding:12px 16px 12px 20px;border-bottom:1px solid var(--border);font-size:15px;line-height:1.6;color:var(--text);
+  padding:12px 16px 12px 24px;border-bottom:1px solid var(--border);font-size:15px;line-height:1.6;color:var(--text);
   position:relative;
 }
 .fact-list li:last-child{border-bottom:none}
-.fact-list li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.fact-list li::before{content:'';position:absolute;left:9px;top:20px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .fact-list li ul,.fact-list li ol{margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary)}
 .fact-list li li{padding:4px 0;border:none}
 .fact-list li li::before{display:none}
@@ -1051,4 +1051,34 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
   45%{transform:translateX(8px)}
   65%{transform:translateX(-5px)}
   85%{transform:translateX(5px)}
+}
+
+/* ── Timeline reference list (All Years tab) ─────────────── */
+.tl-ref-list{
+  border:1px solid var(--border);border-radius:var(--radius-md);
+  overflow:hidden;background:var(--surface);
+}
+.tl-ref-row{
+  display:flex;align-items:baseline;gap:16px;
+  padding:11px 16px;border-bottom:1px solid var(--border-light);
+  border-left:3px solid transparent;transition:background .12s;
+}
+.tl-ref-row:last-child{border-bottom:none}
+.tl-ref-row:hover{background:#fafafa}
+.tl-ref-row.exam-key{border-left-color:var(--accent)}
+.tl-ref-year{
+  font-family:'SF Mono','Fira Code',ui-monospace,monospace;
+  font-size:13px;font-weight:700;color:var(--text);
+  min-width:38px;flex-shrink:0;
+}
+.tl-ref-event{flex:1;font-size:14px;color:var(--text-secondary);line-height:1.45}
+.tl-ref-row.exam-key .tl-ref-event{color:var(--text)}
+.tl-ref-badge{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--accent);background:var(--accent-soft);
+  padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap;
+}
+.tl-ref-legend{
+  font-size:12px;color:var(--text-muted);margin-top:12px;
+  display:flex;align-items:center;gap:8px;
 }

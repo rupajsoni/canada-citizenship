@@ -66,19 +66,34 @@
     "Voting in federal elections is free and takes about 5 minutes — find your polling station at elections.ca.",
     "Newfoundland has its own time zone — it's 30 minutes ahead of Atlantic Standard Time. ⏰",
   ];
+  // exam:true = confirmed high-frequency in IRCC citizenship test
   const TIMELINE_PAIRS = [
     { year: '1497', event: 'John Cabot reaches the east coast of Canada' },
-    { year: '1608', event: 'Samuel de Champlain founds Quebec City' },
-    { year: '1759', event: 'Battle of the Plains of Abraham — British defeat French' },
-    { year: '1867', event: 'Confederation — Canada becomes a country' },
-    { year: '1885', event: 'Canadian Pacific Railway completed' },
+    { year: '1534', event: 'Jacques Cartier sails up the St. Lawrence River' },
+    { year: '1608', event: 'Samuel de Champlain founds Quebec City', exam: true },
+    { year: '1759', event: 'Battle of the Plains of Abraham — British defeat French', exam: true },
+    { year: '1812', event: 'War of 1812 — Canada repels American invasion', exam: true },
+    { year: '1867', event: 'Confederation — Canada becomes a country', exam: true },
+    { year: '1869', event: 'Red River Resistance — Louis Riel defends Métis rights' },
+    { year: '1873', event: 'RCMP founded; Prince Edward Island joins Canada', exam: true },
+    { year: '1885', event: 'Canadian Pacific Railway completed; Northwest Resistance' },
+    { year: '1896', event: 'Wilfrid Laurier — first French-Canadian Prime Minister', exam: true },
     { year: '1905', event: 'Alberta and Saskatchewan join Confederation' },
-    { year: '1914', event: 'Canada enters the First World War' },
-    { year: '1939', event: 'Canada enters the Second World War' },
-    { year: '1949', event: 'Newfoundland and Labrador joins Canada' },
-    { year: '1965', event: 'The Maple Leaf flag is adopted' },
-    { year: '1982', event: 'Charter of Rights and Freedoms is enacted' },
-    { year: '1999', event: 'Nunavut becomes Canada\'s newest territory' },
+    { year: '1914', event: 'Canada enters the First World War', exam: true },
+    { year: '1917', event: 'Battle of Vimy Ridge — defining moment for Canada', exam: true },
+    { year: '1918', event: 'Women gain the right to vote in federal elections', exam: true },
+    { year: '1929', event: 'The Famous Five — women declared "persons" under law', exam: true },
+    { year: '1931', event: 'Statute of Westminster — Canada fully self-governing', exam: true },
+    { year: '1939', event: 'Canada enters the Second World War', exam: true },
+    { year: '1944', event: 'D-Day — Canadian forces land at Juno Beach', exam: true },
+    { year: '1947', event: 'Canadian Citizenship Act — the word "citizen" first used', exam: true },
+    { year: '1949', event: 'Newfoundland and Labrador joins Canada', exam: true },
+    { year: '1960', event: 'Indigenous peoples gain the right to vote', exam: true },
+    { year: '1965', event: 'The Maple Leaf flag is adopted', exam: true },
+    { year: '1969', event: 'Official Languages Act — English and French made equal', exam: true },
+    { year: '1971', event: 'Canada adopts the world\'s first multiculturalism policy', exam: true },
+    { year: '1982', event: 'Charter of Rights and Freedoms is enacted', exam: true },
+    { year: '1999', event: 'Nunavut becomes Canada\'s newest territory', exam: true },
   ];
 
   const STORAGE_KEY = 'ca-citizenship-v6';
@@ -95,6 +110,7 @@
 
   let testQuestions = [];
   let tlState = null;
+  let tlTab = 'ref';
   let testAnswers = {};
   let testTimer = null;
   let testSecondsLeft = EXAM.minutes * 60;
@@ -203,12 +219,15 @@
 
     html += '<div class="nav-section">Visual</div>';
     html += navItem('map', '🗺', 'Canada Map', 'Geography & regions', view === 'map');
+    html += navItem('timeline', '📅', 'The Big Picture', 'History · timeline match', view === 'timeline');
 
     html += '<div class="nav-section">Practice</div>';
     html += navItem('test', '⏱', 'Practice Exam', 'Timed simulation', view === 'test');
-    html += navItem('timeline', '📅', 'Timeline Match', 'Drag years to events', view === 'timeline');
     const count = testHistory().length;
     html += navItem('results', '◷', 'Results', 'Score history', view === 'results', count || '');
+
+    html += '<div class="nav-section">About</div>';
+    html += navItem('about', 'ℹ', 'About Northbound', 'How it works & FAQ', view === 'about');
 
     document.getElementById('sidebar-nav').innerHTML = html;
   }
@@ -879,7 +898,7 @@
         <div class="support-leaf">🍁</div>
         <h2 class="support-heading" id="support-heading">You're ready.</h2>
         <p class="support-body">You just hit passing on a full practice exam. The lessons, the flashcards, all of it — it's working. You put in the work.</p>
-        <p class="support-ask">This guide is free and always will be. If it helped you get here, you decide what it's worth.</p>
+        <p class="support-ask">This guide is free to use. If it helped you get here, you decide what it's worth.</p>
         <div class="support-slider-section">
           <input type="range" id="support-slider" class="support-slider" min="0" max="50" value="10" step="1">
           <div class="support-marks"><span>Free</span><span>$10</span><span>$25</span><span>$50</span></div>
@@ -984,15 +1003,28 @@
   }
 
   function initTimeline() {
+    const examPairs = TIMELINE_PAIRS.filter(p => p.exam);
     tlState = {
-      pairs: shuffle(TIMELINE_PAIRS),
-      years: shuffle(TIMELINE_PAIRS.map(p => p.year)),
+      pairs: shuffle(examPairs),
+      years: shuffle(examPairs.map(p => p.year)),
       solved: new Set(),
       selected: null,
     };
   }
 
-  function renderTimeline() {
+  function renderTlRef() {
+    const rows = TIMELINE_PAIRS.map(p =>
+      `<div class="tl-ref-row${p.exam ? ' exam-key' : ''}">
+        <div class="tl-ref-year">${p.year}</div>
+        <div class="tl-ref-event">${escapeHtml(p.event)}</div>
+        ${p.exam ? '<div class="tl-ref-badge">exam</div>' : ''}
+      </div>`
+    ).join('');
+    return `<div class="tl-ref-list">${rows}</div>
+      <div class="tl-ref-legend"><span class="tl-ref-badge">exam</span> — high-frequency in the IRCC citizenship test</div>`;
+  }
+
+  function renderTlMatch() {
     if (!tlState) initTimeline();
     const { pairs, years, solved, selected } = tlState;
     const allSolved = solved.size === pairs.length;
@@ -1017,37 +1049,45 @@
       </div>`;
     }).join('');
 
-    document.getElementById('page').innerHTML = `
-      <div class="hero-block">
-        <div class="eyebrow">Interactive practice</div>
-        <h1 class="page-title">Timeline Match</h1>
-        <p class="page-lead">Tap a year to select it, then tap its matching event.</p>
-      </div>
-
+    return `
       ${allSolved ? `<div class="tl-success-banner">
         🎉 All ${pairs.length} dates matched — Canadian history unlocked.
         <button class="btn btn-secondary" style="margin-left:16px" onclick="tlReset()">Play again</button>
       </div>` : ''}
-
       <div class="tl-pool-card">
         <div class="tl-pool-label">Select a year</div>
         <div class="tl-pool">${chips}</div>
       </div>
-
       <div class="tl-progress-row">
         <div class="tl-progress-track"><div class="tl-progress-fill" style="width:${pct}%"></div></div>
         <div class="tl-progress-label">${solved.size} <span>/ ${pairs.length}</span></div>
       </div>
-
       <div class="tl-events-list">${rows}</div>
-
       <div class="tl-hint">
         ${selected
           ? `<span class="tl-hint-active"><em>${selected}</em> selected — now tap its event</span>`
           : allSolved ? `<span>All matched. Well done.</span>` : `<span>Tap a year above to begin</span>`}
+      </div>`;
+  }
+
+  function renderTimeline() {
+    const tabBar = `<div class="tab-bar" style="margin-bottom:24px">
+      <button class="tab-btn${tlTab === 'ref' ? ' active' : ''}" onclick="tlSetTab('ref')">All Years</button>
+      <button class="tab-btn${tlTab === 'match' ? ' active' : ''}" onclick="tlSetTab('match')">Match Game</button>
+    </div>`;
+
+    document.getElementById('page').innerHTML = `
+      <div class="hero-block">
+        <div class="eyebrow">Visual study</div>
+        <h1 class="page-title">The Big Picture</h1>
+        <p class="page-lead">26 dates that shaped Canada — read them, then test yourself.</p>
       </div>
+      ${tabBar}
+      ${tlTab === 'ref' ? renderTlRef() : renderTlMatch()}
     `;
   }
+
+  window.tlSetTab = function(tab) { tlTab = tab; renderTimeline(); };
 
   window.tlSelectYear = function(year) {
     if (!tlState || tlState.solved.has(year)) return;
@@ -1092,6 +1132,80 @@
     else if (view === 'results') renderResults();
     else if (view === 'map') renderMap();
     else if (view === 'timeline') renderTimeline();
+    else if (view === 'about') renderAbout();
+  }
+
+  function renderAbout() {
+    document.getElementById('page').innerHTML = `
+      <div class="hero-block">
+        <div class="eyebrow">About</div>
+        <h1 class="page-title">How Northbound works</h1>
+        <p class="page-lead">Built on the official <em>Discover Canada</em> guide. Free for everyone — no account, no paywall.</p>
+      </div>
+
+      <div class="card card-pad" style="margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">The study loop</h2>
+        <div class="fact-list" style="border:1px solid var(--border);border-radius:var(--radius)">
+          <ul style="list-style:none">
+            <li><strong>Read the lesson</strong> — each of the 10 modules covers a topic from the official study guide, structured for comprehension not memorisation.</li>
+            <li><strong>Flashcards (active recall)</strong> — flip and recall. Proven to outperform re-reading. Every module has its own deck.</li>
+            <li><strong>Module quiz</strong> — graded before you move on. Your score is saved and visible on the dashboard. You don't self-report whether you learned it.</li>
+            <li><strong>Practice exam</strong> — 20 questions, timed, same pass mark (75%) as the official IRCC test. No format surprises on the day.</li>
+            <li><strong>Topic breakdown</strong> — every exam returns a per-category score. You see exactly where you dropped points and which lesson to revisit.</li>
+            <li><strong>Readiness score</strong> — rolling average of your last 3 practice exams. Tells you when you're ready. Not a feeling — a number.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:16px;gap:12px;display:grid;grid-template-columns:1fr 1fr">
+        <div class="card card-pad">
+          <div style="font-size:22px;margin-bottom:8px">🗺</div>
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Interactive Canada map</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Provinces, territories, regions, Indigenous peoples. Geography questions require spatial memory — this builds it.</div>
+        </div>
+        <div class="card card-pad">
+          <div style="font-size:22px;margin-bottom:8px">📅</div>
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Timeline drill</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Match 12 key dates to historical events. Tests sequence memory, which passive reading doesn't.</div>
+        </div>
+      </div>
+
+      <div class="card card-pad" style="margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">FAQ</h2>
+        <div class="fact-list" style="border:1px solid var(--border);border-radius:var(--radius)">
+          <ul style="list-style:none">
+            <li>
+              <strong>Is this affiliated with IRCC or the Government of Canada?</strong><br>
+              <span style="color:var(--text-secondary)">No. Northbound is an independent tool. All content is drawn from the official <em>Discover Canada</em> guide published by IRCC, but we are not affiliated with or endorsed by the Government of Canada.</span>
+            </li>
+            <li>
+              <strong>Is it really free?</strong><br>
+              <span style="color:var(--text-secondary)">Yes. Every feature — lessons, flashcards, practice exams, results history, readiness score — is free. If it helps you pass, you can choose to support it. No pressure, no gate.</span>
+            </li>
+            <li>
+              <strong>Do I need to create an account?</strong><br>
+              <span style="color:var(--text-secondary)">No. Your progress is saved locally on your device. Open it on your phone, close the tab, come back later — nothing is lost.</span>
+            </li>
+            <li>
+              <strong>How accurate is the content?</strong><br>
+              <span style="color:var(--text-secondary)">Every fact is traceable to the official <em>Discover Canada</em> guide (2024 format). The practice exam uses the same question count, time limit, and pass mark as the real test.</span>
+            </li>
+            <li>
+              <strong>What does the readiness score mean?</strong><br>
+              <span style="color:var(--text-secondary)">It's a rolling average of your last 3 practice exams. Green (≥75%) means you're consistently hitting the pass mark. Yellow (60–74%) means you're close — review the topics you dropped points on. Red (&lt;60%) means more study time is needed.</span>
+            </li>
+            <li>
+              <strong>How is this different from other prep sites?</strong><br>
+              <span style="color:var(--text-secondary)">Most prep tools are question banks. Northbound has a structured study loop — lesson, recall, quiz, exam, diagnosis, repeat. It tracks where you are, tells you what to do next, and shows you when you're ready.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <strong>Built by someone who went through this.</strong>
+        Independent. Not affiliated with IRCC or the Government of Canada.
+      </div>`;
   }
 
   function closeSidebar() {
