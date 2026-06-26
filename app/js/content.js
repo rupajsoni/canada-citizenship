@@ -56,6 +56,16 @@ window.COURSE = {
             'Help others in the community',
             'Defend Canada if the need should ever arise'
           ]
+        },
+        {
+          title: 'The Oath of Citizenship',
+          type: 'list',
+          items: [
+            'New citizens take the Oath of Citizenship at a citizenship ceremony.',
+            'The Oath pledges allegiance to "His Majesty King Charles the Third, King of Canada, His Heirs and Successors."',
+            'It commits to faithfully observing the laws of Canada, including the Constitution, which recognizes and affirms the Aboriginal and treaty rights of First Nations, Métis and Inuit peoples.',
+            'In 2021, the Oath was updated to explicitly include a reference to Indigenous peoples and their rights — the first change in over 60 years.'
+          ]
         }
       ],
       flashcards: [
@@ -68,7 +78,9 @@ window.COURSE = {
         { front: 'Name the six categories of rights in the Charter.', back: 'Fundamental freedoms, democratic rights, mobility rights, legal rights, equality rights, and language rights.' },
         { front: 'What are two responsibilities of Canadian citizens?', back: 'Obey the law, pay taxes, vote, serve on jury, respect others\' rights, and help defend Canada.' },
         { front: 'Which section of the Constitution protects Aboriginal and treaty rights?', back: 'Section 35 of the Constitution Act, 1982.' },
-        { front: 'What does the "equality rights" category protect against?', back: 'Discrimination based on race, national or ethnic origin, colour, religion, sex, age, or mental or physical disability.' }
+        { front: 'What does the "equality rights" category protect against?', back: 'Discrimination based on race, national or ethnic origin, colour, religion, sex, age, or mental or physical disability.' },
+        { front: 'What does the Oath of Citizenship pledge?', back: 'Allegiance to His Majesty King Charles the Third and faithful observance of Canada\'s laws, including the Constitution which recognizes Aboriginal and treaty rights.' },
+        { front: 'When was the Oath of Citizenship updated to include Indigenous peoples?', back: '2021 — the Oath was amended to explicitly recognize Aboriginal and treaty rights of First Nations, Métis and Inuit peoples.' }
       ],
       quiz: [
         {
@@ -130,6 +142,26 @@ window.COURSE = {
           question: 'Which statement about the Canadian Charter of Rights and Freedoms is true?',
           options: ['It applies only to federal government actions', 'It was enacted in 1867', 'It protects rights and freedoms from government interference', 'It replaced the Bill of Rights in 1965'],
           correct: 2
+        },
+        {
+          question: 'What does the Oath of Citizenship require new Canadians to pledge?',
+          options: [
+            'Allegiance to the Prime Minister and the Canadian constitution',
+            'Allegiance to His Majesty King Charles the Third and faithful observance of Canada\'s laws',
+            'Allegiance to the Canadian people and a commitment to vote in all elections',
+            'Allegiance to the Crown and agreement to pay Canadian taxes'
+          ],
+          correct: 1
+        },
+        {
+          question: 'When was the Oath of Citizenship last updated, and what was added?',
+          options: [
+            '1982 — the Charter of Rights was added',
+            '1965 — the maple leaf was added as a symbol',
+            '2021 — explicit recognition of Indigenous peoples and treaty rights was added',
+            '1999 — reference to Nunavut as a new territory was added'
+          ],
+          correct: 2
         }
       ]
     },
@@ -159,8 +191,10 @@ window.COURSE = {
           title: 'Residential schools and reconciliation',
           type: 'list',
           items: [
-            'Residential schools were part of a harmful assimilation policy—a significant and painful chapter in Canadian history.',
-            'Understanding this history is part of knowing who Canada is today.'
+            'Residential schools were government-funded, church-run schools that forcibly separated Indigenous children from their families — a deeply harmful assimilation policy.',
+            'The Truth and Reconciliation Commission (TRC) documented this history and released 94 Calls to Action in 2015, calling on governments and institutions to advance reconciliation.',
+            'Canada endorsed the United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP) in 2016.',
+            'Every September 30 is the National Day for Truth and Reconciliation (Orange Shirt Day), a federal statutory holiday since 2021.'
           ]
         },
         {
@@ -182,7 +216,9 @@ window.COURSE = {
         { front: 'Where do Inuit peoples primarily live?', back: 'In the Arctic regions, including Nunavut, NWT, northern Quebec, and Labrador.' },
         { front: 'What was the purpose of residential schools?', back: 'A government policy to forcibly assimilate Indigenous children — a deeply harmful chapter in Canadian history.' },
         { front: 'What does the Canadian Multiculturalism Act (1988) recognize?', back: 'That cultural diversity is a fundamental characteristic and value of Canadian society.' },
-        { front: 'What international group of French-speaking nations does Canada belong to?', back: 'La Francophonie.' }
+        { front: 'What international group of French-speaking nations does Canada belong to?', back: 'La Francophonie.' },
+        { front: 'What are the TRC\'s 94 Calls to Action?', back: 'Recommendations released in 2015 by the Truth and Reconciliation Commission, calling on governments and institutions to advance reconciliation with Indigenous peoples.' },
+        { front: 'When is the National Day for Truth and Reconciliation?', back: 'September 30 (also known as Orange Shirt Day). It became a federal statutory holiday in 2021.' }
       ],
       quiz: [
         {
@@ -243,6 +279,21 @@ window.COURSE = {
         {
           question: '"First Nations" refers to:',
           options: ['Only Inuit peoples of the Arctic', 'All Aboriginal peoples together', 'Indigenous peoples who are neither Métis nor Inuit', 'People who arrived in Canada before Confederation'],
+          correct: 2
+        },
+        {
+          question: 'What did the Truth and Reconciliation Commission (TRC) produce in 2015?',
+          options: [
+            'A constitutional amendment recognizing Indigenous self-government',
+            '94 Calls to Action urging governments and institutions to advance reconciliation',
+            'A formal apology signed by all provincial premiers',
+            'A new treaty framework for Indigenous land claims'
+          ],
+          correct: 1
+        },
+        {
+          question: 'When is the National Day for Truth and Reconciliation observed in Canada?',
+          options: ['July 1', 'November 11', 'September 30', 'June 21'],
           correct: 2
         }
       ]
@@ -650,8 +701,8 @@ window.COURSE = {
           title: 'How Canada is governed',
           type: 'cards',
           cards: [
-            { tag: 'Head of state', title: 'The Sovereign', body: 'King Charles III, represented federally by the Governor General and provincially by Lieutenant Governors.' },
-            { tag: 'Head of government', title: 'Prime Minister', body: 'Leader of the party with the most seats in the House of Commons.' },
+            { tag: 'Head of state', title: 'The Sovereign', body: 'King Charles III, represented federally by the Governor General (currently Mary Simon) and provincially by Lieutenant Governors.' },
+            { tag: 'Head of government', title: 'Prime Minister', body: 'Leader of the party with the most seats in the House of Commons. Currently: Mark Carney (Liberal Party), sworn in March 2025.' },
             { tag: 'Parliament', title: 'Three parts', body: 'The Crown, the Senate (105 senators), and the House of Commons (338 elected Members).' }
           ]
         },
@@ -685,6 +736,8 @@ window.COURSE = {
       ],
       flashcards: [
         { front: 'Who is Canada\'s head of state?', back: 'The Sovereign (King Charles III).' },
+        { front: 'Who is the current Governor General of Canada?', back: 'Mary Simon, appointed July 2021 — the first Indigenous person to serve as Governor General.' },
+        { front: 'Who is the current Prime Minister of Canada?', back: 'Mark Carney (Liberal Party), sworn in as Prime Minister in March 2025.' },
         { front: 'Who is Canada\'s head of government?', back: 'The Prime Minister.' },
         { front: 'What are the three parts of Parliament?', back: 'The Crown, the Senate (105 senators), and the House of Commons (338 Members).' },
         { front: 'How many senators does Canada have?', back: '105.' },
@@ -779,6 +832,26 @@ window.COURSE = {
             'Provide "sober second thought" on legislation',
             'Approve appointments to the Supreme Court'
           ],
+          correct: 2
+        },
+        {
+          question: 'Who is the current Governor General of Canada?',
+          options: ['David Johnston', 'Julie Payette', 'Mary Simon', 'Adrienne Clarkson'],
+          correct: 2
+        },
+        {
+          question: 'What is historically significant about Mary Simon\'s appointment as Governor General in 2021?',
+          options: [
+            'She is the first woman to serve as Governor General',
+            'She is the first Indigenous person to serve as Governor General',
+            'She is the first Governor General born outside Canada',
+            'She is the youngest Governor General in Canadian history'
+          ],
+          correct: 1
+        },
+        {
+          question: 'Who is the current Prime Minister of Canada?',
+          options: ['Justin Trudeau', 'Pierre Poilievre', 'Mark Carney', 'Jagmeet Singh'],
           correct: 2
         }
       ]
@@ -1135,6 +1208,18 @@ window.COURSE = {
             { title: 'Peace Tower', body: 'Central tower of Parliament; Memorial Chamber honours war dead.' },
             { title: 'Remembrance Day', body: 'November 11—the poppy is the symbol of remembrance.' }
           ]
+        },
+        {
+          title: 'Key Canadian holidays',
+          type: 'table',
+          headers: ['Holiday', 'Date', 'What it marks'],
+          rows: [
+            ['Canada Day', 'July 1', 'Anniversary of Confederation — Canada became a country on July 1, 1867'],
+            ['Victoria Day', 'Monday before May 25', 'Honours Queen Victoria; also celebrates the current Sovereign\'s birthday'],
+            ['Remembrance Day', 'November 11', 'Remembers Canadians who died in war; the poppy is worn'],
+            ['National Indigenous Peoples Day', 'June 21', 'Celebrates the heritage, cultures, and contributions of Indigenous peoples'],
+            ['Truth and Reconciliation Day', 'September 30 (Orange Shirt Day)', 'Federal holiday since 2021; honours residential school survivors']
+          ]
         }
       ],
       flashcards: [
@@ -1146,7 +1231,10 @@ window.COURSE = {
         { front: 'What is Canada\'s national animal?', back: 'The beaver.' },
         { front: 'What is Canada\'s national motto?', back: '"A Mari Usque Ad Mare" — "From Sea to Sea."' },
         { front: 'What is the Victoria Cross?', back: 'Canada\'s highest military decoration for bravery in battle.' },
-        { front: 'How many points does the maple leaf on the Canadian flag have?', back: '11 points.' }
+        { front: 'How many points does the maple leaf on the Canadian flag have?', back: '11 points.' },
+        { front: 'What is celebrated on July 1?', back: 'Canada Day — the anniversary of Confederation (July 1, 1867, when Canada became a country).' },
+        { front: 'What does Victoria Day celebrate?', back: 'The birthday of Queen Victoria and, by tradition, the birthday of the reigning Sovereign. Held on the Monday before May 25.' },
+        { front: 'When is National Indigenous Peoples Day?', back: 'June 21 — celebrates the heritage, cultures, and contributions of Indigenous peoples of Canada.' }
       ],
       quiz: [
         {
@@ -1223,6 +1311,26 @@ window.COURSE = {
           question: 'The flag of Canada is predominantly which two colours?',
           options: ['Blue and white', 'Green and white', 'Red and white', 'Blue and red'],
           correct: 2
+        },
+        {
+          question: 'What does Canada Day (July 1) celebrate?',
+          options: [
+            'The end of World War II',
+            'The birthday of Queen Victoria',
+            'The anniversary of Confederation — Canada becoming a country in 1867',
+            'The adoption of the Canadian flag in 1965'
+          ],
+          correct: 2
+        },
+        {
+          question: 'What does Victoria Day celebrate?',
+          options: [
+            'Canada\'s first Confederation agreement',
+            'The birthday of Queen Victoria and the reigning Sovereign',
+            'The founding of the City of Victoria, British Columbia',
+            'Canada\'s victory in World War I'
+          ],
+          correct: 1
         }
       ]
     },
@@ -2411,6 +2519,58 @@ window.COURSE = {
       correct: 1, category: 'Geography'
     },
 
+    // Current Leaders & Oath
+    {
+      question: 'Who is the current Prime Minister of Canada?',
+      options: ['Justin Trudeau', 'Pierre Poilievre', 'Mark Carney', 'Jagmeet Singh'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Who is the current Governor General of Canada?',
+      options: ['Julie Payette', 'David Johnston', 'Adrienne Clarkson', 'Mary Simon'],
+      correct: 3, category: 'Government'
+    },
+    {
+      question: 'What is historically significant about Mary Simon, appointed Governor General in 2021?',
+      options: [
+        'She is the first woman to serve as Governor General',
+        'She is the first person born outside Canada to serve as Governor General',
+        'She is the first Indigenous person to serve as Governor General',
+        'She is the youngest Governor General in Canadian history'
+      ],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'What party does Prime Minister Mark Carney lead?',
+      options: ['Conservative Party', 'New Democratic Party', 'Liberal Party', 'Green Party'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'What does the Oath of Citizenship require new Canadians to pledge?',
+      options: [
+        'Allegiance to the Prime Minister and the Parliament of Canada',
+        'Allegiance to His Majesty the King and faithful observance of Canada\'s laws',
+        'Allegiance to the Canadian people and a commitment to vote in all elections',
+        'Allegiance to Canada and agreement to pay federal taxes'
+      ],
+      correct: 1, category: 'Rights'
+    },
+    {
+      question: 'What significant change was made to the Oath of Citizenship in 2021?',
+      options: [
+        'It dropped the pledge to the King and referred only to Canada',
+        'It added explicit recognition of Indigenous peoples and Aboriginal treaty rights',
+        'It required new citizens to pledge in both official languages',
+        'It added a commitment to serve in the Canadian Armed Forces'
+      ],
+      correct: 1, category: 'Rights'
+    },
+    {
+      question: 'When did the National Day for Truth and Reconciliation (Orange Shirt Day) become a federal statutory holiday?',
+      options: ['2015', '2018', '2021', '2022'],
+      correct: 2, category: 'History'
+    },
+
     // Symbols & Culture
     {
       question: 'What are the first words of Canada\'s national anthem?',
@@ -2446,6 +2606,21 @@ window.COURSE = {
       question: 'Which provincial flag features the fleur-de-lys?',
       options: ['New Brunswick', 'Manitoba', 'Ontario', 'Quebec'],
       correct: 3, category: 'Symbols'
+    },
+    {
+      question: 'What does Canada Day (July 1) commemorate?',
+      options: ['The adoption of the Canadian flag', 'Canada\'s victory in World War II', 'The anniversary of Confederation in 1867', 'The birthday of Queen Victoria'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'What does Victoria Day honour?',
+      options: ['Queen Victoria\'s birthday and the birthday of the reigning Sovereign', 'The founding of Victoria, British Columbia', 'Canada\'s first federal election', 'The signing of the BNA Act'],
+      correct: 0, category: 'Symbols'
+    },
+    {
+      question: 'When is National Indigenous Peoples Day?',
+      options: ['July 1', 'June 21', 'September 30', 'October 11'],
+      correct: 1, category: 'Symbols'
     }
   ],
 

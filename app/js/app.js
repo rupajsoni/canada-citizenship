@@ -428,7 +428,7 @@
       if (answered) {
         feedback = chosen === q.correct
           ? '<div class="quiz-feedback ok">Correct—well done.</div>'
-          : `<div class="quiz-feedback no">Not quite. The correct answer is: ${escapeHtml(q.options[q.correct])}</div>`;
+          : `<div class="quiz-feedback no">The correct answer is: <strong>${escapeHtml(q.options[q.correct])}</strong>${q.explanation ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : ''}</div>`;
       }
       return `<div class="card quiz-item"><div class="quiz-q">${i + 1}. ${escapeHtml(q.question)}</div><div class="quiz-options">${opts}</div>${feedback}</div>`;
     }).join('');
@@ -567,10 +567,13 @@
         }
         return `<button class="${cls}" onclick="answerTest(${i},${oi})" ${chosen !== undefined ? 'disabled' : ''}>${escapeHtml(opt)}</button>`;
       }).join('');
+      const explanation = (chosen !== undefined && chosen !== q.correct && q.explanation)
+        ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : '';
       return `<div class="card mcq-card">
         <div class="mcq-category">${escapeHtml(q.category)}</div>
         <div class="mcq-question">Question ${i + 1}. ${escapeHtml(q.question)}</div>
         <div class="quiz-options">${opts}</div>
+        ${explanation}
       </div>`;
     }).join('');
 
@@ -613,7 +616,7 @@
     const wrongItems = testQuestions
       .filter((q, i) => testAnswers[i] !== q.correct)
       .slice(0, 6)
-      .map(q => ({ question: q.question, answer: q.options[q.correct], category: q.category }));
+      .map(q => ({ question: q.question, answer: q.options[q.correct], category: q.category, explanation: q.explanation || '' }));
     addTestResult({
       date: new Date().toLocaleDateString('en-CA'),
       score, total: testQuestions.length, time: timeTaken, breakdown, wrongItems
@@ -650,6 +653,7 @@
           ${wrongs.map(w => `<div class="wrong-item">
             <div class="wrong-q">${escapeHtml(w.question)}</div>
             <div class="wrong-a">${escapeHtml(w.answer)}</div>
+            ${w.explanation ? `<div class="wrong-explanation">${escapeHtml(w.explanation)}</div>` : ''}
           </div>`).join('')}
         </div>` : '';
 

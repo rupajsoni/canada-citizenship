@@ -258,6 +258,16 @@ a:hover{text-decoration:underline}
 .quiz-feedback{margin-top:12px;font-size:14px;font-weight:500;padding:10px 14px;border-radius:var(--radius-sm)}
 .quiz-feedback.ok{background:var(--success-soft);color:var(--success)}
 .quiz-feedback.no{background:var(--error-soft);color:var(--error)}
+.quiz-explanation{
+  font-size:13px;font-weight:400;color:var(--text-secondary);
+  margin-top:8px;padding:9px 11px;
+  background:rgba(0,0,0,.04);border-radius:6px;
+  border-left:3px solid rgba(0,0,0,.12);line-height:1.55;
+}
+.wrong-explanation{
+  font-size:12px;color:var(--text-muted);margin-top:3px;
+  line-height:1.5;font-style:italic;
+}
 
 /* ── Module footer ── */
 .module-footer{
