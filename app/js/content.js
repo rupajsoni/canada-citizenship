@@ -2193,6 +2193,259 @@ window.COURSE = {
       question: 'What is "habeas corpus" in Canadian law?',
       options: ['The right to a speedy trial within 24 hours', 'The right not to be held in prison without just cause', 'The right to confront witnesses in open court', 'The right to refuse to testify against oneself'],
       correct: 1, category: 'Justice'
+    },
+
+    // ── RICHMOND HILL LIBRARY Q-BANK — gap fill ───────────────────────────
+    // History
+    {
+      question: 'Approximately how many Canadians served in the First World War?',
+      options: ['About 7,000', 'About 60,000', 'More than 600,000', '8 million'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Quebec experienced an era of rapid change in the 1960s. What is this called?',
+      options: ['The West Movement', 'The Quiet Revolution', 'La Francophonie', 'The Referendum'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What is the significance of the discovery of insulin by Sir Frederick Banting and Charles Best?',
+      options: ['It cured all forms of diabetes permanently', 'It has saved millions of lives worldwide', 'It was Canada\'s first medical export', 'It won Canada its first Nobel Prize'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who are the Acadians?',
+      options: ['Aboriginal peoples of the Arctic', 'Descendants of French colonists who settled in the Maritime provinces beginning in 1604', 'English-speaking Loyalists who came from the United States', 'Métis people of the Prairie provinces'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who is considered the Father of Manitoba?',
+      options: ['Sir John A. Macdonald', 'Sam Steele', 'George-Étienne Cartier', 'Louis Riel'],
+      correct: 3, category: 'History'
+    },
+    {
+      question: 'Who was General Sir Arthur Currie?',
+      options: ['A military leader of the Métis in the 19th century', 'The founder of the RCMP', 'Canada\'s greatest soldier in the First World War', 'The first Canadian to win the Victoria Cross'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Who led Quebec into Confederation?',
+      options: ['Sir Wilfrid Laurier', 'Sir John A. Macdonald', 'Sir George-Étienne Cartier', 'Sir Louis-Hippolyte La Fontaine'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Who was Sir Louis-Hippolyte La Fontaine?',
+      options: ['The first French-Canadian Prime Minister of Canada', 'A champion of democracy and French language rights, and first leader of a responsible government in the Canadas', 'The leader of the Quiet Revolution in Quebec', 'Canada\'s first Governor General'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who was Sir Sam Steele?',
+      options: ['A Métis leader in the Northwest Resistance', 'A great frontier hero, Mounted Policeman and soldier of Canada', 'The Father of Manitoba', 'Canada\'s first Minister of Justice'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'Who were the Voyageurs?',
+      options: ['Explorers who searched for the Northwest Passage', 'Montreal-based traders who travelled by canoe through Canada\'s interior', 'European immigrants who arrived in the 1700s', 'Settlers who came during the Klondike Gold Rush'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What did the Constitutional Act of 1791 establish?',
+      options: ['The Canadian Charter of Rights and Freedoms', 'The Dominion of Canada', 'Legislative assemblies elected by the people, dividing Canada into Upper and Lower Canada', 'Equal rights for women in Canada'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'When did the British North America Act come into effect, creating the Dominion of Canada?',
+      options: ['1763', '1791', '1867', '1931'],
+      correct: 2, category: 'History'
+    },
+
+    // Government
+    {
+      question: 'What is a law called before it is officially passed?',
+      options: ['A decree', 'A bill', 'A statute', 'A mandate'],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'What do you promise when you take the Oath of Citizenship?',
+      options: ['To learn both official languages fluently', 'To pledge allegiance to the King, observe the laws of Canada, and fulfil the duties of a Canadian citizen', 'To renounce all other citizenships', 'To serve in the Canadian Armed Forces if called upon'],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'Who are the founding peoples of Canada?',
+      options: ['Métis, French and British', 'Inuit, Aboriginal and European', 'Aboriginal, French and British', 'First Nations, French and English'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Who has major responsibilities for governance on First Nations reserves?',
+      options: ['The federal government alone', 'Municipal governments', 'Band chiefs and councillors', 'Provincial and territorial governments'],
+      correct: 2, category: 'Government'
+    },
+    {
+      question: 'Name two key documents that together contain the rights and freedoms of Canadians.',
+      options: ['The Constitution Act, 1867 and the Official Languages Act', 'The Canadian Charter of Rights and Freedoms and the Magna Carta', 'The British North America Act and the War Measures Act', 'The Statute of Westminster and the Constitution Act, 1867'],
+      correct: 1, category: 'Government'
+    },
+    {
+      question: 'Who is Canada\'s Head of State?',
+      options: ['The Prime Minister', 'The Governor General', 'His Majesty the King', 'The Chief Justice of the Supreme Court'],
+      correct: 2, category: 'Government'
+    },
+
+    // Justice
+    {
+      question: 'What does "presumption of innocence" mean in Canada\'s justice system?',
+      options: ['Everyone is guilty until proven innocent', 'Guilt is decided by a jury alone', 'Everyone is innocent until proven guilty', 'Only citizens are presumed innocent'],
+      correct: 2, category: 'Justice'
+    },
+    {
+      question: 'In Canada, are you allowed to question the police about their service or conduct?',
+      options: ['No, police conduct is not open to public discussion', 'Yes, but only about service, not conduct', 'Yes, you may question both their service and conduct', 'Only through a lawyer in a formal complaint'],
+      correct: 2, category: 'Justice'
+    },
+    {
+      question: 'What is the highest court in Canada?',
+      options: ['The Federal Court of Canada', 'The Court of Queen\'s Bench', 'The Supreme Court of Canada', 'The Court of Appeal'],
+      correct: 2, category: 'Justice'
+    },
+    {
+      question: 'What is the role of the courts in Canada?',
+      options: ['To enforce laws through police action', 'To create laws when Parliament is not in session', 'To settle disputes and interpret laws independently', 'To advise the Prime Minister on constitutional matters'],
+      correct: 2, category: 'Justice'
+    },
+
+    // Elections
+    {
+      question: 'Who must you tell how you voted in a federal election?',
+      options: ['Your employer if requested', 'An Elections Canada official', 'A police officer if asked', 'No one — your vote is secret'],
+      correct: 3, category: 'Elections'
+    },
+    {
+      question: 'What is a voter information card?',
+      options: ['A card that lists all candidates in your riding', 'A form that tells you when and where to vote', 'Your official proof of citizenship for voting', 'A card issued after you have voted'],
+      correct: 1, category: 'Elections'
+    },
+    {
+      question: 'What should you do if you do not receive a voter information card before an election?',
+      options: ['You cannot vote without one', 'Go to the nearest police station', 'Contact your Member of Parliament', 'Call Elections Canada or visit their website'],
+      correct: 3, category: 'Elections'
+    },
+    {
+      question: 'Which province was the first to grant women the right to vote?',
+      options: ['Ontario', 'British Columbia', 'Manitoba', 'Quebec'],
+      correct: 2, category: 'Elections'
+    },
+
+    // Geography
+    {
+      question: 'What are the five regions of Canada?',
+      options: ['Midwest, North, South, East and West', 'Maritimes, Ontario, Quebec, Prairies and British Columbia', 'Atlantic, Central, Prairie, West Coast and North', 'East, West, Central, Arctic and Coastal'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'About one-third of all Canadians live in which province?',
+      options: ['Quebec', 'British Columbia', 'Alberta', 'Ontario'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'What are the three main types of industry in Canada?',
+      options: ['Farming, fishing and technology', 'Tourism, government and retail', 'Natural resources, manufacturing and services', 'Mining, construction and transportation'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What is Canada\'s largest trading partner?',
+      options: ['China', 'United Kingdom', 'United States of America', 'Japan'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Where are the Great Lakes located?',
+      options: ['Between Quebec and the United States', 'Between Ontario and the United States', 'In the Prairie provinces', 'Between Manitoba and the United States'],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'What is the largest and busiest port in Canada?',
+      options: ['Port of Halifax', 'Port of Montreal', 'Port of Vancouver', 'Port of Toronto'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Which province has its own time zone, 30 minutes ahead of Atlantic Standard Time?',
+      options: ['Nova Scotia', 'Prince Edward Island', 'New Brunswick', 'Newfoundland and Labrador'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Which province is the smallest in land size?',
+      options: ['Nova Scotia', 'New Brunswick', 'Prince Edward Island', 'Newfoundland and Labrador'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Which province is the main producer of pulp and paper and hydro-electricity?',
+      options: ['Ontario', 'British Columbia', 'Manitoba', 'Quebec'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Which region covers more than one-third of Canada\'s total land area?',
+      options: ['Central Canada', 'The Prairie provinces', 'Atlantic Canada', 'The Northern territories'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'Which region is known as the industrial and manufacturing heartland of Canada?',
+      options: ['Atlantic provinces', 'Prairie provinces', 'Central Canada', 'West Coast'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Which region of Canada is known for both fertile agricultural land and valuable energy resources?',
+      options: ['Central Canada', 'The Prairie provinces', 'British Columbia', 'The Northern territories'],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'Which three countries are signatories to the CUSMA (formerly NAFTA) trade agreement?',
+      options: ['Canada, United Kingdom and United States', 'Canada, United States and Japan', 'Canada, Mexico and United States', 'Canada, Denmark and Mexico'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What is a major river in Quebec?',
+      options: ['The Fraser River', 'The Saskatchewan River', 'The St. Lawrence River', 'The Ottawa River'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Why is trade with other countries important to Canada?',
+      options: ['It allows Canadians to travel abroad more easily', 'It enhances the economy and raises the standard of living', 'It eliminates the need for domestic manufacturing', 'It brings cheaper goods from overseas'],
+      correct: 1, category: 'Geography'
+    },
+
+    // Symbols & Culture
+    {
+      question: 'What are the first words of Canada\'s national anthem?',
+      options: ['"O Canada! Our province and native land!"', '"O Canada! Our home and native land!"', '"From far and wide, O Canada"', '"We stand on guard for thee"'],
+      correct: 1, category: 'Symbols'
+    },
+    {
+      question: 'What is the name of Canada\'s Royal Anthem?',
+      options: ['"O Canada"', '"La Marseillaise"', '"God Save the King"', '"The Maple Leaf Forever"'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'What does the Remembrance Day poppy represent?',
+      options: ['The sacrifices of the Fathers of Confederation', 'The Canadian flag adopted in 1965', 'The sacrifice of Canadians who have served or died in wars', 'The Indigenous peoples of Canada'],
+      correct: 2, category: 'Symbols'
+    },
+    {
+      question: 'When is Remembrance Day observed in Canada?',
+      options: ['October 31', 'July 1', 'December 26', 'November 11'],
+      correct: 3, category: 'Symbols'
+    },
+    {
+      question: 'What is the highest military honour a Canadian can receive?',
+      options: ['The Order of Canada', 'The Purple Cross', 'The Medal of Bravery', 'The Victoria Cross'],
+      correct: 3, category: 'Symbols'
+    },
+    {
+      question: 'What is a Francophone?',
+      options: ['A person who speaks English as their first language', 'A person who speaks French as their first language', 'A person who is bilingual in English and French', 'Any resident of the province of Quebec'],
+      correct: 1, category: 'Symbols'
+    },
+    {
+      question: 'Which provincial flag features the fleur-de-lys?',
+      options: ['New Brunswick', 'Manitoba', 'Ontario', 'Quebec'],
+      correct: 3, category: 'Symbols'
     }
   ],
 
