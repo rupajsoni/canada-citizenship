@@ -104,6 +104,13 @@
   let state = loadState();
   let view = state.view || 'home';
   let activeModuleId = state.activeModuleId || MODULES[0].id;
+
+  // Deep-link: ?module=hist3 or #hist3 opens that module directly (used by Exam Day new-tab)
+  const _hashId = (new URLSearchParams(location.search).get('module')) || location.hash.slice(1);
+  if (_hashId && MODULES.find(m => m.id === _hashId)) {
+    view = 'module';
+    activeModuleId = _hashId;
+  }
   let moduleTab = state.moduleTab || 'learn';
   let flashIndex = 0;
   let flashFlipped = false;
@@ -225,6 +232,7 @@
     html += navItem('test', '⏱', 'Practice Exam', 'Timed simulation', view === 'test');
     const count = testHistory().length;
     html += navItem('results', '◷', 'Results', 'Score history', view === 'results', count || '');
+    html += navItem('examday', '🎯', 'Exam Day', 'Readiness map · cram sheet', view === 'examday');
 
     html += '<div class="nav-section">About</div>';
     html += navItem('about', 'ℹ', 'About Northbound', 'How it works & FAQ', view === 'about');
@@ -304,6 +312,15 @@
         <div>
           <div class="tl-home-title">Timeline Match</div>
           <div class="tl-home-sub">Match 12 key dates to their historical events. Tap a year, tap an event.</div>
+        </div>
+        <div class="tl-home-arrow">→</div>
+      </div>
+
+      <div class="card card-pad tl-home-card examday-home-card" onclick="navigate('examday')" style="margin-top:12px;cursor:pointer">
+        <div class="tl-home-icon">🎯</div>
+        <div>
+          <div class="tl-home-title">Exam Day Review</div>
+          <div class="tl-home-sub">Readiness map + cram sheet for all 10 topics. Use the night before.</div>
         </div>
         <div class="tl-home-arrow">→</div>
       </div>`;
@@ -1128,6 +1145,81 @@
     renderTimeline();
   };
 
+  function renderExamDay() {
+    function modReadiness(m) {
+      const qs = quizScore(m.id);
+      if (!qs) return 'unseen';
+      const pct = qs.score / qs.total;
+      if (pct >= 0.8) return 'strong';
+      if (pct >= 0.6) return 'review';
+      return 'focus';
+    }
+    const SIGNAL_ORDER = ['focus', 'unseen', 'review', 'strong'];
+    const SIGNAL_LABEL = { focus: '🔴 Focus', review: '🟡 Review', strong: '🟢 Strong', unseen: '⬜ Not attempted' };
+    const SIGNAL_CLS   = { focus: 'signal-focus', review: 'signal-review', strong: 'signal-strong', unseen: 'signal-unseen' };
+
+    const sorted = [...MODULES].sort((a, b) =>
+      SIGNAL_ORDER.indexOf(modReadiness(a)) - SIGNAL_ORDER.indexOf(modReadiness(b))
+    );
+
+    const hasScores = MODULES.some(m => quizScore(m.id));
+
+    const mapRows = sorted.map(m => {
+      const qs = quizScore(m.id);
+      const r = modReadiness(m);
+      const scoreText = qs ? `${qs.score}/${qs.total}` : '—';
+      return `<div class="readiness-row" onclick="document.getElementById('cram-${m.id}').scrollIntoView({behavior:'smooth',block:'start'})">
+        <div class="readiness-row-title">${escapeHtml(m.shortTitle)}</div>
+        <div class="readiness-row-score">${scoreText}</div>
+        <span class="readiness-signal ${SIGNAL_CLS[r]}">${SIGNAL_LABEL[r]}</span>
+      </div>`;
+    }).join('');
+
+    const mapIntro = hasScores
+      ? `<p class="cram-intro">Sorted by what needs the most attention. Tap a row to jump to that topic.</p>`
+      : `<div class="callout callout-tip" style="margin-top:12px"><strong>No quiz scores yet.</strong> Complete at least one module quiz to get your readiness map. All topics are shown below — start with whichever feels shakiest.</div>`;
+
+    const cramBlocks = sorted.map(m => {
+      const r = modReadiness(m);
+      const qaRows = m.flashcards.slice(0, 8).map(fc =>
+        `<div class="cram-qa"><div class="cram-q">${escapeHtml(fc.front)}</div><div class="cram-a">${escapeHtml(fc.back)}</div></div>`
+      ).join('');
+      return `<div class="cram-module" id="cram-${m.id}">
+        <div class="cram-module-header">
+          <div class="cram-module-title">${escapeHtml(m.title)}</div>
+          <span class="readiness-signal ${SIGNAL_CLS[r]}">${SIGNAL_LABEL[r]}</span>
+        </div>
+        <div class="cram-tip">⚡ ${escapeHtml(m.examTip)}</div>
+        <div class="cram-qas">${qaRows}</div>
+        <button class="btn btn-secondary btn-sm" style="margin-top:14px" onclick="window.open(location.href.split('#')[0].split('?')[0]+'#${m.id}','_blank')">Open full lesson →</button>
+      </div>`;
+    }).join('');
+
+    document.getElementById('page').innerHTML = `
+      <div class="hero-block">
+        <div class="eyebrow">Optional · Pre-exam</div>
+        <h1 class="page-title">Exam Day Review</h1>
+        <p class="page-lead">Your readiness map, then every high-yield fact from every topic in one scroll. Use the night before or the morning of.</p>
+      </div>
+
+      <div class="card card-pad" style="margin-bottom:24px">
+        <div class="section-heading" style="margin-top:0;margin-bottom:4px">Readiness by topic</div>
+        ${mapIntro}
+        <div class="readiness-map">${mapRows}</div>
+      </div>
+
+      <div class="section-heading">Cram sheet — all ${MODULES.length} topics</div>
+      <p class="cram-intro" style="margin-bottom:20px">Exam tip + top 8 facts per topic. ${hasScores ? 'Sorted by what needs your attention most.' : 'Scroll through everything.'}</p>
+      ${cramBlocks}
+
+      <div class="card card-pad" style="text-align:center;margin-top:32px;padding:32px">
+        <div style="font-size:28px;margin-bottom:10px">🍁</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:6px">You've reviewed everything. Go take the exam.</div>
+        <div style="font-size:14px;color:var(--text-secondary);margin-bottom:20px">Same format, same pass mark as the real test. No surprises.</div>
+        <button class="btn btn-primary" style="padding:13px 32px;font-size:15px" onclick="navigate('test')">Start practice exam →</button>
+      </div>`;
+  }
+
   function render() {
     renderSidebar();
     if (view === 'home') renderHome();
@@ -1136,6 +1228,7 @@
     else if (view === 'results') renderResults();
     else if (view === 'map') renderMap();
     else if (view === 'timeline') renderTimeline();
+    else if (view === 'examday') renderExamDay();
     else if (view === 'about') renderAbout();
   }
 

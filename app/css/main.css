@@ -1092,3 +1092,63 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
   font-size:12px;color:var(--text-muted);margin-top:12px;
   display:flex;align-items:center;gap:8px;
 }
+
+/* ── Exam Day ─────────────────────────────────────────────── */
+.examday-home-card{ border-left:3px solid var(--accent) }
+
+.readiness-map{ display:flex;flex-direction:column;gap:6px;margin-top:12px }
+.readiness-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 14px;border-radius:8px;
+  background:var(--bg,#f8f8f8);border:1px solid var(--border);
+  cursor:pointer;transition:border-color .15s,background .15s;
+}
+.readiness-row:hover{ border-color:var(--accent);background:#fff }
+.readiness-row-title{ flex:1;font-weight:600;font-size:14px;color:var(--text) }
+.readiness-row-score{ font-size:13px;color:var(--text-secondary);min-width:32px;text-align:right }
+
+.readiness-signal{
+  font-size:12px;padding:3px 9px;border-radius:4px;
+  font-weight:600;white-space:nowrap;flex-shrink:0;
+}
+.signal-focus  { background:#fee2e2;color:#b91c1c }
+.signal-review { background:#fef3c7;color:#92400e }
+.signal-strong { background:#dcfce7;color:#15803d }
+.signal-unseen { background:#f3f4f6;color:#6b7280 }
+
+.cram-intro{ font-size:14px;color:var(--text-secondary);line-height:1.5 }
+
+.cram-module{
+  background:#fff;border-radius:10px;
+  border:1px solid var(--border);padding:20px;
+  margin-bottom:14px;scroll-margin-top:80px;
+}
+.cram-module-header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;margin-bottom:10px;flex-wrap:wrap;
+}
+.cram-module-title{ font-weight:700;font-size:15px;color:var(--text) }
+
+.cram-tip{
+  font-size:13px;color:var(--accent);
+  background:#fff5f5;border-left:3px solid var(--accent);
+  padding:8px 12px;border-radius:0 6px 6px 0;
+  margin-bottom:14px;line-height:1.5;
+}
+
+.cram-qas{ display:flex;flex-direction:column }
+.cram-qa{
+  display:grid;grid-template-columns:1fr 1fr;gap:0 16px;
+  border-bottom:1px solid var(--border-light,#f0f0f0);
+  padding:8px 0;font-size:13px;line-height:1.45;
+}
+.cram-qa:last-child{ border-bottom:none }
+.cram-q{ color:var(--text-secondary) }
+.cram-a{ color:var(--text);font-weight:500 }
+
+@media(max-width:600px){
+  .cram-qa{ grid-template-columns:1fr }
+  .cram-q{ padding-bottom:3px }
+  .cram-a{ color:var(--accent);font-weight:600 }
+  .cram-a::before{ content:'→ ' }
+}

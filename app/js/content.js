@@ -322,15 +322,19 @@ window.COURSE = {
             { date: '1763', text: 'Treaty of Paris: France cedes Canada to Britain.' },
             { date: '1774', text: 'Quebec Act: French Canadians retain language, Catholic religion, and civil law.' },
             { date: '1791', text: 'Constitutional Act creates Upper Canada (English) and Lower Canada (French).' },
+            { date: '1812–14', text: 'War of 1812: United States invades Canada; Chief Tecumseh, a Shawnee leader, allies with British and Canadian forces. Canada successfully defends its territory.' },
+            { date: '1839', text: 'Lord Durham\'s Report recommends uniting Upper and Lower Canada (leading to the Act of Union, 1841).' },
             { date: '1848', text: 'Responsible government first achieved in Nova Scotia.' },
             { date: '1867', text: 'Confederation: Canada becomes a self-governing Dominion on July 1. Founding provinces: Ontario, Quebec, Nova Scotia, New Brunswick. Sir John A. Macdonald becomes first Prime Minister.' }
           ]
         },
         {
-          title: 'United Empire Loyalists',
+          title: 'United Empire Loyalists and Black Loyalists',
           type: 'list',
           items: [
             'After the American Revolution, approximately 40,000 to 50,000 United Empire Loyalists came to Canada.',
+            'About 3,000 Black Loyalists — freed men and women and escaped slaves — also came to Nova Scotia and New Brunswick, making them among the earliest Black settlers in Canada.',
+            'In 1792, some Black Nova Scotians left Canada to help establish the city of Freetown in Sierra Leone.',
             'New France had developed around the fur trade and alliances with First Nations.',
             'National motto: "A Mari Usque Ad Mare" — "From Sea to Sea."'
           ]
@@ -346,7 +350,10 @@ window.COURSE = {
         { front: 'What did the Quebec Act of 1774 protect?', back: 'The French language, Roman Catholic religion, and French civil law in Quebec.' },
         { front: 'Where did United Empire Loyalists settle after the American Revolution?', back: 'Nova Scotia, New Brunswick, and present-day Ontario.' },
         { front: 'What is Canada\'s national motto and what does it mean?', back: '"A Mari Usque Ad Mare" — "From Sea to Sea."' },
-        { front: 'What colony did Jacques Cartier claim for France in 1534?', back: 'He sailed into the Gulf of St. Lawrence and claimed the land for France.' }
+        { front: 'What colony did Jacques Cartier claim for France in 1534?', back: 'He sailed into the Gulf of St. Lawrence and claimed the land for France.' },
+        { front: 'Who were the Black Loyalists?', back: 'About 3,000 freed Black people who came to Nova Scotia and New Brunswick after the American Revolution. In 1792, some left to help establish Freetown, Sierra Leone.' },
+        { front: 'What is the significance of Chief Tecumseh in Canadian history?', back: 'A Shawnee leader who allied with British and Canadian forces during the War of 1812, helping defend Canada against American invasion.' },
+        { front: 'What did Lord Durham recommend in his 1839 Report?', back: 'He recommended uniting Upper and Lower Canada — which led to the Act of Union (1841) and eventually responsible government.' }
       ],
       quiz: [
         {
@@ -423,6 +430,31 @@ window.COURSE = {
           question: 'The Constitutional Act of 1791 divided Canada into:',
           options: ['English Canada and French Canada', 'Upper Canada and Lower Canada', 'East Canada and West Canada', 'Canada East and Canada West'],
           correct: 1
+        },
+        {
+          question: 'Black Loyalists arrived in Canada long before European explorers first made contact with Aboriginal peoples.',
+          options: ['True', 'False'],
+          correct: 1
+        },
+        {
+          question: 'In 1792, some Black Nova Scotians left Canada to help establish which city?',
+          options: ['Accra, Ghana', 'Freetown, Sierra Leone', 'Lagos, Nigeria', 'Cape Town, South Africa'],
+          correct: 1
+        },
+        {
+          question: 'Chief Tecumseh aided British and Canadian soldiers in the War of 1812.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'Lord Durham\'s 1839 Report recommended that Upper and Lower Canada should remain permanently separate.',
+          options: ['True', 'False'],
+          correct: 1
+        },
+        {
+          question: 'What did Lord Durham\'s Report (1839) recommend?',
+          options: ['Separating Upper and Lower Canada permanently', 'Granting full independence to both Canadas', 'Uniting Upper and Lower Canada under one government', 'Creating a bilingual French-English republic'],
+          correct: 2
         }
       ]
     },
@@ -559,8 +591,10 @@ window.COURSE = {
           type: 'timeline',
           events: [
             { date: '1917', text: 'Battle of Vimy Ridge (April 9): all four Canadian divisions fight together—a defining national moment.' },
-            { date: '1918', text: 'Women gain the right to vote in federal elections.' },
-            { date: '1939–45', text: 'Second World War: Canada declares war independently; forces land at Juno Beach on D-Day, June 6, 1944.' },
+            { date: '1918', text: 'Sir Robert Borden\'s government grants women the right to vote in federal elections.' },
+            { date: '1921', text: 'Agnes Macphail becomes the first woman elected to the House of Commons.' },
+            { date: '1939–45', text: 'Second World War: Canada declares war independently; forces land at Juno Beach on D-Day, June 6, 1944. By war\'s end, Canada has the third-largest navy in the world and contributed more to the Allied air effort than any other Commonwealth country.' },
+            { date: '1940', text: 'Quebec grants women the provincial vote — the last province to do so — largely due to the campaigning of Thérèse Casgrain and others.' },
             { date: '1949', text: 'Newfoundland and Labrador becomes the last province to join Confederation.' },
             { date: '1957', text: 'Lester B. Pearson wins Nobel Peace Prize for United Nations peacekeeping.' },
             { date: '1965', text: 'Current Canadian flag adopted.' },
@@ -573,9 +607,13 @@ window.COURSE = {
           title: 'Notable Canadians',
           type: 'list',
           items: [
-            'Lester B. Pearson introduced Medicare and won the Nobel Peace Prize in 1957.',
+            'Sir Robert Borden led Canada in World War I and granted women the right to vote in federal elections in 1918.',
+            'Agnes Macphail, a farmer and teacher, became the first woman elected to the House of Commons in 1921.',
+            'Thérèse Casgrain championed women\'s rights in Quebec; her efforts helped Quebec become the last province to grant women the provincial vote in 1940.',
+            'Lester B. Pearson won the Nobel Peace Prize in 1957 for creating UN peacekeeping forces and introduced the current Canadian flag.',
+            'Tommy Douglas, "the father of Medicare," introduced universal health care in Saskatchewan.',
             'Terry Fox ran the Marathon of Hope (1980) to raise funds for cancer research.',
-            'Tommy Douglas, "the father of Medicare," introduced universal healthcare in Saskatchewan.'
+            'Adrienne Clarkson, of Chinese origin, served as Governor General (1999–2005) — the first Canadian of Asian origin to hold this office. She established the Clarkson Cup in 2005.'
           ]
         }
       ],
@@ -589,7 +627,14 @@ window.COURSE = {
         { front: 'When did women gain the right to vote in federal elections?', back: '1918.' },
         { front: 'What did Terry Fox do in 1980?', back: 'Ran the Marathon of Hope to raise awareness and funds for cancer research.' },
         { front: 'When was the Charter of Rights and Freedoms enacted?', back: '1982 (Constitution Act, 1982).' },
-        { front: 'What was the "Persons Case" of 1929?', back: 'A ruling that women are legally recognized as "persons" and could be appointed to the Senate.' }
+        { front: 'What was the "Persons Case" of 1929?', back: 'A ruling that women are legally recognized as "persons" and could be appointed to the Senate.' },
+        { front: 'Which Prime Minister granted women the right to vote in federal elections?', back: 'Sir Robert Borden, in 1918.' },
+        { front: 'Who was the first woman elected to the House of Commons, and when?', back: 'Agnes Macphail, in 1921.' },
+        { front: 'Who was Thérèse Casgrain?', back: 'A Quebec activist whose campaigning helped secure women\'s provincial voting rights in Quebec in 1940 — the last province to grant them.' },
+        { front: 'Which province was the last to grant women the provincial right to vote?', back: 'Quebec, in 1940.' },
+        { front: 'Who was Adrienne Clarkson and what was historically significant about her?', back: 'Governor General of Canada 1999–2005; the first Canadian of Asian origin to hold the office. She established the Clarkson Cup in 2005.' },
+        { front: 'What was Canada\'s naval standing by the end of World War II?', back: 'Canada had the third-largest navy in the world.' },
+        { front: 'How did Canada\'s air contribution compare to other Commonwealth countries in WWII?', back: 'Canada contributed more to the Allied air effort than any other Commonwealth country.' }
       ],
       quiz: [
         {
@@ -681,6 +726,46 @@ window.COURSE = {
           question: 'The Charter of Rights and Freedoms was enacted in:',
           options: ['1965', '1980', '1982', '1999'],
           correct: 2
+        },
+        {
+          question: 'Canada contributed more to the Allied air effort in WWII than any other Commonwealth country.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'By the end of the Second World War, Canada had the third-largest navy in the world.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'Which Prime Minister granted women the right to vote in Canadian federal elections?',
+          options: ['Sir Wilfrid Laurier', 'Sir John A. Macdonald', 'Sir Robert Borden', 'William Lyon Mackenzie King'],
+          correct: 2
+        },
+        {
+          question: 'Agnes Macphail became the first woman elected to the House of Commons in 1921.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'Quebec was the last province to grant women the right to vote provincially. This happened in:',
+          options: ['1918', '1929', '1940', '1948'],
+          correct: 2
+        },
+        {
+          question: 'Thérèse Casgrain is remembered for:',
+          options: [
+            'Being Canada\'s first female Prime Minister',
+            'Campaigning for women\'s provincial voting rights in Quebec',
+            'Founding the Order of Canada',
+            'Leading Canada\'s suffrage movement at the federal level'
+          ],
+          correct: 1
+        },
+        {
+          question: 'Adrienne Clarkson was the first Governor General of Asian origin.',
+          options: ['True', 'False'],
+          correct: 0
         }
       ]
     },
@@ -1014,6 +1099,16 @@ window.COURSE = {
             'A government appointed by the Governor General without an election'
           ],
           correct: 2
+        },
+        {
+          question: 'No one — including family members, your employer, or a union representative — has the right to insist that you tell them how you voted.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'If you do not receive a voter information card before election day, it is too late to be added to the voters\' list.',
+          options: ['True', 'False'],
+          correct: 1
         }
       ]
     },
@@ -1376,6 +1471,48 @@ window.COURSE = {
             { heading: 'Prairies', points: ['Breadbasket of Canada', 'Alberta oil resources', 'Most Métis live here'] },
             { heading: 'West & North', points: ['British Columbia: forestry, Pacific trade', 'Nunavut (1999): Inuit homeland', 'Great Lakes: trade and fresh water'] }
           ]
+        },
+        {
+          title: 'Physical geography',
+          type: 'table',
+          headers: ['Feature', 'Key facts'],
+          rows: [
+            ['Three oceans', 'Canada is bordered by the Pacific Ocean (west), Atlantic Ocean (east), and Arctic Ocean (north)'],
+            ['Five Great Lakes', 'Superior, Michigan, Huron, Erie, Ontario — shared with the United States; the world\'s largest freshwater system'],
+            ['St. Lawrence River', 'Links the Great Lakes to the Atlantic Ocean; the main trade and transport artery of Central Canada'],
+            ['Hudson Bay', 'Vast inland sea in northern Canada, connected to the Atlantic'],
+            ['Fraser River', 'Major river in British Columbia, flowing to the Pacific'],
+            ['Quebec City–Windsor corridor', 'The most densely populated region of Canada, stretching through Quebec and Ontario']
+          ]
+        },
+        {
+          title: 'Province and territory capitals',
+          type: 'table',
+          headers: ['Province / Territory', 'Capital'],
+          rows: [
+            ['Ontario', 'Toronto'],
+            ['Quebec', 'Quebec City'],
+            ['British Columbia', 'Victoria (not Vancouver)'],
+            ['Alberta', 'Edmonton (not Calgary)'],
+            ['New Brunswick', 'Fredericton (not Saint John or Moncton)'],
+            ['Nova Scotia', 'Halifax'],
+            ['Prince Edward Island', 'Charlottetown'],
+            ['Newfoundland and Labrador', 'St. John\'s'],
+            ['Manitoba', 'Winnipeg'],
+            ['Saskatchewan', 'Regina'],
+            ['Yukon', 'Whitehorse'],
+            ['Northwest Territories', 'Yellowknife'],
+            ['Nunavut', 'Iqaluit']
+          ]
+        },
+        {
+          title: 'National parks',
+          type: 'list',
+          items: [
+            'Banff National Park (Alberta), established in 1885, was Canada\'s first national park.',
+            'Alberta has five national parks: Banff, Jasper, Elk Island, Waterton Lakes, and Wood Buffalo.',
+            'Canada has 37 national parks representing every province and territory.'
+          ]
         }
       ],
       flashcards: [
@@ -1388,7 +1525,16 @@ window.COURSE = {
         { front: 'Which province has the largest population?', back: 'Ontario.' },
         { front: 'What is British Columbia known for?', back: 'Forestry products and Pacific trade with Asia.' },
         { front: 'What is Alberta known for?', back: 'Oil sands and energy production.' },
-        { front: 'What international groups is Canada a member of?', back: 'G7, G20, NATO, Commonwealth, La Francophonie, UN, and NORAD.' }
+        { front: 'What international groups is Canada a member of?', back: 'G7, G20, NATO, Commonwealth, La Francophonie, UN, and NORAD.' },
+        { front: 'Name the five Great Lakes.', back: 'Superior, Michigan, Huron, Erie, and Ontario. They are shared with the United States and form the world\'s largest freshwater system.' },
+        { front: 'Which three oceans border Canada?', back: 'The Pacific Ocean (west), the Atlantic Ocean (east), and the Arctic Ocean (north).' },
+        { front: 'What is the Quebec City–Windsor corridor?', back: 'The most densely populated region of Canada, stretching through Quebec and Ontario.' },
+        { front: 'Which was Canada\'s first national park, and when was it established?', back: 'Banff National Park (Alberta), established in 1885.' },
+        { front: 'How many national parks does Alberta have? Name them.', back: 'Five: Banff, Jasper, Elk Island, Waterton Lakes, and Wood Buffalo.' },
+        { front: 'What is the capital of British Columbia?', back: 'Victoria (not Vancouver).' },
+        { front: 'What is the capital of New Brunswick?', back: 'Fredericton.' },
+        { front: 'What is the capital of Alberta?', back: 'Edmonton (not Calgary).' },
+        { front: 'What is the capital of Prince Edward Island?', back: 'Charlottetown.' }
       ],
       quiz: [
         {
@@ -1465,6 +1611,71 @@ window.COURSE = {
             'Having Canada\'s largest oil reserves'
           ],
           correct: 2
+        },
+        {
+          question: 'Which three oceans border Canada?',
+          options: [
+            'Pacific, Atlantic, and Indian',
+            'Pacific, Atlantic, and Arctic',
+            'Arctic, Atlantic, and Southern',
+            'Pacific, Arctic, and Caribbean'
+          ],
+          correct: 1
+        },
+        {
+          question: 'Which of the following correctly names all five Great Lakes?',
+          options: [
+            'Superior, Michigan, Huron, Erie, Ontario',
+            'Superior, Huron, Erie, Ontario, Georgian',
+            'Michigan, Huron, Erie, Ontario, Winnipeg',
+            'Superior, Michigan, Erie, Ottawa, Ontario'
+          ],
+          correct: 0
+        },
+        {
+          question: 'The Great Lakes are significant to Canada because they:',
+          options: [
+            'Form the natural border between Canada and Alaska',
+            'Contain fresh water and provide major waterways for trade',
+            'Are the primary source of Canada\'s hydro-electric power',
+            'Were the site of the original French settlements'
+          ],
+          correct: 1
+        },
+        {
+          question: 'Canada\'s first national park, established in 1885, is:',
+          options: ['Jasper', 'Banff', 'Waterton Lakes', 'Elk Island'],
+          correct: 1
+        },
+        {
+          question: 'Alberta has five national parks including Banff.',
+          options: ['True', 'False'],
+          correct: 0
+        },
+        {
+          question: 'The most densely populated region of Canada is the:',
+          options: [
+            'Prairie provinces corridor',
+            'Pacific coast from Vancouver to Victoria',
+            'Quebec City to Windsor corridor',
+            'Atlantic provinces along the Bay of Fundy'
+          ],
+          correct: 2
+        },
+        {
+          question: 'What is the capital of British Columbia?',
+          options: ['Vancouver', 'Victoria', 'Kelowna', 'Surrey'],
+          correct: 1
+        },
+        {
+          question: 'What is the capital of New Brunswick?',
+          options: ['Saint John', 'Moncton', 'Fredericton', 'Bathurst'],
+          correct: 2
+        },
+        {
+          question: 'What is the capital of Alberta?',
+          options: ['Calgary', 'Red Deer', 'Lethbridge', 'Edmonton'],
+          correct: 3
         }
       ]
     }
@@ -2621,6 +2832,165 @@ window.COURSE = {
       question: 'When is National Indigenous Peoples Day?',
       options: ['July 1', 'June 21', 'September 30', 'October 11'],
       correct: 1, category: 'Symbols'
+    },
+
+    // ── BLACK LOYALISTS & WAR OF 1812 ────────────────────────────────────
+    {
+      question: 'Black Loyalists arrived in Canada long before European explorers first made contact with Aboriginal peoples.',
+      options: ['True', 'False'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'About how many Black Loyalists came to Nova Scotia and New Brunswick after the American Revolution?',
+      options: ['About 500', 'About 3,000', 'About 15,000', 'About 40,000'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'In 1792, some Black Nova Scotians left Canada to help establish which city?',
+      options: ['Accra, Ghana', 'Lagos, Nigeria', 'Freetown, Sierra Leone', 'Cape Town, South Africa'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Chief Tecumseh aided British and Canadian soldiers in the War of 1812.',
+      options: ['True', 'False'],
+      correct: 0, category: 'History'
+    },
+
+    // ── LORD DURHAM ──────────────────────────────────────────────────────
+    {
+      question: 'Lord Durham\'s 1839 Report recommended that Upper and Lower Canada should remain permanently separate.',
+      options: ['True', 'False'],
+      correct: 1, category: 'History'
+    },
+    {
+      question: 'What did Lord Durham\'s Report (1839) recommend?',
+      options: [
+        'Full independence for both Canadas',
+        'Uniting Upper and Lower Canada under one government',
+        'Separating Upper and Lower Canada permanently',
+        'Creating a bilingual republic'
+      ],
+      correct: 1, category: 'History'
+    },
+
+    // ── WOMEN'S SUFFRAGE (provincial & notable Canadians) ───────────────
+    {
+      question: 'Which Prime Minister granted women the right to vote in Canadian federal elections?',
+      options: ['Sir Wilfrid Laurier', 'Sir John A. Macdonald', 'William Lyon Mackenzie King', 'Sir Robert Borden'],
+      correct: 3, category: 'History'
+    },
+    {
+      question: 'Agnes Macphail became the first woman elected to the House of Commons in 1921.',
+      options: ['True', 'False'],
+      correct: 0, category: 'History'
+    },
+    {
+      question: 'Quebec was the last province to grant women the right to vote provincially. This happened in:',
+      options: ['1918', '1929', '1940', '1949'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Due to the work of Thérèse Casgrain and others, which province granted women the provincial vote in 1940?',
+      options: ['Ontario', 'Nova Scotia', 'Quebec', 'New Brunswick'],
+      correct: 2, category: 'History'
+    },
+    {
+      question: 'Adrienne Clarkson was the first Governor General of Asian origin.',
+      options: ['True', 'False'],
+      correct: 0, category: 'History'
+    },
+
+    // ── WWII FACTS ───────────────────────────────────────────────────────
+    {
+      question: 'Canada contributed more to the Allied air effort in WWII than any other Commonwealth country.',
+      options: ['True', 'False'],
+      correct: 0, category: 'History'
+    },
+    {
+      question: 'By the end of the Second World War, Canada had the third-largest navy in the world.',
+      options: ['True', 'False'],
+      correct: 0, category: 'History'
+    },
+
+    // ── PHYSICAL GEOGRAPHY ───────────────────────────────────────────────
+    {
+      question: 'Which three oceans border Canada?',
+      options: [
+        'Pacific, Atlantic, and Indian',
+        'Pacific, Atlantic, and Arctic',
+        'Arctic, Atlantic, and Southern',
+        'Pacific, Arctic, and Caribbean'
+      ],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'Which of the following correctly names all five Great Lakes?',
+      options: [
+        'Superior, Michigan, Huron, Erie, Ontario',
+        'Superior, Huron, Erie, Ontario, Georgian',
+        'Michigan, Huron, Erie, Ontario, Winnipeg',
+        'Superior, Michigan, Erie, Ottawa, Ontario'
+      ],
+      correct: 0, category: 'Geography'
+    },
+    {
+      question: 'The most densely populated region of Canada is the:',
+      options: [
+        'Prairie provinces corridor',
+        'Pacific coast from Vancouver to Victoria',
+        'Quebec City to Windsor corridor',
+        'Atlantic provinces along the Bay of Fundy'
+      ],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Canada\'s first national park, established in 1885, is:',
+      options: ['Jasper', 'Waterton Lakes', 'Banff', 'Elk Island'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'Alberta has five national parks including Banff.',
+      options: ['True', 'False'],
+      correct: 0, category: 'Geography'
+    },
+
+    // ── PROVINCE CAPITALS (exam-tricky) ──────────────────────────────────
+    {
+      question: 'What is the capital of British Columbia?',
+      options: ['Vancouver', 'Kelowna', 'Victoria', 'Surrey'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What is the capital of New Brunswick?',
+      options: ['Saint John', 'Moncton', 'Bathurst', 'Fredericton'],
+      correct: 3, category: 'Geography'
+    },
+    {
+      question: 'What is the capital of Alberta?',
+      options: ['Calgary', 'Red Deer', 'Edmonton', 'Lethbridge'],
+      correct: 2, category: 'Geography'
+    },
+    {
+      question: 'What is the capital of Prince Edward Island?',
+      options: ['Summerside', 'Charlottetown', 'Cavendish', 'Montague'],
+      correct: 1, category: 'Geography'
+    },
+    {
+      question: 'What is the capital of Nova Scotia?',
+      options: ['Sydney', 'Truro', 'Dartmouth', 'Halifax'],
+      correct: 3, category: 'Geography'
+    },
+
+    // ── ELECTIONS (T/F) ──────────────────────────────────────────────────
+    {
+      question: 'No one — including family members, your employer, or a union representative — has the right to insist that you tell them how you voted.',
+      options: ['True', 'False'],
+      correct: 0, category: 'Elections'
+    },
+    {
+      question: 'If you do not receive a voter information card before election day, it is too late to be added to the voters\' list.',
+      options: ['True', 'False'],
+      correct: 1, category: 'Elections'
     }
   ],
 
