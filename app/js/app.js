@@ -704,6 +704,7 @@
         <button class="btn btn-primary" onclick="resetTest()">Take another exam</button>
         <button class="btn btn-secondary" onclick="navigate('home')">Dashboard</button>
         <button class="btn btn-secondary" onclick="navigate('results')">View history</button>
+        <button class="btn btn-secondary" onclick="shareResult()">Share →</button>
       </div>`;
   }
 
@@ -909,6 +910,7 @@
 
   // ── Pay-what-you-want support modal ──────────────────────────────────────
 
+  window.showSupportModal = showSupportModal;
   function showSupportModal() {
     const overlay = document.createElement('div');
     overlay.id = 'support-overlay';
@@ -1010,6 +1012,49 @@
     if (!el) return;
     el.classList.remove('visible');
     setTimeout(() => el.remove(), 320);
+  };
+
+  window.toggleGapSection = function () {
+    const body = document.getElementById('fb-gap-body');
+    const arrow = document.getElementById('fb-gap-arrow');
+    if (!body) return;
+    const open = body.style.display === 'none';
+    body.style.display = open ? 'block' : 'none';
+    if (arrow) arrow.textContent = open ? '▾ Hide' : '▸ Add it';
+  };
+
+  window.submitFeedback = function () {
+    const msg = document.getElementById('fb-message')?.value.trim();
+    if (!msg) { showToast('Please write something before sending.'); return; }
+    const topic = document.getElementById('fb-topic')?.value || '';
+    const gap   = document.getElementById('fb-gap')?.value.trim() || '';
+    const consent = document.getElementById('fb-consent')?.checked ? 'yes' : 'no';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'northbound-feedback',
+        message: msg, topic,
+        'gap-description': gap,
+        'testimonial-consent': consent,
+      }),
+    }).finally(() => {
+      state.feedbackSubmitted = true;
+      saveState();
+      showToast('Thank you — feedback received. 🍁');
+      renderAbout();
+    });
+  };
+
+  window.shareResult = function () {
+    const text = 'Preparing for the Canadian citizenship test? Try Northbound — free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northbound.ca';
+    if (navigator.share) {
+      navigator.share({ title: 'Northbound — Canadian Citizenship Test Prep', text, url: 'https://northbound.ca' }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(text)
+        .then(() => showToast('Copied — paste it anywhere.'))
+        .catch(() => showToast('northbound.ca'));
+    }
   };
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -1299,10 +1344,52 @@
         </div>
       </div>
 
-      <div class="callout callout-tip">
+      <div class="callout callout-tip" style="margin-bottom:16px">
         <strong>Built by someone who went through this.</strong>
         Independent. Not affiliated with IRCC or the Government of Canada.
-      </div>`;
+      </div>
+
+      <div class="card card-pad" style="margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text)">Keep this going</h2>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;line-height:1.55">No ads, no account, no paywall. If it helped you get here — you decide what it's worth.</p>
+        <div class="footer-pay-row">
+          <a href="https://ko-fi.com/thesidequest" target="_blank" rel="noopener noreferrer" class="footer-btn-kofi">Ko-fi ☕</a>
+          <a href="https://www.paypal.me/rupajsoni1" target="_blank" rel="noopener noreferrer" class="footer-btn-paypal">PayPal 💙</a>
+        </div>
+      </div>
+
+      ${state.feedbackSubmitted
+        ? `<div class="card card-pad" style="margin-bottom:16px;text-align:center;padding:32px">
+             <div style="font-size:24px;margin-bottom:8px">🍁</div>
+             <div style="font-weight:700;font-size:15px">Thanks for the note. It means a lot.</div>
+           </div>`
+        : `<div class="card card-pad" style="margin-bottom:16px">
+             <h2 style="font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)">Say something</h2>
+             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.5">Helpful? Confusing? Something missing? All of it is useful.</p>
+             <textarea id="fb-message" class="fb-textarea" placeholder="What would you like us to know?" rows="3"></textarea>
+             <div class="fb-consent-row" style="margin-bottom:16px">
+               <input type="checkbox" id="fb-consent" class="fb-checkbox">
+               <label for="fb-consent" class="fb-consent-label">I'm happy for this to appear as a testimonial (posted anonymously)</label>
+             </div>
+             <div class="fb-gap-toggle" onclick="toggleGapSection()">
+               <span>Saw an exam question we don't have?</span>
+               <span id="fb-gap-arrow" class="fb-gap-arrow">▸ Add it</span>
+             </div>
+             <div id="fb-gap-body" class="fb-gap-body" style="display:none">
+               <select id="fb-topic" class="fb-select" style="margin-top:10px">
+                 <option value="">Topic area (optional)</option>
+                 <option value="History">History</option>
+                 <option value="Rights and Responsibilities">Rights &amp; Responsibilities</option>
+                 <option value="Government">Government &amp; Democracy</option>
+                 <option value="Geography">Geography</option>
+                 <option value="Economy">Economy &amp; Society</option>
+                 <option value="Indigenous Peoples">Indigenous Peoples</option>
+                 <option value="Other">Other</option>
+               </select>
+               <input id="fb-gap" class="fb-input" type="text" placeholder="Rough description — no exact wording needed" maxlength="200">
+             </div>
+             <button class="btn btn-primary" style="margin-top:14px" onclick="submitFeedback()">Send feedback</button>
+           </div>`}`;
   }
 
   function closeSidebar() {

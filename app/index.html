@@ -29,6 +29,7 @@
 <body>
   <button class="mobile-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
   <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <button class="corner-support-btn" onclick="showSupportModal()" aria-label="Support Northbound" title="Support Northbound">☕</button>
 
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
@@ -108,6 +109,15 @@
       </div>
     </div>
   </div>
+
+  <!-- Netlify form detection (hidden — submitted via JS) -->
+  <form name="northbound-feedback" netlify netlify-honeypot="bot-field" hidden>
+    <input name="bot-field" type="text">
+    <textarea name="message"></textarea>
+    <input name="topic" type="text">
+    <input name="gap-description" type="text">
+    <input name="testimonial-consent" type="text">
+  </form>
 
   <script src="js/content.js"></script>
   <script src="js/sections.js"></script>

@@ -1152,3 +1152,58 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
   .cram-a{ color:var(--accent);font-weight:600 }
   .cram-a::before{ content:'→ ' }
 }
+
+/* ── Corner support button ── */
+.corner-support-btn{
+  position:fixed;top:14px;right:16px;z-index:200;
+  background:var(--accent);border:none;
+  border-radius:8px;padding:6px 11px;font-size:15px;line-height:1;
+  cursor:pointer;color:#fff;
+  box-shadow:0 2px 8px rgba(200,16,46,.35);
+  transition:background .15s,box-shadow .15s,transform .1s;
+}
+.corner-support-btn:hover{
+  background:var(--accent-hover);
+  box-shadow:0 3px 12px rgba(200,16,46,.45);
+  transform:translateY(-1px);
+}
+@media(max-width:768px){
+  .corner-support-btn{ top:12px;right:12px }
+}
+
+/* ── Feedback form ── */
+.fb-textarea{
+  width:100%;border:1px solid var(--border);border-radius:6px;
+  padding:10px 12px;font-size:13px;font-family:inherit;
+  color:var(--text);background:var(--bg,#f8f8f8);
+  resize:vertical;margin-bottom:12px;line-height:1.5;box-sizing:border-box;
+  transition:border-color .15s;
+}
+.fb-textarea:focus{ outline:none;border-color:var(--accent) }
+
+.fb-gap-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 12px;border-radius:6px;border:1px solid var(--border);
+  cursor:pointer;font-size:13px;font-weight:500;color:var(--text-secondary);
+  background:var(--canvas);transition:border-color .15s,color .15s;
+}
+.fb-gap-toggle:hover{ border-color:var(--accent);color:var(--text) }
+.fb-gap-arrow{ font-size:12px;color:var(--accent);font-weight:600;white-space:nowrap }
+.fb-gap-body{ margin-top:0 }
+
+.fb-select,.fb-input{
+  width:100%;border:1px solid var(--border);border-radius:6px;
+  padding:8px 10px;font-size:13px;font-family:inherit;
+  color:var(--text);background:var(--bg,#f8f8f8);
+  margin-bottom:6px;box-sizing:border-box;
+  transition:border-color .15s;
+}
+.fb-select:focus,.fb-input:focus{ outline:none;border-color:var(--accent) }
+
+.fb-consent-row{
+  display:flex;align-items:flex-start;gap:8px;margin-top:4px;
+}
+.fb-checkbox{ margin-top:3px;flex-shrink:0;accent-color:var(--accent) }
+.fb-consent-label{
+  font-size:12px;color:var(--text-secondary);line-height:1.45;cursor:pointer;
+}
