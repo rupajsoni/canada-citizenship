@@ -1047,9 +1047,9 @@
   };
 
   window.shareResult = function () {
-    const text = 'Preparing for the Canadian citizenship test? Try Northbound — free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northbound.ca';
+    const text = 'Preparing for the Canadian citizenship test? Try Northbound — free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northboundca.netlify.app';
     if (navigator.share) {
-      navigator.share({ title: 'Northbound — Canadian Citizenship Test Prep', text, url: 'https://northbound.ca' }).catch(() => {});
+      navigator.share({ title: 'Northbound — Canadian Citizenship Test Prep', text, url: 'https://northboundca.netlify.app' }).catch(() => {});
     } else {
       navigator.clipboard?.writeText(text)
         .then(() => showToast('Copied — paste it anywhere.'))

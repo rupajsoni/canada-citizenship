@@ -30,7 +30,7 @@ Anyone preparing for the Canadian citizenship test, at any stage of their immigr
 
 ## URL
 
-https://northbound.ca
+https://northboundca.netlify.app
 
 ## Contact
 
