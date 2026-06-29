@@ -1,10 +1,547 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=app/index.html">
-<title>Canada Citizenship Prep</title>
-<script>window.location.replace('app/index.html');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free Canadian citizenship test prep built on the official Discover Canada guide. 10 structured modules, flashcards, timed practice exam, per-topic gap analysis. No account. No paywall.">
+  <title>Northbound — Canadian Citizenship Test Prep. Free.</title>
+
+  <link rel="icon" type="image/svg+xml" href="app/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://northbound.ca/">
+  <meta property="og:title" content="Northbound — Pass your Canadian citizenship test. Free.">
+  <meta property="og:description" content="10 modules · flashcards · timed practice exam · readiness score. Built on the official Discover Canada guide. Free. No account needed.">
+  <meta property="og:image" content="https://northbound.ca/app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Northbound — Pass your Canadian citizenship test. Free.">
+  <meta name="twitter:description" content="10 modules · flashcards · timed practice exam · readiness score. Built on the official Discover Canada guide. Free. No account needed.">
+  <meta name="twitter:image" content="https://northbound.ca/app/og-image.png">
+
+  <!-- Structured data for Google / AI crawlers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Northbound",
+    "url": "https://northbound.ca",
+    "description": "Free Canadian citizenship test prep built on the official Discover Canada guide. 10 structured modules, flashcards, timed practice exam, per-topic score breakdown, and a readiness score.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "en",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CAD"
+    },
+    "featureList": [
+      "10 structured study modules",
+      "Active recall flashcards",
+      "Timed practice exam — 20 questions, 45 minutes",
+      "Per-topic score breakdown",
+      "Readiness score",
+      "Interactive Canada map",
+      "No account required",
+      "Progress saved locally"
+    ],
+    "keywords": "Canadian citizenship test, Discover Canada, IRCC citizenship exam, citizenship test practice, Canada citizenship study guide"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent:      #C8102E;
+      --accent-h:    #A00D24;
+      --text:        #1A1A1A;
+      --text-2:      #545454;
+      --text-3:      #6B7280;
+      --border:      #E5E5E5;
+      --canvas:      #F7F7F8;
+      --font:        'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-d:      'Source Serif 4', Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: #fff; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    img { display: block; }
+
+    /* ── Nav ── */
+    .nav {
+      background: #000;
+      height: 58px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-mark {
+      width: 30px; height: 30px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-mark svg { width: 18px; height: 18px; display: block; }
+    .nav-name { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
+    .nav-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .nav-btn:hover { background: var(--accent-h); color: #fff; text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      background: #000;
+      padding: 88px 24px 96px;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: var(--font-d);
+      font-size: clamp(34px, 6.5vw, 60px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      max-width: 720px;
+      margin: 0 auto 22px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: rgba(255,255,255,.6);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font);
+      padding: 15px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background .15s, transform .12s;
+      margin-bottom: 16px;
+    }
+    .hero-cta:hover { background: var(--accent-h); transform: translateY(-1px); color: #fff; text-decoration: none; }
+    .hero-note { font-size: 12px; color: rgba(255,255,255,.3); }
+
+    /* ── Proof strip ── */
+    .proof {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 14px 24px;
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,.45);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .proof-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ── Section wrapper ── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 76px 0; }
+
+    .s-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .s-title {
+      font-family: var(--font-d);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.18;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .s-body {
+      font-size: 16px;
+      color: var(--text-2);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* ── Story ── */
+    .story-band {
+      background: var(--canvas);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .story-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 76px 24px;
+    }
+    .story-quote {
+      font-family: var(--font-d);
+      font-size: clamp(19px, 2.8vw, 26px);
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    .story-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    .badge-pass {
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    /* ── Features ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+      margin-top: 40px;
+    }
+    .feat {
+      background: var(--canvas);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .feat-icon { font-size: 24px; margin-bottom: 12px; }
+    .feat-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .feat-body { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── Topics ── */
+    .topics-band {
+      background: var(--canvas);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .topic {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topic-n {
+      width: 22px; height: 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── Steps ── */
+    .steps { margin-top: 40px; max-width: 580px; }
+    .step { display: flex; gap: 18px; padding-bottom: 28px; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step-col { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .step-num {
+      width: 34px; height: 34px;
+      background: #000; color: #fff;
+      border-radius: 50%;
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-line { width: 1px; flex: 1; background: var(--border); margin-top: 5px; min-height: 20px; }
+    .step:last-child .step-line { display: none; }
+    .step-body { padding-top: 5px; }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── Bottom CTA ── */
+    .cta-band {
+      background: #000;
+      padding: 88px 24px;
+      text-align: center;
+    }
+    .cta-title {
+      font-family: var(--font-d);
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      margin-bottom: 14px;
+    }
+    .cta-title em { color: var(--accent); font-style: normal; }
+    .cta-sub { font-size: 16px; color: rgba(255,255,255,.5); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font);
+      padding: 16px 38px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background .15s, transform .12s;
+    }
+    .cta-btn:hover { background: var(--accent-h); transform: translateY(-1px); color: #fff; text-decoration: none; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #000;
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,.28);
+      line-height: 1.8;
+    }
+    .footer a { color: rgba(255,255,255,.38); }
+    .footer a:hover { color: rgba(255,255,255,.6); text-decoration: none; }
+
+    /* ── Responsive ── */
+    @media(max-width:640px) {
+      .hero { padding: 60px 20px 72px; }
+      .wrap { padding: 0 20px; }
+      .section { padding: 56px 0; }
+      .proof { gap: 14px; }
+      .story-inner { padding: 56px 20px; }
+    }
+  </style>
 </head>
-<body></body>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/">
+      <div class="nav-mark">
+        <svg viewBox="-2015 -2000 4030 4030" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="white" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"/>
+        </svg>
+      </div>
+      <span class="nav-name">Northbound</span>
+    </a>
+    <a class="nav-btn" href="/app/">Start studying →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Free · No account needed · Built on Discover Canada</div>
+    <h1>Pass your Canadian<br>citizenship test.<br><em>Know you're ready.</em></h1>
+    <p class="hero-sub">Structured lessons, active recall flashcards, and a timed practice exam — all built on the official Discover Canada guide. A readiness score tells you when you're actually ready to book.</p>
+    <a class="hero-cta" href="/app/">Start studying for free →</a>
+    <p class="hero-note">No account &nbsp;·&nbsp; No paywall &nbsp;·&nbsp; Progress saves in your browser</p>
+  </section>
+
+  <div class="proof">
+    <div class="proof-item"><div class="proof-dot"></div>10 structured study modules</div>
+    <div class="proof-item"><div class="proof-dot"></div>375+ practice questions</div>
+    <div class="proof-item"><div class="proof-dot"></div>Same format as the real IRCC test</div>
+    <div class="proof-item"><div class="proof-dot"></div>Interactive Canada map</div>
+    <div class="proof-item"><div class="proof-dot"></div>Completely free</div>
+  </div>
+
+  <section class="story-band">
+    <div class="story-inner">
+      <div class="s-label">Why this exists</div>
+      <p class="story-quote">"I built this while studying for my own test. Most practice tools are just question banks with no structure — no sense of what you actually know or what to study next. I wanted something that worked like a real study system."</p>
+      <div class="story-meta">
+        Built by a permanent resident preparing for the test
+        <span class="badge-pass">Passed 19 / 20</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="section">
+      <div class="s-label">What's included</div>
+      <div class="s-title">Everything you need.<br>Nothing you don't.</div>
+      <p class="s-body">Built on the official <em>Discover Canada</em> guide. Covers every topic tested on the real exam. Free for everyone.</p>
+      <div class="feature-grid">
+        <div class="feat">
+          <div class="feat-icon">📚</div>
+          <div class="feat-title">Structured lessons</div>
+          <div class="feat-body">10 modules covering every topic in the Discover Canada guide — rights, history, government, geography, economy, and more.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🃏</div>
+          <div class="feat-title">Active recall flashcards</div>
+          <div class="feat-body">Answer before flipping. Proven to outperform re-reading. Every module has its own deck with the highest-yield facts.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">⏱</div>
+          <div class="feat-title">Timed practice exam</div>
+          <div class="feat-body">20 questions, 45 minutes, 75% pass mark. Same format as the real IRCC citizenship test — no format surprises on the day.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📊</div>
+          <div class="feat-title">Per-topic breakdown</div>
+          <div class="feat-body">Every exam returns a score by category. See exactly where you dropped points and which lesson to go back to.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🎯</div>
+          <div class="feat-title">Readiness score</div>
+          <div class="feat-body">Rolling average of your last 3 practice exams. When you're consistently at 75%+, you're ready. Not a feeling — a number.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🗺</div>
+          <div class="feat-title">Interactive Canada map</div>
+          <div class="feat-body">Click any province or territory. Exam facts, Indigenous peoples, regions, and when each joined Confederation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="topics-band">
+    <div class="wrap">
+      <div class="section">
+        <div class="s-label">What's covered</div>
+        <div class="s-title">Every topic from the<br>official study guide.</div>
+        <p class="s-body">The IRCC citizenship test draws from the Discover Canada guide. Northbound covers all of it.</p>
+        <div class="topics-grid">
+          <div class="topic"><div class="topic-n">1</div>Rights &amp; Responsibilities</div>
+          <div class="topic"><div class="topic-n">2</div>Who We Are</div>
+          <div class="topic"><div class="topic-n">3</div>Canada's History</div>
+          <div class="topic"><div class="topic-n">4</div>Modern Canada</div>
+          <div class="topic"><div class="topic-n">5</div>How Canadians Govern Themselves</div>
+          <div class="topic"><div class="topic-n">6</div>Federal Elections</div>
+          <div class="topic"><div class="topic-n">7</div>The Justice System</div>
+          <div class="topic"><div class="topic-n">8</div>Canadian Symbols &amp; Values</div>
+          <div class="topic"><div class="topic-n">9</div>Economy &amp; Geography</div>
+          <div class="topic"><div class="topic-n">10</div>Canada's Regions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="section">
+      <div class="s-label">How to study</div>
+      <div class="s-title">A loop that closes your gaps,<br>not just fills your time.</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-col"><div class="step-num">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-title">Read the lesson</div>
+            <div class="step-desc">Each module covers a topic from the official guide — structured for comprehension, not memorisation.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col"><div class="step-num">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-title">Practice with flashcards</div>
+            <div class="step-desc">Active recall — answer before flipping. Your score is saved. You don't self-report whether you learned it.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col"><div class="step-num">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-title">Complete the module quiz</div>
+            <div class="step-desc">Exam-level questions before you move on. Score tracked on the dashboard.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col"><div class="step-num">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-title">Take a full practice exam</div>
+            <div class="step-desc">Timed. Same format as the real test. Per-category breakdown immediately after.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-col"><div class="step-num">5</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-title">Check your readiness score</div>
+            <div class="step-desc">Consistently hitting 75%+ across your last 3 exams? You're ready. Go book it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-band">
+    <div class="eyebrow" style="color:rgba(255,255,255,.3);margin-bottom:18px">Free · No account needed</div>
+    <div class="cta-title">Ready to start?<br><em>Canada is waiting.</em></div>
+    <p class="cta-sub">Every feature is free. Progress saves in your browser. No surprises.</p>
+    <a class="cta-btn" href="/app/">Start studying for free →</a>
+  </section>
+
+  <footer class="footer">
+    Northbound &nbsp;·&nbsp; Independent educational tool &nbsp;·&nbsp; Not affiliated with IRCC or the Government of Canada &nbsp;·&nbsp; Not legal advice<br>
+    <a href="/app/">Study app</a> &nbsp;·&nbsp;
+    <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html" target="_blank" rel="noopener noreferrer">Official Discover Canada guide ↗</a> &nbsp;·&nbsp;
+    <a href="/llms.txt">llms.txt</a>
+  </footer>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "948c88c4d5d84a10b9d474382076d30b"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+
+</body>
 </html>
