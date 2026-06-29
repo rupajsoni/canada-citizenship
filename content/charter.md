@@ -75,5 +75,5 @@
 # FORM BACKEND: Netlify Forms (already hosting there — zero extra setup)
 # BOOKING LINK: Google Calendar appointment scheduling or Calendly — wire in v2
 #
-# FORM DATA: submissions go to rupaj.soni@gmail.com via Netlify Forms
+# FORM DATA: submissions go to site owner via Netlify Forms
 # ─────────────────────────────────────────────────────────────────────────────
