@@ -2,9 +2,11 @@
 (function () {
   'use strict';
 
+  const t = window.I18N.t;
   const CONFIG = {};
 
-  const CANADA_FACTS = [
+  const LANG = window.I18N.lang();
+  const CANADA_FACTS_EN = [
     "Canada is the second-largest country in the world by total area — 9.98 million km².",
     "Canada has more lakes than the rest of the world combined. 🏞️",
     "The word 'Canada' comes from 'kanata,' a Huron-Iroquois word meaning village or settlement.",
@@ -66,8 +68,9 @@
     "Voting in federal elections is free and takes about 5 minutes — find your polling station at elections.ca.",
     "Newfoundland has its own time zone — it's 30 minutes ahead of Atlantic Standard Time. ⏰",
   ];
+  const CANADA_FACTS = (LANG === 'fr' && window.CANADA_FACTS_FR) ? window.CANADA_FACTS_FR : CANADA_FACTS_EN;
   // exam:true = confirmed high-frequency in IRCC citizenship test
-  const TIMELINE_PAIRS = [
+  const TIMELINE_PAIRS_EN = [
     { year: '1497', event: 'John Cabot reaches the east coast of Canada' },
     { year: '1534', event: 'Jacques Cartier sails up the St. Lawrence River' },
     { year: '1608', event: 'Samuel de Champlain founds Quebec City', exam: true },
@@ -95,11 +98,21 @@
     { year: '1982', event: 'Charter of Rights and Freedoms is enacted', exam: true },
     { year: '1999', event: 'Nunavut becomes Canada\'s newest territory', exam: true },
   ];
+  const TIMELINE_PAIRS = (LANG === 'fr' && window.TIMELINE_PAIRS_FR) ? window.TIMELINE_PAIRS_FR : TIMELINE_PAIRS_EN;
 
   const STORAGE_KEY = 'ca-citizenship-v6';
-  const MODULES = window.COURSE.modules;
-  const EXAM = window.COURSE.exam;
-  const Q_BANK = window.COURSE.questionBank;
+  const COURSE_ACTIVE = (LANG === 'fr' && window.COURSE_FR) ? window.COURSE_FR : window.COURSE;
+  // French modules not yet translated fall back to the English version so the app
+  // never renders a broken/half-empty lesson. COURSE_FR only needs to list the
+  // modules that ARE translated; missing ids are filled in from window.COURSE.
+  const MODULES = (function () {
+    if (LANG !== 'fr' || !window.COURSE_FR) return window.COURSE.modules;
+    const frById = {};
+    (window.COURSE_FR.modules || []).forEach(m => { frById[m.id] = m; });
+    return window.COURSE.modules.map(m => frById[m.id] || m);
+  })();
+  const EXAM = COURSE_ACTIVE.exam || window.COURSE.exam;
+  const Q_BANK = (LANG === 'fr' && window.COURSE_FR && window.COURSE_FR.questionBank) ? window.COURSE_FR.questionBank : window.COURSE.questionBank;
 
   let state = loadState();
   let view = state.view || 'home';
@@ -163,7 +176,7 @@
     const tests = testHistory();
     if (!tests.length) return null;
     const recent = tests.slice(0, 3);
-    const avg = recent.reduce((s, t) => s + t.score / t.total, 0) / recent.length;
+    const avg = recent.reduce((s, r) => s + r.score / r.total, 0) / recent.length;
     return Math.round(avg * 100);
   }
 
@@ -211,10 +224,10 @@
     document.getElementById('progress-text').textContent = `${done} / ${MODULES.length}`;
     document.getElementById('progress-fill').style.width = `${Math.round(done / MODULES.length * 100)}%`;
 
-    let html = '<div class="nav-section">Overview</div>';
-    html += navItem('home', '⌂', 'Dashboard', 'Your study plan', view === 'home');
+    let html = `<div class="nav-section">${t('nav.sectionOverview')}</div>`;
+    html += navItem('home', '⌂', t('nav.dashboard'), t('nav.dashboardSub'), view === 'home');
 
-    html += '<div class="nav-section">Lessons</div>';
+    html += `<div class="nav-section">${t('nav.sectionLessons')}</div>`;
     MODULES.forEach((m, i) => {
       const active = view === 'module' && activeModuleId === m.id;
       const complete = isComplete(m.id);
@@ -224,18 +237,18 @@
       </div>`;
     });
 
-    html += '<div class="nav-section">Visual</div>';
-    html += navItem('map', '🗺', 'Canada Map', 'Geography & regions', view === 'map');
-    html += navItem('timeline', '📅', 'The Big Picture', 'History · timeline match', view === 'timeline');
+    html += `<div class="nav-section">${t('nav.sectionVisual')}</div>`;
+    html += navItem('map', '🗺', t('nav.map'), t('nav.mapSub'), view === 'map');
+    html += navItem('timeline', '📅', t('nav.timeline'), t('nav.timelineSub'), view === 'timeline');
 
-    html += '<div class="nav-section">Practice</div>';
-    html += navItem('test', '⏱', 'Practice Exam', 'Timed simulation', view === 'test');
+    html += `<div class="nav-section">${t('nav.sectionPractice')}</div>`;
+    html += navItem('test', '⏱', t('nav.test'), t('nav.testSub'), view === 'test');
     const count = testHistory().length;
-    html += navItem('results', '◷', 'Results', 'Score history', view === 'results', count || '');
-    html += navItem('examday', '🎯', 'Exam Day', 'Readiness map · cram sheet', view === 'examday');
+    html += navItem('results', '◷', t('nav.results'), t('nav.resultsSub'), view === 'results', count || '');
+    html += navItem('examday', '🎯', t('nav.examday'), t('nav.examdaySub'), view === 'examday');
 
-    html += '<div class="nav-section">About</div>';
-    html += navItem('about', 'ℹ', 'About Northbound', 'How it works & FAQ', view === 'about');
+    html += `<div class="nav-section">${t('nav.sectionAbout')}</div>`;
+    html += navItem('about', 'ℹ', t('nav.about'), t('nav.aboutSub'), view === 'about');
 
     document.getElementById('sidebar-nav').innerHTML = html;
   }
@@ -252,19 +265,19 @@
     const ready = readinessScore();
     const next = nextIncompleteModule();
     const tests = testHistory();
-    let ringClass = 'none', ringText = '—', title = 'Take a practice exam', sub = 'Your readiness score appears after you complete at least one timed practice exam.';
+    let ringClass = 'none', ringText = '—', title = t('home.readyDefaultTitle'), sub = t('home.readyDefaultSub');
 
     if (ready !== null) {
       ringText = ready + '%';
       ringClass = ready >= 75 ? 'high' : ready >= 60 ? 'mid' : 'low';
-      title = ready >= 75 ? 'You are exam-ready' : ready >= 60 ? 'Almost there—review weak topics' : 'Keep studying—focus on lessons';
-      sub = `Based on your last ${Math.min(tests.length, 3)} practice exam${tests.length !== 1 ? 's' : ''}. You need ${EXAM.passPercent}% (${EXAM.passScore}/${EXAM.questions}) on the official test.`;
+      title = ready >= 75 ? t('home.readyHighTitle') : ready >= 60 ? t('home.readyMidTitle') : t('home.readyLowTitle');
+      sub = t('home.readySub', { n: Math.min(tests.length, 3), s: tests.length !== 1 ? 's' : '', pct: EXAM.passPercent, score: EXAM.passScore, total: EXAM.questions });
     }
 
     const pathItems = MODULES.map((m, i) => {
       const done = isComplete(m.id);
       const qs = quizScore(m.id);
-      const meta = done ? 'Completed' : qs ? `Quiz: ${qs.score}/${qs.total}` : m.duration;
+      const meta = done ? t('home.moduleCompleted') : qs ? t('home.moduleQuizScore', { score: qs.score, total: qs.total }) : m.duration;
       return `<div class="card path-item${done ? ' done' : ''}" onclick="navigate('module','${m.id}')">
         <div class="path-num">${done ? '✓' : i + 1}</div>
         <div><div class="path-title">${escapeHtml(m.title)}</div><div class="path-meta">${meta}</div></div>
@@ -273,16 +286,16 @@
 
     document.getElementById('page').innerHTML = `
       <div class="hero-block">
-        <div class="eyebrow">Study dashboard</div>
-        <h1 class="page-title">Canadian Citizenship Test Preparation</h1>
-        <p class="page-lead">Structured lessons, flashcards, and timed practice exams based on <em>Discover Canada</em>. Free for everyone—study at your own pace using proven active-learning methods.</p>
+        <div class="eyebrow">${t('home.eyebrow')}</div>
+        <h1 class="page-title">${t('home.title')}</h1>
+        <p class="page-lead">${t('home.lead')}</p>
       </div>
 
       <div class="grid-4" style="margin-bottom:24px">
-        ${stat(EXAM.questions, 'Questions')}
-        ${stat(EXAM.minutes, 'Minutes')}
-        ${stat(EXAM.passPercent + '%', 'To pass')}
-        ${stat(EXAM.attempts, 'Attempts allowed')}
+        ${stat(EXAM.questions, t('home.statQuestions'))}
+        ${stat(EXAM.minutes, t('home.statMinutes'))}
+        ${stat(EXAM.passPercent + '%', t('home.statPass'))}
+        ${stat(EXAM.attempts, t('home.statAttempts'))}
       </div>
 
       <div class="card card-pad readiness-panel">
@@ -291,27 +304,27 @@
           <div class="readiness-title">${title}</div>
           <div class="readiness-sub">${sub}</div>
           <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary" onclick="navigate('module','${next.id}')">${isComplete(next.id) ? 'Review lessons' : 'Continue lesson → ' + escapeHtml(next.shortTitle)}</button>
-            <button class="btn btn-secondary" onclick="navigate('test')">Start practice exam</button>
+            <button class="btn btn-primary" onclick="navigate('module','${next.id}')">${isComplete(next.id) ? t('home.reviewLessons') : t('home.continueLesson', { title: escapeHtml(next.shortTitle) })}</button>
+            <button class="btn btn-secondary" onclick="navigate('test')">${t('home.startExam')}</button>
           </div>
         </div>
       </div>
 
       <div class="learning-path">
-        <div class="section-heading">Learning path — ${completedCount()} of ${MODULES.length} complete</div>
+        <div class="section-heading">${t('home.learningPath', { done: completedCount(), total: MODULES.length })}</div>
         <div class="path-grid">${pathItems}</div>
       </div>
 
       <div class="callout callout-tip" style="margin-top:28px">
-        <strong>How to study effectively</strong>
-        Read each lesson, practice with flashcards (active recall), then complete the module quiz. Finish with a full timed practice exam when all modules are done.
+        <strong>${t('home.howToStudy')}</strong>
+        ${t('home.howToStudyBody')}
       </div>
 
       <div class="card card-pad tl-home-card" onclick="navigate('timeline')" style="margin-top:16px;cursor:pointer">
         <div class="tl-home-icon">📅</div>
         <div>
-          <div class="tl-home-title">Timeline Match</div>
-          <div class="tl-home-sub">Match 12 key dates to their historical events. Tap a year, tap an event.</div>
+          <div class="tl-home-title">${t('home.timelineCardTitle')}</div>
+          <div class="tl-home-sub">${t('home.timelineCardSub')}</div>
         </div>
         <div class="tl-home-arrow">→</div>
       </div>
@@ -319,8 +332,8 @@
       <div class="card card-pad tl-home-card examday-home-card" onclick="navigate('examday')" style="margin-top:12px;cursor:pointer">
         <div class="tl-home-icon">🎯</div>
         <div>
-          <div class="tl-home-title">Exam Day Review</div>
-          <div class="tl-home-sub">Readiness map + cram sheet for all 10 topics. Use the night before.</div>
+          <div class="tl-home-title">${t('home.examdayCardTitle')}</div>
+          <div class="tl-home-sub">${t('home.examdayCardSub')}</div>
         </div>
         <div class="tl-home-arrow">→</div>
       </div>`;
@@ -352,8 +365,8 @@
     const sections = window.LessonRender.all(mod.sections, escapeHtml);
 
     const learnPanel = `
-      <div class="objectives"><div class="objectives-title">Learning objectives</div><ul>${objectives}</ul></div>
-      <div class="callout callout-exam"><strong>Exam focus</strong>${escapeHtml(mod.examTip)}</div>
+      <div class="objectives"><div class="objectives-title">${t('module.objectives')}</div><ul>${objectives}</ul></div>
+      <div class="callout callout-exam"><strong>${t('module.examFocus')}</strong>${escapeHtml(mod.examTip)}</div>
       ${sections}`;
 
     const cardsPanel = renderFlashcards(mod);
@@ -365,31 +378,31 @@
 
     document.getElementById('page').innerHTML = `
       <div class="module-header">
-        <div class="eyebrow">Lesson ${idx + 1} of ${MODULES.length}</div>
+        <div class="eyebrow">${t('module.lessonOf', { i: idx + 1, n: MODULES.length })}</div>
         <h1 class="page-title">${escapeHtml(mod.title)}</h1>
         <div class="module-meta">
           <span class="chip">${escapeHtml(mod.duration)}</span>
-          <span class="chip">${mod.flashcards.length} flashcards</span>
-          <span class="chip">${mod.quiz.length} quiz questions</span>
-          ${done ? '<span class="chip chip-success">Completed</span>' : ''}
-          ${qs ? `<span class="chip chip-accent">Quiz best: ${qs.score}/${qs.total}</span>` : ''}
+          <span class="chip">${t('module.flashcardsCount', { n: mod.flashcards.length })}</span>
+          <span class="chip">${t('module.quizCount', { n: mod.quiz.length })}</span>
+          ${done ? `<span class="chip chip-success">${t('module.completed')}</span>` : ''}
+          ${qs ? `<span class="chip chip-accent">${t('module.quizBest', { score: qs.score, total: qs.total })}</span>` : ''}
         </div>
       </div>
 
       <div class="tab-bar">
-        <button class="tab-btn${moduleTab === 'learn' ? ' active' : ''}" onclick="setModuleTab('learn')">Learn</button>
-        <button class="tab-btn${moduleTab === 'cards' ? ' active' : ''}" onclick="setModuleTab('cards')">Flashcards</button>
-        <button class="tab-btn${moduleTab === 'quiz' ? ' active' : ''}" onclick="setModuleTab('quiz')">Practice</button>
+        <button class="tab-btn${moduleTab === 'learn' ? ' active' : ''}" onclick="setModuleTab('learn')">${t('module.tabLearn')}</button>
+        <button class="tab-btn${moduleTab === 'cards' ? ' active' : ''}" onclick="setModuleTab('cards')">${t('module.tabCards')}</button>
+        <button class="tab-btn${moduleTab === 'quiz' ? ' active' : ''}" onclick="setModuleTab('quiz')">${t('module.tabQuiz')}</button>
       </div>
 
       ${panel}
 
       <div class="module-footer">
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          ${prev ? `<button class="btn btn-secondary btn-sm" onclick="navigate('module','${prev.id}')">← Previous</button>` : ''}
-          ${next ? `<button class="btn btn-secondary btn-sm" onclick="navigate('module','${next.id}')">Next →</button>` : ''}
+          ${prev ? `<button class="btn btn-secondary btn-sm" onclick="navigate('module','${prev.id}')">${t('module.previous')}</button>` : ''}
+          ${next ? `<button class="btn btn-secondary btn-sm" onclick="navigate('module','${next.id}')">${t('module.next')}</button>` : ''}
         </div>
-        <button class="btn ${done ? 'btn-success' : 'btn-primary'}" onclick="toggleComplete('${mod.id}')">${done ? '✓ Marked complete' : 'Mark lesson complete'}</button>
+        <button class="btn ${done ? 'btn-success' : 'btn-primary'}" onclick="toggleComplete('${mod.id}')">${done ? t('module.markedComplete') : t('module.markComplete')}</button>
       </div>`;
   }
 
@@ -397,24 +410,24 @@
     const card = mod.flashcards[flashIndex];
     if (!card) return '<p>No flashcards.</p>';
     return `
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:8px">Click the card to flip. Answer in your head before revealing.</p>
-      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px"><kbd>Space</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> previous / next</p>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:8px">${t('flashcards.instructions')}</p>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px">${t('flashcards.keyHint')}</p>
       <div class="flashcard-stage">
-        <div class="flashcard${flashFlipped ? ' flipped' : ''}" onclick="flipCard()" role="button" tabindex="0" aria-label="Flashcard">
+        <div class="flashcard${flashFlipped ? ' flipped' : ''}" onclick="flipCard()" role="button" tabindex="0" aria-label="${t('flashcards.ariaLabel')}">
           <div class="flashcard-face flashcard-front">
-            <div class="fc-label">Question</div>
+            <div class="fc-label">${t('flashcards.question')}</div>
             <div class="fc-text">${escapeHtml(card.front)}</div>
           </div>
           <div class="flashcard-face flashcard-back">
-            <div class="fc-label">Answer</div>
+            <div class="fc-label">${t('flashcards.answer')}</div>
             <div class="fc-text">${escapeHtml(card.back)}</div>
           </div>
         </div>
       </div>
       <div class="fc-controls">
-        <button class="btn btn-secondary btn-sm" onclick="prevCard()" ${flashIndex === 0 ? 'disabled' : ''}>← Previous</button>
-        <span class="fc-progress">${flashIndex + 1} / ${mod.flashcards.length}</span>
-        <button class="btn btn-secondary btn-sm" onclick="nextCard()" ${flashIndex >= mod.flashcards.length - 1 ? 'disabled' : ''}>Next →</button>
+        <button class="btn btn-secondary btn-sm" onclick="prevCard()" ${flashIndex === 0 ? 'disabled' : ''}>${t('flashcards.previous')}</button>
+        <span class="fc-progress">${t('flashcards.progress', { i: flashIndex + 1, n: mod.flashcards.length })}</span>
+        <button class="btn btn-secondary btn-sm" onclick="nextCard()" ${flashIndex >= mod.flashcards.length - 1 ? 'disabled' : ''}>${t('flashcards.next')}</button>
       </div>`;
   }
 
@@ -444,8 +457,8 @@
       let feedback = '';
       if (answered) {
         feedback = chosen === q.correct
-          ? '<div class="quiz-feedback ok">Correct—well done.</div>'
-          : `<div class="quiz-feedback no">The correct answer is: <strong>${escapeHtml(q.options[q.correct])}</strong>${q.explanation ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : ''}</div>`;
+          ? `<div class="quiz-feedback ok">${t('quiz.correct')}</div>`
+          : `<div class="quiz-feedback no">${t('quiz.wrongPrefix')}<strong>${escapeHtml(q.options[q.correct])}</strong>${q.explanation ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : ''}</div>`;
       }
       return `<div class="card quiz-item"><div class="quiz-q">${i + 1}. ${escapeHtml(q.question)}</div><div class="quiz-options">${opts}</div>${feedback}</div>`;
     }).join('');
@@ -454,9 +467,9 @@
     const score = mod.quiz.filter((q, i) => answers[i] === q.correct).length;
 
     return `
-      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Exam-level practice questions for this topic. Answer each one, then review what you missed before moving on.</p>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">${t('quiz.instructions')}</p>
       ${items}
-      ${allDone ? `<div class="callout callout-tip"><strong>Practice complete — ${score}/${mod.quiz.length}</strong>${score === mod.quiz.length ? ' Perfect score! You\'re ready to move on.' : score >= mod.quiz.length * 0.75 ? ' Strong result. Review the ones you missed, then move on.' : ' Keep reviewing — retake this drill until you\'re hitting 10/12 or better.'}</div>` : ''}`;
+      ${allDone ? `<div class="callout callout-tip"><strong>${t('quiz.complete', { score, total: mod.quiz.length })}</strong>${score === mod.quiz.length ? t('quiz.perfect') : score >= mod.quiz.length * 0.75 ? t('quiz.strong') : t('quiz.keepReviewing')}</div>` : ''}`;
   }
 
   window.answerQuiz = function (modId, qIndex, optIndex) {
@@ -476,7 +489,7 @@
   window.toggleComplete = function (id) {
     const now = !isComplete(id);
     setComplete(id, now);
-    if (now) showToast('Lesson marked complete — nice work.');
+    if (now) showToast(t('module.completeToast'));
     render();
   };
 
@@ -530,17 +543,17 @@
   function renderTestIntro() {
     document.getElementById('page').innerHTML = `
       <div class="test-intro">
-        <div class="eyebrow">Practice exam</div>
-        <h1 class="page-title">Timed Practice Exam</h1>
-        <p class="page-lead" style="margin:0 auto">Simulates the official ${EXAM.questions}-question, ${EXAM.minutes}-minute citizenship test. Select the best answer for each question.</p>
+        <div class="eyebrow">${t('exam.introEyebrow')}</div>
+        <h1 class="page-title">${t('exam.introTitle')}</h1>
+        <p class="page-lead" style="margin:0 auto">${t('exam.introLead', { q: EXAM.questions, m: EXAM.minutes })}</p>
         <div class="card test-rules card-pad">
           <ul class="fact-list">
-            <li>${EXAM.questions} multiple-choice questions drawn from the full question bank</li>
-            <li>${EXAM.minutes}-minute countdown timer (${EXAM.format})</li>
-            <li>Passing score: ${EXAM.passScore} correct (${EXAM.passPercent}%)—same as the official exam</li>
+            <li>${t('exam.ruleQuestions', { q: EXAM.questions })}</li>
+            <li>${t('exam.ruleTimer', { m: EXAM.minutes, format: EXAM.format })}</li>
+            <li>${t('exam.rulePass', { score: EXAM.passScore, pct: EXAM.passPercent })}</li>
           </ul>
         </div>
-        <button class="btn btn-primary" style="padding:14px 32px;font-size:16px" onclick="startTest()">Begin practice exam</button>
+        <button class="btn btn-primary" style="padding:14px 32px;font-size:16px" onclick="startTest()">${t('exam.begin')}</button>
       </div>`;
   }
 
@@ -588,7 +601,7 @@
         ? `<div class="quiz-explanation">${escapeHtml(q.explanation)}</div>` : '';
       return `<div class="card mcq-card">
         <div class="mcq-category">${escapeHtml(q.category)}</div>
-        <div class="mcq-question">Question ${i + 1}. ${escapeHtml(q.question)}</div>
+        <div class="mcq-question">${t('exam.questionN', { i: i + 1 })} ${escapeHtml(q.question)}</div>
         <div class="quiz-options">${opts}</div>
         ${explanation}
       </div>`;
@@ -598,10 +611,10 @@
       <div class="test-header">
         <div class="${timerCls}" id="test-timer">${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}</div>
         <div class="test-progress">
-          <div class="test-progress-label">${answered} of ${testQuestions.length} answered</div>
+          <div class="test-progress-label">${t('exam.answeredOf', { n: answered, m: testQuestions.length })}</div>
           <div class="test-progress-bar"><div class="test-progress-fill" style="width:${pct}%"></div></div>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="submitTest()" ${answered === 0 ? 'disabled' : ''}>Submit exam</button>
+        <button class="btn btn-primary btn-sm" onclick="submitTest()" ${answered === 0 ? 'disabled' : ''}>${t('exam.submit')}</button>
       </div>
       ${cards}`;
   }
@@ -652,7 +665,7 @@
     const pct = Math.round(r.score / r.total * 100);
     const scoreCls = pct >= 75 ? 'pass' : pct >= 60 ? 'near' : 'fail';
     const passing = r.score >= EXAM.passScore;
-    const verdict = passing ? 'You meet the passing threshold—excellent work.' : r.score >= EXAM.passScore - 3 ? 'Close to passing—review your weaker topics and try again.' : 'More study recommended—work through lessons and flashcards.';
+    const verdict = passing ? t('results.verdictPass') : r.score >= EXAM.passScore - 3 ? t('results.verdictClose') : t('results.verdictMore');
 
     const bd = Object.entries(r.breakdown || {}).map(([cat, v]) => {
       const ratio = v.right / v.total;
@@ -665,8 +678,8 @@
       const wrongs = r.wrongItems || [];
       const wrongsHtml = wrongs.length ? `
         <div class="wrongs-block">
-          <div class="wrongs-title">Lock these in before test day</div>
-          <p class="wrongs-sub">These came up in your last practice — a quick review and you're golden.</p>
+          <div class="wrongs-title">${t('results.lockIn')}</div>
+          <p class="wrongs-sub">${t('results.lockInSub')}</p>
           ${wrongs.map(w => `<div class="wrong-item">
             <div class="wrong-q">${escapeHtml(w.question)}</div>
             <div class="wrong-a">${escapeHtml(w.answer)}</div>
@@ -676,14 +689,14 @@
 
       readinessBlock = `
         <div class="ready-block">
-          <div class="ready-heading">You're ready for the real thing. 🍁</div>
-          <p class="ready-body">Your practice score clears the official passing threshold. You've put in the work — go book it.</p>
+          <div class="ready-heading">${t('results.readyTitle')}</div>
+          <p class="ready-body">${t('results.readyBody')}</p>
           <div class="canoo-card">
-            <div class="canoo-badge">New citizen perk</div>
+            <div class="canoo-badge">${t('results.canooBadge')}</div>
             <div class="canoo-content">
-              <div class="canoo-title">Once you pass — download Canoo</div>
-              <p class="canoo-body">Canoo is a free app for new Canadian citizens, giving you access to Parks Canada, museums, cultural sites, and hundreds of experiences across the country. Eligible within your first year of citizenship.</p>
-              <a href="https://canoo.ca" target="_blank" rel="noopener noreferrer" class="canoo-link">Learn more at canoo.ca →</a>
+              <div class="canoo-title">${t('results.canooTitle')}</div>
+              <p class="canoo-body">${t('results.canooBody')}</p>
+              <a href="https://canoo.ca" target="_blank" rel="noopener noreferrer" class="canoo-link">${t('results.canooLink')}</a>
             </div>
           </div>
           ${wrongsHtml}
@@ -691,20 +704,20 @@
     }
 
     document.getElementById('page').innerHTML = `
-      <div class="eyebrow">Exam complete</div>
+      <div class="eyebrow">${t('results.examComplete')}</div>
       <div class="card results-hero">
         <div class="results-score ${scoreCls}">${r.score} / ${r.total}</div>
-        <div class="results-detail">${pct}% · Official pass mark is ${EXAM.passPercent}% (${EXAM.passScore}/${EXAM.questions})</div>
+        <div class="results-detail">${t('results.scoreDetail', { pct, passPct: EXAM.passPercent, passScore: EXAM.passScore, total: EXAM.questions })}</div>
         <div class="results-verdict">${verdict}</div>
-        <div class="results-detail" style="margin-top:8px">Time: ${formatTime(r.time)} · ${r.date}</div>
+        <div class="results-detail" style="margin-top:8px">${t('results.timeDetail', { time: formatTime(r.time), date: r.date })}</div>
         <div class="breakdown-grid">${bd}</div>
       </div>
       ${readinessBlock}
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="resetTest()">Take another exam</button>
-        <button class="btn btn-secondary" onclick="navigate('home')">Dashboard</button>
-        <button class="btn btn-secondary" onclick="navigate('results')">View history</button>
-        <button class="btn btn-secondary" onclick="shareResult()">Share →</button>
+        <button class="btn btn-primary" onclick="resetTest()">${t('results.takeAnother')}</button>
+        <button class="btn btn-secondary" onclick="navigate('home')">${t('results.dashboard')}</button>
+        <button class="btn btn-secondary" onclick="navigate('results')">${t('results.viewHistory')}</button>
+        <button class="btn btn-secondary" onclick="shareResult()">${t('results.share')}</button>
       </div>`;
   }
 
@@ -722,33 +735,33 @@
     if (!tests.length) {
       document.getElementById('page').innerHTML = `
         <div class="empty-state">
-          <h3>No practice exams yet</h3>
-          <p>Complete a timed practice exam to track your readiness over time.</p>
-          <button class="btn btn-primary" style="margin-top:16px" onclick="navigate('test')">Start practice exam</button>
+          <h3>${t('results.noExamsTitle')}</h3>
+          <p>${t('results.noExamsBody')}</p>
+          <button class="btn btn-primary" style="margin-top:16px" onclick="navigate('test')">${t('home.startExam')}</button>
         </div>`;
       return;
     }
-    const avg = Math.round(tests.reduce((s, t) => s + t.score / t.total, 0) / tests.length * 100);
-    const best = Math.max(...tests.map(t => Math.round(t.score / t.total * 100)));
-    const rows = tests.map((t, i) => {
-      const p = Math.round(t.score / t.total * 100);
+    const avg = Math.round(tests.reduce((s, r) => s + r.score / r.total, 0) / tests.length * 100);
+    const best = Math.max(...tests.map(r => Math.round(r.score / r.total * 100)));
+    const rows = tests.map((tst, i) => {
+      const p = Math.round(tst.score / tst.total * 100);
       const cls = p >= 75 ? 'pass' : p >= 60 ? 'near' : 'fail';
-      return `<div class="row"><span>${t.date}${i === 0 ? ' · latest' : ''}</span><span class="results-score ${cls}" style="font-size:1rem">${t.score}/${t.total}</span><span>${formatTime(t.time)}</span><span>${p}%</span></div>`;
+      return `<div class="row"><span>${tst.date}${i === 0 ? t('results.latest') : ''}</span><span class="results-score ${cls}" style="font-size:1rem">${tst.score}/${tst.total}</span><span>${formatTime(tst.time)}</span><span>${p}%</span></div>`;
     }).join('');
 
     document.getElementById('page').innerHTML = `
-      <div class="eyebrow">Progress</div>
-      <h1 class="page-title">Practice Exam History</h1>
+      <div class="eyebrow">${t('results.progress')}</div>
+      <h1 class="page-title">${t('results.historyTitle')}</h1>
       <div class="grid-3" style="margin:24px 0">
-        ${statCard(tests.length, 'Exams taken')}
-        ${statCard(best + '%', 'Best score')}
-        ${statCard(avg + '%', 'Average score')}
+        ${statCard(tests.length, t('results.examsTaken'))}
+        ${statCard(best + '%', t('results.bestScore'))}
+        ${statCard(avg + '%', t('results.avgScore'))}
       </div>
       <div class="card history-table">
-        <div class="row header"><span>Date</span><span>Score</span><span>Time</span><span>Percent</span></div>
+        <div class="row header"><span>${t('results.colDate')}</span><span>${t('results.colScore')}</span><span>${t('results.colTime')}</span><span>${t('results.colPercent')}</span></div>
         ${rows}
       </div>
-      <div style="margin-top:20px"><button class="btn btn-primary" onclick="navigate('test')">Take another exam</button></div>`;
+      <div style="margin-top:20px"><button class="btn btn-primary" onclick="navigate('test')">${t('results.takeAnother')}</button></div>`;
   }
 
   function statCard(val, label) {
@@ -756,12 +769,19 @@
   }
 
   // ── MAP ──────────────────────────────────────────────────────────────────
-  const PROVINCES = window.COURSE.provinces;
+  const PROVINCES = (function () {
+    if (LANG !== 'fr' || !window.COURSE_FR || !window.COURSE_FR.provinces) return window.COURSE.provinces;
+    const merged = {};
+    Object.keys(window.COURSE.provinces).forEach(id => {
+      merged[id] = window.COURSE_FR.provinces[id] || window.COURSE.provinces[id];
+    });
+    return merged;
+  })();
   let mapLayer = 'regions';
   let mapSelected = null;
 
   const REGION_COLORS = { north:'#8aafc0', west:'#7baa82', prairies:'#c4a35a', central:'#8899c8', atlantic:'#7ba8bb' };
-  const REGION_NAMES  = { north:'Northern Canada', west:'British Columbia', prairies:'Prairie Provinces', central:'Central Canada', atlantic:'Atlantic Canada' };
+  const REGION_NAMES  = { north: t('map.regionNorth'), west: t('map.regionWest'), prairies: t('map.regionPrairies'), central: t('map.regionCentral'), atlantic: t('map.regionAtlantic') };
 
   const MAP_SHAPES = [
     // id, shape, coords or points, label cx,cy, sublabel, data attrs
@@ -813,11 +833,11 @@
     if (!p) return;
     const regionColor = REGION_COLORS[p.region] || '#aaa';
     const regionName = REGION_NAMES[p.region] || p.region;
-    const joinedText = p.type === 'territory' ? `Became territory: ${p.joined}` : `Joined Confederation: ${p.joined}`;
+    const joinedText = p.type === 'territory' ? t('map.becameTerritory', { year: p.joined }) : t('map.joinedConfederation', { year: p.joined });
     const factsHtml = p.facts.map(f => `<li>${escapeHtml(f)}</li>`).join('');
-    const tagsHtml = p.tags.map(t => `<span class="map-tag">${escapeHtml(t)}</span>`).join('');
+    const tagsHtml = p.tags.map(tag => `<span class="map-tag">${escapeHtml(tag)}</span>`).join('');
     const indigenousHtml = p.indigenous.length
-      ? `<div class="map-indigenous-note">🌿 Indigenous: ${p.indigenous.map(escapeHtml).join('; ')}</div>` : '';
+      ? `<div class="map-indigenous-note">${t('map.indigenousPrefix')}${p.indigenous.map(escapeHtml).join('; ')}</div>` : '';
     document.getElementById('map-info').innerHTML = `
       <div class="map-prov-header">
         <div>
@@ -828,7 +848,7 @@
       </div>
       <div class="map-joined">${joinedText}</div>
       ${indigenousHtml}
-      <div class="map-tip"><div class="map-tip-label">⚡ Exam tip</div>${escapeHtml(p.examTip)}</div>
+      <div class="map-tip"><div class="map-tip-label">${t('map.examTip')}</div>${escapeHtml(p.examTip)}</div>
       <ul class="map-facts">${factsHtml}</ul>
       <div class="map-tags">${tagsHtml}</div>`;
   }
@@ -866,35 +886,35 @@
     }
     if (mapLayer === 'indigenous') {
       return [
-        ['#5b8fc9','Inuit territory'],['#c4862a','Métis territory'],['#7db37d','First Nations (all)']
+        ['#5b8fc9', t('map.legendInuit')], ['#c4862a', t('map.legendMetis')], ['#7db37d', t('map.legendFirstNations')]
       ].map(([c,l]) => `<span class="leg-item"><span class="leg-dot" style="background:${c}"></span>${l}</span>`).join('');
     }
     // history
     return [
-      ['#C8102E','1867 (founding)'],['#e05570','1870'],['#e87a55','1871'],['#e8a040','1873'],
-      ['#7ab37d','1898'],['#8899c8','1905'],['#aa6dc8','1949'],['#555','1999']
+      ['#C8102E', t('map.legendFounding')], ['#e05570','1870'], ['#e87a55','1871'], ['#e8a040','1873'],
+      ['#7ab37d','1898'], ['#8899c8','1905'], ['#aa6dc8','1949'], ['#555','1999']
     ].map(([c,l]) => `<span class="leg-item"><span class="leg-dot" style="background:${c}"></span>${l}</span>`).join('');
   }
 
   function renderMap() {
     document.getElementById('page').innerHTML = `
       <div class="hero-block">
-        <div class="eyebrow">Visual study aid</div>
-        <h1 class="page-title">Canada — Interactive Map</h1>
-        <p class="page-lead">Click any province or territory to see exam-relevant facts. Use layers to study geography, Indigenous peoples, and history.</p>
+        <div class="eyebrow">${t('map.eyebrow')}</div>
+        <h1 class="page-title">${t('map.title')}</h1>
+        <p class="page-lead">${t('map.lead')}</p>
       </div>
       <div class="map-layers">
-        <button class="layer-btn${mapLayer==='regions'?' active':''}" data-layer="regions" onclick="setMapLayer('regions')">Regions</button>
-        <button class="layer-btn${mapLayer==='indigenous'?' active':''}" data-layer="indigenous" onclick="setMapLayer('indigenous')">Indigenous peoples</button>
-        <button class="layer-btn${mapLayer==='history'?' active':''}" data-layer="history" onclick="setMapLayer('history')">When they joined</button>
+        <button class="layer-btn${mapLayer==='regions'?' active':''}" data-layer="regions" onclick="setMapLayer('regions')">${t('map.layerRegions')}</button>
+        <button class="layer-btn${mapLayer==='indigenous'?' active':''}" data-layer="indigenous" onclick="setMapLayer('indigenous')">${t('map.layerIndigenous')}</button>
+        <button class="layer-btn${mapLayer==='history'?' active':''}" data-layer="history" onclick="setMapLayer('history')">${t('map.layerHistory')}</button>
       </div>
       <div class="map-layout">
         <div class="map-svg-wrap">${buildMapSVG()}</div>
         <div class="map-info" id="map-info">
-          <div class="map-info-placeholder"><div style="font-size:2.2rem">🍁</div><div style="margin-top:10px;font-weight:700;font-size:15px">Click a province or territory</div><div style="margin-top:4px;color:var(--text-muted);font-size:13px">See exam facts, Indigenous peoples, and when it joined</div></div>
+          <div class="map-info-placeholder"><div style="font-size:2.2rem">🍁</div><div style="margin-top:10px;font-weight:700;font-size:15px">${t('map.placeholderTitle')}</div><div style="margin-top:4px;color:var(--text-muted);font-size:13px">${t('map.placeholderSub')}</div></div>
         </div>
       </div>
-      <div class="map-legend"><span class="map-legend-label">Legend:</span>${buildLegend()}</div>`;
+      <div class="map-legend"><span class="map-legend-label">${t('map.legendLabel')}</span>${buildLegend()}</div>`;
     // apply initial layer class
     const map = document.getElementById('canada-map');
     if (map) map.className = `canada-map map-layer-${mapLayer}`;
@@ -919,16 +939,16 @@
       <div class="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-heading">
         <button class="support-x" onclick="dismissSupport()" aria-label="Close">×</button>
         <div class="support-leaf">🍁</div>
-        <h2 class="support-heading" id="support-heading">You're ready.</h2>
-        <p class="support-body">You just hit passing on a full practice exam. The lessons, the flashcards, all of it — it's working. You put in the work.</p>
-        <p class="support-ask">This guide is free to use. If it helped you get here, you decide what it's worth.</p>
+        <h2 class="support-heading" id="support-heading">${t('support.heading')}</h2>
+        <p class="support-body">${t('support.body')}</p>
+        <p class="support-ask">${t('support.ask')}</p>
         <div class="support-slider-section">
           <input type="range" id="support-slider" class="support-slider" min="0" max="50" value="10" step="1">
-          <div class="support-marks"><span>Free</span><span>$10</span><span>$25</span><span>$50</span></div>
+          <div class="support-marks"><span>${t('support.markFree')}</span><span>$10</span><span>$25</span><span>$50</span></div>
           <div class="support-amount-row">
             <span class="support-amount" id="support-amount">$10</span>
             <span class="support-amount-sep">·</span>
-            <input type="number" id="support-custom" class="support-custom" min="0" max="9999" placeholder="or type amount">
+            <input type="number" id="support-custom" class="support-custom" min="0" max="9999" placeholder="${t('support.customPlaceholder')}">
           </div>
           <div class="support-tier" id="support-tier"></div>
         </div>
@@ -968,13 +988,13 @@
       tier.textContent = '';
       actions.innerHTML = `
         <div class="support-farewell">
-          <p>That's completely fine.</p>
-          <p>I built this because I wanted to make the citizenship test less overwhelming. If it helped you get here — that's everything.</p>
-          <p class="support-farewell-sign">Go ace the real thing. Canada's lucky to have you. Good luck. 🍁</p>
+          <p>${t('support.farewell1')}</p>
+          <p>${t('support.farewell2')}</p>
+          <p class="support-farewell-sign">${t('support.farewell3')}</p>
         </div>
-        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeSupportOverlay()">Close</button>`;
+        <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeSupportOverlay()">${t('support.close')}</button>`;
     } else {
-      const labels = [[4,'That\'s a kind thought.'],[9,'Buy me a coffee. Really sweet of you.'],[19,'That\'s genuinely kind of you.'],[34,'This is generous. Thank you.'],[50,'You didn\'t have to. This means a lot.'],[Infinity,'Incredibly generous. Thank you so much.']];
+      const labels = [[4,t('support.tier1')],[9,t('support.tier2')],[19,t('support.tier3')],[34,t('support.tier4')],[50,t('support.tier5')],[Infinity,t('support.tier6')]];
       tier.textContent = labels.find(([max]) => amount <= max)[1];
       const kofi = 'https://ko-fi.com/thesidequest';
       const paypal = `https://www.paypal.me/rupajsoni1/${Math.min(amount, 9999)}`;
@@ -991,9 +1011,9 @@
         </div>
         <div class="support-qr-row">
           <img class="support-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https%3A%2F%2Fko-fi.com%2Fthesidequest&bgcolor=f7f7f8&color=1a1a1a&margin=4" alt="Scan to pay on mobile" loading="lazy" width="80" height="80">
-          <span class="support-qr-note">On your phone? Scan for Apple Pay, Visa, or Mastercard via Ko-fi.</span>
+          <span class="support-qr-note">${t('support.qrNote')}</span>
         </div>
-        <button class="support-no-thanks" onclick="dismissSupport()">I'd rather not right now</button>`;
+        <button class="support-no-thanks" onclick="dismissSupport()">${t('support.noThanks')}</button>`;
     }
   }
 
@@ -1020,12 +1040,12 @@
     if (!body) return;
     const open = body.style.display === 'none';
     body.style.display = open ? 'block' : 'none';
-    if (arrow) arrow.textContent = open ? '▾ Hide' : '▸ Add it';
+    if (arrow) arrow.textContent = open ? t('feedback.gapHide') : t('feedback.gapAdd');
   };
 
   window.submitFeedback = function () {
     const msg = document.getElementById('fb-message')?.value.trim();
-    if (!msg) { showToast('Please write something before sending.'); return; }
+    if (!msg) { showToast(t('feedback.emptyToast')); return; }
     const topic = document.getElementById('fb-topic')?.value || '';
     const gap   = document.getElementById('fb-gap')?.value.trim() || '';
     const consent = document.getElementById('fb-consent')?.checked ? 'yes' : 'no';
@@ -1041,18 +1061,18 @@
     }).finally(() => {
       state.feedbackSubmitted = true;
       saveState();
-      showToast('Thank you — feedback received. 🍁');
+      showToast(t('feedback.sentToast'));
       renderAbout();
     });
   };
 
   window.shareResult = function () {
-    const text = 'Preparing for the Canadian citizenship test? Try Northbound — free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northboundca.netlify.app';
+    const text = t('common.shareText');
     if (navigator.share) {
-      navigator.share({ title: 'Northbound — Canadian Citizenship Test Prep', text, url: 'https://northboundca.netlify.app' }).catch(() => {});
+      navigator.share({ title: t('common.shareTitle'), text, url: 'https://northboundca.netlify.app' }).catch(() => {});
     } else {
       navigator.clipboard?.writeText(text)
-        .then(() => showToast('Copied — paste it anywhere.'))
+        .then(() => showToast(t('feedback.copiedToast')))
         .catch(() => showToast('northbound.ca'));
     }
   };
@@ -1083,11 +1103,11 @@
       `<div class="tl-ref-row${p.exam ? ' exam-key' : ''}">
         <div class="tl-ref-year">${p.year}</div>
         <div class="tl-ref-event">${escapeHtml(p.event)}</div>
-        ${p.exam ? '<div class="tl-ref-badge">exam</div>' : ''}
+        ${p.exam ? `<div class="tl-ref-badge">${t('timeline.examBadge')}</div>` : ''}
       </div>`
     ).join('');
     return `<div class="tl-ref-list">${rows}</div>
-      <div class="tl-ref-legend"><span class="tl-ref-badge">exam</span> — high-frequency in the IRCC citizenship test</div>`;
+      <div class="tl-ref-legend"><span class="tl-ref-badge">${t('timeline.examBadge')}</span> ${t('timeline.refLegend')}</div>`;
   }
 
   function renderTlMatch() {
@@ -1117,11 +1137,11 @@
 
     return `
       ${allSolved ? `<div class="tl-success-banner">
-        🎉 All ${pairs.length} dates matched — Canadian history unlocked.
-        <button class="btn btn-secondary" style="margin-left:16px" onclick="tlReset()">Play again</button>
+        ${t('timeline.successBanner', { n: pairs.length })}
+        <button class="btn btn-secondary" style="margin-left:16px" onclick="tlReset()">${t('timeline.playAgain')}</button>
       </div>` : ''}
       <div class="tl-pool-card">
-        <div class="tl-pool-label">Select a year</div>
+        <div class="tl-pool-label">${t('timeline.selectYear')}</div>
         <div class="tl-pool">${chips}</div>
       </div>
       <div class="tl-progress-row">
@@ -1131,22 +1151,22 @@
       <div class="tl-events-list">${rows}</div>
       <div class="tl-hint">
         ${selected
-          ? `<span class="tl-hint-active"><em>${selected}</em> selected — now tap its event</span>`
-          : allSolved ? `<span>All matched. Well done.</span>` : `<span>Tap a year above to begin</span>`}
+          ? `<span class="tl-hint-active">${t('timeline.hintSelected', { year: selected })}</span>`
+          : allSolved ? `<span>${t('timeline.hintAllSolved')}</span>` : `<span>${t('timeline.hintStart')}</span>`}
       </div>`;
   }
 
   function renderTimeline() {
     const tabBar = `<div class="tab-bar" style="margin-bottom:24px">
-      <button class="tab-btn${tlTab === 'ref' ? ' active' : ''}" onclick="tlSetTab('ref')">All Years</button>
-      <button class="tab-btn${tlTab === 'match' ? ' active' : ''}" onclick="tlSetTab('match')">Match Game</button>
+      <button class="tab-btn${tlTab === 'ref' ? ' active' : ''}" onclick="tlSetTab('ref')">${t('timeline.tabAllYears')}</button>
+      <button class="tab-btn${tlTab === 'match' ? ' active' : ''}" onclick="tlSetTab('match')">${t('timeline.tabMatchGame')}</button>
     </div>`;
 
     document.getElementById('page').innerHTML = `
       <div class="hero-block">
-        <div class="eyebrow">Visual study</div>
-        <h1 class="page-title">The Big Picture</h1>
-        <p class="page-lead">26 dates that shaped Canada — read them, then test yourself.</p>
+        <div class="eyebrow">${t('timeline.eyebrow')}</div>
+        <h1 class="page-title">${t('timeline.title')}</h1>
+        <p class="page-lead">${t('timeline.lead')}</p>
       </div>
       ${tabBar}
       ${tlTab === 'ref' ? renderTlRef() : renderTlMatch()}
@@ -1200,7 +1220,7 @@
       return 'focus';
     }
     const SIGNAL_ORDER = ['focus', 'unseen', 'review', 'strong'];
-    const SIGNAL_LABEL = { focus: '🔴 Focus', review: '🟡 Review', strong: '🟢 Strong', unseen: '⬜ Not attempted' };
+    const SIGNAL_LABEL = { focus: t('examday.signalFocus'), review: t('examday.signalReview'), strong: t('examday.signalStrong'), unseen: t('examday.signalUnseen') };
     const SIGNAL_CLS   = { focus: 'signal-focus', review: 'signal-review', strong: 'signal-strong', unseen: 'signal-unseen' };
 
     const sorted = [...MODULES].sort((a, b) =>
@@ -1221,8 +1241,8 @@
     }).join('');
 
     const mapIntro = hasScores
-      ? `<p class="cram-intro">Sorted by what needs the most attention. Tap a row to jump to that topic.</p>`
-      : `<div class="callout callout-tip" style="margin-top:12px"><strong>No quiz scores yet.</strong> Complete at least one module quiz to get your readiness map. All topics are shown below — start with whichever feels shakiest.</div>`;
+      ? `<p class="cram-intro">${t('examday.sortedHint')}</p>`
+      : `<div class="callout callout-tip" style="margin-top:12px"><strong>${t('examday.noScoresTitle')}</strong> ${t('examday.noScoresBody')}</div>`;
 
     const cramBlocks = sorted.map(m => {
       const r = modReadiness(m);
@@ -1236,32 +1256,32 @@
         </div>
         <div class="cram-tip">⚡ ${escapeHtml(m.examTip)}</div>
         <div class="cram-qas">${qaRows}</div>
-        <button class="btn btn-secondary btn-sm" style="margin-top:14px" onclick="window.open(location.href.split('#')[0].split('?')[0]+'#${m.id}','_blank')">Open full lesson →</button>
+        <button class="btn btn-secondary btn-sm" style="margin-top:14px" onclick="window.open(location.href.split('#')[0].split('?')[0]+'#${m.id}','_blank')">${t('examday.openLesson')}</button>
       </div>`;
     }).join('');
 
     document.getElementById('page').innerHTML = `
       <div class="hero-block">
-        <div class="eyebrow">Optional · Pre-exam</div>
-        <h1 class="page-title">Exam Day Review</h1>
-        <p class="page-lead">Your readiness map, then every high-yield fact from every topic in one scroll. Use the night before or the morning of.</p>
+        <div class="eyebrow">${t('examday.eyebrow')}</div>
+        <h1 class="page-title">${t('examday.title')}</h1>
+        <p class="page-lead">${t('examday.lead')}</p>
       </div>
 
       <div class="card card-pad" style="margin-bottom:24px">
-        <div class="section-heading" style="margin-top:0;margin-bottom:4px">Readiness by topic</div>
+        <div class="section-heading" style="margin-top:0;margin-bottom:4px">${t('examday.readinessByTopic')}</div>
         ${mapIntro}
         <div class="readiness-map">${mapRows}</div>
       </div>
 
-      <div class="section-heading">Cram sheet — all ${MODULES.length} topics</div>
-      <p class="cram-intro" style="margin-bottom:20px">Exam tip + top 8 facts per topic. ${hasScores ? 'Sorted by what needs your attention most.' : 'Scroll through everything.'}</p>
+      <div class="section-heading">${t('examday.cramSheet', { n: MODULES.length })}</div>
+      <p class="cram-intro" style="margin-bottom:20px">${t('examday.cramIntro')}${hasScores ? t('examday.cramSortedNote') : t('examday.cramScrollNote')}</p>
       ${cramBlocks}
 
       <div class="card card-pad" style="text-align:center;margin-top:32px;padding:32px">
         <div style="font-size:28px;margin-bottom:10px">🍁</div>
-        <div style="font-weight:700;font-size:17px;margin-bottom:6px">You've reviewed everything. Go take the exam.</div>
-        <div style="font-size:14px;color:var(--text-secondary);margin-bottom:20px">Same format, same pass mark as the real test. No surprises.</div>
-        <button class="btn btn-primary" style="padding:13px 32px;font-size:15px" onclick="navigate('test')">Start practice exam →</button>
+        <div style="font-weight:700;font-size:17px;margin-bottom:6px">${t('examday.doneTitle')}</div>
+        <div style="font-size:14px;color:var(--text-secondary);margin-bottom:20px">${t('examday.doneSub')}</div>
+        <button class="btn btn-primary" style="padding:13px 32px;font-size:15px" onclick="navigate('test')">${t('examday.startExam')}</button>
       </div>`;
   }
 
@@ -1280,21 +1300,21 @@
   function renderAbout() {
     document.getElementById('page').innerHTML = `
       <div class="hero-block">
-        <div class="eyebrow">About</div>
-        <h1 class="page-title">How Northbound works</h1>
-        <p class="page-lead">Built on the official <em>Discover Canada</em> guide. Free for everyone — no account, no paywall.</p>
+        <div class="eyebrow">${t('about.eyebrow')}</div>
+        <h1 class="page-title">${t('about.title')}</h1>
+        <p class="page-lead">${t('about.lead')}</p>
       </div>
 
       <div class="card card-pad" style="margin-bottom:16px">
-        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">The study loop</h2>
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">${t('about.loopTitle')}</h2>
         <div class="fact-list" style="border:1px solid var(--border);border-radius:var(--radius)">
           <ul style="list-style:none">
-            <li><strong>Read the lesson</strong> — each of the 10 modules covers a topic from the official study guide, structured for comprehension not memorisation.</li>
-            <li><strong>Flashcards (active recall)</strong> — flip and recall. Proven to outperform re-reading. Every module has its own deck.</li>
-            <li><strong>Module quiz</strong> — graded before you move on. Your score is saved and visible on the dashboard. You don't self-report whether you learned it.</li>
-            <li><strong>Practice exam</strong> — 20 questions, timed, same pass mark (75%) as the official IRCC test. No format surprises on the day.</li>
-            <li><strong>Topic breakdown</strong> — every exam returns a per-category score. You see exactly where you dropped points and which lesson to revisit.</li>
-            <li><strong>Readiness score</strong> — rolling average of your last 3 practice exams. Tells you when you're ready. Not a feeling — a number.</li>
+            <li>${t('about.loop1')}</li>
+            <li>${t('about.loop2')}</li>
+            <li>${t('about.loop3')}</li>
+            <li>${t('about.loop4')}</li>
+            <li>${t('about.loop5')}</li>
+            <li>${t('about.loop6')}</li>
           </ul>
         </div>
       </div>
@@ -1302,56 +1322,56 @@
       <div class="grid-2" style="margin-bottom:16px;gap:12px;display:grid;grid-template-columns:1fr 1fr">
         <div class="card card-pad">
           <div style="font-size:22px;margin-bottom:8px">🗺</div>
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Interactive Canada map</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Provinces, territories, regions, Indigenous peoples. Geography questions require spatial memory — this builds it.</div>
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">${t('about.mapCardTitle')}</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">${t('about.mapCardBody')}</div>
         </div>
         <div class="card card-pad">
           <div style="font-size:22px;margin-bottom:8px">📅</div>
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Timeline drill</div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Match 12 key dates to historical events. Tests sequence memory, which passive reading doesn't.</div>
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">${t('about.timelineCardTitle')}</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">${t('about.timelineCardBody')}</div>
         </div>
       </div>
 
       <div class="card card-pad" style="margin-bottom:16px">
-        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">FAQ</h2>
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text)">${t('about.faqTitle')}</h2>
         <div class="fact-list" style="border:1px solid var(--border);border-radius:var(--radius)">
           <ul style="list-style:none">
             <li>
-              <strong>Is this affiliated with IRCC or the Government of Canada?</strong><br>
-              <span style="color:var(--text-secondary)">No. Northbound is an independent tool. All content is drawn from the official <em>Discover Canada</em> guide published by IRCC, but we are not affiliated with or endorsed by the Government of Canada.</span>
+              <strong>${t('about.faq1q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq1a')}</span>
             </li>
             <li>
-              <strong>Is it really free?</strong><br>
-              <span style="color:var(--text-secondary)">Yes. Every feature — lessons, flashcards, practice exams, results history, readiness score — is free. If it helps you pass, you can choose to support it. No pressure, no gate.</span>
+              <strong>${t('about.faq2q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq2a')}</span>
             </li>
             <li>
-              <strong>Do I need to create an account?</strong><br>
-              <span style="color:var(--text-secondary)">No. Your progress is saved locally on your device. Open it on your phone, close the tab, come back later — nothing is lost.</span>
+              <strong>${t('about.faq3q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq3a')}</span>
             </li>
             <li>
-              <strong>How accurate is the content?</strong><br>
-              <span style="color:var(--text-secondary)">Every fact is traceable to the official <em>Discover Canada</em> guide (2024 format). The practice exam uses the same question count, time limit, and pass mark as the real test.</span>
+              <strong>${t('about.faq4q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq4a')}</span>
             </li>
             <li>
-              <strong>What does the readiness score mean?</strong><br>
-              <span style="color:var(--text-secondary)">It's a rolling average of your last 3 practice exams. Green (≥75%) means you're consistently hitting the pass mark. Yellow (60–74%) means you're close — review the topics you dropped points on. Red (&lt;60%) means more study time is needed.</span>
+              <strong>${t('about.faq5q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq5a')}</span>
             </li>
             <li>
-              <strong>How is this different from other prep sites?</strong><br>
-              <span style="color:var(--text-secondary)">Most prep tools are question banks. Northbound has a structured study loop — lesson, recall, quiz, exam, diagnosis, repeat. It tracks where you are, tells you what to do next, and shows you when you're ready.</span>
+              <strong>${t('about.faq6q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq6a')}</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div class="callout callout-tip" style="margin-bottom:16px">
-        <strong>Built by someone who went through this.</strong>
-        Independent. Not affiliated with IRCC or the Government of Canada.
+        <strong>${t('about.builtByTitle')}</strong>
+        ${t('about.builtByBody')}
       </div>
 
       <div class="card card-pad" style="margin-bottom:16px">
-        <h2 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text)">Keep this going</h2>
-        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;line-height:1.55">No ads, no account, no paywall. If it helped you get here — you decide what it's worth.</p>
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text)">${t('about.keepGoingTitle')}</h2>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;line-height:1.55">${t('about.keepGoingBody')}</p>
         <div class="footer-pay-row">
           <a href="https://ko-fi.com/thesidequest" target="_blank" rel="noopener noreferrer" class="footer-btn-kofi">Ko-fi ☕</a>
           <a href="https://www.paypal.me/rupajsoni1" target="_blank" rel="noopener noreferrer" class="footer-btn-paypal">PayPal 💙</a>
@@ -1361,34 +1381,34 @@
       ${state.feedbackSubmitted
         ? `<div class="card card-pad" style="margin-bottom:16px;text-align:center;padding:32px">
              <div style="font-size:24px;margin-bottom:8px">🍁</div>
-             <div style="font-weight:700;font-size:15px">Thanks for the note. It means a lot.</div>
+             <div style="font-weight:700;font-size:15px">${t('feedback.thanksTitle')}</div>
            </div>`
         : `<div class="card card-pad" style="margin-bottom:16px">
-             <h2 style="font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)">Say something</h2>
-             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.5">Helpful? Confusing? Something missing? All of it is useful.</p>
-             <textarea id="fb-message" class="fb-textarea" placeholder="What would you like us to know?" rows="3"></textarea>
+             <h2 style="font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)">${t('feedback.sayTitle')}</h2>
+             <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.5">${t('feedback.sayLead')}</p>
+             <textarea id="fb-message" class="fb-textarea" placeholder="${t('feedback.placeholder')}" rows="3"></textarea>
              <div class="fb-consent-row" style="margin-bottom:16px">
                <input type="checkbox" id="fb-consent" class="fb-checkbox">
-               <label for="fb-consent" class="fb-consent-label">I'm happy for this to appear as a testimonial (posted anonymously)</label>
+               <label for="fb-consent" class="fb-consent-label">${t('feedback.consentLabel')}</label>
              </div>
              <div class="fb-gap-toggle" onclick="toggleGapSection()">
-               <span>Saw an exam question we don't have?</span>
-               <span id="fb-gap-arrow" class="fb-gap-arrow">▸ Add it</span>
+               <span>${t('feedback.gapPrompt')}</span>
+               <span id="fb-gap-arrow" class="fb-gap-arrow">${t('feedback.gapAdd')}</span>
              </div>
              <div id="fb-gap-body" class="fb-gap-body" style="display:none">
                <select id="fb-topic" class="fb-select" style="margin-top:10px">
-                 <option value="">Topic area (optional)</option>
-                 <option value="History">History</option>
-                 <option value="Rights and Responsibilities">Rights &amp; Responsibilities</option>
-                 <option value="Government">Government &amp; Democracy</option>
-                 <option value="Geography">Geography</option>
-                 <option value="Economy">Economy &amp; Society</option>
-                 <option value="Indigenous Peoples">Indigenous Peoples</option>
-                 <option value="Other">Other</option>
+                 <option value="">${t('feedback.topicPlaceholder')}</option>
+                 <option value="History">${t('feedback.topicHistory')}</option>
+                 <option value="Rights and Responsibilities">${t('feedback.topicRights')}</option>
+                 <option value="Government">${t('feedback.topicGovernment')}</option>
+                 <option value="Geography">${t('feedback.topicGeography')}</option>
+                 <option value="Economy">${t('feedback.topicEconomy')}</option>
+                 <option value="Indigenous Peoples">${t('feedback.topicIndigenous')}</option>
+                 <option value="Other">${t('feedback.topicOther')}</option>
                </select>
-               <input id="fb-gap" class="fb-input" type="text" placeholder="Rough description — no exact wording needed" maxlength="200">
+               <input id="fb-gap" class="fb-input" type="text" placeholder="${t('feedback.gapPlaceholder')}" maxlength="200">
              </div>
-             <button class="btn btn-primary" style="margin-top:14px" onclick="submitFeedback()">Send feedback</button>
+             <button class="btn btn-primary" style="margin-top:14px" onclick="submitFeedback()">${t('feedback.send')}</button>
            </div>`}`;
   }
 
@@ -1417,7 +1437,7 @@
     if (!el || !bar) return;
     let currentIdx = Math.floor(Date.now() / 86400000) % CANADA_FACTS.length;
     el.textContent = CANADA_FACTS[currentIdx];
-    bar.title = 'Click for another fact';
+    bar.title = t('footer.clickForFact');
     bar.style.cursor = 'pointer';
     bar.addEventListener('click', () => {
       el.classList.add('swapping');
