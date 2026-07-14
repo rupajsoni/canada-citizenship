@@ -1,4 +1,4 @@
-/* Discover Canada — structured course content */
+/* Discover Canada: structured course content */
 window.COURSE = {
   exam: {
     questions: 20,
@@ -21,7 +21,7 @@ window.COURSE = {
         'Distinguish between types of rights when given a scenario on the exam',
         'Name core responsibilities that accompany Canadian citizenship'
       ],
-      examTip: 'Examiners often ask which category of right applies—for example, mobility, legal, or democratic rights.',
+      examTip: 'Examiners often ask which category of right applies, for example, mobility, legal, or democratic rights.',
       sections: [
         {
           title: 'Canadian Charter of Rights and Freedoms',
@@ -64,7 +64,7 @@ window.COURSE = {
             'New citizens take the Oath of Citizenship at a citizenship ceremony.',
             'The Oath pledges allegiance to "His Majesty King Charles the Third, King of Canada, His Heirs and Successors."',
             'It commits to faithfully observing the laws of Canada, including the Constitution, which recognizes and affirms the Aboriginal and treaty rights of First Nations, Métis and Inuit peoples.',
-            'In 2021, the Oath was updated to explicitly include a reference to Indigenous peoples and their rights — the first change in over 60 years.'
+            'In 2021, the Oath was updated to explicitly include a reference to Indigenous peoples and their rights, the first change in over 60 years.'
           ]
         }
       ],
@@ -80,7 +80,7 @@ window.COURSE = {
         { front: 'Which section of the Constitution protects Aboriginal and treaty rights?', back: 'Section 35 of the Constitution Act, 1982.' },
         { front: 'What does the "equality rights" category protect against?', back: 'Discrimination based on race, national or ethnic origin, colour, religion, sex, age, or mental or physical disability.' },
         { front: 'What does the Oath of Citizenship pledge?', back: 'Allegiance to His Majesty King Charles the Third and faithful observance of Canada\'s laws, including the Constitution which recognizes Aboriginal and treaty rights.' },
-        { front: 'When was the Oath of Citizenship updated to include Indigenous peoples?', back: '2021 — the Oath was amended to explicitly recognize Aboriginal and treaty rights of First Nations, Métis and Inuit peoples.' }
+        { front: 'When was the Oath of Citizenship updated to include Indigenous peoples?', back: '2021: the Oath was amended to explicitly recognize Aboriginal and treaty rights of First Nations, Métis and Inuit peoples.' }
       ],
       quiz: [
         {
@@ -156,10 +156,10 @@ window.COURSE = {
         {
           question: 'When was the Oath of Citizenship last updated, and what was added?',
           options: [
-            '1982 — the Charter of Rights was added',
-            '1965 — the maple leaf was added as a symbol',
-            '2021 — explicit recognition of Indigenous peoples and treaty rights was added',
-            '1999 — reference to Nunavut as a new territory was added'
+            '1982: the Charter of Rights was added',
+            '1965: the maple leaf was added as a symbol',
+            '2021: explicit recognition of Indigenous peoples and treaty rights was added',
+            '1999: reference to Nunavut as a new territory was added'
           ],
           correct: 2
         }
@@ -191,7 +191,7 @@ window.COURSE = {
           title: 'Residential schools and reconciliation',
           type: 'list',
           items: [
-            'Residential schools were government-funded, church-run schools that forcibly separated Indigenous children from their families — a deeply harmful assimilation policy.',
+            'Residential schools were government-funded, church-run schools that forcibly separated Indigenous children from their families, a deeply harmful assimilation policy.',
             'The Truth and Reconciliation Commission (TRC) documented this history and released 94 Calls to Action in 2015, calling on governments and institutions to advance reconciliation.',
             'Canada endorsed the United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP) in 2016.',
             'Every September 30 is the National Day for Truth and Reconciliation (Orange Shirt Day), a federal statutory holiday since 2021.'
@@ -214,7 +214,7 @@ window.COURSE = {
         { front: 'Who was Louis Riel?', back: 'A Métis leader who led the Red River Resistance (1869–70) and the Northwest Resistance (1885).' },
         { front: 'What is the basis for Aboriginal rights in Canada?', back: 'Section 35 of the Constitution Act, 1982.' },
         { front: 'Where do Inuit peoples primarily live?', back: 'In the Arctic regions, including Nunavut, NWT, northern Quebec, and Labrador.' },
-        { front: 'What was the purpose of residential schools?', back: 'A government policy to forcibly assimilate Indigenous children — a deeply harmful chapter in Canadian history.' },
+        { front: 'What was the purpose of residential schools?', back: 'A government policy to forcibly assimilate Indigenous children, a deeply harmful chapter in Canadian history.' },
         { front: 'What does the Canadian Multiculturalism Act (1988) recognize?', back: 'That cultural diversity is a fundamental characteristic and value of Canadian society.' },
         { front: 'What international group of French-speaking nations does Canada belong to?', back: 'La Francophonie.' },
         { front: 'What are the TRC\'s 94 Calls to Action?', back: 'Recommendations released in 2015 by the Truth and Reconciliation Commission, calling on governments and institutions to advance reconciliation with Indigenous peoples.' },
@@ -317,7 +317,7 @@ window.COURSE = {
           events: [
             { date: '1497', text: 'John Cabot, sailing for England, maps Canada\'s east coast.' },
             { date: '1534', text: 'Jacques Cartier claims the St. Lawrence region for France.' },
-            { date: '1608', text: 'Samuel de Champlain founds Quebec City—the first permanent European settlement.' },
+            { date: '1608', text: 'Samuel de Champlain founds Quebec City, the first permanent European settlement.' },
             { date: '1759', text: 'Battle of the Plains of Abraham: British victory ends French military rule.' },
             { date: '1763', text: 'Treaty of Paris: France cedes Canada to Britain.' },
             { date: '1774', text: 'Quebec Act: French Canadians retain language, Catholic religion, and civil law.' },
@@ -333,10 +333,10 @@ window.COURSE = {
           type: 'list',
           items: [
             'After the American Revolution, approximately 40,000 to 50,000 United Empire Loyalists came to Canada.',
-            'About 3,000 Black Loyalists — freed men and women and escaped slaves — also came to Nova Scotia and New Brunswick, making them among the earliest Black settlers in Canada.',
+            'About 3,000 Black Loyalists (freed men and women and escaped slaves) also came to Nova Scotia and New Brunswick, making them among the earliest Black settlers in Canada.',
             'In 1792, some Black Nova Scotians left Canada to help establish the city of Freetown in Sierra Leone.',
             'New France had developed around the fur trade and alliances with First Nations.',
-            'National motto: "A Mari Usque Ad Mare" — "From Sea to Sea."'
+            'National motto: "A Mari Usque Ad Mare" ("From Sea to Sea").'
           ]
         }
       ],
@@ -349,11 +349,11 @@ window.COURSE = {
         { front: 'Who first mapped Canada\'s east coast for England, and when?', back: 'John Cabot, 1497.' },
         { front: 'What did the Quebec Act of 1774 protect?', back: 'The French language, Roman Catholic religion, and French civil law in Quebec.' },
         { front: 'Where did United Empire Loyalists settle after the American Revolution?', back: 'Nova Scotia, New Brunswick, and present-day Ontario.' },
-        { front: 'What is Canada\'s national motto and what does it mean?', back: '"A Mari Usque Ad Mare" — "From Sea to Sea."' },
+        { front: 'What is Canada\'s national motto and what does it mean?', back: '"A Mari Usque Ad Mare" ("From Sea to Sea").' },
         { front: 'What colony did Jacques Cartier claim for France in 1534?', back: 'He sailed into the Gulf of St. Lawrence and claimed the land for France.' },
         { front: 'Who were the Black Loyalists?', back: 'About 3,000 freed Black people who came to Nova Scotia and New Brunswick after the American Revolution. In 1792, some left to help establish Freetown, Sierra Leone.' },
         { front: 'What is the significance of Chief Tecumseh in Canadian history?', back: 'A Shawnee leader who allied with British and Canadian forces during the War of 1812, helping defend Canada against American invasion.' },
-        { front: 'What did Lord Durham recommend in his 1839 Report?', back: 'He recommended uniting Upper and Lower Canada — which led to the Act of Union (1841) and eventually responsible government.' }
+        { front: 'What did Lord Durham recommend in his 1839 Report?', back: 'He recommended uniting Upper and Lower Canada, which led to the Act of Union (1841) and eventually responsible government.' }
       ],
       quiz: [
         {
@@ -478,7 +478,7 @@ window.COURSE = {
             { date: '1869–70', text: 'Red River Resistance: Louis Riel leads the Métis; Manitoba enters Confederation (1870).' },
             { date: '1871', text: 'British Columbia joins Confederation with the promise of a transcontinental railway.' },
             { date: '1873', text: 'Prince Edward Island joins Confederation.' },
-            { date: '1885', text: 'Canadian Pacific Railway completed—Canada linked coast to coast; western settlement becomes possible.' },
+            { date: '1885', text: 'Canadian Pacific Railway completed: Canada linked coast to coast; western settlement becomes possible.' },
             { date: '1885', text: 'Northwest Resistance: Louis Riel captured, tried for treason, and executed.' },
             { date: '1896–1911', text: 'Sir Wilfrid Laurier, first French Canadian Prime Minister, presides over massive western immigration.' }
           ]
@@ -489,7 +489,7 @@ window.COURSE = {
         { front: 'Why did British Columbia join Confederation in 1871?', back: 'It was promised a transcontinental railway.' },
         { front: 'What happened to Louis Riel after the Northwest Resistance?', back: 'He was tried for treason and executed in 1885.' },
         { front: 'Who was the first French Canadian Prime Minister?', back: 'Sir Wilfrid Laurier (1896–1911).' },
-        { front: 'When did the Klondike Gold Rush occur?', back: 'The 1890s — prospectors flooded Yukon\'s Klondike region.' },
+        { front: 'When did the Klondike Gold Rush occur?', back: 'The 1890s: prospectors flooded Yukon\'s Klondike region.' },
         { front: 'In what year was the CPR completed?', back: '1885.' },
         { front: 'When did Saskatchewan and Alberta join Confederation?', back: '1905.' },
         { front: 'What led to Manitoba joining Confederation in 1870?', back: 'The Red River Resistance led by Louis Riel.' },
@@ -590,11 +590,11 @@ window.COURSE = {
           title: 'Timeline: wars and modern Canada',
           type: 'timeline',
           events: [
-            { date: '1917', text: 'Battle of Vimy Ridge (April 9): all four Canadian divisions fight together—a defining national moment.' },
+            { date: '1917', text: 'Battle of Vimy Ridge (April 9): all four Canadian divisions fight together, a defining national moment.' },
             { date: '1918', text: 'Sir Robert Borden\'s government grants women the right to vote in federal elections.' },
             { date: '1921', text: 'Agnes Macphail becomes the first woman elected to the House of Commons.' },
             { date: '1939–45', text: 'Second World War: Canada declares war independently; forces land at Juno Beach on D-Day, June 6, 1944. By war\'s end, Canada has the third-largest navy in the world and contributed more to the Allied air effort than any other Commonwealth country.' },
-            { date: '1940', text: 'Quebec grants women the provincial vote — the last province to do so — largely due to the campaigning of Thérèse Casgrain and others.' },
+            { date: '1940', text: 'Quebec grants women the provincial vote (the last province to do so), largely due to the campaigning of Thérèse Casgrain and others.' },
             { date: '1949', text: 'Newfoundland and Labrador becomes the last province to join Confederation.' },
             { date: '1957', text: 'Lester B. Pearson wins Nobel Peace Prize for United Nations peacekeeping.' },
             { date: '1965', text: 'Current Canadian flag adopted.' },
@@ -613,13 +613,13 @@ window.COURSE = {
             'Lester B. Pearson won the Nobel Peace Prize in 1957 for creating UN peacekeeping forces and introduced the current Canadian flag.',
             'Tommy Douglas, "the father of Medicare," introduced universal health care in Saskatchewan.',
             'Terry Fox ran the Marathon of Hope (1980) to raise funds for cancer research.',
-            'Adrienne Clarkson, of Chinese origin, served as Governor General (1999–2005) — the first Canadian of Asian origin to hold this office. She established the Clarkson Cup in 2005.'
+            'Adrienne Clarkson, of Chinese origin, served as Governor General (1999–2005), the first Canadian of Asian origin to hold this office. She established the Clarkson Cup in 2005.'
           ]
         }
       ],
       flashcards: [
-        { front: 'Why is the Battle of Vimy Ridge significant?', back: 'All four divisions of the Canadian Corps fought together for the first time — April 9, 1917.' },
-        { front: 'Which beach did Canadians storm on D-Day?', back: 'Juno Beach, Normandy, France — June 6, 1944.' },
+        { front: 'Why is the Battle of Vimy Ridge significant?', back: 'All four divisions of the Canadian Corps fought together for the first time, April 9, 1917.' },
+        { front: 'Which beach did Canadians storm on D-Day?', back: 'Juno Beach, Normandy, France, June 6, 1944.' },
         { front: 'Which was the last province to join Canada, and when?', back: 'Newfoundland and Labrador, 1949.' },
         { front: 'When was the current Canadian flag adopted?', back: '1965.' },
         { front: 'When was Nunavut created?', back: '1999.' },
@@ -630,7 +630,7 @@ window.COURSE = {
         { front: 'What was the "Persons Case" of 1929?', back: 'A ruling that women are legally recognized as "persons" and could be appointed to the Senate.' },
         { front: 'Which Prime Minister granted women the right to vote in federal elections?', back: 'Sir Robert Borden, in 1918.' },
         { front: 'Who was the first woman elected to the House of Commons, and when?', back: 'Agnes Macphail, in 1921.' },
-        { front: 'Who was Thérèse Casgrain?', back: 'A Quebec activist whose campaigning helped secure women\'s provincial voting rights in Quebec in 1940 — the last province to grant them.' },
+        { front: 'Who was Thérèse Casgrain?', back: 'A Quebec activist whose campaigning helped secure women\'s provincial voting rights in Quebec in 1940, the last province to grant them.' },
         { front: 'Which province was the last to grant women the provincial right to vote?', back: 'Quebec, in 1940.' },
         { front: 'Who was Adrienne Clarkson and what was historically significant about her?', back: 'Governor General of Canada 1999–2005; the first Canadian of Asian origin to hold the office. She established the Clarkson Cup in 2005.' },
         { front: 'What was Canada\'s naval standing by the end of World War II?', back: 'Canada had the third-largest navy in the world.' },
@@ -798,7 +798,7 @@ window.COURSE = {
           rows: [
             ['Executive', 'Prime Minister and Cabinet', 'Propose and administer laws; run government'],
             ['Legislative', 'Parliament', 'Debate and pass laws'],
-            ['Judicial', 'Courts (Supreme Court at top)', 'Interpret and apply laws—nine judges at the Supreme Court']
+            ['Judicial', 'Courts (Supreme Court at top)', 'Interpret and apply laws, nine judges at the Supreme Court']
           ]
         },
         {
@@ -821,7 +821,7 @@ window.COURSE = {
       ],
       flashcards: [
         { front: 'Who is Canada\'s head of state?', back: 'The Sovereign (King Charles III).' },
-        { front: 'Who is the current Governor General of Canada?', back: 'Mary Simon, appointed July 2021 — the first Indigenous person to serve as Governor General.' },
+        { front: 'Who is the current Governor General of Canada?', back: 'Mary Simon, appointed July 2021, the first Indigenous person to serve as Governor General.' },
         { front: 'Who is the current Prime Minister of Canada?', back: 'Mark Carney (Liberal Party), sworn in as Prime Minister in March 2025.' },
         { front: 'Who is Canada\'s head of government?', back: 'The Prime Minister.' },
         { front: 'What are the three parts of Parliament?', back: 'The Crown, the Senate (105 senators), and the House of Commons (338 Members).' },
@@ -1101,7 +1101,7 @@ window.COURSE = {
           correct: 2
         },
         {
-          question: 'No one — including family members, your employer, or a union representative — has the right to insist that you tell them how you voted.',
+          question: 'No one (including family members, your employer, or a union representative) has the right to insist that you tell them how you voted.',
           options: ['True', 'False'],
           correct: 0
         },
@@ -1143,7 +1143,7 @@ window.COURSE = {
             ['Police (including RCMP)', 'Enforce laws'],
             ['Courts', 'Interpret and apply laws'],
             ['Legal Aid', 'Help for those who cannot afford a lawyer'],
-            ['Jury', 'Citizens 18+ may be called to serve—civic responsibility']
+            ['Jury', 'Citizens 18+ may be called to serve, civic responsibility']
           ]
         },
         {
@@ -1151,7 +1151,7 @@ window.COURSE = {
           type: 'list',
           items: [
             'Summary offences are minor; indictable offences are serious and may involve a jury trial.',
-            'The Royal Canadian Mounted Police (RCMP) is Canada\'s national police force—the Mounties.'
+            'The Royal Canadian Mounted Police (RCMP) is Canada\'s national police force (the Mounties).'
           ]
         }
       ],
@@ -1159,7 +1159,7 @@ window.COURSE = {
         { front: 'What does "rule of law" mean?', back: 'Everyone, including the government, must obey the law. No one is above it.' },
         { front: 'What is presumption of innocence?', back: 'An accused person is considered innocent until proven guilty in court.' },
         { front: 'Where can you get help if you cannot afford a lawyer?', back: 'Legal Aid Services, available in most communities.' },
-        { front: 'What is the RCMP?', back: 'The Royal Canadian Mounted Police — Canada\'s national police force (the "Mounties").' },
+        { front: 'What is the RCMP?', back: 'The Royal Canadian Mounted Police: Canada\'s national police force (the "Mounties").' },
         { front: 'Who makes federal laws in Canada?', back: 'Parliament (the House of Commons and the Senate).' },
         { front: 'What is the difference between a summary offence and an indictable offence?', back: 'Summary = minor offence, lighter penalty. Indictable = serious crime, may involve a jury trial.' },
         { front: 'If arrested, what rights do you have?', back: 'The right to remain silent and the right to speak to a lawyer without delay.' },
@@ -1286,11 +1286,11 @@ window.COURSE = {
           type: 'table',
           headers: ['Symbol', 'Detail'],
           rows: [
-            ['Flag', 'Red and white maple leaf—adopted 1965'],
-            ['Anthem', '"O Canada"—official since 1980'],
+            ['Flag', 'Red and white maple leaf, adopted 1965'],
+            ['Anthem', '"O Canada", official since 1980'],
             ['Animal', 'The beaver'],
-            ['Sports', 'Hockey (winter) and lacrosse (summer)—both official'],
-            ['Motto', '"A Mari Usque Ad Mare" — From Sea to Sea'],
+            ['Sports', 'Hockey (winter) and lacrosse (summer), both official'],
+            ['Motto', '"A Mari Usque Ad Mare" (From Sea to Sea)'],
             ['Police', 'Royal Canadian Mounted Police (Mounties)']
           ]
         },
@@ -1298,10 +1298,10 @@ window.COURSE = {
           title: 'Honours and remembrance',
           type: 'cards',
           cards: [
-            { title: 'Order of Canada', body: 'Highest civilian honour for outstanding achievement—established 1967.' },
+            { title: 'Order of Canada', body: 'Highest civilian honour for outstanding achievement, established 1967.' },
             { title: 'Victoria Cross', body: 'Highest military decoration for bravery.' },
             { title: 'Peace Tower', body: 'Central tower of Parliament; Memorial Chamber honours war dead.' },
-            { title: 'Remembrance Day', body: 'November 11—the poppy is the symbol of remembrance.' }
+            { title: 'Remembrance Day', body: 'November 11: the poppy is the symbol of remembrance.' }
           ]
         },
         {
@@ -1309,7 +1309,7 @@ window.COURSE = {
           type: 'table',
           headers: ['Holiday', 'Date', 'What it marks'],
           rows: [
-            ['Canada Day', 'July 1', 'Anniversary of Confederation — Canada became a country on July 1, 1867'],
+            ['Canada Day', 'July 1', 'Anniversary of Confederation: Canada became a country on July 1, 1867'],
             ['Victoria Day', 'Monday before May 25', 'Honours Queen Victoria; also celebrates the current Sovereign\'s birthday'],
             ['Remembrance Day', 'November 11', 'Remembers Canadians who died in war; the poppy is worn'],
             ['National Indigenous Peoples Day', 'June 21', 'Celebrates the heritage, cultures, and contributions of Indigenous peoples'],
@@ -1322,14 +1322,14 @@ window.COURSE = {
         { front: 'When did "O Canada" become the official national anthem?', back: '1980.' },
         { front: 'What are Canada\'s two official national sports?', back: 'Hockey (winter) and lacrosse (summer).' },
         { front: 'What is the Order of Canada?', back: 'Canada\'s highest civilian honour for outstanding achievement, established 1967.' },
-        { front: 'When is Remembrance Day and what does the poppy symbolize?', back: 'November 11 — the poppy symbolizes remembrance of Canadians who died in war.' },
+        { front: 'When is Remembrance Day and what does the poppy symbolize?', back: 'November 11: the poppy symbolizes remembrance of Canadians who died in war.' },
         { front: 'What is Canada\'s national animal?', back: 'The beaver.' },
-        { front: 'What is Canada\'s national motto?', back: '"A Mari Usque Ad Mare" — "From Sea to Sea."' },
+        { front: 'What is Canada\'s national motto?', back: '"A Mari Usque Ad Mare" ("From Sea to Sea").' },
         { front: 'What is the Victoria Cross?', back: 'Canada\'s highest military decoration for bravery in battle.' },
         { front: 'How many points does the maple leaf on the Canadian flag have?', back: '11 points.' },
-        { front: 'What is celebrated on July 1?', back: 'Canada Day — the anniversary of Confederation (July 1, 1867, when Canada became a country).' },
+        { front: 'What is celebrated on July 1?', back: 'Canada Day: the anniversary of Confederation (July 1, 1867, when Canada became a country).' },
         { front: 'What does Victoria Day celebrate?', back: 'The birthday of Queen Victoria and, by tradition, the birthday of the reigning Sovereign. Held on the Monday before May 25.' },
-        { front: 'When is National Indigenous Peoples Day?', back: 'June 21 — celebrates the heritage, cultures, and contributions of Indigenous peoples of Canada.' }
+        { front: 'When is National Indigenous Peoples Day?', back: 'June 21: celebrates the heritage, cultures, and contributions of Indigenous peoples of Canada.' }
       ],
       quiz: [
         {
@@ -1354,7 +1354,7 @@ window.COURSE = {
         },
         {
           question: 'What is Canada\'s national motto?',
-          options: ['"Peace, Order, and Good Government"', '"True North, Strong and Free"', '"A Mari Usque Ad Mare" — From Sea to Sea', '"My Home and Native Land"'],
+          options: ['"Peace, Order, and Good Government"', '"True North, Strong and Free"', '"A Mari Usque Ad Mare" (From Sea to Sea)', '"My Home and Native Land"'],
           correct: 2
         },
         {
@@ -1412,7 +1412,7 @@ window.COURSE = {
           options: [
             'The end of World War II',
             'The birthday of Queen Victoria',
-            'The anniversary of Confederation — Canada becoming a country in 1867',
+            'The anniversary of Confederation: Canada becoming a country in 1867',
             'The adoption of the Canadian flag in 1965'
           ],
           correct: 2
@@ -1478,7 +1478,7 @@ window.COURSE = {
           headers: ['Feature', 'Key facts'],
           rows: [
             ['Three oceans', 'Canada is bordered by the Pacific Ocean (west), Atlantic Ocean (east), and Arctic Ocean (north)'],
-            ['Five Great Lakes', 'Superior, Michigan, Huron, Erie, Ontario — shared with the United States; the world\'s largest freshwater system'],
+            ['Five Great Lakes', 'Superior, Michigan, Huron, Erie, Ontario; shared with the United States; the world\'s largest freshwater system'],
             ['St. Lawrence River', 'Links the Great Lakes to the Atlantic Ocean; the main trade and transport artery of Central Canada'],
             ['Hudson Bay', 'Vast inland sea in northern Canada, connected to the Atlantic'],
             ['Fraser River', 'Major river in British Columbia, flowing to the Pacific'],
@@ -1521,7 +1521,7 @@ window.COURSE = {
         { front: 'Which province is smallest by area?', back: 'Prince Edward Island.' },
         { front: 'Which region is known as Canada\'s breadbasket?', back: 'The Prairie provinces (Alberta, Saskatchewan, Manitoba).' },
         { front: 'How many provinces and territories does Canada have?', back: '10 provinces and 3 territories (13 total).' },
-        { front: 'What trade agreement replaced NAFTA in 2020?', back: 'CUSMA — Canada-United States-Mexico Agreement.' },
+        { front: 'What trade agreement replaced NAFTA in 2020?', back: 'CUSMA: Canada-United States-Mexico Agreement.' },
         { front: 'Which province has the largest population?', back: 'Ontario.' },
         { front: 'What is British Columbia known for?', back: 'Forestry products and Pacific trade with Asia.' },
         { front: 'What is Alberta known for?', back: 'Oil sands and energy production.' },
@@ -1827,10 +1827,10 @@ window.COURSE = {
     {
       question: 'What is Remembrance Day and when is it observed?',
       options: [
-        'Canada Day — July 1, celebrating Confederation',
-        'Victory in Europe Day — May 8',
-        'A day to honor Canadians who died in wars — November 11',
-        'The anniversary of the Charter of Rights — April 17'
+        'Canada Day: July 1, celebrating Confederation',
+        'Victory in Europe Day: May 8',
+        'A day to honor Canadians who died in wars: November 11',
+        'The anniversary of the Charter of Rights: April 17'
       ],
       correct: 2, category: 'History'
     },
@@ -2255,7 +2255,7 @@ window.COURSE = {
     },
     {
       question: 'When Canada declared war in the Second World War, it did so:',
-      options: ['The same day as Britain, August 4, 1939', 'One week after Britain, independently — showing its autonomy', 'Only after the United States joined in December 1941', 'On D-Day, June 6, 1944'],
+      options: ['The same day as Britain, August 4, 1939', 'One week after Britain, independently, showing its autonomy', 'Only after the United States joined in December 1941', 'On D-Day, June 6, 1944'],
       correct: 1, category: 'History'
     },
     {
@@ -2401,7 +2401,7 @@ window.COURSE = {
     // ── SYMBOLS & CULTURE (expanded) ──────────────────────────────────────
     {
       question: 'On what date is Canada Day celebrated, and what does it mark?',
-      options: ['July 4 — independence from Britain', 'July 1 — the anniversary of Confederation in 1867', 'November 11 — the end of the First World War', 'October 1 — the first national election'],
+      options: ['July 4: independence from Britain', 'July 1: the anniversary of Confederation in 1867', 'November 11: the end of the First World War', 'October 1: the first national election'],
       correct: 1, category: 'Symbols'
     },
     {
@@ -2495,7 +2495,7 @@ window.COURSE = {
     },
     {
       question: 'Canadian citizens 18 and older may be called to:',
-      options: ['Attend mandatory military training each year', 'Serve on a jury — a civic duty', 'Pay a special civic tax each year', 'Serve as a returning officer in every federal election'],
+      options: ['Attend mandatory military training each year', 'Serve on a jury, a civic duty', 'Pay a special civic tax each year', 'Serve as a returning officer in every federal election'],
       correct: 1, category: 'Justice'
     },
     {
@@ -2505,7 +2505,7 @@ window.COURSE = {
     },
     {
       question: 'What does "rule of law" mean in Canada?',
-      options: ['Only private citizens must obey the law, not elected officials', 'No person or institution — including the government — is above the law', 'The King is the supreme lawmaker in Canada', 'Laws only apply if passed by a two-thirds majority of Parliament'],
+      options: ['Only private citizens must obey the law, not elected officials', 'No person or institution (including the government) is above the law', 'The King is the supreme lawmaker in Canada', 'Laws only apply if passed by a two-thirds majority of Parliament'],
       correct: 1, category: 'Justice'
     },
     {
@@ -2514,7 +2514,7 @@ window.COURSE = {
       correct: 1, category: 'Justice'
     },
 
-    // ── RICHMOND HILL LIBRARY Q-BANK — gap fill ───────────────────────────
+    // ── RICHMOND HILL LIBRARY Q-BANK: gap fill ───────────────────────────
     // History
     {
       question: 'Approximately how many Canadians served in the First World War?',
@@ -2634,7 +2634,7 @@ window.COURSE = {
     // Elections
     {
       question: 'Who must you tell how you voted in a federal election?',
-      options: ['Your employer if requested', 'An Elections Canada official', 'A police officer if asked', 'No one — your vote is secret'],
+      options: ['Your employer if requested', 'An Elections Canada official', 'A police officer if asked', 'No one, your vote is secret'],
       correct: 3, category: 'Elections'
     },
     {
@@ -2983,7 +2983,7 @@ window.COURSE = {
 
     // ── ELECTIONS (T/F) ──────────────────────────────────────────────────
     {
-      question: 'No one — including family members, your employer, or a union representative — has the right to insist that you tell them how you voted.',
+      question: 'No one (including family members, your employer, or a union representative) has the right to insist that you tell them how you voted.',
       options: ['True', 'False'],
       correct: 0, category: 'Elections'
     },
@@ -3000,12 +3000,12 @@ window.COURSE = {
       region: 'north', joined: 1898,
       indigenous: ['First Nations (diverse Yukon First Nations)'],
       facts: [
-        'Klondike Gold Rush (1896–98) — drew tens of thousands of prospectors',
+        'Klondike Gold Rush (1896–98): drew tens of thousands of prospectors',
         'One of three federal territories (not a province)',
         'Shares border with Alaska (USA)',
         'Whitehorse is the capital'
       ],
-      examTip: 'Gold Rush (Klondike, Yukon) is a common history question — happened 1890s.',
+      examTip: 'Gold Rush (Klondike, Yukon) is a common history question, happened 1890s.',
       tags: ['Territory', 'Gold Rush 1890s']
     },
     nwt: {
@@ -3013,7 +3013,7 @@ window.COURSE = {
       region: 'north', joined: 1870,
       indigenous: ['First Nations (Dene and others)', 'Métis', 'Inuit'],
       facts: [
-        'Second largest territory — multi-Indigenous peoples',
+        'Second largest territory: home to many Indigenous peoples',
         'Nunavut was carved out of NWT in 1999',
         'Aurora borealis (northern lights) visible here',
         'Yellowknife is the capital'
@@ -3026,11 +3026,11 @@ window.COURSE = {
       region: 'north', joined: 1999,
       indigenous: ['Inuit'],
       facts: [
-        'Created in 1999 — Canada\'s newest and largest territory',
+        'Created in 1999: Canada\'s newest and largest territory',
         'Homeland of the Inuit people ("Inuit" means "the people")',
         '"Nunavut" means "Our Land" in Inuktitut',
         'Largest of all provinces/territories by area',
-        'Arctic — midnight sun in summer, aurora borealis in winter'
+        'Arctic climate: midnight sun in summer, aurora borealis in winter'
       ],
       examTip: '★ HIGH YIELD: Nunavut created 1999 as Inuit homeland. On almost every exam.',
       tags: ['Territory', 'Created: 1999', 'Inuit homeland', 'Largest territory']
@@ -3040,9 +3040,9 @@ window.COURSE = {
       region: 'west', joined: 1871,
       indigenous: ['First Nations (many coastal and interior nations)'],
       facts: [
-        'Joined 1871 — was promised a transcontinental railway (CPR)',
+        'Joined 1871: promised a transcontinental railway (CPR)',
         'Canada\'s largest producer of forest products',
-        'Gateway to the Asia-Pacific region — Pacific coast',
+        'Gateway to the Asia-Pacific region: Pacific coast',
         'Vancouver is the largest city; Victoria is the capital'
       ],
       examTip: 'BC joined 1871 because of the railway promise. Forestry = BC.',
@@ -3053,8 +3053,8 @@ window.COURSE = {
       region: 'prairies', joined: 1905,
       indigenous: ['First Nations', 'Métis'],
       facts: [
-        'Prairie province — part of MB, SK, AB (Canada\'s breadbasket region)',
-        'Major oil sands producer — Canada\'s energy heartland',
+        'Prairie province: part of MB, SK, AB (Canada\'s breadbasket region)',
+        'Major oil sands producer: Canada\'s energy heartland',
         'Métis people live primarily in the Prairie provinces',
         'Calgary and Edmonton are major cities; Edmonton is the capital'
       ],
@@ -3066,8 +3066,8 @@ window.COURSE = {
       region: 'prairies', joined: 1905,
       indigenous: ['First Nations', 'Métis'],
       facts: [
-        'Heart of Canada\'s breadbasket — wheat and canola farming',
-        'Prairie province — flat plains ideal for agriculture',
+        'Heart of Canada\'s breadbasket: wheat and canola farming',
+        'Prairie province: flat plains ideal for agriculture',
         'Métis people live primarily here and in MB and AB',
         'Louis Riel\'s 1885 Northwest Resistance happened here',
         'Regina is the capital; Saskatoon is the largest city'
@@ -3080,13 +3080,13 @@ window.COURSE = {
       region: 'prairies', joined: 1870,
       indigenous: ['First Nations', 'Métis'],
       facts: [
-        'First Prairie province — joined 1870 after the Red River Resistance',
+        'First Prairie province: joined 1870 after the Red River Resistance',
         'Louis Riel led the Red River Resistance here (1869–70)',
         'Métis people live primarily in Prairie provinces (MB, SK, AB)',
-        'Winnipeg General Strike of 1919 — one of Canada\'s largest labour actions',
+        'Winnipeg General Strike of 1919: one of Canada\'s largest labour actions',
         'Winnipeg is the capital and largest city'
       ],
-      examTip: 'MB joined 1870 after Louis Riel\'s Red River Resistance — very common question.',
+      examTip: 'MB joined 1870 after Louis Riel\'s Red River Resistance, very common question.',
       tags: ['Province', 'Prairies', 'Joined: 1870', 'Métis territory', 'Red River 1869']
     },
     on: {
@@ -3094,7 +3094,7 @@ window.COURSE = {
       region: 'central', joined: 1867,
       indigenous: ['First Nations (Haudenosaunee, Ojibwe, Cree, and others)'],
       facts: [
-        'Founding province — one of four original provinces at Confederation (1867)',
+        'Founding province: one of four original provinces at Confederation (1867)',
         'Most populous province in Canada',
         'Ottawa (Canada\'s capital) is in Ontario',
         'Toronto is Canada\'s largest city',
@@ -3108,7 +3108,7 @@ window.COURSE = {
       region: 'central', joined: 1867,
       indigenous: ['First Nations (Cree, Mohawk, Innu, others)', 'Inuit (far north)'],
       facts: [
-        'Founding province — one of four original provinces (1867)',
+        'Founding province: one of four original provinces (1867)',
         'Only province with a French-speaking majority',
         'Largest province by area in Canada',
         'Canada\'s main pulp and paper producer',
@@ -3123,9 +3123,9 @@ window.COURSE = {
       region: 'atlantic', joined: 1949,
       indigenous: ['Innu', 'Inuit', 'Mi\'kmaq'],
       facts: [
-        'Last province to join Confederation — 1949',
+        'Last province to join Confederation: 1949',
         'Two parts: Labrador (mainland) and the Island of Newfoundland',
-        'John Cabot landed near here in 1497 — first European to map Canada\'s east coast',
+        'John Cabot landed near here in 1497: first European to map Canada\'s east coast',
         'Atlantic fishing region; historically famous for the cod fishery',
         'St. John\'s (on the island) is the provincial capital'
       ],
@@ -3137,9 +3137,9 @@ window.COURSE = {
       region: 'atlantic', joined: 1867,
       indigenous: ['Mi\'kmaq', 'Wolastoqiyik (Maliseet)'],
       facts: [
-        'Founding province — one of four original provinces (1867)',
+        'Founding province: one of four original provinces (1867)',
         'Only officially bilingual province in Canada (English and French)',
-        'Part of Atlantic Canada — fishing and forestry economy',
+        'Part of Atlantic Canada: fishing and forestry economy',
         'Bay of Fundy (shared with NS) has the world\'s highest tides'
       ],
       examTip: '★ HIGH YIELD: NB is the ONLY officially bilingual province.',
@@ -3150,7 +3150,7 @@ window.COURSE = {
       region: 'atlantic', joined: 1867,
       indigenous: ['Mi\'kmaq'],
       facts: [
-        'Founding province — one of four original provinces (1867)',
+        'Founding province: one of four original provinces (1867)',
         'Responsible government in Canada first started here (1848)',
         'Peninsula province with a long maritime and fishing history',
         'Halifax is the provincial capital and a major port',

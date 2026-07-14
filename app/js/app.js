@@ -942,11 +942,13 @@
         <h2 class="support-heading" id="support-heading">${t('support.heading')}</h2>
         <p class="support-body">${t('support.body')}</p>
         <p class="support-ask">${t('support.ask')}</p>
+        <p class="support-norm-line">${t('support.normLine')}</p>
         <div class="support-slider-section">
-          <input type="range" id="support-slider" class="support-slider" min="0" max="50" value="10" step="1">
-          <div class="support-marks"><span>${t('support.markFree')}</span><span>$10</span><span>$25</span><span>$50</span></div>
+          <input type="range" id="support-slider" class="support-slider" min="0" max="50" value="6" step="1">
+          <div class="support-marks"><span>${t('support.markFree')}</span><span>$6</span><span>$25</span><span>$50</span></div>
           <div class="support-amount-row">
-            <span class="support-amount" id="support-amount">$10</span>
+            <span class="support-amount" id="support-amount">$6</span>
+            <span class="support-standard-tag" id="support-standard-tag">${t('support.standardTag')}</span>
             <span class="support-amount-sep">·</span>
             <input type="number" id="support-custom" class="support-custom" min="0" max="9999" placeholder="${t('support.customPlaceholder')}">
           </div>
@@ -971,7 +973,7 @@
       refreshSupport(val);
     });
     setSliderFill(slider);
-    refreshSupport(10);
+    refreshSupport(6);
   }
 
   function setSliderFill(slider) {
@@ -981,6 +983,8 @@
 
   function refreshSupport(amount) {
     document.getElementById('support-amount').textContent = '$' + amount;
+    const tagEl = document.getElementById('support-standard-tag');
+    if (tagEl) tagEl.style.display = amount === 6 ? '' : 'none';
     const tier = document.getElementById('support-tier');
     const actions = document.getElementById('support-actions');
 
@@ -991,6 +995,10 @@
           <p>${t('support.farewell1')}</p>
           <p>${t('support.farewell2')}</p>
           <p class="support-farewell-sign">${t('support.farewell3')}</p>
+        </div>
+        <div class="support-share-row">
+          <p class="support-share-caption">${t('support.shareCaption')}</p>
+          <button class="support-share-btn" onclick="shareResult()">${t('support.shareBtn')}</button>
         </div>
         <button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeSupportOverlay()">${t('support.close')}</button>`;
     } else {
@@ -1022,8 +1030,6 @@
     if (slider) { slider.value = 0; setSliderFill(slider); }
     const custom = document.getElementById('support-custom');
     if (custom) custom.value = '';
-    const amountEl = document.getElementById('support-amount');
-    if (amountEl) amountEl.textContent = '$0';
     refreshSupport(0);
   };
 
@@ -1360,6 +1366,14 @@
               <strong>${t('about.faq6q')}</strong><br>
               <span style="color:var(--text-secondary)">${t('about.faq6a')}</span>
             </li>
+            <li>
+              <strong>${t('about.faq7q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq7a')}</span>
+            </li>
+            <li>
+              <strong>${t('about.faq8q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq8a')}</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -1376,14 +1390,18 @@
           <a href="https://ko-fi.com/thesidequest" target="_blank" rel="noopener noreferrer" class="footer-btn-kofi">Ko-fi ☕</a>
           <a href="https://www.paypal.me/rupajsoni1" target="_blank" rel="noopener noreferrer" class="footer-btn-paypal">PayPal 💙</a>
         </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border-light)">
+          <p style="font-size:13px;color:var(--text-secondary);font-style:italic;margin:0 0 4px">${t('about.signatureNote')}</p>
+          <p style="font-size:12px;color:var(--text-muted);margin:0">${t('about.signature')}</p>
+        </div>
       </div>
 
       ${state.feedbackSubmitted
-        ? `<div class="card card-pad" style="margin-bottom:16px;text-align:center;padding:32px">
+        ? `<div id="feedback-section" class="card card-pad" style="margin-bottom:16px;text-align:center;padding:32px">
              <div style="font-size:24px;margin-bottom:8px">🍁</div>
              <div style="font-weight:700;font-size:15px">${t('feedback.thanksTitle')}</div>
            </div>`
-        : `<div class="card card-pad" style="margin-bottom:16px">
+        : `<div id="feedback-section" class="card card-pad" style="margin-bottom:16px">
              <h2 style="font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)">${t('feedback.sayTitle')}</h2>
              <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;line-height:1.5">${t('feedback.sayLead')}</p>
              <textarea id="fb-message" class="fb-textarea" placeholder="${t('feedback.placeholder')}" rows="3"></textarea>

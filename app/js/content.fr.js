@@ -1,8 +1,8 @@
-/* Découvrir le Canada — contenu du cours en français.
+/* Découvrir le Canada: contenu du cours en français.
    Mirrors the shape of content.js exactly. window.COURSE_FR.modules only needs to
-   list modules that ARE translated — app.js falls back to the English module (by id)
+   list modules that ARE translated: app.js falls back to the English module (by id)
    for any module not present here, so the app never renders a half-translated lesson.
-   Terminology is sourced from the official "Découvrir le Canada" guide (canada.ca) —
+   Terminology is sourced from the official "Découvrir le Canada" guide (canada.ca),
    see glossary in the translation notes; do not paraphrase fixed/official terms. */
 window.COURSE_FR = {
   exam: {
@@ -26,7 +26,7 @@ window.COURSE_FR = {
         'Distinguer les types de droits à partir d\'une mise en situation à l\'examen',
         'Nommer les principales responsabilités liées à la citoyenneté canadienne'
       ],
-      examTip: 'Les examinateurs demandent souvent quelle catégorie de droit s\'applique — par exemple, la liberté de circulation et d\'établissement, les garanties juridiques ou les droits démocratiques.',
+      examTip: 'Les examinateurs demandent souvent quelle catégorie de droit s\'applique, par exemple, la liberté de circulation et d\'établissement, les garanties juridiques ou les droits démocratiques.',
       sections: [
         {
           title: 'Charte canadienne des droits et libertés',
@@ -69,7 +69,7 @@ window.COURSE_FR = {
             'Les nouveaux citoyens prêtent le serment de citoyenneté lors d\'une cérémonie de citoyenneté.',
             'Le serment engage une allégeance envers « Sa Majesté le roi Charles Trois, roi du Canada, à ses héritiers et successeurs ».',
             'Il engage à observer fidèlement les lois du Canada, y compris la Constitution, qui reconnaît et confirme les droits ancestraux et issus de traités des Premières Nations, des Métis et des Inuits.',
-            'En 2021, le serment a été modifié pour inclure explicitement une référence aux peuples autochtones et à leurs droits — la première modification en plus de 60 ans.'
+            'En 2021, le serment a été modifié pour inclure explicitement une référence aux peuples autochtones et à leurs droits, la première modification en plus de 60 ans.'
           ]
         }
       ],
@@ -85,7 +85,7 @@ window.COURSE_FR = {
         { front: 'Quel article de la Constitution protège les droits ancestraux et issus de traités?', back: 'L\'article 35 de la Loi constitutionnelle de 1982.' },
         { front: 'Contre quoi les « droits à l\'égalité » protègent-ils?', back: 'La discrimination fondée sur la race, l\'origine nationale ou ethnique, la couleur, la religion, le sexe, l\'âge ou les déficiences mentales ou physiques.' },
         { front: 'Que promet le serment de citoyenneté?', back: 'Allégeance à Sa Majesté le roi Charles Trois et l\'observation fidèle des lois du Canada, y compris la Constitution, qui reconnaît les droits ancestraux et issus de traités.' },
-        { front: 'Quand le serment de citoyenneté a-t-il été modifié pour inclure les peuples autochtones?', back: '2021 — le serment a été modifié pour reconnaître explicitement les droits ancestraux et issus de traités des Premières Nations, des Métis et des Inuits.' }
+        { front: 'Quand le serment de citoyenneté a-t-il été modifié pour inclure les peuples autochtones?', back: '2021 : le serment a été modifié pour reconnaître explicitement les droits ancestraux et issus de traités des Premières Nations, des Métis et des Inuits.' }
       ],
       quiz: [
         {
@@ -161,10 +161,10 @@ window.COURSE_FR = {
         {
           question: 'Quand le serment de citoyenneté a-t-il été modifié pour la dernière fois, et qu\'a-t-on ajouté?',
           options: [
-            '1982 — la Charte des droits a été ajoutée',
-            '1965 — la feuille d\'érable a été ajoutée comme symbole',
-            '2021 — la reconnaissance explicite des peuples autochtones et des droits issus de traités a été ajoutée',
-            '1999 — une référence au Nunavut à titre de nouveau territoire a été ajoutée'
+            '1982 : la Charte des droits a été ajoutée',
+            '1965 : la feuille d\'érable a été ajoutée comme symbole',
+            '2021 : la reconnaissance explicite des peuples autochtones et des droits issus de traités a été ajoutée',
+            '1999 : une référence au Nunavut à titre de nouveau territoire a été ajoutée'
           ],
           correct: 2
         }
@@ -196,7 +196,7 @@ window.COURSE_FR = {
           title: `Pensionnats autochtones et réconciliation`,
           type: 'list',
           items: [
-            `Les pensionnats autochtones étaient des écoles financées par le gouvernement et administrées par des Églises, qui séparaient de force les enfants autochtones de leur famille — une politique d'assimilation profondément néfaste.`,
+            `Les pensionnats autochtones étaient des écoles financées par le gouvernement et administrées par des Églises, qui séparaient de force les enfants autochtones de leur famille, une politique d'assimilation profondément néfaste.`,
             `La Commission de vérité et réconciliation (CVR) a documenté cette histoire et publié 94 appels à l'action en 2015, exhortant les gouvernements et les institutions à faire progresser la réconciliation.`,
             `Le Canada a adopté la Déclaration des Nations Unies sur les droits des peuples autochtones (DNUDPA) en 2016.`,
             `Le 30 septembre est chaque année la Journée nationale de la vérité et de la réconciliation (Journée du chandail orange), un jour férié fédéral depuis 2021.`
@@ -219,7 +219,7 @@ window.COURSE_FR = {
         { front: `Qui était Louis Riel?`, back: `Un chef métis qui a mené la résistance de la rivière Rouge (1869-1870) et la résistance du Nord-Ouest (1885).` },
         { front: `Quel est le fondement des droits autochtones au Canada?`, back: `L'article 35 de la Loi constitutionnelle de 1982.` },
         { front: `Où vivent principalement les Inuits?`, back: `Dans les régions arctiques, notamment le Nunavut, les Territoires du Nord-Ouest, le nord du Québec et le Labrador.` },
-        { front: `Quel était le but des pensionnats autochtones?`, back: `Une politique gouvernementale visant à assimiler de force les enfants autochtones — un chapitre profondément néfaste de l'histoire canadienne.` },
+        { front: `Quel était le but des pensionnats autochtones?`, back: `Une politique gouvernementale visant à assimiler de force les enfants autochtones, un chapitre profondément néfaste de l'histoire canadienne.` },
         { front: `Que reconnaît la Loi sur le multiculturalisme canadien (1988)?`, back: `Que la diversité culturelle est une caractéristique et une valeur fondamentale de la société canadienne.` },
         { front: `À quel regroupement international de pays francophones le Canada appartient-il?`, back: `La Francophonie.` },
         { front: `Que sont les 94 appels à l'action de la CVR?`, back: `Des recommandations publiées en 2015 par la Commission de vérité et réconciliation, exhortant les gouvernements et les institutions à faire progresser la réconciliation avec les peuples autochtones.` },
@@ -322,7 +322,7 @@ window.COURSE_FR = {
           events: [
             { date: `1497`, text: `Jean Cabot, naviguant au service de l'Angleterre, cartographie la côte Est du Canada.` },
             { date: `1534`, text: `Jacques Cartier revendique la région du Saint-Laurent au nom de la France.` },
-            { date: `1608`, text: `Samuel de Champlain fonde la ville de Québec — le premier établissement européen permanent.` },
+            { date: `1608`, text: `Samuel de Champlain fonde la ville de Québec, le premier établissement européen permanent.` },
             { date: `1759`, text: `Bataille des plaines d'Abraham : la victoire britannique met fin au régime militaire français.` },
             { date: `1763`, text: `Traité de Paris : la France cède le Canada à la Grande-Bretagne.` },
             { date: `1774`, text: `Acte de Québec : les Canadiens français conservent leur langue, la religion catholique et le droit civil.` },
@@ -338,10 +338,10 @@ window.COURSE_FR = {
           type: 'list',
           items: [
             `Après la Révolution américaine, environ 40 000 à 50 000 loyalistes de l'Empire-Uni sont venus s'établir au Canada.`,
-            `Environ 3 000 loyalistes noirs — hommes et femmes affranchis et esclaves en fuite — sont aussi venus s'établir en Nouvelle-Écosse et au Nouveau-Brunswick, ce qui en fait l'un des premiers groupes de colons noirs au Canada.`,
+            `Environ 3 000 loyalistes noirs (hommes et femmes affranchis et esclaves en fuite) sont aussi venus s'établir en Nouvelle-Écosse et au Nouveau-Brunswick, ce qui en fait l'un des premiers groupes de colons noirs au Canada.`,
             `En 1792, certains Néo-Écossais noirs ont quitté le Canada pour aider à établir la ville de Freetown, en Sierra Leone.`,
             `La Nouvelle-France s'est développée autour de la traite des fourrures et des alliances avec les Premières Nations.`,
-            `Devise nationale : « A Mari Usque Ad Mare » — « D'un océan à l'autre ».`
+            `Devise nationale : « A Mari Usque Ad Mare » (« D'un océan à l'autre »).`
           ]
         }
       ],
@@ -354,11 +354,11 @@ window.COURSE_FR = {
         { front: `Qui a cartographié en premier la côte Est du Canada pour l'Angleterre, et quand?`, back: `Jean Cabot, en 1497.` },
         { front: `Que protégeait l'Acte de Québec de 1774?`, back: `La langue française, la religion catholique romaine et le droit civil français au Québec.` },
         { front: `Où se sont établis les loyalistes de l'Empire-Uni après la Révolution américaine?`, back: `En Nouvelle-Écosse, au Nouveau-Brunswick et dans l'actuel Ontario.` },
-        { front: `Quelle est la devise nationale du Canada et que signifie-t-elle?`, back: `« A Mari Usque Ad Mare » — « D'un océan à l'autre ».` },
+        { front: `Quelle est la devise nationale du Canada et que signifie-t-elle?`, back: `« A Mari Usque Ad Mare » (« D'un océan à l'autre »).` },
         { front: `Quel territoire Jacques Cartier a-t-il revendiqué pour la France en 1534?`, back: `Il a navigué dans le golfe du Saint-Laurent et a revendiqué le territoire au nom de la France.` },
         { front: `Qui étaient les loyalistes noirs?`, back: `Environ 3 000 personnes noires affranchies venues en Nouvelle-Écosse et au Nouveau-Brunswick après la Révolution américaine. En 1792, certaines sont parties aider à établir Freetown, en Sierra Leone.` },
         { front: `Quelle est l'importance du chef Tecumseh dans l'histoire canadienne?`, back: `Un chef shawnee qui s'est allié aux forces britanniques et canadiennes pendant la guerre de 1812, aidant à défendre le Canada contre l'invasion américaine.` },
-        { front: `Qu'a recommandé lord Durham dans son rapport de 1839?`, back: `Il a recommandé d'unir le Haut-Canada et le Bas-Canada — ce qui a mené à l'Acte d'Union (1841) et, éventuellement, à un gouvernement responsable.` }
+        { front: `Qu'a recommandé lord Durham dans son rapport de 1839?`, back: `Il a recommandé d'unir le Haut-Canada et le Bas-Canada, ce qui a mené à l'Acte d'Union (1841) et, éventuellement, à un gouvernement responsable.` }
       ],
       quiz: [
         {
@@ -483,7 +483,7 @@ window.COURSE_FR = {
             { date: `1869–70`, text: `Résistance de la rivière Rouge : Louis Riel mène les Métis; le Manitoba entre dans la Confédération (1870).` },
             { date: `1871`, text: `La Colombie-Britannique se joint à la Confédération avec la promesse d'un chemin de fer transcontinental.` },
             { date: `1873`, text: `L'Île-du-Prince-Édouard se joint à la Confédération.` },
-            { date: `1885`, text: `Achèvement du Chemin de fer Canadien Pacifique — le Canada est relié d'un océan à l'autre; la colonisation de l'Ouest devient possible.` },
+            { date: `1885`, text: `Achèvement du Chemin de fer Canadien Pacifique : le Canada est relié d'un océan à l'autre; la colonisation de l'Ouest devient possible.` },
             { date: `1885`, text: `Résistance du Nord-Ouest : Louis Riel est capturé, jugé pour haute trahison et exécuté.` },
             { date: `1896–1911`, text: `Sir Wilfrid Laurier, premier premier ministre canadien-français, préside à une immigration massive vers l'Ouest.` }
           ]
@@ -494,7 +494,7 @@ window.COURSE_FR = {
         { front: `Pourquoi la Colombie-Britannique s'est-elle jointe à la Confédération en 1871?`, back: `On lui a promis un chemin de fer transcontinental.` },
         { front: `Qu'est-il arrivé à Louis Riel après la résistance du Nord-Ouest?`, back: `Il a été jugé pour haute trahison et exécuté en 1885.` },
         { front: `Qui était le premier premier ministre canadien-français?`, back: `Sir Wilfrid Laurier (1896-1911).` },
-        { front: `Quand a eu lieu la ruée vers l'or du Klondike?`, back: `Dans les années 1890 — les prospecteurs ont afflué vers la région du Klondike, au Yukon.` },
+        { front: `Quand a eu lieu la ruée vers l'or du Klondike?`, back: `Dans les années 1890 : les prospecteurs ont afflué vers la région du Klondike, au Yukon.` },
         { front: `En quelle année le CFCP a-t-il été achevé?`, back: `1885.` },
         { front: `Quand la Saskatchewan et l'Alberta se sont-elles jointes à la Confédération?`, back: `1905.` },
         { front: `Qu'est-ce qui a mené à l'entrée du Manitoba dans la Confédération en 1870?`, back: `La résistance de la rivière Rouge menée par Louis Riel.` },
@@ -595,11 +595,11 @@ window.COURSE_FR = {
           title: `Ligne du temps : les guerres et le Canada moderne`,
           type: 'timeline',
           events: [
-            { date: `1917`, text: `Bataille de la crête de Vimy (9 avril) : les quatre divisions canadiennes combattent ensemble pour la première fois — un moment déterminant pour la nation.` },
+            { date: `1917`, text: `Bataille de la crête de Vimy (9 avril) : les quatre divisions canadiennes combattent ensemble pour la première fois, un moment déterminant pour la nation.` },
             { date: `1918`, text: `Le gouvernement de sir Robert Borden accorde aux femmes le droit de vote aux élections fédérales.` },
             { date: `1921`, text: `Agnes Macphail devient la première femme élue à la Chambre des communes.` },
             { date: `1939–45`, text: `Seconde Guerre mondiale : le Canada déclare la guerre de façon indépendante; ses forces débarquent à la plage Juno lors du jour J, le 6 juin 1944. À la fin de la guerre, le Canada possède la troisième marine en importance au monde et a contribué plus que tout autre pays du Commonwealth à l'effort aérien allié.` },
-            { date: `1940`, text: `Le Québec accorde le droit de vote provincial aux femmes — la dernière province à le faire — en grande partie grâce aux efforts de Thérèse Casgrain et d'autres militantes.` },
+            { date: `1940`, text: `Le Québec accorde le droit de vote provincial aux femmes (la dernière province à le faire), en grande partie grâce aux efforts de Thérèse Casgrain et d'autres militantes.` },
             { date: `1949`, text: `Terre-Neuve-et-Labrador devient la dernière province à se joindre à la Confédération.` },
             { date: `1957`, text: `Lester B. Pearson remporte le prix Nobel de la paix pour son rôle dans le maintien de la paix des Nations Unies.` },
             { date: `1965`, text: `Adoption du drapeau canadien actuel.` },
@@ -618,13 +618,13 @@ window.COURSE_FR = {
             `Lester B. Pearson a remporté le prix Nobel de la paix en 1957 pour avoir créé les forces de maintien de la paix de l'ONU, et a fait adopter le drapeau canadien actuel.`,
             `Tommy Douglas, « le père de l'assurance-maladie », a instauré les soins de santé universels en Saskatchewan.`,
             `Terry Fox a couru le Marathon de l'espoir (1980) pour amasser des fonds pour la recherche sur le cancer.`,
-            `Adrienne Clarkson, d'origine chinoise, a été gouverneure générale (1999-2005) — la première Canadienne d'origine asiatique à occuper ce poste. Elle a créé la Coupe Clarkson en 2005.`
+            `Adrienne Clarkson, d'origine chinoise, a été gouverneure générale (1999-2005), la première Canadienne d'origine asiatique à occuper ce poste. Elle a créé la Coupe Clarkson en 2005.`
           ]
         }
       ],
       flashcards: [
-        { front: `Pourquoi la bataille de la crête de Vimy est-elle importante?`, back: `Les quatre divisions du Corps canadien ont combattu ensemble pour la première fois — le 9 avril 1917.` },
-        { front: `Quelle plage les Canadiens ont-ils prise d'assaut le jour J?`, back: `La plage Juno, en Normandie, en France — le 6 juin 1944.` },
+        { front: `Pourquoi la bataille de la crête de Vimy est-elle importante?`, back: `Les quatre divisions du Corps canadien ont combattu ensemble pour la première fois, le 9 avril 1917.` },
+        { front: `Quelle plage les Canadiens ont-ils prise d'assaut le jour J?`, back: `La plage Juno, en Normandie, en France, le 6 juin 1944.` },
         { front: `Quelle a été la dernière province à se joindre au Canada, et quand?`, back: `Terre-Neuve-et-Labrador, en 1949.` },
         { front: `Quand le drapeau canadien actuel a-t-il été adopté?`, back: `1965.` },
         { front: `Quand le Nunavut a-t-il été créé?`, back: `1999.` },
@@ -635,7 +635,7 @@ window.COURSE_FR = {
         { front: `Qu'était l'« affaire personne » de 1929?`, back: `Une décision reconnaissant légalement les femmes comme des « personnes » pouvant être nommées au Sénat.` },
         { front: `Quel premier ministre a accordé aux femmes le droit de vote aux élections fédérales?`, back: `Sir Robert Borden, en 1918.` },
         { front: `Qui a été la première femme élue à la Chambre des communes, et quand?`, back: `Agnes Macphail, en 1921.` },
-        { front: `Qui était Thérèse Casgrain?`, back: `Une militante québécoise dont les efforts ont contribué à l'obtention du droit de vote provincial pour les femmes au Québec en 1940 — la dernière province à l'accorder.` },
+        { front: `Qui était Thérèse Casgrain?`, back: `Une militante québécoise dont les efforts ont contribué à l'obtention du droit de vote provincial pour les femmes au Québec en 1940, la dernière province à l'accorder.` },
         { front: `Quelle province a été la dernière à accorder aux femmes le droit de vote provincial?`, back: `Le Québec, en 1940.` },
         { front: `Qui était Adrienne Clarkson, et quelle est son importance historique?`, back: `Gouverneure générale du Canada de 1999 à 2005; la première Canadienne d'origine asiatique à occuper ce poste. Elle a créé la Coupe Clarkson en 2005.` },
         { front: `Quel était le rang naval du Canada à la fin de la Seconde Guerre mondiale?`, back: `Le Canada possédait la troisième marine en importance au monde.` },
@@ -803,7 +803,7 @@ window.COURSE_FR = {
           rows: [
             [`Exécutif`, `Premier ministre et Cabinet`, `Proposer et appliquer les lois; diriger le gouvernement`],
             [`Législatif`, `Parlement`, `Débattre et adopter les lois`],
-            [`Judiciaire`, `Tribunaux (Cour suprême au sommet)`, `Interpréter et appliquer les lois — neuf juges à la Cour suprême`]
+            [`Judiciaire`, `Tribunaux (Cour suprême au sommet)`, `Interpréter et appliquer les lois, neuf juges à la Cour suprême`]
           ]
         },
         {
@@ -826,7 +826,7 @@ window.COURSE_FR = {
       ],
       flashcards: [
         { front: `Qui est le chef d'État du Canada?`, back: `Le souverain (le roi Charles III).` },
-        { front: `Qui est l'actuelle gouverneure générale du Canada?`, back: `Mary Simon, nommée en juillet 2021 — la première Autochtone à occuper le poste de gouverneure générale.` },
+        { front: `Qui est l'actuelle gouverneure générale du Canada?`, back: `Mary Simon, nommée en juillet 2021, la première Autochtone à occuper le poste de gouverneure générale.` },
         { front: `Qui est l'actuel premier ministre du Canada?`, back: `Mark Carney (Parti libéral), assermenté premier ministre en mars 2025.` },
         { front: `Qui est le chef du gouvernement du Canada?`, back: `Le premier ministre.` },
         { front: `Quels sont les trois éléments du Parlement?`, back: `La Couronne, le Sénat (105 sénateurs) et la Chambre des communes (338 députés).` },
@@ -1106,7 +1106,7 @@ window.COURSE_FR = {
           correct: 2
         },
         {
-          question: `Personne — y compris les membres de votre famille, votre employeur ou un représentant syndical — n'a le droit d'exiger que vous révéliez votre vote.`,
+          question: `Personne (y compris les membres de votre famille, votre employeur ou un représentant syndical) n'a le droit d'exiger que vous révéliez votre vote.`,
           options: [`Vrai`, `Faux`],
           correct: 0
         },
@@ -1148,7 +1148,7 @@ window.COURSE_FR = {
             [`Police (y compris la GRC)`, `Fait respecter les lois`],
             [`Tribunaux`, `Interprètent et appliquent les lois`],
             [`Aide juridique`, `Soutien pour les personnes ne pouvant pas payer un avocat`],
-            [`Jury`, `Les citoyens de 18 ans et plus peuvent être appelés à y siéger — une responsabilité civique`]
+            [`Jury`, `Les citoyens de 18 ans et plus peuvent être appelés à y siéger, une responsabilité civique`]
           ]
         },
         {
@@ -1156,7 +1156,7 @@ window.COURSE_FR = {
           type: 'list',
           items: [
             `Les infractions sommaires sont mineures; les actes criminels sont graves et peuvent impliquer un procès devant jury.`,
-            `La Gendarmerie royale du Canada (GRC) est le service de police national du Canada — les « Mounties ».`
+            `La Gendarmerie royale du Canada (GRC) est le service de police national du Canada (les « Mounties »).`
           ]
         }
       ],
@@ -1164,7 +1164,7 @@ window.COURSE_FR = {
         { front: `Que signifie « primauté du droit »?`, back: `Tout le monde, y compris le gouvernement, doit respecter la loi. Personne n'est au-dessus d'elle.` },
         { front: `Qu'est-ce que la présomption d'innocence?`, back: `Une personne accusée est considérée comme innocente jusqu'à preuve du contraire devant un tribunal.` },
         { front: `Où pouvez-vous obtenir de l'aide si vous ne pouvez pas payer un avocat?`, back: `Les services d'aide juridique, offerts dans la plupart des communautés.` },
-        { front: `Qu'est-ce que la GRC?`, back: `La Gendarmerie royale du Canada — le service de police national du Canada (les « Mounties »).` },
+        { front: `Qu'est-ce que la GRC?`, back: `La Gendarmerie royale du Canada : le service de police national du Canada (les « Mounties »).` },
         { front: `Qui adopte les lois fédérales au Canada?`, back: `Le Parlement (la Chambre des communes et le Sénat).` },
         { front: `Quelle est la différence entre une infraction sommaire et un acte criminel?`, back: `Infraction sommaire = infraction mineure, peine plus légère. Acte criminel = crime grave, pouvant impliquer un procès devant jury.` },
         { front: `Si vous êtes arrêté, quels droits avez-vous?`, back: `Le droit de garder le silence et le droit de parler à un avocat sans délai.` },
@@ -1291,11 +1291,11 @@ window.COURSE_FR = {
           type: 'table',
           headers: [`Symbole`, `Détail`],
           rows: [
-            [`Drapeau`, `Feuille d'érable rouge et blanche — adopté en 1965`],
-            [`Hymne`, `« Ô Canada » — officiel depuis 1980`],
+            [`Drapeau`, `Feuille d'érable rouge et blanche, adopté en 1965`],
+            [`Hymne`, `« Ô Canada », officiel depuis 1980`],
             [`Animal`, `Le castor`],
-            [`Sports`, `Le hockey (hiver) et la crosse (été) — tous deux officiels`],
-            [`Devise`, `« A Mari Usque Ad Mare » — D'un océan à l'autre`],
+            [`Sports`, `Le hockey (hiver) et la crosse (été), tous deux officiels`],
+            [`Devise`, `« A Mari Usque Ad Mare » (D'un océan à l'autre)`],
             [`Police`, `Gendarmerie royale du Canada (les Mounties)`]
           ]
         },
@@ -1303,10 +1303,10 @@ window.COURSE_FR = {
           title: `Distinctions et souvenir`,
           type: 'cards',
           cards: [
-            { title: `Ordre du Canada`, body: `Plus haute distinction civile pour une réalisation exceptionnelle — créé en 1967.` },
+            { title: `Ordre du Canada`, body: `Plus haute distinction civile pour une réalisation exceptionnelle, créé en 1967.` },
             { title: `Croix de Victoria`, body: `Plus haute décoration militaire pour bravoure.` },
             { title: `Tour de la Paix`, body: `Tour centrale du Parlement; la Chapelle du Souvenir honore les soldats morts au combat.` },
-            { title: `Jour du Souvenir`, body: `Le 11 novembre — le coquelicot est le symbole du souvenir.` }
+            { title: `Jour du Souvenir`, body: `Le 11 novembre : le coquelicot est le symbole du souvenir.` }
           ]
         },
         {
@@ -1314,7 +1314,7 @@ window.COURSE_FR = {
           type: 'table',
           headers: [`Jour férié`, `Date`, `Ce qu'il souligne`],
           rows: [
-            [`Fête du Canada`, `1er juillet`, `Anniversaire de la Confédération — le Canada est devenu un pays le 1er juillet 1867`],
+            [`Fête du Canada`, `1er juillet`, `Anniversaire de la Confédération : le Canada est devenu un pays le 1er juillet 1867`],
             [`Fête de Victoria`, `Lundi précédant le 25 mai`, `Honore la reine Victoria; souligne aussi l'anniversaire du souverain actuel`],
             [`Jour du Souvenir`, `11 novembre`, `Se souvient des Canadiens morts à la guerre; le coquelicot est porté`],
             [`Journée nationale des peuples autochtones`, `21 juin`, `Souligne le patrimoine, les cultures et les contributions des peuples autochtones`],
@@ -1327,14 +1327,14 @@ window.COURSE_FR = {
         { front: `Quand « Ô Canada » est-il devenu l'hymne national officiel?`, back: `1980.` },
         { front: `Quels sont les deux sports nationaux officiels du Canada?`, back: `Le hockey (hiver) et la crosse (été).` },
         { front: `Qu'est-ce que l'Ordre du Canada?`, back: `La plus haute distinction civile du Canada pour une réalisation exceptionnelle, créée en 1967.` },
-        { front: `Quand a lieu le jour du Souvenir, et que symbolise le coquelicot?`, back: `Le 11 novembre — le coquelicot symbolise le souvenir des Canadiens morts à la guerre.` },
+        { front: `Quand a lieu le jour du Souvenir, et que symbolise le coquelicot?`, back: `Le 11 novembre : le coquelicot symbolise le souvenir des Canadiens morts à la guerre.` },
         { front: `Quel est l'animal national du Canada?`, back: `Le castor.` },
-        { front: `Quelle est la devise nationale du Canada?`, back: `« A Mari Usque Ad Mare » — « D'un océan à l'autre ».` },
+        { front: `Quelle est la devise nationale du Canada?`, back: `« A Mari Usque Ad Mare » (« D'un océan à l'autre »).` },
         { front: `Qu'est-ce que la Croix de Victoria?`, back: `La plus haute décoration militaire du Canada pour bravoure au combat.` },
         { front: `Combien de pointes compte la feuille d'érable du drapeau canadien?`, back: `11 pointes.` },
-        { front: `Que célèbre-t-on le 1er juillet?`, back: `La fête du Canada — l'anniversaire de la Confédération (le 1er juillet 1867, lorsque le Canada est devenu un pays).` },
+        { front: `Que célèbre-t-on le 1er juillet?`, back: `La fête du Canada : l'anniversaire de la Confédération (le 1er juillet 1867, lorsque le Canada est devenu un pays).` },
         { front: `Que célèbre la fête de Victoria?`, back: `L'anniversaire de la reine Victoria et, selon la tradition, l'anniversaire du souverain régnant. Elle a lieu le lundi précédant le 25 mai.` },
-        { front: `Quand a lieu la Journée nationale des peuples autochtones?`, back: `Le 21 juin — elle souligne le patrimoine, les cultures et les contributions des peuples autochtones du Canada.` }
+        { front: `Quand a lieu la Journée nationale des peuples autochtones?`, back: `Le 21 juin : elle souligne le patrimoine, les cultures et les contributions des peuples autochtones du Canada.` }
       ],
       quiz: [
         {
@@ -1359,7 +1359,7 @@ window.COURSE_FR = {
         },
         {
           question: `Quelle est la devise nationale du Canada?`,
-          options: [`« Paix, ordre et bon gouvernement »`, `« Le vrai Nord fort et libre »`, `« A Mari Usque Ad Mare » — D'un océan à l'autre`, `« Mon foyer et ma terre natale »`],
+          options: [`« Paix, ordre et bon gouvernement »`, `« Le vrai Nord fort et libre »`, `« A Mari Usque Ad Mare » (D'un océan à l'autre)`, `« Mon foyer et ma terre natale »`],
           correct: 2
         },
         {
@@ -1417,7 +1417,7 @@ window.COURSE_FR = {
           options: [
             `La fin de la Seconde Guerre mondiale`,
             `L'anniversaire de la reine Victoria`,
-            `L'anniversaire de la Confédération — le Canada devenant un pays en 1867`,
+            `L'anniversaire de la Confédération : le Canada devenant un pays en 1867`,
             `L'adoption du drapeau canadien en 1965`
           ],
           correct: 2
@@ -1453,7 +1453,7 @@ window.COURSE_FR = {
           items: [
             `Le Canada a une économie de marché fondée sur la libre entreprise.`,
             `Les États-Unis sont le plus important partenaire commercial du Canada.`,
-            `L'ACEUM (Accord Canada—États-Unis—Mexique) a remplacé l'ALENA en 2020.`,
+            `L'ACEUM (Accord Canada-États-Unis-Mexique) a remplacé l'ALENA en 2020.`,
             `Membre du G7, du G20, de l'OTAN, du Commonwealth, de la Francophonie, de l'ONU et du NORAD.`
           ]
         },
@@ -1483,7 +1483,7 @@ window.COURSE_FR = {
           headers: [`Élément`, `Faits clés`],
           rows: [
             [`Trois océans`, `Le Canada est bordé par l'océan Pacifique (à l'ouest), l'océan Atlantique (à l'est) et l'océan Arctique (au nord)`],
-            [`Les cinq Grands Lacs`, `Supérieur, Michigan, Huron, Érié, Ontario — partagés avec les États-Unis; le plus grand réseau d'eau douce au monde`],
+            [`Les cinq Grands Lacs`, `Supérieur, Michigan, Huron, Érié, Ontario; partagés avec les États-Unis; le plus grand réseau d'eau douce au monde`],
             [`Fleuve Saint-Laurent`, `Relie les Grands Lacs à l'océan Atlantique; la principale artère commerciale et de transport du centre du Canada`],
             [`Baie d'Hudson`, `Vaste mer intérieure du nord du Canada, reliée à l'Atlantique`],
             [`Fleuve Fraser`, `Cours d'eau important de la Colombie-Britannique, se jetant dans le Pacifique`],
@@ -1526,7 +1526,7 @@ window.COURSE_FR = {
         { front: `Quelle province est la plus petite en superficie?`, back: `L'Île-du-Prince-Édouard.` },
         { front: `Quelle région est reconnue comme le grenier à blé du Canada?`, back: `Les provinces des Prairies (Alberta, Saskatchewan, Manitoba).` },
         { front: `Combien de provinces et territoires le Canada compte-t-il?`, back: `10 provinces et 3 territoires (13 au total).` },
-        { front: `Quel accord commercial a remplacé l'ALENA en 2020?`, back: `L'ACEUM — l'Accord Canada—États-Unis—Mexique.` },
+        { front: `Quel accord commercial a remplacé l'ALENA en 2020?`, back: `L'ACEUM : l'Accord Canada-États-Unis-Mexique.` },
         { front: `Quelle province a la population la plus nombreuse?`, back: `L'Ontario.` },
         { front: `Pour quoi la Colombie-Britannique est-elle reconnue?`, back: `Les produits forestiers et le commerce avec l'Asie via le Pacifique.` },
         { front: `Pour quoi l'Alberta est-elle reconnue?`, back: `Les sables bitumineux et la production énergétique.` },
@@ -1567,7 +1567,7 @@ window.COURSE_FR = {
           options: [
             `Le Partenariat transpacifique`,
             `L'accord commercial du G7`,
-            `L'ACEUM (Accord Canada—États-Unis—Mexique)`,
+            `L'ACEUM (Accord Canada-États-Unis-Mexique)`,
             `La Loi sur le libre-échange du Commonwealth`
           ],
           correct: 2
@@ -1715,7 +1715,7 @@ window.COURSE_FR = {
     { question: `La ruée vers l'or du Klondike, dans les années 1890, a eu lieu dans quel territoire?`, options: [`Les Territoires du Nord-Ouest`, `Le Nunavut`, `Le Yukon`, `La Colombie-Britannique`], correct: 2, category: `Histoire` },
     { question: `Qui a remporté le prix Nobel de la paix en 1957 pour avoir contribué à établir les forces de maintien de la paix des Nations Unies?`, options: [`John Diefenbaker`, `Tommy Douglas`, `Lester B. Pearson`, `Pierre Trudeau`], correct: 2, category: `Histoire` },
     { question: `Qu'est-ce que le Statut de Westminster (1931) a accordé au Canada?`, options: [`Sa première constitution écrite`, `La pleine indépendance législative à l'égard de la Grande-Bretagne`, `Le suffrage universel pour les femmes`, `Le contrôle de l'immigration`], correct: 1, category: `Histoire` },
-    { question: `Qu'est-ce que le jour du Souvenir, et quand a-t-il lieu?`, options: [`La fête du Canada — le 1er juillet, célébrant la Confédération`, `Le jour de la Victoire en Europe — le 8 mai`, `Un jour pour honorer les Canadiens morts à la guerre — le 11 novembre`, `L'anniversaire de la Charte des droits — le 17 avril`], correct: 2, category: `Histoire` },
+    { question: `Qu'est-ce que le jour du Souvenir, et quand a-t-il lieu?`, options: [`La fête du Canada : le 1er juillet, célébrant la Confédération`, `Le jour de la Victoire en Europe : le 8 mai`, `Un jour pour honorer les Canadiens morts à la guerre : le 11 novembre`, `L'anniversaire de la Charte des droits : le 17 avril`], correct: 2, category: `Histoire` },
     { question: `Où se sont établis les loyalistes de l'Empire-Uni après la Révolution américaine?`, options: [`Le Québec et la Colombie-Britannique`, `La Nouvelle-Écosse, le Nouveau-Brunswick et l'Ontario`, `Le Manitoba et la Saskatchewan`, `Les Territoires du Nord-Ouest`], correct: 1, category: `Histoire` },
     { question: `Quels sont les trois groupes de peuples autochtones du Canada?`, options: [`Les Inuits, les Cris et les Métis`, `Les Premières Nations, les Métis et les Inuits`, `Les Haudenosaunees, les Algonquins et les Inuits`, `Les Premières Nations, les Mohawks et les Inuits`], correct: 1, category: `Histoire` },
     { question: `L'« affaire personne » de 1929 a établi que :`, options: [`Les peuples autochtones avaient des droits issus de traités`, `Les femmes étaient légalement reconnues comme des « personnes » pouvant siéger au Sénat`, `Les Canadiens français avaient des droits linguistiques hors Québec`, `Le Canada avait obtenu sa pleine indépendance en politique étrangère`], correct: 1, category: `Histoire` },
@@ -1823,12 +1823,12 @@ window.COURSE_FR = {
     { question: `Quelle est la population approximative du Canada?`, options: [`Environ 20 millions`, `Environ 28 millions`, `Environ 38 millions`, `Environ 50 millions`], correct: 2, category: `Géographie` },
     { question: `En superficie, le Canada est le ___ plus grand pays du monde.`, options: [`Plus grand`, `Deuxième plus grand`, `Troisième plus grand`, `Quatrième plus grand`], correct: 1, category: `Géographie` },
     { question: `Quelle province est reconnue pour son industrie forestière et ses routes commerciales vers le Pacifique?`, options: [`L'Alberta`, `La Saskatchewan`, `Le Manitoba`, `La Colombie-Britannique`], correct: 3, category: `Géographie` },
-    { question: `Quel accord commercial a remplacé l'ALENA entre le Canada, les États-Unis et le Mexique en 2020?`, options: [`L'AECG`, `L'ACEUM (Accord Canada—États-Unis—Mexique)`, `La ZLEA`, `Le PTP`], correct: 1, category: `Géographie` },
+    { question: `Quel accord commercial a remplacé l'ALENA entre le Canada, les États-Unis et le Mexique en 2020?`, options: [`L'AECG`, `L'ACEUM (Accord Canada-États-Unis-Mexique)`, `La ZLEA`, `Le PTP`], correct: 1, category: `Géographie` },
     { question: `Le Canada est membre de tous les groupes suivants, SAUF :`, options: [`L'OTAN`, `Le Commonwealth`, `L'Union européenne`, `Les Nations Unies`], correct: 2, category: `Géographie` },
     { question: `Quelle ville a accueilli les conférences de la Confédération de 1864, lui valant le titre de « berceau de la Confédération »?`, options: [`Halifax`, `La ville de Québec`, `Charlottetown`, `Ottawa`], correct: 2, category: `Géographie` },
 
     // ── SYMBOLES ET CULTURE (suite) ───────────────────────────────────────
-    { question: `À quelle date la fête du Canada est-elle célébrée, et que souligne-t-elle?`, options: [`Le 4 juillet — l'indépendance à l'égard de la Grande-Bretagne`, `Le 1er juillet — l'anniversaire de la Confédération en 1867`, `Le 11 novembre — la fin de la Première Guerre mondiale`, `Le 1er octobre — la première élection nationale`], correct: 1, category: `Symboles` },
+    { question: `À quelle date la fête du Canada est-elle célébrée, et que souligne-t-elle?`, options: [`Le 4 juillet : l'indépendance à l'égard de la Grande-Bretagne`, `Le 1er juillet : l'anniversaire de la Confédération en 1867`, `Le 11 novembre : la fin de la Première Guerre mondiale`, `Le 1er octobre : la première élection nationale`], correct: 1, category: `Symboles` },
     { question: `Que symbolise le coquelicot au Canada, particulièrement le 11 novembre?`, options: [`La fleur nationale du Canada`, `Le souvenir des Canadiens morts à la guerre`, `Le symbole de l'Ordre du Canada`, `La paix entre le Canada et la France après la Première Guerre mondiale`], correct: 1, category: `Symboles` },
     { question: `Qu'est-ce que la Croix de Victoria?`, options: [`La plus haute distinction civile du Canada`, `La plus haute décoration militaire du Canada pour bravoure`, `Une médaille remise à tous les anciens combattants de la Première Guerre mondiale`, `Une distinction provinciale remise par les lieutenants-gouverneurs`], correct: 1, category: `Symboles` },
     { question: `Où se trouve la Chapelle du Souvenir qui honore les Canadiens morts à la guerre?`, options: [`Au Musée canadien de la guerre à Ottawa`, `À l'intérieur de la Tour de la Paix, sur la Colline du Parlement`, `Aux Archives nationales du Canada`, `Au cimetière militaire canadien en Normandie`], correct: 1, category: `Symboles` },
@@ -1850,12 +1850,12 @@ window.COURSE_FR = {
     { question: `Qu'est-ce qu'une « infraction sommaire » en droit canadien?`, options: [`Le type de crime le plus grave, jugé devant un juge et un jury`, `Une infraction criminelle mineure traitée rapidement devant les tribunaux inférieurs`, `Un différend civil entre deux parties privées`, `Une infraction entraînant une expulsion automatique`], correct: 1, category: `Justice` },
     { question: `Qu'est-ce qu'un « acte criminel » en droit canadien?`, options: [`Une infraction mineure de stationnement ou de circulation`, `Un différend civil entre voisins`, `Un crime grave pouvant mener à un procès devant jury`, `Une pénalité administrative imposée par un organisme gouvernemental`], correct: 2, category: `Justice` },
     { question: `Qui est principalement responsable de faire respecter les lois au Canada?`, options: [`Le Parlement`, `Les tribunaux`, `Les corps policiers, y compris la GRC`, `La gouverneure générale`], correct: 2, category: `Justice` },
-    { question: `Les citoyens canadiens de 18 ans et plus peuvent être appelés à :`, options: [`Suivre un entraînement militaire obligatoire chaque année`, `Faire partie d'un jury — un devoir civique`, `Payer une taxe civique spéciale chaque année`, `Agir comme directeur du scrutin à chaque élection fédérale`], correct: 1, category: `Justice` },
+    { question: `Les citoyens canadiens de 18 ans et plus peuvent être appelés à :`, options: [`Suivre un entraînement militaire obligatoire chaque année`, `Faire partie d'un jury, un devoir civique`, `Payer une taxe civique spéciale chaque année`, `Agir comme directeur du scrutin à chaque élection fédérale`], correct: 1, category: `Justice` },
     { question: `Quel est le rôle de la Cour suprême du Canada?`, options: [`Adopter de nouvelles lois lorsque le Parlement est dans une impasse`, `Agir comme la plus haute cour d'appel et interpréter la Constitution`, `Réviser tous les projets de loi avant qu'ils ne reçoivent la sanction royale`, `Élire le juge en chef et nommer les autres juges`], correct: 1, category: `Justice` },
-    { question: `Que signifie « primauté du droit » au Canada?`, options: [`Seuls les citoyens privés doivent respecter la loi, pas les élus`, `Aucune personne ni institution — y compris le gouvernement — n'est au-dessus des lois`, `Le roi est le législateur suprême du Canada`, `Les lois ne s'appliquent que si elles sont adoptées par une majorité des deux tiers du Parlement`], correct: 1, category: `Justice` },
+    { question: `Que signifie « primauté du droit » au Canada?`, options: [`Seuls les citoyens privés doivent respecter la loi, pas les élus`, `Aucune personne ni institution (y compris le gouvernement) n'est au-dessus des lois`, `Le roi est le législateur suprême du Canada`, `Les lois ne s'appliquent que si elles sont adoptées par une majorité des deux tiers du Parlement`], correct: 1, category: `Justice` },
     { question: `Qu'est-ce que l'« habeas corpus » en droit canadien?`, options: [`Le droit à un procès rapide dans les 24 heures`, `Le droit de ne pas être emprisonné sans motif valable`, `Le droit de confronter les témoins en cour publique`, `Le droit de refuser de témoigner contre soi-même`], correct: 1, category: `Justice` },
 
-    // ── BANQUE DE QUESTIONS COMPLÉMENTAIRE — combler les lacunes ──────────
+    // ── BANQUE DE QUESTIONS COMPLÉMENTAIRE : combler les lacunes ──────────
     // Histoire
     { question: `Environ combien de Canadiens ont servi pendant la Première Guerre mondiale?`, options: [`Environ 7 000`, `Environ 60 000`, `Plus de 600 000`, `8 millions`], correct: 2, category: `Histoire` },
     { question: `Le Québec a connu une époque de changements rapides dans les années 1960. Comment appelle-t-on cette période?`, options: [`Le mouvement de l'Ouest`, `La Révolution tranquille`, `La Francophonie`, `Le référendum`], correct: 1, category: `Histoire` },
@@ -1885,7 +1885,7 @@ window.COURSE_FR = {
     { question: `Quel est le rôle des tribunaux au Canada?`, options: [`Faire respecter les lois par l'action policière`, `Créer des lois lorsque le Parlement ne siège pas`, `Régler les différends et interpréter les lois de façon indépendante`, `Conseiller le premier ministre sur les questions constitutionnelles`], correct: 2, category: `Justice` },
 
     // Élections
-    { question: `À qui devez-vous dire comment vous avez voté à une élection fédérale?`, options: [`À votre employeur, si demandé`, `À un représentant d'Élections Canada`, `À un policier, si demandé`, `À personne — votre vote est secret`], correct: 3, category: `Élections` },
+    { question: `À qui devez-vous dire comment vous avez voté à une élection fédérale?`, options: [`À votre employeur, si demandé`, `À un représentant d'Élections Canada`, `À un policier, si demandé`, `À personne, votre vote est secret`], correct: 3, category: `Élections` },
     { question: `Qu'est-ce qu'une carte d'information de l'électeur?`, options: [`Une carte énumérant tous les candidats de votre circonscription`, `Un formulaire indiquant quand et où voter`, `Votre preuve officielle de citoyenneté pour voter`, `Une carte remise après avoir voté`], correct: 1, category: `Élections` },
     { question: `Que devriez-vous faire si vous ne recevez pas de carte d'information de l'électeur avant une élection?`, options: [`Vous ne pouvez pas voter sans elle`, `Vous rendre au poste de police le plus près`, `Communiquer avec votre député`, `Appeler Élections Canada ou visiter son site Web`], correct: 3, category: `Élections` },
     { question: `Quelle province a été la première à accorder aux femmes le droit de vote?`, options: [`Ontario`, `Colombie-Britannique`, `Manitoba`, `Québec`], correct: 2, category: `Élections` },
@@ -1964,7 +1964,7 @@ window.COURSE_FR = {
     { question: `Quelle est la capitale de la Nouvelle-Écosse?`, options: [`Sydney`, `Truro`, `Dartmouth`, `Halifax`], correct: 3, category: `Géographie` },
 
     // ── ÉLECTIONS (Vrai/Faux) ──────────────────────────────────────────────
-    { question: `Personne — y compris les membres de votre famille, votre employeur ou un représentant syndical — n'a le droit d'exiger que vous révéliez votre vote.`, options: [`Vrai`, `Faux`], correct: 0, category: `Élections` },
+    { question: `Personne (y compris les membres de votre famille, votre employeur ou un représentant syndical) n'a le droit d'exiger que vous révéliez votre vote.`, options: [`Vrai`, `Faux`], correct: 0, category: `Élections` },
     { question: `Si vous ne recevez pas de carte d'information de l'électeur avant le jour du scrutin, il est trop tard pour être ajouté à la liste électorale.`, options: [`Vrai`, `Faux`], correct: 1, category: `Élections` }
   ],
 
@@ -1974,12 +1974,12 @@ window.COURSE_FR = {
       region: 'north', joined: 1898,
       indigenous: [`Premières Nations (diverses Premières Nations du Yukon)`],
       facts: [
-        `La ruée vers l'or du Klondike (1896-1898) — a attiré des dizaines de milliers de prospecteurs`,
+        `La ruée vers l'or du Klondike (1896-1898) : a attiré des dizaines de milliers de prospecteurs`,
         `L'un des trois territoires fédéraux (pas une province)`,
         `Partage une frontière avec l'Alaska (É.-U.)`,
         `Whitehorse est la capitale`
       ],
-      examTip: `La ruée vers l'or (Klondike, Yukon) est une question fréquente en histoire — survenue dans les années 1890.`,
+      examTip: `La ruée vers l'or (Klondike, Yukon) est une question fréquente en histoire, survenue dans les années 1890.`,
       tags: [`Territoire`, `Ruée vers l'or 1890s`]
     },
     nwt: {
@@ -1987,7 +1987,7 @@ window.COURSE_FR = {
       region: 'north', joined: 1870,
       indigenous: [`Premières Nations (Dénés et autres)`, `Métis`, `Inuits`],
       facts: [
-        `Deuxième plus grand territoire — peuples autochtones multiples`,
+        `Deuxième plus grand territoire : plusieurs peuples autochtones`,
         `Le Nunavut a été détaché des T.N.-O. en 1999`,
         `Aurores boréales visibles ici`,
         `Yellowknife est la capitale`
@@ -2000,11 +2000,11 @@ window.COURSE_FR = {
       region: 'north', joined: 1999,
       indigenous: [`Inuits`],
       facts: [
-        `Créé en 1999 — le plus récent et le plus grand territoire du Canada`,
+        `Créé en 1999 : le plus récent et le plus grand territoire du Canada`,
         `Territoire d'origine des Inuits (« Inuit » signifie « le peuple »)`,
         `« Nunavut » signifie « Notre Terre » en inuktitut`,
         `Le plus grand de toutes les provinces et de tous les territoires en superficie`,
-        `Arctique — soleil de minuit en été, aurores boréales en hiver`
+        `Climat arctique : soleil de minuit en été, aurores boréales en hiver`
       ],
       examTip: `★ TRÈS FRÉQUENT : le Nunavut a été créé en 1999 comme territoire d'origine des Inuits. Présent dans presque tous les examens.`,
       tags: [`Territoire`, `Créé en 1999`, `Territoire d'origine des Inuits`, `Plus grand territoire`]
@@ -2014,9 +2014,9 @@ window.COURSE_FR = {
       region: 'west', joined: 1871,
       indigenous: [`Premières Nations (nombreuses nations côtières et de l'intérieur)`],
       facts: [
-        `S'est jointe en 1871 — on lui avait promis un chemin de fer transcontinental (CFCP)`,
+        `S'est jointe en 1871 : on lui avait promis un chemin de fer transcontinental (CFCP)`,
         `Le plus grand producteur de produits forestiers du Canada`,
-        `Porte d'entrée vers la région Asie-Pacifique — côte du Pacifique`,
+        `Porte d'entrée vers la région Asie-Pacifique : côte du Pacifique`,
         `Vancouver est la plus grande ville; Victoria est la capitale`
       ],
       examTip: `La C.-B. s'est jointe en 1871 grâce à la promesse du chemin de fer. Foresterie = C.-B.`,
@@ -2027,8 +2027,8 @@ window.COURSE_FR = {
       region: 'prairies', joined: 1905,
       indigenous: [`Premières Nations`, `Métis`],
       facts: [
-        `Province des Prairies — fait partie du MB, de la SK et de l'AB (le grenier à blé du Canada)`,
-        `Grand producteur de sables bitumineux — le cœur énergétique du Canada`,
+        `Province des Prairies : fait partie du MB, de la SK et de l'AB (le grenier à blé du Canada)`,
+        `Grand producteur de sables bitumineux : le cœur énergétique du Canada`,
         `Les Métis vivent principalement dans les provinces des Prairies`,
         `Calgary et Edmonton sont les grandes villes; Edmonton est la capitale`
       ],
@@ -2040,8 +2040,8 @@ window.COURSE_FR = {
       region: 'prairies', joined: 1905,
       indigenous: [`Premières Nations`, `Métis`],
       facts: [
-        `Le cœur du grenier à blé du Canada — culture du blé et du canola`,
-        `Province des Prairies — plaines planes idéales pour l'agriculture`,
+        `Le cœur du grenier à blé du Canada : culture du blé et du canola`,
+        `Province des Prairies : plaines planes idéales pour l'agriculture`,
         `Les Métis vivent principalement ici, ainsi qu'au MB et en AB`,
         `La résistance du Nord-Ouest de Louis Riel (1885) a eu lieu ici`,
         `Regina est la capitale; Saskatoon est la plus grande ville`
@@ -2054,13 +2054,13 @@ window.COURSE_FR = {
       region: 'prairies', joined: 1870,
       indigenous: [`Premières Nations`, `Métis`],
       facts: [
-        `Première province des Prairies — jointe en 1870 après la résistance de la rivière Rouge`,
+        `Première province des Prairies : jointe en 1870 après la résistance de la rivière Rouge`,
         `Louis Riel a mené la résistance de la rivière Rouge ici (1869-1870)`,
         `Les Métis vivent principalement dans les provinces des Prairies (MB, SK, AB)`,
-        `La grève générale de Winnipeg de 1919 — l'une des plus importantes actions ouvrières du Canada`,
+        `La grève générale de Winnipeg de 1919 : l'une des plus importantes actions ouvrières du Canada`,
         `Winnipeg est la capitale et la plus grande ville`
       ],
-      examTip: `Le MB s'est joint en 1870 après la résistance de la rivière Rouge de Louis Riel — question très fréquente.`,
+      examTip: `Le MB s'est joint en 1870 après la résistance de la rivière Rouge de Louis Riel, question très fréquente.`,
       tags: [`Province`, `Prairies`, `Jointe en 1870`, `Territoire métis`, `Rivière Rouge 1869`]
     },
     on: {
@@ -2068,7 +2068,7 @@ window.COURSE_FR = {
       region: 'central', joined: 1867,
       indigenous: [`Premières Nations (Haudenosaunees, Ojibwés, Cris et autres)`],
       facts: [
-        `Province fondatrice — l'une des quatre provinces d'origine à la Confédération (1867)`,
+        `Province fondatrice : l'une des quatre provinces d'origine à la Confédération (1867)`,
         `La province la plus peuplée du Canada`,
         `Ottawa (la capitale du Canada) se trouve en Ontario`,
         `Toronto est la plus grande ville du Canada`,
@@ -2082,7 +2082,7 @@ window.COURSE_FR = {
       region: 'central', joined: 1867,
       indigenous: [`Premières Nations (Cris, Mohawks, Innus, autres)`, `Inuits (grand nord)`],
       facts: [
-        `Province fondatrice — l'une des quatre provinces d'origine (1867)`,
+        `Province fondatrice : l'une des quatre provinces d'origine (1867)`,
         `Seule province à majorité francophone`,
         `Plus grande province en superficie au Canada`,
         `Principal producteur de pâtes et papiers du Canada`,
@@ -2097,9 +2097,9 @@ window.COURSE_FR = {
       region: 'atlantic', joined: 1949,
       indigenous: [`Innus`, `Inuits`, `Mi'kmaq`],
       facts: [
-        `Dernière province à se joindre à la Confédération — 1949`,
+        `Dernière province à se joindre à la Confédération : 1949`,
         `Deux parties : le Labrador (continental) et l'île de Terre-Neuve`,
-        `Jean Cabot a débarqué près d'ici en 1497 — premier Européen à cartographier la côte Est du Canada`,
+        `Jean Cabot a débarqué près d'ici en 1497 : premier Européen à cartographier la côte Est du Canada`,
         `Région de pêche atlantique; historiquement reconnue pour la pêche à la morue`,
         `St. John's (sur l'île) est la capitale provinciale`
       ],
@@ -2111,9 +2111,9 @@ window.COURSE_FR = {
       region: 'atlantic', joined: 1867,
       indigenous: [`Mi'kmaq`, `Wolastoqiyik (Malécites)`],
       facts: [
-        `Province fondatrice — l'une des quatre provinces d'origine (1867)`,
+        `Province fondatrice : l'une des quatre provinces d'origine (1867)`,
         `Seule province officiellement bilingue au Canada (anglais et français)`,
-        `Fait partie du Canada atlantique — économie de pêche et de foresterie`,
+        `Fait partie du Canada atlantique : économie de pêche et de foresterie`,
         `La baie de Fundy (partagée avec la N.-É.) a les marées les plus hautes au monde`
       ],
       examTip: `★ TRÈS FRÉQUENT : le N.-B. est la SEULE province officiellement bilingue.`,
@@ -2124,7 +2124,7 @@ window.COURSE_FR = {
       region: 'atlantic', joined: 1867,
       indigenous: [`Mi'kmaq`],
       facts: [
-        `Province fondatrice — l'une des quatre provinces d'origine (1867)`,
+        `Province fondatrice : l'une des quatre provinces d'origine (1867)`,
         `Le gouvernement responsable au Canada a débuté ici en premier (1848)`,
         `Province péninsulaire à la longue histoire maritime et de pêche`,
         `Halifax est la capitale provinciale et un port important`,
@@ -2151,57 +2151,57 @@ window.COURSE_FR = {
 };
 
 window.CANADA_FACTS_FR = [
-  `Le Canada est le deuxième plus grand pays du monde en superficie totale — 9,98 millions de km².`,
+  `Le Canada est le deuxième plus grand pays du monde en superficie totale, avec 9,98 millions de km².`,
   `Le Canada compte plus de lacs que le reste du monde réuni. 🏞️`,
   `Le mot « Canada » vient de « kanata », un mot huron-iroquois signifiant village ou établissement.`,
   `Le basketball a été inventé en 1891 par le Canadien James Naismith, originaire d'Almonte, en Ontario. 🏀`,
   `Le Canada a le plus long littoral au monde : plus de 202 000 km.`,
   `La Charte canadienne des droits et libertés (1982) protège vos droits en tant que citoyen.`,
-  `Le Canada est officiellement devenu un pays le 1er juillet 1867 — célébré chaque année comme la fête du Canada. 🎉`,
+  `Le Canada est officiellement devenu un pays le 1er juillet 1867, célébré chaque année comme la fête du Canada. 🎉`,
   `Le Canada a deux langues officielles : l'anglais et le français.`,
   `La feuille d'érable du drapeau canadien compte 11 pointes.`,
   `Les trois groupes de peuples autochtones du Canada sont les Premières Nations, les Métis et les Inuits.`,
   `Le castor est l'animal national du Canada et figure sur la pièce de cinq cents. 🦫`,
   `Le hockey est le sport national d'hiver du Canada. La crosse est le sport national d'été. 🏒`,
-  `Les aurores boréales sont visibles dans une grande partie du Canada — surtout au Yukon et dans les T.N.-O. ✨`,
+  `Les aurores boréales sont visibles dans une grande partie du Canada, surtout au Yukon et dans les T.N.-O. ✨`,
   `Le Canada partage avec les États-Unis la plus longue frontière non défendue au monde : 8 891 km.`,
   `Le Canada a été le premier pays à adopter une politique officielle de multiculturalisme, en 1971.`,
-  `En tant que nouveau citoyen, vous pouvez demander un passeport canadien — l'un des plus puissants au monde. 🛂`,
-  `Le Canada s'étend sur six fuseaux horaires — de Terre-Neuve au Pacifique.`,
-  `La poutine — frites, fromage en grains et sauce — est née dans le Québec rural dans les années 1950. 🍟`,
-  `La pièce de 1 $ est appelée « huard » — elle représente un plongeon huard. La pièce de 2 $ est le « deux dollars » (toonie).`,
+  `En tant que nouveau citoyen, vous pouvez demander un passeport canadien, l'un des plus puissants au monde. 🛂`,
+  `Le Canada s'étend sur six fuseaux horaires, de Terre-Neuve au Pacifique.`,
+  `La poutine (frites, fromage en grains et sauce) est née dans le Québec rural dans les années 1950. 🍟`,
+  `La pièce de 1 $ est appelée « huard » : elle représente un plongeon huard. La pièce de 2 $ est le « deux dollars » (toonie).`,
   `Les soins de santé publics universels signifient que la plupart des visites chez le médecin sont gratuites une fois que vous avez votre carte d'assurance-maladie provinciale.`,
-  `Les nouveaux citoyens peuvent obtenir l'application gratuite Canoo — elle donne accès à Parcs Canada et à des centaines de lieux culturels.`,
+  `Les nouveaux citoyens peuvent obtenir l'application gratuite Canoo, qui donne accès à Parcs Canada et à des centaines de lieux culturels.`,
   `La GRC (Gendarmerie royale du Canada) a été fondée en 1873 et est le service de police national du Canada. 🐴`,
   `Le Canada a aboli la peine de mort en 1976.`,
   `Le Parlement comprend trois éléments : le souverain, le Sénat (105 sièges) et la Chambre des communes (338 sièges).`,
-  `Les Canadiens votent pour leur député — pas directement pour le premier ministre.`,
+  `Les Canadiens votent pour leur député, pas directement pour le premier ministre.`,
   `La gouverneure générale représente le roi au Canada et exerce des fonctions constitutionnelles clés.`,
   `Banff a été le premier parc national du Canada, créé en 1885 en Alberta. 🏔️`,
   `Le Canada compte 48 sites du patrimoine mondial de l'UNESCO.`,
   `Environ 3 160 tonnes d'eau s'écoulent chaque seconde aux chutes du Niagara.`,
   `Montréal est la deuxième ville francophone en importance au monde, après Paris. 🥐`,
-  `La route Transcanadienne s'étend sur 7 821 km — de Victoria (C.-B.) à St. John's (T.-N.-L.).`,
+  `La route Transcanadienne s'étend sur 7 821 km, de Victoria (C.-B.) à St. John's (T.-N.-L.).`,
   `Le Canada a contribué à toutes les grandes missions de maintien de la paix de l'ONU depuis 1956. 🕊️`,
   `Les peuples autochtones vivent au Canada depuis plus de 15 000 ans avant le contact européen.`,
   `Votre NAS (numéro d'assurance sociale) est requis pour travailler et accéder aux services du gouvernement fédéral.`,
   `IRCC offre une formation linguistique gratuite en anglais et en français grâce aux programmes LINC et CLIC.`,
   `La Loi canadienne sur les droits de la personne protège contre la discrimination fondée sur la race, le sexe, la religion et plus encore.`,
   `Tim Hortons a été cofondé en 1964 par un défenseur des Maple Leafs de Toronto. ☕`,
-  `Le Canada compte 338 circonscriptions électorales fédérales — chacune est appelée une « circonscription ».`,
+  `Le Canada compte 338 circonscriptions électorales fédérales, chacune est appelée une « circonscription ».`,
   `Le Canada est bordé par trois océans : l'Atlantique, le Pacifique et l'Arctique.`,
-  `Le Bouclier canadien est l'une des plus anciennes formations géologiques au monde — plus de 4 milliards d'années.`,
-  `Le Vieux-Québec est la seule ville fortifiée au nord du Mexique — un site du patrimoine mondial de l'UNESCO.`,
+  `Le Bouclier canadien est l'une des plus anciennes formations géologiques au monde, avec plus de 4 milliards d'années.`,
+  `Le Vieux-Québec est la seule ville fortifiée au nord du Mexique, un site du patrimoine mondial de l'UNESCO.`,
   `En tant que citoyen, vous pouvez voter, vous porter candidat à une charge publique, et entrer au Canada ou en sortir librement.`,
   `La Charte protège la liberté d'expression, de religion, de réunion pacifique et d'association.`,
   `La Tour CN à Toronto a été la plus haute structure autoportante au monde de 1976 à 2007.`,
   `« Ô Canada » a été écrit en 1880, mais n'a été officiellement adopté comme hymne national qu'en 1980.`,
-  `La Saskatchewan produit environ 60 % du blé du Canada — on l'appelle le « grenier à blé du Canada ». 🌾`,
+  `La Saskatchewan produit environ 60 % du blé du Canada, on l'appelle le « grenier à blé du Canada ». 🌾`,
   `Une fois citoyen, vous pouvez parrainer des membres admissibles de votre famille pour la résidence permanente.`,
-  `Le jour du Souvenir (11 novembre) — les Canadiens observent deux minutes de silence à 11 h. 🌹`,
+  `Le jour du Souvenir (11 novembre) : les Canadiens observent deux minutes de silence à 11 h. 🌹`,
   `Le chemin de fer clandestin a aidé des Américains en quête de liberté à atteindre le Canada au XIXe siècle.`,
   `La bataille de la crête de Vimy (1917) est considérée comme un moment déterminant de l'identité nationale du Canada. 🎖️`,
-  `Des bibliothèques publiques gratuites existent dans toutes les grandes villes canadiennes — votre carte donne souvent accès à des ressources numériques aussi.`,
+  `Des bibliothèques publiques gratuites existent dans toutes les grandes villes canadiennes, et votre carte donne souvent accès à des ressources numériques aussi.`,
   `Le Canada compte plus de 1 000 aires protégées, incluant des parcs provinciaux, territoriaux et nationaux.`,
   `Le Québec produit plus de 70 % de l'approvisionnement mondial en sirop d'érable. 🍁`,
   `Le multiculturalisme canadien signifie que vous pouvez célébrer votre héritage tout en étant pleinement Canadien.`,
@@ -2209,34 +2209,34 @@ window.CANADA_FACTS_FR = [
   `Le Canada a été l'un des premiers pays à légaliser le mariage entre personnes de même sexe à l'échelle nationale, en 2005. 🏳️‍🌈`,
   `La première émission de radio commerciale au monde a été diffusée à Montréal en 1920.`,
   `Canada's Wonderland, en Ontario, est l'un des parcs à thème les plus visités en Amérique du Nord.`,
-  `Voter aux élections fédérales est gratuit et prend environ 5 minutes — trouvez votre bureau de vote sur elections.ca.`,
-  `Terre-Neuve a son propre fuseau horaire — il est 30 minutes en avance sur l'heure normale de l'Atlantique. ⏰`,
+  `Voter aux élections fédérales est gratuit et prend environ 5 minutes, trouvez votre bureau de vote sur elections.ca.`,
+  `Terre-Neuve a son propre fuseau horaire, il est 30 minutes en avance sur l'heure normale de l'Atlantique. ⏰`,
 ];
 
 window.TIMELINE_PAIRS_FR = [
   { year: `1497`, event: `Jean Cabot atteint la côte Est du Canada` },
   { year: `1534`, event: `Jacques Cartier remonte le fleuve Saint-Laurent` },
   { year: `1608`, event: `Samuel de Champlain fonde la ville de Québec`, exam: true },
-  { year: `1759`, event: `Bataille des plaines d'Abraham — les Britanniques vainquent les Français`, exam: true },
-  { year: `1812`, event: `Guerre de 1812 — le Canada repousse l'invasion américaine`, exam: true },
-  { year: `1867`, event: `Confédération — le Canada devient un pays`, exam: true },
-  { year: `1869`, event: `Résistance de la rivière Rouge — Louis Riel défend les droits des Métis` },
+  { year: `1759`, event: `Bataille des plaines d'Abraham : les Britanniques vainquent les Français`, exam: true },
+  { year: `1812`, event: `Guerre de 1812 : le Canada repousse l'invasion américaine`, exam: true },
+  { year: `1867`, event: `Confédération : le Canada devient un pays`, exam: true },
+  { year: `1869`, event: `Résistance de la rivière Rouge : Louis Riel défend les droits des Métis` },
   { year: `1873`, event: `Fondation de la GRC; l'Île-du-Prince-Édouard se joint au Canada`, exam: true },
   { year: `1885`, event: `Achèvement du Chemin de fer Canadien Pacifique; résistance du Nord-Ouest` },
-  { year: `1896`, event: `Wilfrid Laurier — premier premier ministre canadien-français`, exam: true },
+  { year: `1896`, event: `Wilfrid Laurier : premier premier ministre canadien-français`, exam: true },
   { year: `1905`, event: `L'Alberta et la Saskatchewan se joignent à la Confédération` },
   { year: `1914`, event: `Le Canada entre dans la Première Guerre mondiale`, exam: true },
-  { year: `1917`, event: `Bataille de la crête de Vimy — moment déterminant pour le Canada`, exam: true },
+  { year: `1917`, event: `Bataille de la crête de Vimy : moment déterminant pour le Canada`, exam: true },
   { year: `1918`, event: `Les femmes obtiennent le droit de vote aux élections fédérales`, exam: true },
-  { year: `1929`, event: `Les Célèbres cinq — les femmes déclarées « personnes » par la loi`, exam: true },
-  { year: `1931`, event: `Statut de Westminster — le Canada devient pleinement autonome`, exam: true },
+  { year: `1929`, event: `Les Célèbres cinq : les femmes déclarées « personnes » par la loi`, exam: true },
+  { year: `1931`, event: `Statut de Westminster : le Canada devient pleinement autonome`, exam: true },
   { year: `1939`, event: `Le Canada entre dans la Seconde Guerre mondiale`, exam: true },
-  { year: `1944`, event: `Jour J — les forces canadiennes débarquent à la plage Juno`, exam: true },
-  { year: `1947`, event: `Loi sur la citoyenneté canadienne — le mot « citoyen » utilisé pour la première fois`, exam: true },
+  { year: `1944`, event: `Jour J : les forces canadiennes débarquent à la plage Juno`, exam: true },
+  { year: `1947`, event: `Loi sur la citoyenneté canadienne : le mot « citoyen » utilisé pour la première fois`, exam: true },
   { year: `1949`, event: `Terre-Neuve-et-Labrador se joint au Canada`, exam: true },
   { year: `1960`, event: `Les peuples autochtones obtiennent le droit de vote`, exam: true },
   { year: `1965`, event: `Le drapeau à la feuille d'érable est adopté`, exam: true },
-  { year: `1969`, event: `Loi sur les langues officielles — l'anglais et le français deviennent égaux`, exam: true },
+  { year: `1969`, event: `Loi sur les langues officielles : l'anglais et le français deviennent égaux`, exam: true },
   { year: `1971`, event: `Le Canada adopte la première politique de multiculturalisme au monde`, exam: true },
   { year: `1982`, event: `La Charte des droits et libertés entre en vigueur`, exam: true },
   { year: `1999`, event: `Le Nunavut devient le plus récent territoire du Canada`, exam: true },

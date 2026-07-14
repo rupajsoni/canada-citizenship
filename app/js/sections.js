@@ -1,4 +1,4 @@
-/* Deterministic lesson section renderers — structured data only, no free-form HTML */
+/* Deterministic lesson section renderers: structured data only, no free-form HTML */
 window.LessonRender = {
   all(sections, esc) {
     if (!sections || !sections.length) return '';

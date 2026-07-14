@@ -1,4 +1,4 @@
-/* Canada Citizenship Prep — Uber-informed, low-key Canadian civic UI */
+/* Canada Citizenship Prep: Uber-informed, low-key Canadian civic UI */
 :root {
   --sidebar-w: 280px;
   --black: #000000;
@@ -523,7 +523,7 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
 .map-layer-indigenous .prov[data-indigenous~=firstnations]{fill:#7db37d}
 .map-layer-indigenous .prov.selected{stroke:var(--accent-hover)!important;stroke-width:2.5!important}
 
-/* History layer — when they joined */
+/* History layer: when they joined */
 .map-layer-history .prov{fill:#c8d8e0}
 .map-layer-history .prov[data-joined="1867"]{fill:#C8102E}
 .map-layer-history .prov[data-joined="1870"]{fill:#e05570}
@@ -595,7 +595,8 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
 }
 
 .support-body{color:var(--text-secondary);font-size:15px;line-height:1.65;margin-bottom:8px}
-.support-ask{color:var(--text-muted);font-size:13.5px;line-height:1.55;margin-bottom:22px;font-style:italic}
+.support-ask{color:var(--text-muted);font-size:13.5px;line-height:1.55;margin-bottom:4px;font-style:italic}
+.support-norm-line{color:var(--text-muted);font-size:13px;line-height:1.55;margin-bottom:18px}
 
 .support-slider-section{margin-bottom:20px}
 
@@ -625,10 +626,15 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
   margin-bottom:12px;padding:0 2px;
 }
 
-.support-amount-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.support-amount-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .support-amount{
   font-family:var(--font-display);font-size:2rem;font-weight:700;
   color:var(--text);min-width:52px;line-height:1;
+}
+.support-standard-tag{
+  font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--accent-hover);background:var(--accent-soft);
+  border-radius:99px;padding:3px 9px;
 }
 .support-amount-sep{color:var(--border);font-size:18px}
 .support-custom{
@@ -676,6 +682,15 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
 }
 .support-farewell p:last-child{margin-bottom:0}
 .support-farewell-sign{font-weight:600;color:var(--text)!important}
+
+.support-share-row{text-align:center;margin-bottom:14px}
+.support-share-caption{color:var(--text-muted);font-size:12.5px;line-height:1.5;margin-bottom:8px}
+.support-share-btn{
+  background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);
+  color:var(--text);font-family:var(--font);font-size:13px;font-weight:600;
+  padding:9px 16px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.support-share-btn:hover{border-color:var(--accent);background:var(--accent-soft)}
 
 /* ── Test results: readiness, Canoo, wrong questions ── */
 .ready-block{
@@ -751,7 +766,7 @@ kbd{font-size:11px;padding:2px 6px;border:1px solid var(--border);border-radius:
 /* Sidebar: replace flat black with a very subtle warm-dark gradient */
 .sidebar{background:linear-gradient(168deg,#111111 0%,#000000 52%)}
 
-/* Logo mark — zoomed leaf, breathe, sheen swipe */
+/* Logo mark: zoomed leaf, breathe, sheen swipe */
 .logo-mark{
   overflow:hidden;position:relative;
   transition:box-shadow .3s ease;
