@@ -283,7 +283,7 @@
       'about.keepGoingTitle': 'Keep this going',
       'about.keepGoingBody': 'No ads, no account, no paywall. Keeping it running isn\'t on any one person, it\'s a community effort. If it helped you get here, you decide what it\'s worth.',
       'about.signatureNote': 'Wishing you good luck on your journey.',
-      'about.signature': 'Rupaj Soni · <a href="https://www.linkedin.com/in/rupajsoni/" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
+      'about.signature': 'Rupaj Soni, product leader (ex-Uber), open to consulting and collaboration · <a href="https://www.linkedin.com/in/rupajsoni/" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
 
       'footer.didYouKnow': 'Did you know?',
       'footer.tagline': 'To new beginnings.',
@@ -566,7 +566,7 @@
       'about.keepGoingTitle': 'Faire durer ce projet',
       'about.keepGoingBody': 'Aucune publicité, aucun compte, aucun palier payant. Le faire durer n\'est pas la responsabilité d\'une seule personne, c\'est un effort communautaire. Si ça vous a aidé à en arriver là, c\'est vous qui décidez de sa valeur.',
       'about.signatureNote': 'Je vous souhaite bonne chance dans votre parcours.',
-      'about.signature': 'Rupaj Soni · <a href="https://www.linkedin.com/in/rupajsoni/" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
+      'about.signature': 'Rupaj Soni, chef de produit (ex-Uber), ouvert à la consultation et à la collaboration · <a href="https://www.linkedin.com/in/rupajsoni/" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
 
       'footer.didYouKnow': 'Le saviez-vous?',
       'footer.tagline': 'Vers de nouveaux départs.',

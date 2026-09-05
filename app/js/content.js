@@ -1277,7 +1277,8 @@ window.COURSE = {
       objectives: [
         'Recall dates and facts about national symbols and the anthem',
         'Name both official national sports and the national animal',
-        'Describe the Order of Canada and Remembrance Day'
+        'Describe the Order of Canada and Remembrance Day',
+        'Identify notable Canadian achievers in sports, science, and the arts'
       ],
       examTip: 'The flag (1965), anthem (1980), both national sports, and the Order of Canada (1967) are high-yield facts.',
       sections: [
@@ -1313,7 +1314,23 @@ window.COURSE = {
             ['Victoria Day', 'Monday before May 25', 'Honours Queen Victoria; also celebrates the current Sovereign\'s birthday'],
             ['Remembrance Day', 'November 11', 'Remembers Canadians who died in war; the poppy is worn'],
             ['National Indigenous Peoples Day', 'June 21', 'Celebrates the heritage, cultures, and contributions of Indigenous peoples'],
-            ['Truth and Reconciliation Day', 'September 30 (Orange Shirt Day)', 'Federal holiday since 2021; honours residential school survivors']
+            ['Truth and Reconciliation Day', 'September 30 (Orange Shirt Day)', 'Federal holiday since 2021; honours residential school survivors'],
+            ['National Flag of Canada Day', 'February 15', 'Marks the day the current Canadian flag was first raised, in 1965'],
+            ['Sir John A. Macdonald Day', 'January 11', 'Honours the birthday of Canada\'s first Prime Minister'],
+            ['Vimy Ridge Day', 'April 9', 'Commemorates Canadians who fought and died at the Battle of Vimy Ridge, 1917'],
+            ['Sir Wilfrid Laurier Day', 'November 20', 'Honours the birthday of Sir Wilfrid Laurier, Canada\'s seventh Prime Minister']
+          ]
+        },
+        {
+          title: 'Notable achievers',
+          type: 'list',
+          items: [
+            'Sir Sandford Fleming proposed the worldwide system of standard time zones, still used today.',
+            'Joseph-Armand Bombardier invented the snowmobile, opening up winter travel across the country.',
+            'Wayne Gretzky, "The Great One," played for the Edmonton Oilers from 1979 to 1988 and is considered the greatest hockey player of all time.',
+            'Rick Hansen, paralyzed in a car accident, circled the globe in his wheelchair in the "Man in Motion" World Tour to raise funds for spinal cord research.',
+            'The Group of Seven, formed in 1920, was a group of landscape painters who captured the Canadian wilderness in a bold new style.',
+            'Emily Carr painted the forests and Indigenous villages of the west coast, and is celebrated as one of Canada\'s foremost artists.'
           ]
         }
       ],
@@ -1329,7 +1346,17 @@ window.COURSE = {
         { front: 'How many points does the maple leaf on the Canadian flag have?', back: '11 points.' },
         { front: 'What is celebrated on July 1?', back: 'Canada Day: the anniversary of Confederation (July 1, 1867, when Canada became a country).' },
         { front: 'What does Victoria Day celebrate?', back: 'The birthday of Queen Victoria and, by tradition, the birthday of the reigning Sovereign. Held on the Monday before May 25.' },
-        { front: 'When is National Indigenous Peoples Day?', back: 'June 21: celebrates the heritage, cultures, and contributions of Indigenous peoples of Canada.' }
+        { front: 'When is National Indigenous Peoples Day?', back: 'June 21: celebrates the heritage, cultures, and contributions of Indigenous peoples of Canada.' },
+        { front: 'Who proposed the worldwide system of standard time zones?', back: 'Sir Sandford Fleming.' },
+        { front: 'Who invented the snowmobile?', back: 'Joseph-Armand Bombardier.' },
+        { front: 'Which hockey player is known as "The Great One"?', back: 'Wayne Gretzky.' },
+        { front: 'What did Rick Hansen do on his "Man in Motion" World Tour?', back: 'Circled the globe in his wheelchair to raise funds for spinal cord research.' },
+        { front: 'What was the Group of Seven?', back: 'A group of landscape painters, formed in 1920, known for capturing the Canadian wilderness.' },
+        { front: 'What is Emily Carr known for?', back: 'Painting the forests and Indigenous villages of Canada\'s west coast.' },
+        { front: 'When is National Flag of Canada Day?', back: 'February 15, marking the day the current flag was first raised in 1965.' },
+        { front: 'When is Sir John A. Macdonald Day?', back: 'January 11, the birthday of Canada\'s first Prime Minister.' },
+        { front: 'When is Vimy Ridge Day?', back: 'April 9, commemorating the Battle of Vimy Ridge (1917).' },
+        { front: 'When is Sir Wilfrid Laurier Day?', back: 'November 20, the birthday of Canada\'s seventh Prime Minister.' }
       ],
       quiz: [
         {
@@ -1426,6 +1453,56 @@ window.COURSE = {
             'Canada\'s victory in World War I'
           ],
           correct: 1
+        },
+        {
+          question: 'Sir Sandford Fleming is remembered for:',
+          options: ['Inventing the telephone', 'Proposing the worldwide system of standard time zones', 'Discovering insulin', 'Inventing the snowmobile'],
+          correct: 1
+        },
+        {
+          question: 'Joseph-Armand Bombardier invented:',
+          options: ['The telephone', 'The snowmobile', 'Standard time zones', 'The Canadarm'],
+          correct: 1
+        },
+        {
+          question: 'Wayne Gretzky, known as "The Great One," played for which team from 1979 to 1988?',
+          options: ['Toronto Maple Leafs', 'Montreal Canadiens', 'Edmonton Oilers', 'Calgary Flames'],
+          correct: 2
+        },
+        {
+          question: 'Rick Hansen\'s "Man in Motion" World Tour raised funds for:',
+          options: ['Cancer research', 'Spinal cord injury research', 'Indigenous education', 'Veterans\' services'],
+          correct: 1
+        },
+        {
+          question: 'The Group of Seven, formed in 1920, were known for:',
+          options: ['Composing the national anthem', 'Landscape painting of the Canadian wilderness', 'Founding the Order of Canada', 'Writing the Charter of Rights and Freedoms'],
+          correct: 1
+        },
+        {
+          question: 'Emily Carr is best known for painting:',
+          options: ['Urban skylines of Toronto', 'The forests and Indigenous villages of the west coast', 'Portraits of Prime Ministers', 'The Prairies'],
+          correct: 1
+        },
+        {
+          question: 'National Flag of Canada Day is observed on:',
+          options: ['January 11', 'February 15', 'April 9', 'November 20'],
+          correct: 1
+        },
+        {
+          question: 'Sir John A. Macdonald Day, honouring Canada\'s first Prime Minister, is observed on:',
+          options: ['January 11', 'February 15', 'July 1', 'November 20'],
+          correct: 0
+        },
+        {
+          question: 'Vimy Ridge Day, commemorating the 1917 battle, is observed on:',
+          options: ['April 9', 'June 6', 'September 30', 'November 11'],
+          correct: 0
+        },
+        {
+          question: 'Sir Wilfrid Laurier Day is observed on:',
+          options: ['January 11', 'April 9', 'November 11', 'November 20'],
+          correct: 3
         }
       ]
     },

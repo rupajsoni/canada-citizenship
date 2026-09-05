@@ -1282,7 +1282,8 @@ window.COURSE_FR = {
       objectives: [
         `Se rappeler les dates et faits liés aux symboles nationaux et à l'hymne`,
         `Nommer les deux sports nationaux officiels et l'animal national`,
-        `Décrire l'Ordre du Canada et le jour du Souvenir`
+        `Décrire l'Ordre du Canada et le jour du Souvenir`,
+        `Identifier des Canadiens et Canadiennes reconnus en sport, en science et en arts`
       ],
       examTip: `Le drapeau (1965), l'hymne (1980), les deux sports nationaux et l'Ordre du Canada (1967) sont des faits à fort rendement.`,
       sections: [
@@ -1318,7 +1319,23 @@ window.COURSE_FR = {
             [`Fête de Victoria`, `Lundi précédant le 25 mai`, `Honore la reine Victoria; souligne aussi l'anniversaire du souverain actuel`],
             [`Jour du Souvenir`, `11 novembre`, `Se souvient des Canadiens morts à la guerre; le coquelicot est porté`],
             [`Journée nationale des peuples autochtones`, `21 juin`, `Souligne le patrimoine, les cultures et les contributions des peuples autochtones`],
-            [`Journée de la vérité et de la réconciliation`, `30 septembre (Journée du chandail orange)`, `Jour férié fédéral depuis 2021; honore les survivants des pensionnats autochtones`]
+            [`Journée de la vérité et de la réconciliation`, `30 septembre (Journée du chandail orange)`, `Jour férié fédéral depuis 2021; honore les survivants des pensionnats autochtones`],
+            [`Jour du Drapeau national du Canada`, `15 février`, `Souligne le jour où le drapeau canadien actuel a été hissé pour la première fois, en 1965`],
+            [`Jour de sir John A. Macdonald`, `11 janvier`, `Honore l'anniversaire du premier premier ministre du Canada`],
+            [`Jour de la crête de Vimy`, `9 avril`, `Commémore les Canadiens tombés lors de la bataille de la crête de Vimy, en 1917`],
+            [`Jour de sir Wilfrid Laurier`, `20 novembre`, `Honore l'anniversaire de sir Wilfrid Laurier, septième premier ministre du Canada`]
+          ]
+        },
+        {
+          title: `Personnalités marquantes`,
+          type: 'list',
+          items: [
+            `Sir Sandford Fleming a proposé le système mondial des fuseaux horaires normalisés, encore utilisé aujourd'hui.`,
+            `Joseph-Armand Bombardier a inventé la motoneige, ouvrant les déplacements hivernaux à travers le pays.`,
+            `Wayne Gretzky, surnommé « The Great One », a joué pour les Oilers d'Edmonton de 1979 à 1988 et est considéré comme le plus grand joueur de hockey de tous les temps.`,
+            `Rick Hansen, paralysé à la suite d'un accident de voiture, a fait le tour du monde en fauteuil roulant lors de la tournée mondiale « Man in Motion » pour financer la recherche sur les lésions de la moelle épinière.`,
+            `Le Groupe des Sept, formé en 1920, était un groupe de peintres paysagistes qui ont représenté la nature sauvage canadienne dans un style nouveau et audacieux.`,
+            `Emily Carr a peint les forêts et les villages autochtones de la côte ouest, et est reconnue comme l'une des plus grandes artistes du Canada.`
           ]
         }
       ],
@@ -1334,7 +1351,17 @@ window.COURSE_FR = {
         { front: `Combien de pointes compte la feuille d'érable du drapeau canadien?`, back: `11 pointes.` },
         { front: `Que célèbre-t-on le 1er juillet?`, back: `La fête du Canada : l'anniversaire de la Confédération (le 1er juillet 1867, lorsque le Canada est devenu un pays).` },
         { front: `Que célèbre la fête de Victoria?`, back: `L'anniversaire de la reine Victoria et, selon la tradition, l'anniversaire du souverain régnant. Elle a lieu le lundi précédant le 25 mai.` },
-        { front: `Quand a lieu la Journée nationale des peuples autochtones?`, back: `Le 21 juin : elle souligne le patrimoine, les cultures et les contributions des peuples autochtones du Canada.` }
+        { front: `Quand a lieu la Journée nationale des peuples autochtones?`, back: `Le 21 juin : elle souligne le patrimoine, les cultures et les contributions des peuples autochtones du Canada.` },
+        { front: `Qui a proposé le système mondial des fuseaux horaires normalisés?`, back: `Sir Sandford Fleming.` },
+        { front: `Qui a inventé la motoneige?`, back: `Joseph-Armand Bombardier.` },
+        { front: `Quel joueur de hockey est surnommé « The Great One »?`, back: `Wayne Gretzky.` },
+        { front: `Qu'a fait Rick Hansen lors de sa tournée mondiale « Man in Motion »?`, back: `Il a fait le tour du monde en fauteuil roulant pour financer la recherche sur les lésions de la moelle épinière.` },
+        { front: `Qu'était le Groupe des Sept?`, back: `Un groupe de peintres paysagistes, formé en 1920, connu pour ses représentations de la nature sauvage canadienne.` },
+        { front: `Pour quoi Emily Carr est-elle connue?`, back: `Pour ses peintures des forêts et des villages autochtones de la côte ouest du Canada.` },
+        { front: `Quand a lieu le Jour du Drapeau national du Canada?`, back: `Le 15 février, soulignant le jour où le drapeau actuel a été hissé pour la première fois en 1965.` },
+        { front: `Quand a lieu le Jour de sir John A. Macdonald?`, back: `Le 11 janvier, anniversaire du premier premier ministre du Canada.` },
+        { front: `Quand a lieu le Jour de la crête de Vimy?`, back: `Le 9 avril, commémorant la bataille de la crête de Vimy (1917).` },
+        { front: `Quand a lieu le Jour de sir Wilfrid Laurier?`, back: `Le 20 novembre, anniversaire du septième premier ministre du Canada.` }
       ],
       quiz: [
         {
@@ -1431,6 +1458,56 @@ window.COURSE_FR = {
             `La victoire du Canada lors de la Première Guerre mondiale`
           ],
           correct: 1
+        },
+        {
+          question: `Sir Sandford Fleming est reconnu pour :`,
+          options: [`Avoir inventé le téléphone`, `Avoir proposé le système mondial des fuseaux horaires normalisés`, `Avoir découvert l'insuline`, `Avoir inventé la motoneige`],
+          correct: 1
+        },
+        {
+          question: `Joseph-Armand Bombardier a inventé :`,
+          options: [`Le téléphone`, `La motoneige`, `Les fuseaux horaires normalisés`, `Le Canadarm`],
+          correct: 1
+        },
+        {
+          question: `Wayne Gretzky, surnommé « The Great One », a joué pour quelle équipe de 1979 à 1988?`,
+          options: [`Les Maple Leafs de Toronto`, `Le Canadien de Montréal`, `Les Oilers d'Edmonton`, `Les Flames de Calgary`],
+          correct: 2
+        },
+        {
+          question: `La tournée mondiale « Man in Motion » de Rick Hansen a permis de financer :`,
+          options: [`La recherche sur le cancer`, `La recherche sur les lésions de la moelle épinière`, `L'éducation autochtone`, `Les services aux vétérans`],
+          correct: 1
+        },
+        {
+          question: `Le Groupe des Sept, formé en 1920, était reconnu pour :`,
+          options: [`Avoir composé l'hymne national`, `La peinture paysagiste de la nature sauvage canadienne`, `Avoir fondé l'Ordre du Canada`, `Avoir rédigé la Charte des droits et libertés`],
+          correct: 1
+        },
+        {
+          question: `Emily Carr est surtout connue pour ses peintures :`,
+          options: [`Des paysages urbains de Toronto`, `Des forêts et des villages autochtones de la côte ouest`, `Des portraits de premiers ministres`, `Des Prairies`],
+          correct: 1
+        },
+        {
+          question: `Le Jour du Drapeau national du Canada est souligné le :`,
+          options: [`11 janvier`, `15 février`, `9 avril`, `20 novembre`],
+          correct: 1
+        },
+        {
+          question: `Le Jour de sir John A. Macdonald, honorant le premier premier ministre du Canada, est souligné le :`,
+          options: [`11 janvier`, `15 février`, `1er juillet`, `20 novembre`],
+          correct: 0
+        },
+        {
+          question: `Le Jour de la crête de Vimy, commémorant la bataille de 1917, est souligné le :`,
+          options: [`9 avril`, `6 juin`, `30 septembre`, `11 novembre`],
+          correct: 0
+        },
+        {
+          question: `Le Jour de sir Wilfrid Laurier est souligné le :`,
+          options: [`11 janvier`, `9 avril`, `11 novembre`, `20 novembre`],
+          correct: 3
         }
       ]
     },

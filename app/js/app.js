@@ -937,7 +937,7 @@
     overlay.className = 'support-overlay';
     overlay.innerHTML = `
       <div class="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-heading">
-        <button class="support-x" onclick="dismissSupport()" aria-label="Close">×</button>
+        <button class="support-x" onclick="closeSupportOverlay()" aria-label="Close">×</button>
         <div class="support-leaf">🍁</div>
         <h2 class="support-heading" id="support-heading">${t('support.heading')}</h2>
         <p class="support-body">${t('support.body')}</p>
