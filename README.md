@@ -34,12 +34,7 @@ chmod +x scripts/serve.sh
 
 ## Live site
 
-| Host | URL |
-|------|-----|
-| **GitHub Pages** | https://rupajsoni.github.io/canada-citizenship/ |
-| **Vercel** | Connect at [vercel.com/new](https://vercel.com/new) — uses `vercel.json` |
-
-Enable Pages: **Settings → Pages → Source: GitHub Actions** — see [docs/GITHUB-SETUP.md](docs/GITHUB-SETUP.md).
+https://northboundapp.ca/
 
 ---
 
