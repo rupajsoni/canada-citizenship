@@ -1075,11 +1075,11 @@
   window.shareResult = function () {
     const text = t('common.shareText');
     if (navigator.share) {
-      navigator.share({ title: t('common.shareTitle'), text, url: 'https://northboundca.netlify.app' }).catch(() => {});
+      navigator.share({ title: t('common.shareTitle'), text, url: 'https://northboundapp.ca' }).catch(() => {});
     } else {
       navigator.clipboard?.writeText(text)
         .then(() => showToast(t('feedback.copiedToast')))
-        .catch(() => showToast('northbound.ca'));
+        .catch(() => showToast('northboundapp.ca'));
     }
   };
 

@@ -6,3 +6,16 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Canonical host is northboundapp.ca: send www and the old Netlify subdomain there
+[[redirects]]
+  from = "https://www.northboundapp.ca/*"
+  to = "https://northboundapp.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://northboundca.netlify.app/*"
+  to = "https://northboundapp.ca/:splat"
+  status = 301
+  force = true

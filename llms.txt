@@ -6,11 +6,11 @@ Northbound is a free, no-account web application that helps permanent residents 
 
 ## URL
 
-https://northboundca.netlify.app
+https://northboundapp.ca
 
 ## Study app (direct entry)
 
-https://northboundca.netlify.app/app/
+https://northboundapp.ca/app/
 
 ## Core product features
 
@@ -105,4 +105,4 @@ Permanent residents of Canada who have met the physical presence requirement and
 
 ## Contact
 
-https://northboundca.netlify.app/app/#about
+https://northboundapp.ca/app/#about

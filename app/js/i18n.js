@@ -301,7 +301,7 @@
       'common.disclaimer': 'Not affiliated with IRCC or the Government of Canada.',
       'common.tagline': 'Canadian citizenship test prep',
       'common.shareTitle': 'Northbound: Canadian Citizenship Test Prep',
-      'common.shareText': 'Preparing for the Canadian citizenship test? Try Northbound, free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northboundca.netlify.app',
+      'common.shareText': 'Preparing for the Canadian citizenship test? Try Northbound, free prep built on the official study guide. Lessons, flashcards, practice exam, readiness score. https://northboundapp.ca',
     },
 
     fr: {
@@ -584,7 +584,7 @@
       'common.disclaimer': 'Non affilié à IRCC ni au gouvernement du Canada.',
       'common.tagline': 'Préparation au test de citoyenneté canadienne',
       'common.shareTitle': 'Northbound : Préparation au test de citoyenneté canadienne',
-      'common.shareText': 'Vous vous préparez pour le test de citoyenneté canadienne? Essayez Northbound, préparation gratuite basée sur le guide d\'étude officiel. Leçons, cartes-éclair, examen pratique, score de préparation. https://northboundca.netlify.app',
+      'common.shareText': 'Vous vous préparez pour le test de citoyenneté canadienne? Essayez Northbound, préparation gratuite basée sur le guide d\'étude officiel. Leçons, cartes-éclair, examen pratique, score de préparation. https://northboundapp.ca',
     },
   };
 
@@ -601,6 +601,9 @@
 
   function applyStaticI18n() {
     document.documentElement.setAttribute('lang', LANG);
+    // Self-referencing canonical so the ?lang=fr variant isn't folded into the English page
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && LANG !== 'en' && new URLSearchParams(location.search).get('lang') === LANG) canonical.href = 'https://northboundapp.ca/app/?lang=' + LANG;
     const switcher = document.getElementById('lang-switcher');
     if (switcher) switcher.value = LANG;
     document.querySelectorAll('[data-i18n]').forEach(el => {

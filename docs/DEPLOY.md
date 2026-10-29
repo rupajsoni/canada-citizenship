@@ -1,52 +1,31 @@
 # Deploy
 
-Static site — no build step. The app is `app/index.html`.
+Static site, no build step. Hosted on **Netlify**, which auto-deploys `main`.
 
-## Vercel (recommended)
+- Live: https://northboundapp.ca (landing page = `index.html`, study app = `app/`)
+- `netlify.toml` publishes the repo root and 301-redirects `www.northboundapp.ca` and `northboundca.netlify.app` to the apex domain.
+- Feedback form uses Netlify Forms (submissions + email notifications in the Netlify dashboard).
 
-1. Push repo to GitHub.
-2. [vercel.com/new](https://vercel.com/new) → Import repository.
-3. Vercel reads `vercel.json` — output directory is `app/`.
-4. Deploy. Set custom `.ca` domain in project settings when ready.
+## Domain
 
-Or CLI:
+Registered at Namecheap; DNS stays at Namecheap (Advanced DNS):
 
-```bash
-npx vercel --prod
-```
+| Type  | Host | Value                      |
+|-------|------|----------------------------|
+| A     | @    | 75.2.60.5                  |
+| CNAME | www  | northboundca.netlify.app   |
 
-## Netlify
+In Netlify → Domain management, `northboundapp.ca` is the primary domain. HTTPS is a Let's Encrypt cert issued by Netlify.
 
-```bash
-# netlify.toml at repo root — build command empty, publish app/
-netlify deploy --prod --dir=app
-```
+## Analytics & search
 
-Add `netlify.toml` if you prefer Netlify over Vercel:
-
-```toml
-[build]
-  publish = "app"
-```
-
-## GitHub Pages
-
-Requires either:
-- Move `index.html` to repo root, or
-- Use a GitHub Action to publish `app/` to `gh-pages` branch.
-
-Vercel is simpler for this project.
-
-## After deploy
-
-1. Open `app/index.html` and set `CONFIG.tipsUrl` and `CONFIG.partnersUrl` (or use `config.local.js` — gitignored).
-2. Smoke test: home → module → mock test → footer links.
-3. Update README status table.
+- Cloudflare Web Analytics beacon in `index.html` and `app/index.html`.
+- `robots.txt` and `sitemap.xml` live at the repo root. Bump `<lastmod>` in the sitemap when content changes meaningfully.
+- Google Search Console (Domain property, verified via DNS TXT) and Bing Webmaster Tools.
+- `llms.txt` (root and `app/`) describes the product for AI crawlers.
 
 ## Local preview
 
 ```bash
 ./scripts/serve.sh        # http://localhost:8080
-# or
-open app/index.html
 ```
