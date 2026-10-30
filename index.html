@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Free Canadian citizenship test prep built on the official Discover Canada guide. 10 structured modules, flashcards, timed practice exam, per-topic gap analysis. No account. No paywall.">
-  <title>Northbound — Canadian Citizenship Test Prep. Free.</title>
+  <meta name="description" content="Free Canadian citizenship practice test and study guide based on Discover Canada: 10 lessons, 385 practice questions, a timed 20-question exam and a readiness score. English and French. No account.">
+  <title>Free Canadian Citizenship Practice Test &amp; Study Guide | Northbound</title>
 
-  <link rel="icon" type="image/svg+xml" href="app/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/app/favicon.svg">
   <link rel="canonical" href="https://northboundapp.ca/">
+  <link rel="alternate" hreflang="en" href="https://northboundapp.ca/">
+  <link rel="alternate" hreflang="fr" href="https://northboundapp.ca/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://northboundapp.ca/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
   <meta property="og:url" content="https://northboundapp.ca/">
   <meta property="og:title" content="Northbound — Pass your Canadian citizenship test. Free.">
   <meta property="og:description" content="10 modules · flashcards · timed practice exam · readiness score. Built on the official Discover Canada guide. Free. No account needed.">
@@ -31,7 +36,7 @@
     "@type": "WebApplication",
     "name": "Northbound",
     "url": "https://northboundapp.ca",
-    "description": "Free Canadian citizenship test prep built on the official Discover Canada guide. 10 structured modules, flashcards, timed practice exam, per-topic score breakdown, and a readiness score.",
+    "description": "Free Canadian citizenship practice test and study guide built on the official Discover Canada guide: 10 lessons, 385 practice questions, 132 flashcards, a timed 20-question practice exam, per-topic score breakdown and a readiness score. Available in English and French.",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
     "inLanguage": ["en", "fr"],
@@ -43,27 +48,54 @@
     "featureList": [
       "10 structured study modules",
       "Active recall flashcards",
-      "Timed practice exam — 20 questions, 45 minutes",
+      "Timed practice exam: 20 questions, 45 minutes, pass mark 15",
       "Per-topic score breakdown",
       "Readiness score",
       "Interactive Canada map",
       "No account required",
-      "Progress saved locally"
+      "Progress saved locally",
+      "Available in English and French",
+      "Community contributions reviewed against Discover Canada"
     ],
-    "keywords": "Canadian citizenship test, Discover Canada, IRCC citizenship exam, citizenship test practice, Canada citizenship study guide"
+    "keywords": "free Canadian citizenship practice test, Canadian citizenship test, Discover Canada, IRCC citizenship exam, citizenship test study guide, test de citoyenneté canadienne"
   }
   </script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "inLanguage": "en",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Canadian citizenship practice test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Northbound has a free timed practice exam that matches the real test: 20 questions, 45 minutes, and a pass mark of 15. Questions are drawn from a bank of 223, alongside 162 more in the module quizzes and 132 flashcards. There's no account and no paywall."
+      }
+    },
     {
       "@type": "Question",
       "name": "Is Northbound free?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Every lesson, flashcard, and practice exam is free to use. There's no account and no paywall, and your progress saves in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I study for the Canadian citizenship test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The test is based on the official study guide, Discover Canada: The Rights and Responsibilities of Citizenship. Northbound splits it into 10 lessons: rights and responsibilities, Indigenous peoples and diversity, three periods of Canadian history, how government works, elections, the justice system, symbols, and Canada's economy and regions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Canadian citizenship test like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The test has 20 multiple-choice and true/false questions covering Canada's rights and responsibilities, history, geography, economy, government, and symbols. You need 15 out of 20 (75%) to pass. Northbound's practice exam uses the same format and pass mark."
       }
     },
     {
@@ -76,10 +108,10 @@
     },
     {
       "@type": "Question",
-      "name": "What is the Canadian citizenship test like?",
+      "name": "How is Northbound different from other prep sites?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The test has 20 multiple-choice and true/false questions covering Canada's rights and responsibilities, history, geography, economy, government, and symbols. You need 15 out of 20 (75%) to pass. Northbound's practice exam uses the same format and pass mark."
+        "text": "Most prep sites are question banks. Northbound is a full study loop: a lesson, flashcards, a quiz, then a timed practice exam with a per-topic breakdown that points you back to the lessons you need. A readiness score based on your last three practice exams shows when you're ready to book. Everything is also available in French."
       }
     },
     {
@@ -96,6 +128,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Northbound tracks how you do on each topic and gives you a readiness score, so you can see your weak areas and focus on them before the real exam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the content kept up to date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The content is built on the official Discover Canada guide. People who use Northbound, including people who just took the real test, can send in topics that came up, gaps, or corrections. Each contribution is checked against the official guide before it's added."
       }
     }
   ]
@@ -179,6 +219,14 @@
       transition: background .15s;
       white-space: nowrap;
     }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-lang { color: rgba(255,255,255,.75); font-size: 13px; font-weight: 600; text-decoration: none; }
+    .nav-lang:hover { color: #fff; text-decoration: underline; }
+    .help-band { background: var(--canvas); border-top: 1px solid var(--border); }
+    .help-inner { max-width: 680px; margin: 0 auto; padding: 64px 24px; }
+    .help-title { font-family: var(--font-d); font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: var(--text); margin-bottom: 12px; text-wrap: balance; }
+    .help-body { color: var(--text-2); margin-bottom: 18px; }
+    .help-link { font-weight: 600; }
     .nav-btn:hover { background: var(--accent-h); color: #fff; text-decoration: none; }
 
     /* ── Hero ── */
@@ -457,7 +505,10 @@
       </div>
       <span class="nav-name">Northbound</span>
     </a>
-    <a class="nav-btn" href="/app/">Start studying →</a>
+    <div class="nav-right">
+      <a class="nav-lang" href="/fr/" hreflang="fr" lang="fr">Français</a>
+      <a class="nav-btn" href="/app/">Start studying →</a>
+    </div>
   </nav>
 
   <section class="hero">
@@ -469,11 +520,12 @@
   </section>
 
   <div class="proof">
-    <div class="proof-item"><div class="proof-dot"></div>10 structured study modules</div>
-    <div class="proof-item"><div class="proof-dot"></div>375+ practice questions</div>
+    <div class="proof-item"><div class="proof-dot"></div>10 lessons</div>
+    <div class="proof-item"><div class="proof-dot"></div>385 practice questions</div>
+    <div class="proof-item"><div class="proof-dot"></div>132 flashcards</div>
     <div class="proof-item"><div class="proof-dot"></div>Same format as the real IRCC test</div>
-    <div class="proof-item"><div class="proof-dot"></div>Interactive Canada map</div>
-    <div class="proof-item"><div class="proof-dot"></div>Completely free</div>
+    <div class="proof-item"><div class="proof-dot"></div>English and French</div>
+    <div class="proof-item"><div class="proof-dot"></div>Free, no account</div>
   </div>
 
   <section class="story-band">
@@ -534,16 +586,16 @@
         <div class="s-title">Every topic from the<br>official study guide.</div>
         <p class="s-body">The IRCC citizenship test draws from the Discover Canada guide. Northbound covers all of it.</p>
         <div class="topics-grid">
-          <div class="topic"><div class="topic-n">1</div>Rights &amp; Responsibilities</div>
-          <div class="topic"><div class="topic-n">2</div>Who We Are</div>
-          <div class="topic"><div class="topic-n">3</div>Canada's History</div>
-          <div class="topic"><div class="topic-n">4</div>Modern Canada</div>
-          <div class="topic"><div class="topic-n">5</div>How Canadians Govern Themselves</div>
-          <div class="topic"><div class="topic-n">6</div>Federal Elections</div>
-          <div class="topic"><div class="topic-n">7</div>The Justice System</div>
-          <div class="topic"><div class="topic-n">8</div>Canadian Symbols &amp; Values</div>
-          <div class="topic"><div class="topic-n">9</div>Economy &amp; Geography</div>
-          <div class="topic"><div class="topic-n">10</div>Canada's Regions</div>
+          <div class="topic"><div class="topic-n">1</div>Rights and Responsibilities</div>
+          <div class="topic"><div class="topic-n">2</div>Who We Are: Indigenous Peoples and Diversity</div>
+          <div class="topic"><div class="topic-n">3</div>History: Beginnings to Confederation</div>
+          <div class="topic"><div class="topic-n">4</div>History: Building the Nation</div>
+          <div class="topic"><div class="topic-n">5</div>History: Wars and the Modern Era</div>
+          <div class="topic"><div class="topic-n">6</div>How Canadian Government Works</div>
+          <div class="topic"><div class="topic-n">7</div>Elections and Democracy</div>
+          <div class="topic"><div class="topic-n">8</div>The Justice System</div>
+          <div class="topic"><div class="topic-n">9</div>Symbols, Anthem, and Honours</div>
+          <div class="topic"><div class="topic-n">10</div>Economy and Regions of Canada</div>
         </div>
       </div>
     </div>
@@ -593,20 +645,41 @@
     </div>
   </div>
 
+  <section class="help-band">
+    <div class="help-inner">
+      <div class="s-label">Community</div>
+      <h2 class="help-title">Help keep it current.</h2>
+      <p class="help-body">If you've taken the real test, you know things a study guide can't tell you. Share a topic that came up, something we're missing, or something that looks wrong. Every contribution is checked against the official <em>Discover Canada</em> guide before it's added, so the next person studies from better material.</p>
+      <a class="help-link" href="/app/#contribute">Share what you know →</a>
+    </div>
+  </section>
+
   <section class="faq-band">
     <div class="faq-inner">
       <div class="s-label">Questions</div>
       <details class="faq-item">
+        <summary>Is there a free Canadian citizenship practice test?</summary>
+        <p>Yes. Northbound has a free timed practice exam that matches the real test: 20 questions, 45 minutes, and a pass mark of 15. Questions are drawn from a bank of 223, alongside 162 more in the module quizzes and 132 flashcards. There's no account and no paywall.</p>
+      </details>
+      <details class="faq-item">
         <summary>Is Northbound free?</summary>
         <p>Yes. Every lesson, flashcard, and practice exam is free to use. There's no account and no paywall, and your progress saves in your browser.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I study for the Canadian citizenship test?</summary>
+        <p>The test is based on the official study guide, Discover Canada: The Rights and Responsibilities of Citizenship. Northbound splits it into 10 lessons: rights and responsibilities, Indigenous peoples and diversity, three periods of Canadian history, how government works, elections, the justice system, symbols, and Canada's economy and regions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the Canadian citizenship test like?</summary>
+        <p>The test has 20 multiple-choice and true/false questions covering Canada's rights and responsibilities, history, geography, economy, government, and symbols. You need 15 out of 20 (75%) to pass. Northbound's practice exam uses the same format and pass mark.</p>
       </details>
       <details class="faq-item">
         <summary>Is this the official IRCC test?</summary>
         <p>No. Northbound is an independent study tool and isn't affiliated with IRCC or the Government of Canada. All content is based on the official Discover Canada study guide, which is what the real test is drawn from.</p>
       </details>
       <details class="faq-item">
-        <summary>What is the Canadian citizenship test like?</summary>
-        <p>The test has 20 multiple-choice and true/false questions covering Canada's rights and responsibilities, history, geography, economy, government, and symbols. You need 15 out of 20 (75%) to pass. Northbound's practice exam uses the same format and pass mark.</p>
+        <summary>How is Northbound different from other prep sites?</summary>
+        <p>Most prep sites are question banks. Northbound is a full study loop: a lesson, flashcards, a quiz, then a timed practice exam with a per-topic breakdown that points you back to the lessons you need. A readiness score based on your last three practice exams shows when you're ready to book. Everything is also available in French.</p>
       </details>
       <details class="faq-item">
         <summary>Is Northbound available in French?</summary>
@@ -615,6 +688,10 @@
       <details class="faq-item">
         <summary>How do I know when I'm ready to book the test?</summary>
         <p>Northbound tracks how you do on each topic and gives you a readiness score, so you can see your weak areas and focus on them before the real exam.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is the content kept up to date?</summary>
+        <p>The content is built on the official Discover Canada guide. People who use Northbound, including people who just took the real test, can send in topics that came up, gaps, or corrections. Each contribution is checked against the official guide before it's added.</p>
       </details>
     </div>
   </section>
@@ -630,6 +707,7 @@
     Northbound &nbsp;·&nbsp; Independent educational tool &nbsp;·&nbsp; Not affiliated with IRCC or the Government of Canada &nbsp;·&nbsp; Not legal advice<br>
     <a href="/app/">Study app</a> &nbsp;·&nbsp;
     <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html" target="_blank" rel="noopener noreferrer">Official Discover Canada guide ↗</a> &nbsp;·&nbsp;
+    <a href="/fr/" hreflang="fr" lang="fr">Français</a> &nbsp;·&nbsp;
     <a href="/llms.txt">llms.txt</a>
   </footer>
 

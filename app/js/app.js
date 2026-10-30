@@ -124,6 +124,8 @@
     view = 'module';
     activeModuleId = _hashId;
   }
+  const _openContribute = location.hash === '#contribute';
+  if (_hashId === 'about' || _openContribute) view = 'about';
   let moduleTab = state.moduleTab || 'learn';
   let flashIndex = 0;
   let flashFlipped = false;
@@ -469,7 +471,8 @@
     return `
       <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">${t('quiz.instructions')}</p>
       ${items}
-      ${allDone ? `<div class="callout callout-tip"><strong>${t('quiz.complete', { score, total: mod.quiz.length })}</strong>${score === mod.quiz.length ? t('quiz.perfect') : score >= mod.quiz.length * 0.75 ? t('quiz.strong') : t('quiz.keepReviewing')}</div>` : ''}`;
+      ${allDone ? `<div class="callout callout-tip"><strong>${t('quiz.complete', { score, total: mod.quiz.length })}</strong>${score === mod.quiz.length ? t('quiz.perfect') : score >= mod.quiz.length * 0.75 ? t('quiz.strong') : t('quiz.keepReviewing')}</div>` : ''}
+      ${contributePrompt('contribute.promptQuiz', 'quiz:' + mod.id)}`;
   }
 
   window.answerQuiz = function (modId, qIndex, optIndex) {
@@ -718,7 +721,8 @@
         <button class="btn btn-secondary" onclick="navigate('home')">${t('results.dashboard')}</button>
         <button class="btn btn-secondary" onclick="navigate('results')">${t('results.viewHistory')}</button>
         <button class="btn btn-secondary" onclick="shareResult()">${t('results.share')}</button>
-      </div>`;
+      </div>
+      ${contributePrompt('contribute.promptResults', 'exam-results')}`;
   }
 
   window.resetTest = function () {
@@ -1055,22 +1059,106 @@
     const topic = document.getElementById('fb-topic')?.value || '';
     const gap   = document.getElementById('fb-gap')?.value.trim() || '';
     const consent = document.getElementById('fb-consent')?.checked ? 'yes' : 'no';
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'form-name': 'northbound-feedback',
-        message: msg, topic,
-        'gap-description': gap,
-        'testimonial-consent': consent,
-      }),
-    }).finally(() => {
+    postForm('northbound-feedback', {
+      message: msg, topic,
+      'gap-description': gap,
+      'testimonial-consent': consent,
+    }).then(() => {
       state.feedbackSubmitted = true;
       saveState();
       showToast(t('feedback.sentToast'));
       renderAbout();
+    }).catch(() => showToast(t('feedback.errorToast')));
+  };
+
+  // Netlify Forms submission; rejects on network failure or non-2xx so callers only confirm real sends
+  function postForm(formName, fields) {
+    return fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ 'form-name': formName, ...fields }),
+    }).then(res => { if (!res.ok) throw new Error('HTTP ' + res.status); });
+  }
+
+  // ── "Help keep it current" community contributions ───────────────────────
+
+  function contributePrompt(promptKey, context) {
+    return `<p class="contribute-prompt">${t(promptKey)} <button type="button" class="contribute-link" onclick="showContributeModal('${context}')">${t('contribute.promptLink')}</button></p>`;
+  }
+
+  window.showContributeModal = function (context) {
+    if (document.getElementById('contribute-overlay')) return;
+    const modId = context.startsWith('quiz:') ? context.slice(5) : '';
+    const overlay = document.createElement('div');
+    overlay.id = 'contribute-overlay';
+    overlay.className = 'support-overlay';
+    overlay.innerHTML = `
+      <div class="support-modal contribute-modal" role="dialog" aria-modal="true" aria-labelledby="contribute-heading">
+        <button type="button" class="support-x" onclick="closeContributeModal()" aria-label="${t('contribute.close')}">×</button>
+        <div id="contribute-body">
+          <h2 class="support-heading" id="contribute-heading">${t('contribute.heading')}</h2>
+          <p class="support-body">${t('contribute.body')}</p>
+          <fieldset class="contribute-kinds">
+            <legend class="contribute-label">${t('contribute.kindLabel')}</legend>
+            ${['test', 'missing', 'correction'].map((k, i) => `
+              <label class="contribute-kind"><input type="radio" name="contribute-kind" value="${k}" ${i === 0 ? 'checked' : ''}> ${t('contribute.kind_' + k)}</label>`).join('')}
+          </fieldset>
+          <label class="contribute-label" for="ct-topic">${t('contribute.topicLabel')}</label>
+          <select id="ct-topic" class="fb-select">
+            <option value="">${t('contribute.topicPlaceholder')}</option>
+            ${MODULES.map(m => `<option value="${m.id}" ${m.id === modId ? 'selected' : ''}>${escapeHtml(m.title)}</option>`).join('')}
+            <option value="other">${t('contribute.topicOther')}</option>
+          </select>
+          <label class="contribute-label" for="ct-details">${t('contribute.detailsLabel')}</label>
+          <textarea id="ct-details" class="fb-textarea" rows="4" maxlength="1000" placeholder="${t('contribute.detailsPlaceholder')}"></textarea>
+          <label class="contribute-label" for="ct-answer">${t('contribute.answerLabel')}</label>
+          <input id="ct-answer" class="fb-input" type="text" maxlength="300" placeholder="${t('contribute.answerPlaceholder')}">
+          <p class="contribute-note">${t('contribute.note')}</p>
+          <button type="button" id="ct-submit" class="btn btn-primary" style="width:100%" onclick="submitContribution('${context}')">${t('contribute.send')}</button>
+        </div>
+      </div>`;
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeContributeModal(); });
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('visible')));
+    document.getElementById('ct-details').focus();
+  };
+
+  window.submitContribution = function (context) {
+    const detailsEl = document.getElementById('ct-details');
+    const details = detailsEl.value.trim();
+    if (!details) { showToast(t('contribute.emptyToast')); detailsEl.focus(); return; }
+    const btn = document.getElementById('ct-submit');
+    btn.disabled = true;
+    btn.textContent = t('contribute.sending');
+    postForm('northbound-contribution', {
+      kind: document.querySelector('input[name="contribute-kind"]:checked')?.value || '',
+      topic: document.getElementById('ct-topic').value,
+      details,
+      answer: document.getElementById('ct-answer').value.trim(),
+      context,
+      lang: LANG,
+    }).then(() => {
+      document.getElementById('contribute-body').innerHTML = `
+        <h2 class="support-heading" id="contribute-heading">${t('contribute.thanksTitle')}</h2>
+        <p class="support-body">${t('contribute.thanksBody')}</p>
+        <button type="button" class="btn btn-primary" style="width:100%;margin-top:8px" onclick="closeContributeModal()">${t('contribute.close')}</button>`;
+    }).catch(() => {
+      btn.disabled = false;
+      btn.textContent = t('contribute.send');
+      showToast(t('contribute.errorToast'));
     });
   };
+
+  window.closeContributeModal = function () {
+    const el = document.getElementById('contribute-overlay');
+    if (!el) return;
+    el.classList.remove('visible');
+    setTimeout(() => el.remove(), 320);
+  };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeContributeModal();
+  });
 
   window.shareResult = function () {
     const text = t('common.shareText');
@@ -1288,7 +1376,8 @@
         <div style="font-weight:700;font-size:17px;margin-bottom:6px">${t('examday.doneTitle')}</div>
         <div style="font-size:14px;color:var(--text-secondary);margin-bottom:20px">${t('examday.doneSub')}</div>
         <button class="btn btn-primary" style="padding:13px 32px;font-size:15px" onclick="navigate('test')">${t('examday.startExam')}</button>
-      </div>`;
+      </div>
+      ${contributePrompt('contribute.promptExamDay', 'examday')}`;
   }
 
   function render() {
@@ -1374,6 +1463,10 @@
               <strong>${t('about.faq8q')}</strong><br>
               <span style="color:var(--text-secondary)">${t('about.faq8a')}</span>
             </li>
+            <li>
+              <strong>${t('about.faq9q')}</strong><br>
+              <span style="color:var(--text-secondary)">${t('about.faq9a')}</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -1394,6 +1487,12 @@
           <p style="font-size:13px;color:var(--text-secondary);font-style:italic;margin:0 0 4px">${t('about.signatureNote')}</p>
           <p style="font-size:12px;color:var(--text-muted);margin:0">${t('about.signature')}</p>
         </div>
+      </div>
+
+      <div id="contribute-section" class="card card-pad" style="margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text)">${t('contribute.aboutTitle')}</h2>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;line-height:1.55">${t('contribute.aboutBody')}</p>
+        <button type="button" class="btn btn-secondary" onclick="showContributeModal('about')">${t('contribute.aboutBtn')}</button>
       </div>
 
       ${state.feedbackSubmitted
@@ -1470,4 +1569,5 @@
   })();
 
   render();
+  if (_openContribute) showContributeModal('landing');
 })();
