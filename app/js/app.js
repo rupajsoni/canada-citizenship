@@ -872,7 +872,7 @@
     mapLayer = layer;
     const map = document.getElementById('canada-map');
     if (!map) return;
-    map.className = `canada-map map-layer-${layer}`;
+    map.setAttribute('class', `canada-map map-layer-${layer}`);
     document.querySelectorAll('.layer-btn').forEach(b => b.classList.toggle('active', b.dataset.layer === layer));
     // re-apply selection
     if (mapSelected) {
@@ -921,7 +921,7 @@
       <div class="map-legend"><span class="map-legend-label">${t('map.legendLabel')}</span>${buildLegend()}</div>`;
     // apply initial layer class
     const map = document.getElementById('canada-map');
-    if (map) map.className = `canada-map map-layer-${mapLayer}`;
+    if (map) map.setAttribute('class', `canada-map map-layer-${mapLayer}`); // SVG className is read-only
     // restore selection if any
     if (mapSelected) {
       const provId = SHAPE_TO_PROV[mapSelected];
